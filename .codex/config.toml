@@ -1,0 +1,2 @@
+# Project-local MCP definitions can be added here after selecting a provider.
+# Account logins stay in the agent's own secure storage. Do not commit keys.

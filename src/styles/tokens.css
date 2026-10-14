@@ -1,0 +1,89 @@
+/* ────────────────────────────────────────────────────────────────
+   Mr. Mak design system — “Luminous Mak” tokens
+   Dark glass over near-black, pink→purple gradient edges,
+   Fraunces display serif + Inter body. Single source of truth —
+   mirrored for generated reports in scripts/shared/report_style.py.
+   ──────────────────────────────────────────────────────────────── */
+:root {
+  color-scheme: dark;
+
+  /* ── Surfaces ── */
+  --bg: #0a0a0c;
+  --bg-deep: #060608;
+  --surface-1: rgba(255, 255, 255, 0.03);
+  --surface-2: rgba(255, 255, 255, 0.055);
+  --surface-3: rgba(255, 255, 255, 0.09);
+  --surface-solid: #131316;
+  --sidebar-glass: #0c0c0f;
+  --topbar-glass: rgba(10, 10, 12, 0.65);
+
+  /* ── Ink ── */
+  --text: #ececf1;
+  --text-bright: #ffffff;
+  --text-dim: #9a9aa6;
+  --text-muted: #5c5c68;
+
+  /* ── Brand ── */
+  --pink: #f0a0b0;
+  --pink-bright: #ffc2cf;
+  --purple: #b794f4;
+  --green: #6ee7a0;
+  --amber: #eab56e;
+  --blue: #7eb8ff;
+  --red: #e87070;
+
+  --pink-dim: rgba(240, 160, 176, 0.14);
+  --purple-dim: rgba(183, 148, 244, 0.14);
+  --green-dim: rgba(110, 231, 160, 0.13);
+  --amber-dim: rgba(234, 181, 110, 0.13);
+  --red-dim: rgba(232, 112, 112, 0.13);
+
+  /* ── Hairlines & gradient edges ── */
+  --hairline: rgba(255, 255, 255, 0.07);
+  --hairline-strong: rgba(255, 255, 255, 0.13);
+  --edge: linear-gradient(
+    135deg,
+    rgba(240, 160, 176, 0.38),
+    rgba(183, 148, 244, 0.22) 45%,
+    rgba(255, 255, 255, 0.07) 80%
+  );
+  --edge-soft: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.13),
+    rgba(255, 255, 255, 0.05)
+  );
+  --edge-amber: linear-gradient(
+    135deg,
+    rgba(234, 181, 110, 0.5),
+    rgba(240, 160, 176, 0.2) 60%,
+    rgba(255, 255, 255, 0.06)
+  );
+
+  /* ── Depth & glow ── */
+  --shadow-1: 0 2px 10px rgba(0, 0, 0, 0.35);
+  --shadow-2: 0 6px 24px rgba(0, 0, 0, 0.45);
+  --glow-pink: 0 0 28px rgba(240, 160, 176, 0.14);
+  --glow-pink-strong: 0 0 36px rgba(240, 160, 176, 0.22);
+  --glow-amber: 0 0 24px rgba(234, 181, 110, 0.12);
+  --focus-ring: 0 0 0 2px rgba(240, 160, 176, 0.55);
+
+  /* ── Type ── */
+  --font-body: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-mono: 'JetBrains Mono', 'Cascadia Code', Consolas, 'SF Mono', Menlo, monospace;
+
+  /* ── Shape ── */
+  --radius-sm: 7px;
+  --radius: 10px;
+  --radius-lg: 14px;
+  --radius-pill: 999px;
+
+  /* ── Layout ── */
+  --sidebar-w: 300px;
+  --topbar-h: 52px;
+
+  /* ── Motion ── */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --t-fast: 120ms;
+  --t-med: 220ms;
+}

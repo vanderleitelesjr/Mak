@@ -1,0 +1,47 @@
+/* Mr. Mak report system. Source shared by existing reports and report_style.py. */
+:root{--mak-bg:#101115;--mak-surface:#18191f;--mak-border:#ffffff13;--mak-text:#d3d0d9;--mak-muted:#a29baa;--mak-accent:#f0a0b0;--mak-font:Inter,'Segoe UI',system-ui,sans-serif}
+html[data-mak-report]{background:#101115;color-scheme:dark}
+html[data-mak-report],html[data-mak-report] *{scrollbar-color:#514c59 #111217;scrollbar-width:thin}
+html[data-mak-report] ::-webkit-scrollbar{width:8px;height:8px}
+html[data-mak-report] ::-webkit-scrollbar-track,html[data-mak-report] ::-webkit-scrollbar-corner{background:#111217}
+html[data-mak-report] ::-webkit-scrollbar-thumb{background:#514c59;border-radius:6px;border:2px solid #111217}
+html[data-mak-report] body{--bg:var(--mak-bg);--card:var(--mak-surface);--card2:#1e1f27;--border:var(--mak-border);--text:var(--mak-text);--text-dim:var(--mak-muted);--text-muted:#938b9d;--muted:var(--mak-muted);--accent:var(--mak-accent);--blue:var(--mak-accent);--font-display:var(--mak-font);font-family:var(--mak-font);background-color:var(--mak-bg);color:var(--mak-text)}
+html[data-mak-report=document] body{padding:clamp(24px,4vw,52px) clamp(20px,4vw,54px) 72px;line-height:1.75;min-height:100vh;margin:0;overflow-x:hidden}
+html[data-mak-report=document] body::before{opacity:.45}
+html[data-mak-report=document] body{background-image:radial-gradient(800px 450px at 0 0,#f0a0b005,transparent)}
+html[data-mak-report=document] body>main:not(.container){max-width:1120px;margin:0 auto;padding:0}
+html[data-mak-report=document] main>:is(header,section,figure){background-color:var(--mak-surface);border-color:var(--mak-border);border-radius:12px}
+html[data-mak-report=document] .stats>div{background:#ffffff04;border:1px solid var(--mak-border);border-radius:10px}
+html[data-mak-report=document] strong{color:#eee8f1}
+html[data-mak-report=document] :is(.container,.wrap){max-width:1120px;margin-inline:auto;padding:0}
+html[data-mak-report=document] h1{font:600 clamp(27px,3vw,38px)/1.18 var(--mak-font);letter-spacing:-.035em;color:#f5f1f6;margin:0 0 14px;max-width:36ch}
+html[data-mak-report=document] h2{font:600 clamp(20px,2vw,25px)/1.4 var(--mak-font);letter-spacing:-.02em;color:#eee8f0;margin:38px 0 18px;border-color:var(--mak-border);padding-bottom:12px}
+html[data-mak-report=document] h3{font:600 17px/1.5 var(--mak-font);color:#e6e0eb;margin-top:22px}
+html[data-mak-report=document] :is(p,li){line-height:1.8}
+html[data-mak-report=document] :is(.meta,.subtitle,.sub){color:var(--mak-muted);font-size:13px;line-height:1.8;margin-bottom:28px}
+html[data-mak-report=document] :is(.card,.mak-card,.verdict,.variant,.title-card,.kpi){border-radius:12px;border-color:var(--mak-border);box-shadow:none;background-color:var(--mak-surface)}
+html[data-mak-report=document] .mak-card{background:linear-gradient(135deg,#1d1a22,#16171d);border:1px solid #f0a0b020}
+html[data-mak-report=document] :is(.card,.mak-card)>:is(h2,h3):first-child{margin-top:0}
+html[data-mak-report=document] table{border-color:var(--mak-border);font-size:13px;width:100%;max-width:100%;min-width:0;border-collapse:collapse;display:block;overflow-x:auto}
+html[data-mak-report=document] :is(th,td){padding:12px 14px;line-height:1.65;border-color:var(--mak-border);overflow-wrap:anywhere}
+html[data-mak-report=document] th{color:#bcb2c4;background:#ffffff04;font-weight:600;white-space:nowrap}
+html[data-mak-report=document] :is(pre,.flow){max-width:100%;overflow:auto;border-radius:9px;border-color:var(--mak-border);background:#0c0d11;line-height:1.75}
+html[data-mak-report=document] code{color:#dcc8d2;overflow-wrap:anywhere}
+html[data-mak-report] a{color:var(--mak-accent);text-underline-offset:3px}
+html[data-mak-report] :is(a,button,[tabindex]):focus-visible{outline:2px solid var(--mak-accent);outline-offset:4px}
+html[data-mak-report=document] img{max-width:100%;height:auto}
+html[data-mak-report] img[data-mak-zoom]{cursor:zoom-in}
+html[data-mak-report=document] :is(.gallery,.grid-2,.grid-3,.grid-4){gap:18px}
+@media(max-width:680px){html[data-mak-report=document] :is(.grid-2,.grid-3,.grid-4,.gallery){grid-template-columns:1fr}html[data-mak-report=document] table{display:block;overflow-x:auto}html[data-mak-report=document] :is(.kpi-grid,.kpis){grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* Dialog is in the browser top layer; report styles cannot hide its controls. */
+dialog.mak-lightbox{position:fixed;inset:0;margin:auto;width:calc(100vw - 28px);height:calc(100vh - 28px);max-width:none;max-height:none;padding:0;border:1px solid #ffffff28;border-radius:14px;background:#0c0d11;color:#e5dfeb;box-shadow:0 24px 100px #000c;overflow:hidden;font:13px/1.5 var(--mak-font)}
+dialog.mak-lightbox::backdrop{background:#050609e6;backdrop-filter:blur(8px)}
+.mak-lightbox[open]{display:flex;flex-direction:column}.mak-lightbox .mak-lightbox-toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;flex-shrink:0;padding:12px 16px;background:#17171e;border-bottom:1px solid #ffffff15}
+.mak-lightbox .mak-lightbox-caption{flex:1;min-width:80px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#d7d1df;font:500 13px var(--mak-font)}
+.mak-lightbox .mak-lightbox-toolbar :is(button,a){display:inline-flex;align-items:center;justify-content:center;border:1px solid #ffffff1a;border-radius:7px;padding:7px 11px;background:#ffffff06;color:#eee5f0;cursor:pointer;text-decoration:none;font:500 12px var(--mak-font)}
+.mak-lightbox .mak-lightbox-stage{flex:1;min-height:0;overflow:auto;display:flex;align-items:center;justify-content:center;padding:16px}
+.mak-lightbox .mak-lightbox-stage img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border:0;border-radius:0;cursor:zoom-in}
+.mak-lightbox .mak-lightbox-stage.actual{display:block}.mak-lightbox .mak-lightbox-stage.actual img{max-width:none;max-height:none;margin:auto;cursor:zoom-out}
+.mak-lightbox .mak-lightbox-note{font-size:12px;color:#aba0b5;text-align:center;min-height:22px}
+@media(prefers-reduced-motion:reduce){html[data-mak-report] *{scroll-behavior:auto}}
+@media(max-width:600px){html[data-mak-report=document] body{padding:22px 16px 44px;font-size:15px}dialog.mak-lightbox{width:calc(100vw - 16px);height:calc(100dvh - 16px)}.mak-lightbox .mak-lightbox-toolbar{padding:9px;gap:6px}.mak-lightbox .mak-lightbox-caption{flex-basis:calc(100% - 70px)}.mak-lightbox .mak-lightbox-toolbar :is(button,a){min-height:40px;touch-action:manipulation}.mak-lightbox .mak-lightbox-stage{padding:8px}}

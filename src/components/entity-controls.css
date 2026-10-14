@@ -1,0 +1,56 @@
+/* Keep the status control outside the navigation link, with its own hit area. */
+.sidebar-item-row { position: relative; }
+.sidebar-item-row .sidebar-item { padding-right: 40px; }
+.entity-status-button {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; flex: 0 0 32px; padding: 0;
+  border: 1px solid transparent; border-radius: 8px;
+  background: transparent; color: var(--text); cursor: pointer;
+}
+.sidebar-item-row > .entity-status-button { position: absolute; right: 2px; top: 50%; transform: translateY(-50%); }
+.entity-status-button:hover, .entity-status-button[aria-expanded="true"] { background: var(--surface-2); border-color: var(--hairline-strong); }
+.entity-status-button:focus-visible { outline: 2px solid var(--pink); outline-offset: 1px; }
+.entity-card-wrap { position: relative; display: flex; min-width: 0; }
+.entity-card-wrap .entity-card { width: 100%; }
+.entity-card-wrap .card-top { padding-right: 24px; }
+.entity-card-wrap > .entity-status-button { position: absolute; right: 8px; top: 10px; }
+.entity-menu {
+  position: fixed; inset: auto; margin: 0; padding: 16px; box-sizing: border-box;
+  width: min(292px, calc(100vw - 24px)); max-height: calc(100dvh - 24px);
+  overflow: auto; color-scheme: dark; background: var(--surface-solid);
+  color: var(--text); border: 1px solid var(--hairline-strong); border-radius: 14px;
+  box-shadow: 0 16px 56px #0006; font: inherit; font-size: 13px;
+  scrollbar-width: thin; scrollbar-color: var(--text-muted) transparent;
+}
+.entity-menu::backdrop { background: transparent; }
+.entity-menu-heading { display: flex; gap: 12px; justify-content: space-between; align-items: flex-start; margin-bottom: 18px; }
+.entity-menu-heading > div { min-width: 0; }
+.entity-menu-heading span { font-size: 11px; color: var(--text-muted); }
+.entity-menu h2 { font-size: 14px; font-weight: 600; line-height: 1.45; overflow-wrap: anywhere; margin: 4px 0 0; }
+.entity-menu-close { color: var(--text-dim); background: transparent; border: 0; font-size: 21px; width: 28px; height: 28px; padding: 0; cursor: pointer; flex-shrink: 0; }
+.entity-menu fieldset { border: 0; padding: 0; margin: 0 0 15px; min-width: 0; }
+.entity-menu legend, .entity-category-control { font-size: 11px; font-weight: 600; color: var(--text-dim); }
+.entity-menu legend { margin-bottom: 7px; padding: 0; }
+.entity-status-options { display: flex; flex-direction: column; gap: 3px; }
+.entity-status-options button, .entity-pin-toggle {
+  display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 7px 10px;
+  background: transparent; border: 1px solid transparent; border-radius: 8px;
+  color: var(--text); cursor: pointer; font: inherit; text-align: left;
+}
+.entity-status-options button:hover, .entity-pin-toggle:hover { background: var(--surface-2); }
+.entity-status-options button[aria-pressed="true"] { background: var(--pink-dim); border-color: var(--hairline-strong); }
+.entity-status-check { margin-left: auto; color: var(--pink); }
+.entity-category-control { display: flex; flex-direction: column; gap: 7px; }
+.entity-category-control select { width: 100%; padding: 9px 10px; background: var(--surface-solid); color: var(--text); border: 1px solid var(--hairline-strong); border-radius: 8px; font: inherit; font-size: 13px; cursor: pointer; }
+.entity-pin-toggle { margin-top: 9px; width: 100%; color: var(--text-dim); }
+.entity-menu-hint { margin: 12px 0 0; font-size: 11px; line-height: 1.6; color: var(--text-muted); }
+.entity-menu-feedback, .entity-menu-error { margin: 12px 0 0; font-size: 12px; line-height: 1.5; }
+.entity-menu-error { color: var(--red); }
+.entity-menu button:focus-visible, .entity-menu select:focus-visible { outline: 2px solid var(--pink); outline-offset: 1px; }
+.entity-menu button:disabled, .entity-menu select:disabled { opacity: .55; cursor: wait; }
+html[data-workspace-theme="light"] .entity-menu { background: #fff; color-scheme: light; }
+@media (pointer: coarse) {
+  .entity-status-options button, .entity-pin-toggle, .entity-category-control select { min-height: 44px; }
+}
+
+.entity-status-button:disabled { cursor: default; }

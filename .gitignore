@@ -1,0 +1,43 @@
+# Credentials and local agent state
+.env
+.env.*
+!.env.example
+**/auth.json
+**/credentials.json
+**/token.json
+**/tokens.json
+.claude/settings.local.json
+.codex/auth.json
+.mrmak/
+
+# Dependencies and builds
+node_modules/
+dist/
+.cache/
+.venv/
+.venv*/
+venv/
+__pycache__/
+*.pyc
+*.tsbuildinfo
+src-tauri/target/
+src-tauri/gen/
+public/workspace
+*.log
+
+# Local inputs and jobs
+inbox/*
+!inbox/.gitkeep
+**/job.json
+**/result.json
+**/upload.json
+**/*.blend1
+
+# Editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# graft's local graph cache — regenerable, not committed (run `graft build`).
+/graft/

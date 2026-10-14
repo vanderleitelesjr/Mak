@@ -1,0 +1,23 @@
+{
+  "name": "mrmak-local-service",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.6"
+  },
+  "scripts": {
+    "start": "node main.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "@xterm/addon-serialize": "^0.13.0",
+    "@xterm/headless": "^5.5.0",
+    "dotenv": "^16.6.1",
+    "node-pty": "1.1.0",
+    "qrcode": "1.5.4",
+    "smol-toml": "^1.8.0",
+    "ws": "^8.18.3"
+  }
+}

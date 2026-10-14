@@ -1,0 +1,131 @@
+{
+  "entities": [
+    {
+      "id": "my-dream-game",
+      "title": "My Dream Game",
+      "description": "Mr. Mak 64: a small Sky Islands adventure, with character studies, world layouts and a development board.",
+      "type": "group",
+      "category": "project",
+      "created": "2026-09-15",
+      "updated": "2026-09-15",
+      "folder": "2026-09-15_my-dream-game",
+      "steps": [
+        {
+          "name": "Mr. Mak 64",
+          "path": "index.html"
+        }
+      ],
+      "status": "active",
+      "pinned": true,
+      "sample": true,
+      "defaultStep": 0
+    },
+    {
+      "id": "creative-mcp",
+      "title": "Creative MCP Connections",
+      "description": "A source-linked starter list for Blender, game engines, generation and project skills.",
+      "type": "group",
+      "category": "research",
+      "created": "2026-09-15",
+      "updated": "2026-09-16",
+      "folder": "2026-09-15_creative-mcp",
+      "steps": [
+        {
+          "name": "Tool shortlist",
+          "path": "report.html"
+        },
+        {
+          "name": "Connect a tool",
+          "path": "connect.md"
+        }
+      ],
+      "status": "active",
+      "pinned": false,
+      "sample": true,
+      "defaultStep": 0
+    },
+    {
+      "id": "make-workspace-yours",
+      "title": "Make Workspace Yours",
+      "description": "Install the app, understand the daily workflow and choose what to customize.",
+      "type": "group",
+      "category": "dev",
+      "created": "2026-09-15",
+      "updated": "2026-10-01",
+      "folder": "2026-09-15_make-workspace-yours",
+      "steps": [
+        {
+          "name": "Get started",
+          "path": "get-started.md"
+        },
+        {
+          "name": "Everyday use",
+          "path": "everyday-use.md"
+        },
+        {
+          "name": "Customize",
+          "path": "customize.md"
+        }
+      ],
+      "status": "active",
+      "pinned": false,
+      "sample": true,
+      "defaultStep": 0
+    },
+    {
+      "id": "arachne-character",
+      "title": "Arachne Character Lab",
+      "description": "From creature concepts to a refined spider queen: nine design rounds and eight motion studies.",
+      "type": "group",
+      "category": "image-gen",
+      "created": "2026-09-15",
+      "updated": "2026-09-15",
+      "folder": "2026-09-15_arachne-character",
+      "steps": [
+        {
+          "name": "Version 1 · Creature concepts",
+          "path": "report.html"
+        },
+        {
+          "name": "Version 2 · A stronger premise",
+          "path": "report_v2.html"
+        },
+        {
+          "name": "Version 3 · Four directions",
+          "path": "report_v3.html"
+        },
+        {
+          "name": "Version 4 · Targeted refinement",
+          "path": "report_v4.html"
+        },
+        {
+          "name": "Version 5 · Arachne exploration",
+          "path": "report_v5.html"
+        },
+        {
+          "name": "Version 6 · Style refinement",
+          "path": "report_v6.html"
+        },
+        {
+          "name": "Version 7 · The mixed direction",
+          "path": "report_v7.html"
+        },
+        {
+          "name": "Version 8 · A coherent queen",
+          "path": "report_v8.html"
+        },
+        {
+          "name": "Version 9 · Palette studies",
+          "path": "report_v9.html"
+        },
+        {
+          "name": "Motion Tests",
+          "path": "report_motion.html"
+        }
+      ],
+      "status": "active",
+      "pinned": false,
+      "sample": true
+    }
+  ]
+}

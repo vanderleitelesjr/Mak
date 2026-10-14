@@ -1,0 +1,102 @@
+name: Checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+      - run: npm run test:template
+      - run: npm run build
+      - run: npm run test:preview
+      - run: node desktop/service/test/theme-ui.mjs
+      - run: node desktop/service/test/voice-ui.mjs
+      - run: node desktop/service/test/clipboard-ui.mjs
+      - run: node desktop/service/test/desktop-dictation-ui.mjs
+      - run: powershell -NoProfile -File scripts/test-update-helpers.ps1
+      - run: node desktop/service/test/mobile-ui.mjs
+      - run: node desktop/service/test/workspace-edit-ui.mjs
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s .agents/skills/fal-ai-generation/scripts -p test_fal_job.py -v
+      - run: python -m unittest forge.tests.test_optional_vision_tooling -v
+        working-directory: .agents/skills/img2threejs
+      - run: python scripts/test-local-voice-setup.py
+  linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: dtolnay/rust-toolchain@e2a55d2ffb04f378e9626c28d38b36d230d1e12f # master
+        with:
+          toolchain: stable
+      - run: sudo apt-get update && sudo apt-get install -y build-essential file libssl-dev libwebkit2gtk-4.1-dev libappindicator3-dev libxdo-dev librsvg2-dev libwayland-dev patchelf
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+      - run: npm run test:template
+      - run: npm run build
+      - run: npm run desktop:build:appimage
+      - run: cargo test --manifest-path src-tauri/Cargo.toml login_path::tests
+      - run: python3 scripts/test-local-voice-setup.py
+      - name: Upload Linux AppImage
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: mr-mak-workspace-linux-appimage
+          path: src-tauri/target/release/bundle/appimage/*.AppImage
+          if-no-files-found: error
+          retention-days: 14
+  macos:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: dtolnay/rust-toolchain@e2a55d2ffb04f378e9626c28d38b36d230d1e12f # master
+        with:
+          toolchain: stable
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+      - run: npm run test:template
+      - run: npm run build
+      # The macOS app renders with WKWebView, so its UI checks run in WebKit.
+      - run: npx playwright install webkit
+      - run: npm run test:preview
+      - run: node desktop/service/test/theme-ui.mjs
+      - run: node desktop/service/test/voice-ui.mjs
+      - run: node desktop/service/test/mobile-ui.mjs
+      - run: node desktop/service/test/workspace-edit-ui.mjs
+      - run: npm run desktop:build -- --bundles app
+      - run: cargo test --manifest-path src-tauri/Cargo.toml login_path::tests
+      - run: node desktop/service/test/clipboard-ui.mjs
+      - run: node desktop/service/test/desktop-dictation-ui.mjs
+      - run: python3 scripts/test-local-voice-setup.py
+      - name: Verify packaged Node and native terminals
+        run: '"src-tauri/target/release/bundle/macos/Mr. Mak Workspace.app/Contents/Resources/runtime/node" scripts/check-bundled-runtime.mjs'
+      - name: Archive macOS app with executable permissions
+        run: |
+          ditto -c -k --sequesterRsrc --keepParent "src-tauri/target/release/bundle/macos/Mr. Mak Workspace.app" mr-mak-workspace-macos.zip
+      - name: Upload macOS app
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: mr-mak-workspace-macos-app
+          path: mr-mak-workspace-macos.zip
+          if-no-files-found: error
+          retention-days: 14

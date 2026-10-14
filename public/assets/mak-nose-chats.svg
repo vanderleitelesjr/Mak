@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" fill="none">
+  <defs>
+    <radialGradient id="pink" cx="0" cy="0" r="1" gradientTransform="translate(55 47) rotate(76) scale(62 76)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#858990"/>
+      <stop offset=".38" stop-color="#565a61"/>
+      <stop offset=".72" stop-color="#30343b"/>
+      <stop offset=".91" stop-color="#191c22"/>
+      <stop offset="1" stop-color="#101216"/>
+    </radialGradient>
+    <linearGradient id="rim" x1="64" y1="27" x2="64" y2="106" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#848991"/>
+      <stop offset=".43" stop-color="#535861"/>
+      <stop offset="1" stop-color="#484e58"/>
+    </linearGradient>
+    <linearGradient id="hole" x1="0" y1="-14" x2="0" y2="14" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#08090b"/>
+      <stop offset=".48" stop-color="#111318"/>
+      <stop offset="1" stop-color="#20242b"/>
+    </linearGradient>
+    <linearGradient id="holeRim" x1="0" y1="-16" x2="0" y2="16" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#252a31"/>
+      <stop offset=".52" stop-color="#454b54"/>
+      <stop offset="1" stop-color="#9198a2"/>
+    </linearGradient>
+    <filter id="soft" x="-30%" y="-100%" width="160%" height="300%"><feGaussianBlur stdDeviation="2.3"/></filter>
+    <filter id="edge" x="-15%" y="-15%" width="130%" height="130%"><feGaussianBlur stdDeviation=".8"/></filter>
+    <clipPath id="outline"><path d="M64 26C40 26 20 43 12 65C4 86 12 103 29 105C40 107 51 99 64 99C77 99 88 107 99 105C116 103 124 86 116 65C108 43 88 26 64 26Z"/></clipPath>
+  </defs>
+  <path d="M64 26C40 26 20 43 12 65C4 86 12 103 29 105C40 107 51 99 64 99C77 99 88 107 99 105C116 103 124 86 116 65C108 43 88 26 64 26Z" fill="url(#pink)" stroke="url(#rim)" stroke-width="1.7"/>
+  <g clip-path="url(#outline)">
+    <path d="M22 54C36 31 60 26 80 34" stroke="#edf0f5" stroke-width="4" stroke-linecap="round" opacity=".48" filter="url(#soft)"/>
+    <path d="M17 94C32 112 49 96 64 96C79 96 98 112 112 94" stroke="#08090d" stroke-width="3" opacity=".18" filter="url(#soft)"/>
+    <g transform="translate(42 69) rotate(15)">
+      <ellipse rx="12.6" ry="15.6" fill="url(#holeRim)" filter="url(#edge)"/>
+      <ellipse rx="10.8" ry="13.6" fill="url(#hole)"/>
+      <path d="M-8-7C-4-14 3-15 8-9" stroke="#050608" stroke-width="1.8" stroke-linecap="round" opacity=".42" filter="url(#edge)"/>
+    </g>
+    <g transform="translate(86 69) rotate(-15)">
+      <ellipse rx="12.6" ry="15.6" fill="url(#holeRim)" filter="url(#edge)"/>
+      <ellipse rx="10.8" ry="13.6" fill="url(#hole)"/>
+      <path d="M-8-7C-4-14 3-15 8-9" stroke="#050608" stroke-width="1.8" stroke-linecap="round" opacity=".42" filter="url(#edge)"/>
+    </g>
+  </g>
+</svg>
