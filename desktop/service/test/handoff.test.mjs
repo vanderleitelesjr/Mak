@@ -4,7 +4,7 @@ import { EventEmitter } from 'node:events';
 import { mkdtemp, readFile, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
-import { terminalCommand } from '../agents.mjs';
+import { initialPromptArgument, terminalCommand } from '../agents.mjs';
 import { HANDOFF_REQUEST, Handoffs, handoffText } from '../handoff.mjs';
 
 test('a handoff is the reply to the latest request, from its heading', () => {
@@ -24,13 +24,13 @@ test('a first message is one safe argument, placed before Claude\'s variadic --a
   const previous = process.env.PATH;
   process.env.PATH = bin;
   try {
-    const prompt = 'Continue the work. First read its handoff: "C:/handoffs/a b.md".';
+    const prompt = 'Continue the work. First read its handoff: `C:/handoffs/a b.md`.';
     const claude = terminalCommand('claude', { nativeId: '019a0000-1111-4222-8333-444455556666', initialPrompt: prompt, readDir: bin, effort: 'xhigh' });
     assert.equal(claude.args[0], prompt);
     assert.deepEqual(claude.args.slice(-2), ['--add-dir', bin]);
     const codex = terminalCommand('codex', { initialPrompt: prompt });
     assert.equal(codex.args.at(-1), prompt);
-    for (const initialPrompt of ['--dangerously-skip-permissions', 'two\nlines', 'x'.repeat(4001), '   ']) assert.throws(() => terminalCommand('claude', { initialPrompt }), /first message/);
+    for (const initialPrompt of ['--dangerously-skip-permissions', 'two\nlines', 'say "hi"', 'x'.repeat(4001), '   ']) assert.throws(() => terminalCommand('claude', { initialPrompt }), /first message/);
     assert.throws(() => terminalCommand('claude', { initialPrompt: prompt, resumeId: '019a0000-1111-4222-8333-444455556666' }), /new Codex or Claude/);
     assert.throws(() => terminalCommand('claude', { readDir: 'relative' }), /absolute folder/);
   } finally { process.env.PATH = previous; }
@@ -65,6 +65,7 @@ test('accepting a handoff asks the chat, saves its summary and opens a new chat 
   assert.equal(created.length, 1);
   assert.deepEqual({ ...created[0], initialPrompt: undefined }, { agent: 'claude', cwd: session.cwd, bypass: false, effort: 'xhigh', name: 'Dream Game Combat · continued', initialPrompt: undefined, readDir: path.join(repo, 'inbox', 'handoffs') });
   assert.ok(created[0].initialPrompt.includes(job.file));
+  assert.equal(initialPromptArgument(created[0].initialPrompt), created[0].initialPrompt);
 });
 
 test('a handoff fails clearly when the chat stops or the reply has no summary', async () => {

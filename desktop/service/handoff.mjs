@@ -53,7 +53,7 @@ export class Handoffs {
     const next = await this.sessions.create({
       agent: session.agent, cwd: session.cwd, bypass: session.bypass, effort: session.effort,
       name: englishTitle(`${session.name.replace(/ · continued$/, '')} · continued`, session.name),
-      initialPrompt: `Continue the work from the previous chat "${session.name.replace(/"/g, "'")}". First read its handoff: "${file}". Then state the next step in one sentence and continue.`,
+      initialPrompt: `Continue the work from the previous chat '${session.name.replace(/"/g, "'")}'. First read its handoff: \`${file}\`. Then state the next step in one sentence and continue.`,
       readDir: folder,
     });
     this.update(id, { status: 'done', sessionId: next.id });

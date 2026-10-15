@@ -64,10 +64,11 @@ export function nativeConversationId(value) {
 }
 
 // A first prompt becomes a CLI argument: one line, no control characters, and
-// never shaped like an option.
+// never shaped like an option. No double quotes either: Claude Code on Windows
+// cut the argument at an escaped quote.
 export function initialPromptArgument(value) {
   if (value == null || value === '') return undefined;
-  if (typeof value !== 'string' || value.length > 4000 || /[\x00-\x1f\x7f]/.test(value) || /^\s*-/.test(value) || !value.trim()) throw new Error('The first message for a new chat is not valid.');
+  if (typeof value !== 'string' || value.length > 4000 || /[\x00-\x1f\x7f"]/.test(value) || /^\s*-/.test(value) || !value.trim()) throw new Error('The first message for a new chat is not valid.');
   return value;
 }
 
