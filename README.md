@@ -2,163 +2,150 @@
 
 Your CLI agents, a visual Workspace, and access from your phone.
 
-Mr. Mak has **two connected desktop windows**:
+Mr. Mak runs **Codex, Claude Code, Antigravity, OpenCode or Kimi** in real CLI
+terminals and puts the results in a Workspace of project pages, reports and
+media. It has two desktop windows: **Chats** for giving tasks, and **Workspace**
+for reviewing what the agents made. A paired phone follows the same chats.
 
-- **Chats** is where you give tasks to Codex, Claude Code, Antigravity, OpenCode or Kimi. Each
-  conversation runs in a real CLI terminal, with its own tab and saved history.
-- **Workspace** is where you review the results: project pages, research, images,
-  saved prompts and reports. Files, skills, MCP connections and settings sit
-  alongside your work.
-
-Keep the windows side by side, or minimize either one independently. You can
-leave Chats in view while working in Blender, a game engine or your browser.
-
-**New in 0.5: [connect your phone](#on-your-phone)** to follow the same chats,
-send ideas and dictate messages while the agents keep working on your computer.
+This version turns the chat window into a place where you can read and answer
+a conversation instead of only watching a terminal. The changes are listed in
+the [changelog](CHANGELOG.md#unreleased).
 
 ![The two Mr. Mak windows side by side: CLI chats on the left and the My Dream Game project in Workspace on the right](docs/assets/desktop-chats-workspace.png)
 
-*Chats on the left, Workspace on the right. App views arranged side by side
-with sample conversations and the included My Dream Game project.*
+## What's new
+
+### Read a chat as a conversation
+
+Claude Code and Codex chats have a **Conversation | Terminal** switch. The
+Conversation view reads the CLI's own transcript and shows it as messages,
+with Markdown, images and recent tool activity. Its composer sends text,
+attachments and dictation to the same terminal, and **Stop** (Esc) interrupts
+the agent.
+
+![A Claude Code chat in the Conversation view: messages with Markdown, the Conversation and Terminal switch, and Read aloud under the last reply](docs/assets/conversation-view.png)
+
+A new chat opens in Terminal until it has a conversation, so folder-trust and
+sign-in questions are never hidden. Links to local files in a reply open a
+Workspace preview, resolved against the chat's folder.
+
+### Answer permission menus with a click
+
+When the CLI asks for permission, the numbered menu at the bottom of the
+terminal appears as buttons in the conversation. Before sending any key,
+Mr. Mak reads the screen again and checks that it is still the same prompt, so
+a late click cannot answer a newer question.
+
+![Claude Code asking to edit combat.ts, shown in the Conversation view with the diff and three answer buttons](docs/assets/conversation-permission.png)
+
+### Start in a recent project
+
+**New chat** lists the folders you have worked in: the Workspace, projects
+opened in Claude Code, folders where Codex ran and folders of earlier Mr. Mak
+chats. Pin favorites to keep them at the top. History can filter by project,
+and the voice coordinator can open a chat in a project you name. A paired
+phone may only start a chat in a listed folder, never in an arbitrary path.
+
+<img src="docs/assets/new-chat-projects.png" alt="The New chat dialog with Claude Code selected and a project list: the Workspace, a pinned arachne-lab, the selected dream-game and other recent folders" width="420">
+
+### Continue a long chat in a fresh one
+
+After a set number of your messages (40 by default; chat options **⋯**), a chat
+offers **Summarize and continue**. Mr. Mak asks the agent for a handoff, saves
+it in `inbox/handoffs`, and opens "*name* · continued" in the same folder with
+the same agent and settings. The new chat starts by reading that handoff.
+Choose **Later** or **Not for this chat** to dismiss it.
+
+![The fresh-chat offer in a long conversation, with Summarize and continue, Later and Not for this chat](docs/assets/handoff-offer.png)
+
+### Group tabs by project
+
+The folder button next to **+** groups open chat tabs by project. Tab shortcuts
+follow the grouped order.
+
+![Chat tabs grouped under three projects: dream-game, arachne-lab and mr-mak](docs/assets/tabs-by-project.png)
+
+### Read aloud on the desktop
+
+The desktop Conversation view can read the latest reply aloud with the same
+free local voices as the phone, Michael (US) and Emma (UK). **Preparing audio…**
+shows while your computer generates each part; the first one also waits about
+ten seconds for the model to load.
+
+Read aloud needs a one-time setup with Python 3.10–3.12:
+
+```powershell
+python scripts/setup-local-voice.py read-aloud
+```
+
+If your system Python is newer, [uv](https://docs.astral.sh/uv/) can run the
+setup with a managed 3.12 without changing it:
+
+```powershell
+uv run --no-project --python 3.12 scripts/setup-local-voice.py read-aloud
+```
+
+### On the phone
+
+The phone's Terminal view opens in **Wrap** mode: the live terminal text wraps
+to the screen and can be selected. Fit and Actual remain available. Messages
+sent from Mr. Mak no longer show Claude Code's `<pasted_content>` tags.
+
+<img src="docs/assets/mobile-terminal-wrap.png" alt="The phone Terminal view in Wrap mode, with CLI output wrapped to the screen width" width="320">
 
 ## On your phone
 
-Read replies, send follow-ups or images, and open Workspace reports from a mobile
-web app you can add to your Home Screen. The phone connects to Mr. Mak on your
-computer through **Tailscale**. Your agents keep running on the computer with
-their existing CLI accounts.
+Read replies, send follow-ups or images, and open Workspace reports from a
+mobile web app you can add to your Home Screen. The phone connects to Mr. Mak
+on your computer through **Tailscale**; the agents keep running on the computer
+with their existing CLI accounts.
 
 <a href="docs/assets/mobile-overview.png"><img src="docs/assets/mobile-overview.png" alt="Mr. Mak on a phone: chat list, conversation and voice input side by side" width="720"></a>
 
-*Your chats, a conversation, and voice input in one overview. Tap the image
-to see it at full size. Sample conversations shown.*
-
-- **Pair from Chats.** Press the phone button on your computer, enable mobile
-  access, scan the QR code and confirm the matching code on the desktop.
-- **Pick up where you left off.** Pair once, then reopen the same phone shortcut.
-  Phone and desktop can show different chats while sharing the conversation.
-- **Speak a draft.** Tap the microphone, record your message and stop to
-  transcribe it. Review the text before pressing Send.
-- **Review the result.** Enlarge shared images, play videos, or reopen a report
-  at its saved position. Optional local voices can read a reply aloud.
-
-Keep the computer awake with Mr. Mak running, and Tailscale connected on both
-devices. Dictation can run locally with Whisper after the optional Python setup,
-or use separately billed OpenRouter/OpenAI API credit. Updates keep your current
-provider. Local dictation and Read aloud require no transcription API key;
-the optional Live voice coordinator still uses OpenAI API billing.
-
-[Set up mobile access and voice input](docs/mobile-access.md)
-
-## Everyday tools
-
-- **Your files, close at hand.** Browse a folder tree with Main folders or All
-  files, jump to `inbox`, `projects`, `workspace`, `knowledge` and `processes`,
-  and open any folder in Windows Explorer.
-- **Readable notes you can edit.** Open Markdown as a formatted document, switch
-  to Edit, and save changes in the same window. Preview images, video and audio
-  alongside the file tree.
-- **Choose a reading theme.** Settings > Appearance offers Dark, Light and
-  System. Light uses dark text on white across Workspace and standard reports.
-  Images keep their original colors; terminal appearance is set separately.
-- **Chats you can return to.** Pin conversations in history, reorder and color
-  tabs, and see which agents are working or have a reply you have not viewed.
-  Drop files or folders into a chat to insert their paths; clipboard images are
-  saved in `inbox/attachments`.
-- **Projects with their work attached.** Keep research, design versions, saved
-  prompts and motion tests in tabs inside a card. Open images at full size and
-  download them from the preview. In the desktop app, click a card's status dot
-  to change its status or category, pin it, or archive it. Restore archived cards
-  from search or Show archive; their files and tabs stay in place.
-- **Skills and tools within reach.** The right rail opens project skills,
-  knowledge, workflows, MCP connections, Settings and Help. See which MCP
-  connections come from the project and which come from your agent's global setup.
-
-![Workspace with the My Dream Game project open and the Files tree showing project knowledge and workflows](docs/assets/workspace-files.png)
+Pair from the phone button in Chats, scan the QR code and confirm the matching
+code on the desktop. See [mobile access and voice input](docs/mobile-access.md).
 
 ## Before you start
 
-**Prerequisite: install and configure Codex CLI, Claude Code CLI, Antigravity, OpenCode or Kimi
-before setting up Mr. Mak.** You need at least one. They can run side by side
-and are separate installations, not bundled with Mr. Mak.
+Install and sign in to at least one agent CLI. They are separate installations,
+not bundled with Mr. Mak:
+[Codex CLI](https://developers.openai.com/codex/cli),
+[Claude Code](https://code.claude.com/docs/en/setup),
+[OpenCode](https://opencode.ai/docs/),
+[Antigravity](https://www.antigravity.google/docs/cli/install/) or
+[Kimi Code](https://moonshotai.github.io/kimi-cli/).
 
-- [Install Codex CLI](https://developers.openai.com/codex/cli)
-- [Install Claude Code CLI](https://code.claude.com/docs/en/setup)
-- [Install OpenCode](https://opencode.ai/docs/)
-- [Install Antigravity CLI](https://www.antigravity.google/docs/cli/install/)
-- [Install Kimi Code CLI](https://moonshotai.github.io/kimi-cli/)
+**No API key is needed** for Claude Code or Codex chats when you sign in with an
+eligible subscription; Mr. Mak runs the real CLI with its existing login and
+normal plan limits apply. The optional voice coordinator needs Codex CLI and
+your own OpenAI API key, billed separately.
 
-**Do I need an API key?** No, not for Claude Code or Codex chats when you sign
-in with an eligible subscription. Mr. Mak runs the real CLI with its existing
-login: Claude Pro/Max can use Claude Code, and Codex can use ChatGPT subscription
-access. Normal plan limits still apply. API billing is an alternative, not a
-requirement. See [Claude authentication](https://code.claude.com/docs/en/authentication)
-and [Codex authentication](https://developers.openai.com/codex/auth).
+## Install and update
 
-**OpenCode** uses the providers and authentication you configure in OpenCode.
-Their access and billing rules still apply; support here does not turn a Claude
-Code subscription into OpenCode API access. Choose **+ > OpenCode** in Chats.
+On Windows, install **Mr. Mak Workspace** from the
+[Releases](https://github.com/witnesstodark/mr-mak-workspace/releases/latest)
+installer, then open **Start Mr. Mak.cmd** in your cloned repository. Use **+**
+in Chats to open an installed CLI.
 
-**Antigravity** runs Google's `agy` CLI in a chat tab. Install it from the
-[official guide](https://www.antigravity.google/docs/cli/install/), then choose
-**+ > Antigravity**, sign in and use `/model` to select an available model.
-Google controls model access and usage limits. History resumes the exact
-conversation recorded for that tab. Antigravity currently uses the terminal
-view on phones; structured replies and completion badges are not available yet.
-
-The optional voice coordinator specifically requires **Codex CLI** and your own
-**OpenAI API key**. Voice API usage is billed separately. Leave voice off to use
-subscription-backed CLI chats without an API key.
-
-## Start with an agent
-
-Use **Use this template** on GitHub to create your own repository, then clone it
-into a folder you control. Open that folder in your installed Codex CLI,
-Claude Code CLI or OpenCode and paste:
-
-> Set up this Mr. Mak Workspace repository on my computer. Read AGENTS.md and
-> docs/getting-started.md, check the prerequisites, and help me run the Windows
-> desktop app. Use my own CLI accounts. Leave optional voice, paid providers,
-> MCP connections and the Win-key shortcut off until I choose to connect them.
-> Keep my credentials in the ignored .env file. Show me the four examples and
-> help me replace them with my own project.
-
-The repository includes examples, instructions and application source. You bring
-your own agent accounts and any services you want to use.
-
-## Run the desktop app
-
-On Windows, download the installer from [Releases](https://github.com/witnesstodark/mr-mak-workspace/releases/latest),
-install **Mr. Mak Workspace**, then open **Start Mr. Mak.cmd** in your cloned
-repository. On Linux, build the Tauri desktop target after installing the Node,
-Rust and WebKitGTK prerequisites, then launch the resulting AppImage/deb install
-with `--repo /path/to/your/workspace`. On macOS, run `./setup.sh desktop` to build `Mr. Mak Workspace.app`, then open
-**Start Mr. Mak.command** ([macOS notes](docs/getting-started.md#macos)). On every system, use **+** in Chats to
-open an installed CLI and sign in with your own account.
-
-The installer includes the local Node service. It does not include Codex,
-Claude Code, Antigravity, OpenCode, Kimi, Blender, Python or provider accounts.
-
-**Already using Mr. Mak?** Read the [0.5.1 update notes](CHANGELOG.md) for
-Antigravity, macOS improvements, mobile navigation, local voice options and
-release security changes.
-Follow the
-[update guide](docs/updating.md) to update the app and add skills to your existing
-repository without replacing your projects.
-
-To build from source, install Node.js 22.20+ and the Windows Tauri build
-prerequisites, then run:
+To build from source, install Node.js 22.20+ and the Tauri prerequisites (Rust
+and the Visual Studio C++ build tools on Windows), then run:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\Setup.ps1 -Mode Check
 powershell -ExecutionPolicy Bypass -File .\Setup.ps1 -Mode Desktop
 ```
 
-For a browser preview of the reports, use `-Mode Preview` with Node.js 22.20+
-and npm. Rust and C++ Build Tools are needed only to compile the native desktop
-app; they are not required for Preview or the downloaded installer. The native
-desktop app adds managed terminals, local file operations and voice.
-See [getting started](docs/getting-started.md) for the complete setup and
+To update an installed source build, run this **from a PowerShell window opened
+outside Mr. Mak**. It builds, waits for you to choose **Quit** from the tray,
+installs into the same folder and restarts:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\Setup.ps1 -Mode Update
+```
+
+Linux and macOS builds are covered in [getting started](docs/getting-started.md)
+and the [macOS notes](docs/macos.md). See the [update guide](docs/updating.md)
+for updating the app without replacing your projects, and the
 [architecture](desktop/README.md) for the source layout.
 
 ## What is inside
@@ -170,68 +157,22 @@ See [getting started](docs/getting-started.md) for the complete setup and
 | **Make Workspace Yours** | Getting started, everyday use and changes you can ask an agent to make. |
 | **Arachne Character Lab** | Versions 1 through 9, expandable saved prompts, 158 images and eight motion studies. |
 
-The examples stay visible until you archive them. Create your own cards next to
-them, or archive all four when you are ready.
-
-![Inside My Dream Game: the included Mr. Mak 64 project](docs/assets/workspace.png)
-
-Terminal text settings let you adjust readability. In agent chats, Ctrl+C copies
-selected text; PowerShell keeps normal shell behavior.
-Click web links in chats or cards to open your default browser. New Codex and
-Claude chats start with `xhigh` effort; saved effort choices are preserved.
-OpenCode keeps its own model and reasoning configuration.
-
-## Optional asset delivery evidence
-
-Asset deliveries can carry a local SHA-256 manifest. The offline
-[asset delivery tool](scripts/asset-delivery/README.md) records inputs and outputs
-for a card without changing existing cards. Verification checks file integrity;
-visual approval and engine readiness remain separate decisions.
-
-## Skills you can keep
-
-Twenty project skills cover planning, handoffs, Workspace reports, image
-references, fal.ai generation, Higgsfield workflows, character sheets, procedural
-Three.js modeling, materials, motion references, Blender game animation, video
-inspection and dictation setup. Game workflows cover **VFX, UI, animation
-integration, level design, audio and native visual review**. Read the
-[skill index](docs/skills.md), or take the separate skills ZIP from the release
-into another project.
-
-The maintained instructions live in `.agents/skills`. Complete copies in
-`.claude/skills` include the same instructions and resources. Both agents get the
-full skills. Run `npm run skills:sync` after editing the maintained source.
-Copy a skill together with its referenced resources; keep `.env`, job receipts
-and account configuration private.
-
-## Optional voice and connections
-
-You can work entirely through the CLI chats. The floating nose adds an optional
-voice assistant: OpenAI Live supplies the voice connection over API, and the
-coordinator uses your signed-in Codex CLI. Voice API usage is billed separately
-from a CLI subscription. The coordinator uses your Codex model configuration
-unless you set `MRMAK_COORDINATOR_MODEL` in `.env`.
-
-fal.ai, Higgsfield and other providers are optional and use your own accounts.
-MCP configuration starts empty. The MCP panel explains where connections are
-configured, including any global connections your existing agents already have.
-The research sample is a shortlist, not a claim that those tools are installed.
+Twenty project skills cover planning, handoffs, Workspace reports, image and
+motion references, generation providers, Blender game animation, and game VFX,
+UI, audio and level design. Read the [skill index](docs/skills.md). The
+maintained instructions live in `.agents/skills`; run `npm run skills:sync`
+after editing them.
 
 ## Make it yours
 
 Edit the placeholder files in `context/`, keep reusable lessons in `knowledge/`,
-and save workflows in `processes/`. English is the default for stored content;
-ask for another language whenever you need it. The app's Win-key shortcut and
-permission bypass both start disabled.
-
-Desktop source builds support **Windows x64, Linux and macOS**. The Mac app is
-unsigned; see the [macOS setup and limitations](docs/macos.md) before installing.
-See [customization](docs/customization.md) and
-[sharing your version](docs/sharing.md).
+and save workflows in `processes/`. English is the default for stored content.
+The Win-key shortcut and permission bypass both start disabled. See
+[customization](docs/customization.md) and [sharing your version](docs/sharing.md).
 
 Application code and original workflow documentation are under the MIT license.
-Bundled third-party skill materials keep their original licenses. Sample media
-is supplied for learning and remixing; see [third-party notices](THIRD_PARTY_NOTICES.md).
+Bundled third-party skill materials keep their original licenses; see
+[third-party notices](THIRD_PARTY_NOTICES.md).
 
 ---
 
