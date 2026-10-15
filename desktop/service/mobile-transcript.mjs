@@ -22,7 +22,14 @@ export function transcriptActivity(records, agent) {
 
 const textParts = content => typeof content === 'string' ? content : Array.isArray(content) ? content.filter(part => ['text', 'input_text', 'output_text'].includes(part?.type)).map(part => part.text || '').join('\n') : '';
 
-export function transcriptMessages(records, agent) {
+// Claude Code records a bracketed paste, which is how Mr. Mak delivers phone and
+// Conversation messages, inside matching <pasted_content id="…"> tags. Show the
+// text the user wrote; an unmatched tag is left as written.
+export function unwrapPastes(text) {
+  return text.replace(/<pasted_content id="([^"\n]{1,40})">\n?([\s\S]*?)\n?<\/pasted_content id="\1">/g, '$2').trim();
+}
+
+export function transcriptMessages(records, agent, limit = 100) {
   const messages = [];
   // Codex event messages avoid showing injected environment/instruction records.
   const hasCodexEvents = records.some(item => item.type === 'event_msg' && ['user_message', 'agent_message'].includes(item.payload?.type));
@@ -36,6 +43,7 @@ export function transcriptMessages(records, agent) {
     } else if (agent === 'claude' && !item.isSidechain && !item.isMeta && ['user', 'assistant'].includes(item.type)) {
       role = item.type; content = item.message?.content; text = textParts(content);
       if (Array.isArray(content) && content.some(part => part.type === 'tool_result')) role = 'assistant';
+      if (role === 'user') text = unwrapPastes(text);
     }
     if (agent === 'codex' && hasCodexEvents && item.type === 'response_item' && item.payload?.type === 'message' && item.payload.role === 'assistant') { role = 'assistant'; text = ''; content = item.payload.content; }
     if (agent === 'codex' && item.type === 'response_item' && item.payload?.type === 'function_call_output') {
@@ -56,10 +64,11 @@ export function transcriptMessages(records, agent) {
     if (typeof previous === 'number' && previous >= 0) messages[previous] = message;
     else messages.push(message);
   }
-  return messages.slice(-100).map(({ nativeId: _nativeId, ...message }) => message);
+  return messages.slice(-limit).map(({ nativeId: _nativeId, ...message }) => message);
 }
 
-export class MobileTranscripts {
+// Read-only conversation view of a native CLI transcript, for phone and desktop.
+export class ConversationTranscripts {
   cache = new Map();
   async read(session) {
     if (!['codex', 'claude'].includes(session.agent) || !session.nativeId) return { supported: false, messages: [] };
@@ -78,7 +87,10 @@ export class MobileTranscripts {
       } finally { await handle.close(); }
       if (truncated) text = text.slice(text.indexOf('\n') + 1);
       const records = text.split('\n').flatMap(line => { try { return [JSON.parse(line)]; } catch { return []; } });
-      const value = { supported: true, messages: transcriptMessages(records, session.agent), activity: transcriptActivity(records, session.agent), truncated };
+      const messages = transcriptMessages(records, session.agent, Infinity);
+      // Prompts the user sent; it measures how long a conversation has become.
+      const userMessages = messages.filter(item => item.role === 'user').length;
+      const value = { supported: true, messages: messages.slice(-100), userMessages, activity: transcriptActivity(records, session.agent), truncated };
       this.cache.set(session.id, { size: info.size, mtime: info.mtimeMs, value });
       if (this.cache.size > 25) this.cache.delete(this.cache.keys().next().value);
       return value;

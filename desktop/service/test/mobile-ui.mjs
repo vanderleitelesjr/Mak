@@ -63,7 +63,7 @@ for (const [index, id] of ids.entries()) {
   session.process = { write: data => writes.push({ id, data }), resize: () => {}, onExit: callback => { exits.add(callback); return { dispose: () => exits.delete(callback) }; }, kill: () => { session.process = null; session.status = 'closed'; service.sessions.changed(session); for (const callback of [...exits]) callback({ exitCode: 0 }); } };
   service.sessions.items.set(id, session); await service.sessions.hydrate(session);
   session.preview = 'Latest notes: [Review the animation](C:/Projects/game/characters/' + 'very-long-character-name-'.repeat(12) + '/review.html) and https://example.com/research/' + 'reference'.repeat(40);
-  await new Promise(resolve => session.terminal.write(Array.from({ length: 90 }, (_, line) => `Line ${line + 1}: live agent output\r\n`).join(''), resolve));
+  await new Promise(resolve => session.terminal.write(Array.from({ length: 90 }, (_, line) => `Line ${line + 1}: live agent output\r\n`).join('') + `╭${'─'.repeat(60)}╮\r\n│ A long reply line that the desktop terminal draws at its full width and the phone wraps.      │\r\n`, resolve));
 }
 service.mobile.transcripts.read = async session => ({ supported: true, activity: [{ id: 'tool-one', name: 'Read test file', status: 'completed', at: new Date().toISOString() }], messages: [
   { id: 'old-user', role: 'user', text: 'Older request excluded from speech.', at: '' },
@@ -539,7 +539,7 @@ try {
   await mobileContext.setOffline(true); await phone.getByText('Offline · draft saved', { exact: true }).waitFor();
   await mobileContext.setOffline(false); await phone.getByRole('status', { name: 'Connected to your computer', exact: true }).waitFor();
   assert.equal(await input.inputValue(), 'Keep this draft while I switch chats.');
-  await phone.getByRole('button', { name: 'Terminal', exact: true }).click(); await phone.locator('.mobile-terminal .xterm-screen').waitFor();
+  await phone.getByRole('button', { name: 'Terminal', exact: true }).click(); await phone.locator('.mobile-terminal-reader pre').waitFor();
   // Simulate a silent application socket while the transport still looks open.
   await phone.bringToFront();
   const silentClients = [...service.mobile.clients];
@@ -570,11 +570,17 @@ try {
     const keyLayout = await phone.locator('.mobile-terminal-keys').evaluate(node => ({ client: node.clientWidth, scroll: node.scrollWidth, keys: [...node.querySelectorAll('button')].map(button => { const r = button.getBoundingClientRect(); return { left: r.left, right: r.right, top: r.top, width: r.width, height: r.height }; }) }));
     assert.ok(keyLayout.scroll <= keyLayout.client + 1);
     assert.equal(new Set(keyLayout.keys.map(r => r.top)).size, 1, 'Terminal controls occupy one row');
-    const fitted = await phone.locator('.mobile-terminal-viewport').evaluate(node => ({ width: node.clientWidth, scroll: node.scrollWidth }));
-    assert.ok(fitted.scroll <= fitted.width + 1, `Fitted terminal needs no horizontal scrolling at ${width}px`);
+    const wrapped = await phone.locator('.mobile-terminal-reader').evaluate(node => ({ width: node.clientWidth, scroll: node.scrollWidth, text: node.textContent }));
+    assert.ok(wrapped.text.trim(), 'Wrapped terminal shows the terminal text');
+    assert.match(wrapped.text, /│ A long reply line that the desktop terminal draws at its full width and the phone wraps\.$/, 'Box padding and its right border are removed');
+    assert.ok(!wrapped.text.includes('─'.repeat(7)), 'Long rules are shortened');
+    assert.ok(wrapped.scroll <= wrapped.width + 1, `Wrapped terminal needs no horizontal scrolling at ${width}px`);
     assert.ok(keyLayout.keys.every(r => r.left >= 0 && r.right <= width && r.width >= 30 && r.height >= 44));
   }
   await phone.screenshot({ path: path.join(repo, 'phone-terminal.png') });
+  await phone.getByRole('button', { name: 'Fit terminal to screen' }).click(); await phone.locator('.mobile-terminal .xterm-screen').waitFor();
+  const fitted = await phone.locator('.mobile-terminal-viewport').evaluate(node => ({ width: node.clientWidth, scroll: node.scrollWidth }));
+  assert.ok(fitted.scroll <= fitted.width + 1, 'Fitted terminal needs no horizontal scrolling');
   await phone.getByRole('button', { name: 'Show terminal at actual size' }).click();
   assert.equal(await phone.locator('.mobile-terminal-surface').evaluate(node => getComputedStyle(node).transform), 'matrix(1, 0, 0, 1, 0, 0)');
   await phone.getByRole('button', { name: 'Fit terminal to screen' }).click();

@@ -1,5 +1,19 @@
 # Changelog
 
+## Unreleased
+
+- New chat lists recent projects: folders opened in Claude Code plus folders of earlier Mr. Mak chats. Choose one instead of typing a path; the folder field stays editable. Paired phones can start a chat in a listed project, never in an arbitrary path.
+- Add a Conversation view for Claude Code and Codex desktop chats, next to Terminal. It shows the native transcript as messages with Markdown, images, recent tool activity and a composer with attachments and dictation.
+- Answer CLI permission menus from the Conversation view. The numbered menu at the bottom of the terminal is shown as buttons; the answer is checked against the current screen before any key is sent.
+- Recent projects also include folders where Codex ran. Pin favorite projects to the top of the list. History can filter by project.
+- Mr. Mak voice can list projects and open a chat in the one you name.
+- Links to local files in Conversation messages open a Workspace preview; folder links open the folder.
+- Read aloud on desktop, with the same local voices as the phone.
+- Offer a fresh chat when a Claude Code or Codex chat passes a set number of your messages (chat options; 40 by default, or Off). Accepting asks the agent for a handoff, saves it in `inbox/handoffs` and opens a new chat in the same project that starts by reading it. Dismiss for later or for that chat.
+- The phone's Terminal view opens in Wrap mode: the live terminal text wraps to the screen and can be selected. Fit and Actual remain available.
+- Phone and desktop Conversation views no longer show Claude Code's `<pasted_content>` tags around messages sent from Mr. Mak.
+- Group open tabs by project with the folder button next to New chat. Tab shortcuts follow the grouped order.
+
 ## 0.5.1 - 2026-10-14
 
 - Add Antigravity CLI chats with Google sign-in, reasoning effort, per-chat native history recovery and MCP inventory. Install `agy` separately, then choose it in New chat. Model access remains controlled by Google.

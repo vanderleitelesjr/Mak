@@ -2,7 +2,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { AgentLogo, Icon, Nose } from '../desktop/Icons'
-import type { ChatSession } from '../desktop/types'
+import type { ChatSession, RecentProject } from '../desktop/types'
 import { chatActivityLabel } from '../desktop/chatActivity'
 import { chooseMobileDictation, disconnectMobile, mobileApi, mobileEvent, reconnectMobile, onMobileEvent, selectMobileChat, startMobile, useMobile } from './client'
 import { mobileChatPosition, saveMobileChatPosition, setMobileHistory, setMobileView, useMobileNavigation } from './app-state'
@@ -150,13 +150,15 @@ function NewChat({ close, opened }: { close: () => void; opened: (id: string) =>
   const state = useMobile(), available = state.agents.filter(item => item.available)
   const [agent, setAgent] = useState(available.some(item => item.id === state.defaultAgent) ? state.defaultAgent! : available[0]?.id || '')
   const [name, setName] = useState(''), [error, setError] = useState(''), [busy, setBusy] = useState(false)
+  const [projects, setProjects] = useState<RecentProject[]>([]), [cwd, setCwd] = useState('')
+  useEffect(() => { let alive = true; mobileApi<RecentProject[]>('/projects').then(value => { if (alive) { setProjects(value); setCwd(current => current || value[0]?.path || '') } }).catch(() => {}); return () => { alive = false } }, [])
   async function create(event: React.FormEvent) {
     event.preventDefault(); setBusy(true); setError('')
-    try { const session = await mobileApi<ChatSession>('/sessions', { agent, name }); await startMobile(); opened(session.id); close() }
+    try { const session = await mobileApi<ChatSession>('/sessions', { agent, name, ...(cwd ? { cwd } : {}) }); await startMobile(); opened(session.id); close() }
     catch (err) { setError(err instanceof Error ? err.message : String(err)) }
     finally { setBusy(false) }
   }
-  return <div className="mobile-modal-backdrop"><form className="mobile-modal" onSubmit={create}><header><h2>New chat</h2><button type="button" className="mobile-icon" aria-label="Close new chat" onClick={close}><Icon name="close" /></button></header><label>Agent<select value={agent} onChange={event => setAgent(event.target.value)}>{available.map(item => <option key={item.id} value={item.id}>{item.label}</option>)}</select></label><label>Chat name · English<input value={name} onChange={event => setName(event.target.value)} maxLength={100} required placeholder="e.g. Video ideas" /></label><p>Starts in this Workspace folder on your computer. {state.defaultBypass ? 'Your desktop default allows permission bypass.' : 'Uses your desktop default permissions.'}</p>{error && <p className="mobile-error" role="alert">{error}</p>}<button className="mobile-primary" disabled={busy || !agent || !state.connected}>{busy ? 'Opening…' : 'Open chat'}<Icon name="plus" size={17} /></button></form></div>
+  return <div className="mobile-modal-backdrop"><form className="mobile-modal" onSubmit={create}><header><h2>New chat</h2><button type="button" className="mobile-icon" aria-label="Close new chat" onClick={close}><Icon name="close" /></button></header><label>Agent<select value={agent} onChange={event => setAgent(event.target.value)}>{available.map(item => <option key={item.id} value={item.id}>{item.label}</option>)}</select></label><label>Chat name · English<input value={name} onChange={event => setName(event.target.value)} maxLength={100} required placeholder="e.g. Video ideas" /></label>{projects.length > 1 && <label>Project<select value={cwd} onChange={event => setCwd(event.target.value)}>{projects.map(item => <option key={item.path} value={item.path}>{item.name} · {item.path}</option>)}</select></label>}<p>{projects.length > 1 ? 'Projects you opened in Claude Code or Mr. Mak on your computer.' : 'Starts in this Workspace folder on your computer.'} {state.defaultBypass ? 'Your desktop default allows permission bypass.' : 'Uses your desktop default permissions.'}</p>{error && <p className="mobile-error" role="alert">{error}</p>}<button className="mobile-primary" disabled={busy || !agent || !state.connected}>{busy ? 'Opening…' : 'Open chat'}<Icon name="plus" size={17} /></button></form></div>
 }
 
 export default function MobileApp() {

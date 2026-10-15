@@ -82,3 +82,29 @@ export async function codexTranscript(nativeId, { home = codexHome() } = {}) {
   }
   return matches.length === 1 ? matches[0] : null;
 }
+
+// Folders where Codex ran recently, newest first. Bounded: only the latest day
+// folders and files are opened, and only each file's first metadata record is read.
+export async function codexProjects({ home = codexHome(), days = 60, files = 400 } = {}) {
+  const names = async folder => (await readdir(folder, { withFileTypes: true }).catch(() => [])).filter(entry => entry.isDirectory() && /^\d+$/.test(entry.name)).map(entry => entry.name).sort().reverse();
+  const folders = [];
+  for (const year of await names(path.join(home, 'sessions')))
+    for (const month of await names(path.join(home, 'sessions', year)))
+      for (const day of await names(path.join(home, 'sessions', year, month))) {
+        if (folders.length >= days) break;
+        folders.push(path.join(home, 'sessions', year, month, day));
+      }
+  const projects = new Map();
+  let opened = 0;
+  for (const folder of folders) {
+    const transcripts = (await readdir(folder).catch(() => [])).filter(name => name.endsWith('.jsonl')).sort().reverse();
+    for (const name of transcripts) {
+      if (opened++ >= files) return [...projects.values()];
+      const meta = await readCodexMetadata(path.join(folder, name));
+      // File names begin rollout-YYYY-MM-DDTHH-MM-SS; newest files are read first.
+      const stamp = /(\d{4}-\d{2}-\d{2})T(\d{2})-(\d{2})-(\d{2})/.exec(name);
+      if (typeof meta?.cwd === 'string' && !projects.has(meta.cwd)) projects.set(meta.cwd, { path: meta.cwd, source: 'codex', at: stamp ? new Date(`${stamp[1]}T${stamp[2]}:${stamp[3]}:${stamp[4]}`).toISOString() : null });
+    }
+  }
+  return [...projects.values()];
+}

@@ -2,7 +2,8 @@ import { useSyncExternalStore } from 'react'
 
 export type MobileView = 'list' | 'chat' | 'results'
 interface Navigation { view: MobileView; history: boolean }
-export interface ChatPosition { mode?: 'messages' | 'terminal'; top?: number; follow?: boolean; terminalLine?: number; terminalFollow?: boolean; terminalFit?: boolean }
+export interface ChatPosition { mode?: 'messages' | 'terminal'; top?: number; follow?: boolean; terminalLine?: number; terminalFollow?: boolean; terminalView?: TerminalView }
+export type TerminalView = 'wrap' | 'fit' | 'actual'
 const navigationKey = 'mrmak.mobile.navigation'
 function read(key: string): unknown { try { return JSON.parse(localStorage.getItem(key) || 'null') } catch { return null } }
 function save(key: string, value: unknown) { try { localStorage.setItem(key, JSON.stringify(value)) } catch { /* Keep in-memory navigation when storage is unavailable. */ } }
@@ -21,7 +22,7 @@ export function resetMobileNavigation() { workspaceSelection = { id: null, step:
 export function mobileChatPosition(id: string): ChatPosition {
   const value = read(`mrmak.mobile.position.${id}`) as ChatPosition | null
   if (!value || typeof value !== 'object') return {}
-  return { mode: value.mode === 'terminal' || value.mode === 'messages' ? value.mode : undefined, top: Number.isFinite(value.top) && value.top! >= 0 ? value.top : undefined, follow: typeof value.follow === 'boolean' ? value.follow : undefined, terminalLine: Number.isInteger(value.terminalLine) && value.terminalLine! >= 0 ? value.terminalLine : undefined, terminalFollow: typeof value.terminalFollow === 'boolean' ? value.terminalFollow : undefined, terminalFit: typeof value.terminalFit === 'boolean' ? value.terminalFit : undefined }
+  return { mode: value.mode === 'terminal' || value.mode === 'messages' ? value.mode : undefined, top: Number.isFinite(value.top) && value.top! >= 0 ? value.top : undefined, follow: typeof value.follow === 'boolean' ? value.follow : undefined, terminalLine: Number.isInteger(value.terminalLine) && value.terminalLine! >= 0 ? value.terminalLine : undefined, terminalFollow: typeof value.terminalFollow === 'boolean' ? value.terminalFollow : undefined, terminalView: value.terminalView === 'wrap' || value.terminalView === 'fit' || value.terminalView === 'actual' ? value.terminalView : undefined }
 }
 export function saveMobileChatPosition(id: string, value: ChatPosition) { save(`mrmak.mobile.position.${id}`, { ...mobileChatPosition(id), ...value }) }
 

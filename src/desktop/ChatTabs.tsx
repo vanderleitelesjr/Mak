@@ -1,15 +1,16 @@
-import { useEffect, useRef, useState } from 'react'
+import { Fragment, useEffect, useRef, useState } from 'react'
 import type { AgentInfo, ChatSession } from './types'
 import { api, reportError } from './client'
 import { chatActivityLabel } from './chatActivity'
 import { Icon } from './Icons'
 import SessionLogo from './SessionLogo'
+import { projectKey, projectName } from './chatOrder'
 
 type Drag = { id: string; pinned: boolean; startX: number; startY: number; moving: boolean }
 type Drop = { id: string; position: 'before' | 'after' }
 
-export default function ChatTabs({ items, selectedId, agents, choose, close }: {
-  items: ChatSession[]; selectedId?: string; agents: AgentInfo[]; choose: (id: string) => void; close: (id: string) => void
+export default function ChatTabs({ items, grouped = false, selectedId, agents, choose, close }: {
+  items: ChatSession[]; grouped?: boolean; selectedId?: string; agents: AgentInfo[]; choose: (id: string) => void; close: (id: string) => void
 }) {
   const gesture = useRef<Drag | null>(null)
   const drop = useRef<Drop | null>(null)
@@ -39,7 +40,9 @@ export default function ChatTabs({ items, selectedId, agents, choose, close }: {
     const element = document.elementFromPoint(event.clientX, event.clientY)?.closest<HTMLElement>('[data-chat-tab]')
     const item = items.find(item => item.id === element?.dataset.chatTab)
     let next: Drop | null = null
-    if (element && item && item.id !== current.id && item.pinned === current.pinned) {
+    const source = items.find(entry => entry.id === current.id)
+    // Grouped tabs reorder within their project; the groups follow their first tab.
+    if (element && item && item.id !== current.id && item.pinned === current.pinned && (!grouped || (source && projectKey(source.cwd) === projectKey(item.cwd)))) {
       const rect = element.getBoundingClientRect()
       next = { id: item.id, position: event.clientX >= rect.left + rect.width / 2 ? 'after' : 'before' }
     }
@@ -52,13 +55,13 @@ export default function ChatTabs({ items, selectedId, agents, choose, close }: {
   }
   const dragged = items.find(item => item.id === dragging?.id)
   return <div className={`chat-tabs ${dragging ? 'is-reordering' : ''}`} role="tablist" aria-label="Agent chats">
-    {items.map(item => <div key={item.id} data-chat-tab={item.id} className={`chat-tab ${selectedId === item.id ? 'selected' : ''} ${item.tabColor ? 'has-color' : ''} ${dragging?.id === item.id ? 'dragging' : ''} ${target?.id === item.id ? `drop-${target.position}` : ''}`} style={{ '--tab-accent': item.tabColor || '#dfa3b8' } as React.CSSProperties}>
+    {items.map((item, index) => <Fragment key={item.id}>{grouped && (index === 0 || projectKey(items[index - 1].cwd) !== projectKey(item.cwd)) && <span className="chat-tab-group" title={item.cwd}><Icon name="folder" size={11} />{projectName(item.cwd)}<small>{items.filter(entry => projectKey(entry.cwd) === projectKey(item.cwd)).length}</small></span>}<div data-chat-tab={item.id} className={`chat-tab ${selectedId === item.id ? 'selected' : ''} ${item.tabColor ? 'has-color' : ''} ${dragging?.id === item.id ? 'dragging' : ''} ${target?.id === item.id ? `drop-${target.position}` : ''}`} style={{ '--tab-accent': item.tabColor || '#dfa3b8' } as React.CSSProperties}>
       <button role="tab" aria-selected={selectedId === item.id} onClick={event => { if (!suppressClick.current || event.detail === 0) choose(item.id) }} onPointerDown={event => begin(event, item)} onPointerMove={move} onPointerUp={finish} onPointerCancel={clear} onLostPointerCapture={clear}
         className="chat-tab-select" aria-label={`${item.name} · ${chatActivityLabel(item)}`} title={`${agents.find(a => a.id === item.agent)?.label} · ${item.name}\n${chatActivityLabel(item)}\nDrag to reorder ${item.pinned ? 'pinned' : 'unpinned'} tabs\n${item.cwd}`}>
         <span style={{ color: agents.find(a => a.id === item.agent)?.color }}><SessionLogo session={item} /></span><span className="chat-tab-name">{item.name}</span>{item.pinned && <span className="tab-pinned" title="Pinned in History"><Icon name="pin" size={11} /></span>}
       </button>
       <button className="chat-tab-close" onClick={() => close(item.id)} aria-label={`Close ${item.name}`} title="Close tab · keep in History"><Icon name="close" size={12} /></button>
-    </div>)}
+    </div></Fragment>)}
     {dragging && dragged && <div className="chat-tab-ghost" style={{ left: dragging.x + 13, top: dragging.y + 13, color: dragged.tabColor || '#d8c9da' }} aria-hidden="true"><SessionLogo session={dragged} /><span>{dragged.name}</span>{dragged.pinned && <Icon name="pin" size={12} />}</div>}
   </div>
 }

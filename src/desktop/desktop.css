@@ -159,3 +159,21 @@
 .terminal-dictation .mobile-voice-panel small{display:block;margin-top:8px;color:#b6aabe}
 .terminal-dictation .mobile-voice-panel button{margin:8px 5px 0 0;padding:6px;border:1px solid #503648;background:#302332;color:#eee;border-radius:4px}
 .terminal-dictation .saved .mobile-voice-error{top:155px}
+
+/* New chat project list: recent folders from Claude Code and Mr. Mak chats. */
+.project-field-heading>small{font-size:9px;color:#797381;margin-left:5px}
+.project-search{display:flex;align-items:center;gap:6px;padding-left:10px;border:1px solid #ffffff10;border-radius:7px;background:#ffffff04;color:#737581}.project-search input{flex:1;border:0!important;background:transparent!important;padding:7px 8px!important;font-size:11px!important}
+.project-list{display:flex;flex-direction:column;gap:3px;max-height:188px;overflow-y:auto;padding:3px;border:1px solid #ffffff0b;border-radius:9px;background:#ffffff02}.project-list>.desk-muted{padding:8px;margin:0}
+.project-choice{display:flex;align-items:center;gap:9px;width:100%;min-width:0;padding:7px 9px;border:1px solid transparent;border-radius:7px;background:transparent;text-align:left;color:#8f8a9b}.project-choice:hover{background:#ffffff06}
+.project-choice>span{display:flex;flex-direction:column;flex:1;min-width:0}.project-choice strong{font-size:12px;font-weight:550;color:#dedee7;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.project-choice small{font-size:9.5px;color:#737581;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.project-choice em{flex-shrink:0;font-style:normal;font-size:9px;color:#8a7d93;border:1px solid #ffffff10;border-radius:9px;padding:1px 6px}
+
+.project-row{display:flex;align-items:center;gap:2px;border:1px solid transparent;border-radius:7px}.project-row:hover{background:#ffffff06}.project-row .project-choice{flex:1;border:0}.project-row .project-choice:hover{background:transparent}
+.project-row.selected{border-color:#e8a4b54a;background:#e8a4b50d}.project-row.selected strong{color:#f3d3e1}
+.project-pin{width:26px!important;height:26px!important;opacity:0;transition:opacity .15s}.project-row:hover .project-pin,.project-pin:focus-visible,.project-pin.active{opacity:1}.project-pin.active{color:#e8a4b5!important}
+.history-project{max-width:180px;border:1px solid #ffffff0c;background:#15161c;color:#8e869a;padding:4px 8px;border-radius:14px;font:inherit;font-size:10px}.history-project.selected{border-color:#dc9ebb45;color:#e7bfd1}
+.chat-tab-group{display:inline-flex;align-items:center;gap:5px;flex-shrink:0;height:36px;margin-left:8px;padding:0 6px 0 9px;border-left:1px solid #ffffff12;font-size:9.5px;font-weight:600;letter-spacing:.2px;color:#8d8798;text-transform:uppercase;white-space:nowrap}.chat-tab-group:first-child{margin-left:0;border-left:0;padding-left:3px}.chat-tab-group small{font-size:9px;font-weight:400;color:#6e6878}
+.handoff-offer{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;flex-shrink:0;padding:8px 14px;border-bottom:1px solid #ffffff09;background:#17151c;font-size:11px;color:#bdb3c6}.handoff-offer>span{flex:1 1 300px;min-width:0;line-height:1.5}.handoff-offer strong{color:#ecd6e2;font-weight:600}
+.handoff-offer button{padding:5px 10px;border:1px solid #ffffff14;border-radius:7px;background:transparent;color:#cdbfd2;font-size:10.5px}.handoff-offer button.primary{border-color:#e8a4b555;background:#e8a4b51a;color:#f3d3e1}
+.handoff-offer.working>i{width:7px;height:7px;border-radius:50%;background:#e8a4b5;animation:conversation-pulse 1.2s ease-in-out infinite}.handoff-offer.failed{background:#221c16;color:#e3c99c}
+.handoff-setting{display:flex;flex-direction:column;gap:6px;padding:8px 9px;border-top:1px solid #ffffff08;font-size:11px;color:#a7a1b0}.handoff-setting small{color:#6e6878;font-size:9.5px;margin-left:4px}.handoff-setting select{padding:5px 7px;border:1px solid #ffffff12;border-radius:6px;background:#121318;color:#d8d0dc;font:inherit;font-size:11px}

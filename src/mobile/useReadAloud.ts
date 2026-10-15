@@ -20,7 +20,13 @@ function chunks(text: string) {
   if (text) result.push(text)
   return result
 }
-export function useReadAloud(sessionId: string) {
+export type Speak = (sessionId: string, voice: string, text: string, signal: AbortSignal) => Promise<ArrayBuffer>
+async function speakOnPhone(sessionId: string, voice: string, text: string, signal: AbortSignal) {
+  const response = await fetch(`/mobile/api/sessions/${sessionId}/read-aloud`, { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ voice, text }), signal })
+  if (!response.ok) { const result = await response.json(); throw new Error(result.error || 'Speech generation failed.') }
+  return response.arrayBuffer()
+}
+export function useReadAloud(sessionId: string, speak: Speak = speakOnPhone) {
   const supported = typeof window.AudioContext !== 'undefined'
   const [activeId, setActiveId] = useState<string | null>(null), [paused, setPaused] = useState(false), [error, setError] = useState('')
   const generation = useRef(0), context = useRef<AudioContext | null>(null), pending = useRef<AbortController | null>(null)
@@ -47,9 +53,7 @@ export function useReadAloud(sessionId: string) {
       const controller = new AbortController(); pending.current = controller
       try {
         await unlocked
-        const response = await fetch(`/mobile/api/sessions/${sessionId}/read-aloud`, { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ voice, text: part }), signal: controller.signal })
-        if (!response.ok) { const result = await response.json(); throw new Error(result.error || 'Speech generation failed.') }
-        const data = await response.arrayBuffer()
+        const data = await speak(sessionId, voice, part, controller.signal)
         if (generation.current !== run) return
         const buffer = await audio.decodeAudioData(data)
         if (generation.current !== run) return
