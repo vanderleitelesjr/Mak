@@ -185,6 +185,7 @@ export default function Conversation({ session, connected, agentLabel, openTermi
             <button type="button" onClick={() => readAloud(message.id)} aria-label={speech.activeId ? speech.paused ? 'Resume reading' : 'Pause reading' : 'Read aloud'} title={speech.activeId ? speech.paused ? 'Resume reading' : 'Pause reading' : 'Read this reply aloud'}><Icon name={speech.activeId ? speech.paused ? 'play' : 'pause' : 'speaker'} size={15} />{speech.activeId ? speech.paused ? 'Resume' : 'Pause' : 'Read aloud'}</button>
             {speech.activeId && <button type="button" onClick={speech.stop} aria-label="Stop reading" title="Stop reading"><Icon name="stop" size={13} /></button>}
             <select aria-label="Reading voice" value={voice} onChange={event => { setVoice(event.target.value); saveReadingVoice(event.target.value); window.dispatchEvent(new Event(readingVoiceChanged)) }}>{readingVoices.map(item => <option key={item.id} value={item.id}>{item.label}</option>)}</select>
+            {speech.loading && <span role="status">Preparing audio…</span>}
             {speech.error && <span role="alert">{speech.error}</span>}
           </div>}
         </article>)}
