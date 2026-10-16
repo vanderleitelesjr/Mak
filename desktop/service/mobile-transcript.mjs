@@ -91,7 +91,24 @@ export function transcriptModel(records, agent) {
   return null;
 }
 
+// A Claude Code rewind keeps the session file: the new prompt gets the same parent
+// as the prompt it replaces, and what was written from that prompt on is no longer
+// part of the conversation. Parallel tool calls also branch, so the chain from the
+// newest record alone would lose replies.
+export function activeBranch(records) {
+  const prompts = new Map(), rewound = new Set();
+  records.forEach((item, index) => {
+    if (item.type !== 'user' || item.isSidechain || item.isMeta || !('parentUuid' in item)) return;
+    if (Array.isArray(item.message?.content) && item.message.content.some(part => part.type === 'tool_result')) return;
+    const parent = item.parentUuid ?? null;
+    if (prompts.has(parent)) for (let earlier = prompts.get(parent); earlier < index; earlier++) if (records[earlier].uuid && !records[earlier].isSidechain) rewound.add(earlier);
+    prompts.set(parent, index);
+  });
+  return rewound.size ? records.filter((_, index) => !rewound.has(index)) : records;
+}
+
 export function transcriptMessages(records, agent, limit = 100) {
+  if (agent === 'claude') records = activeBranch(records);
   const messages = [];
   // Codex event messages avoid showing injected environment/instruction records.
   const hasCodexEvents = records.some(item => item.type === 'event_msg' && ['user_message', 'agent_message'].includes(item.payload?.type));

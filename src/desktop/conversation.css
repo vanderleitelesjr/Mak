@@ -26,6 +26,15 @@
 .conversation-copy-text hr{border:0;border-top:1px solid #ffffff14;margin:16px 0}
 .conversation-copy{display:inline-flex;align-items:center;gap:5px;margin-left:auto;padding:3px 5px;border:0;border-radius:5px;background:transparent;color:#777180;font-size:10px;opacity:0;transition:opacity .15s}
 .conversation-message:hover .conversation-copy,.conversation-copy:focus-visible{opacity:1}.conversation-copy:hover{background:#ffffff0a;color:#d7c3d6}
+.conversation-edit{display:flex;flex-direction:column;gap:8px;width:min(620px,88%)}
+.conversation-edit textarea{resize:vertical;min-height:64px;max-height:320px;padding:10px 14px;border:1px solid #5d414e;border-radius:14px 14px 4px 14px;background:#1c1a24;color:#e2dfe8;font:inherit;font-size:13.5px;line-height:1.6;outline:none}
+.conversation-edit textarea:focus{border-color:#8a5a73}
+.conversation-edit p{margin:0;font-size:11px;color:#f0a0a8}
+.conversation-edit footer{display:flex;align-items:center;gap:8px;font-size:11px;color:#8f8a9b}
+.conversation-edit footer span{flex:1;line-height:1.5}
+.conversation-edit button{padding:6px 12px;border:1px solid #ffffff14;border-radius:7px;background:#ffffff06;color:#d7b3c9;font-size:11px}
+.conversation-edit button[type=submit]{background:#5d414e;border-color:#7a5468;color:#fff}
+.conversation-edit button:disabled{opacity:.5}
 .conversation-message .mobile-conversation-images{max-width:620px}
 .conversation-message .mobile-conversation-image figcaption a{color:#e4b6cd}
 .conversation-empty{display:grid;justify-items:center;gap:12px;text-align:center;padding:70px 20px;color:#8f8a9b}

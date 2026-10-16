@@ -347,6 +347,16 @@ export class Sessions extends EventEmitter {
     return { delivered: true, sessionId: id, name: session.name, note: 'Text delivered to the terminal. Check the screen for CLI readiness or permission prompts; delivery does not confirm the agent accepted the task.' };
   }
 
+  // Keys Mr. Mak presses on the user's behalf, such as menu navigation. They are
+  // not manual typing, so a message sent right after them is not held back.
+  keys(id, data) {
+    const session = this.get(id);
+    if (!session.process) throw new Error('This terminal is stopped. Resume it before sending a message.');
+    session.process.write(data);
+    session.attention = false;
+    this.changed(session);
+  }
+
   resize(id, cols, rows) {
     const session = this.get(id);
     if (!Number.isInteger(cols) || !Number.isInteger(rows) || cols < 20 || cols > 500 || rows < 5 || rows > 200) return;

@@ -49,10 +49,14 @@ export async function answerPrompt(sessions, id, promptId, choice) {
   if (!prompt || prompt.id !== promptId) throw Object.assign(new Error('This prompt changed or was already answered. Check the terminal.'), { status: 409 });
   if (choice === 'cancel') { sessions.input(id, '\x1b'); return { delivered: true, choice }; }
   if (!Number.isInteger(choice) || choice < 0 || choice >= prompt.options.length) throw new Error('Choose one of the listed options.');
-  // Arrow keys, then Enter, one key per write: menus parse a combined burst as one sequence.
-  const key = choice > prompt.selected ? '\x1b[B' : '\x1b[A';
-  for (let step = 0; step < Math.abs(choice - prompt.selected); step++) { sessions.input(id, key); await keyDelay(60); }
-  await keyDelay(60);
-  sessions.input(id, '\r');
+  await chooseOption(data => sessions.input(id, data), prompt, choice);
   return { delivered: true, choice, option: prompt.options[choice] };
+}
+
+// Arrow keys, then Enter, one key per write: menus parse a combined burst as one sequence.
+export async function chooseOption(press, prompt, choice) {
+  const key = choice > prompt.selected ? '\x1b[B' : '\x1b[A';
+  for (let step = 0; step < Math.abs(choice - prompt.selected); step++) { press(key); await keyDelay(60); }
+  await keyDelay(60);
+  press('\r');
 }

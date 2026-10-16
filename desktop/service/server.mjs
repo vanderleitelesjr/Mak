@@ -28,6 +28,7 @@ import { ConversationTranscripts } from './mobile-transcript.mjs';
 import { ConversationMedia } from './conversation-media.mjs';
 import { projectKey, recentProjects } from './recent-projects.mjs';
 import { answerPrompt, terminalPrompt } from './terminal-prompt.mjs';
+import { rewindToMessage } from './message-edit.mjs';
 import { LocalReadAloud } from './local-read-aloud.mjs';
 import { Handoffs } from './handoff.mjs';
 import { chatCommands } from './chat-commands.mjs';
@@ -323,6 +324,7 @@ export async function createService({ repo, uiDir, stateDir, token = secret(), n
           }
           if (method === 'POST' && action === 'handoff') return json(response, 200, handoffs.start(id));
           if (method === 'POST' && action === 'prompt') return json(response, 200, await answerPrompt(sessions, id, data.id, data.choice));
+          if (method === 'POST' && action === 'rewind') return json(response, 200, await rewindToMessage(sessions, transcripts, id, String(data.messageId || '')));
           if (method === 'POST' && action === 'speak') {
             const controller = new AbortController(), abort = () => controller.abort();
             sessions.get(id); response.once('close', abort);

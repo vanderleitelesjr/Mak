@@ -75,6 +75,7 @@ export default function Conversation({ session, connected, agentLabel, openTermi
   const speech = useReadAloud(session.id, speakDesktopText), stopReading = speech.stop
   const [voice, setVoice] = useState(savedReadingVoice)
   const [answering, setAnswering] = useState(false)
+  const [editing, setEditing] = useState<{ id: string; text: string } | null>(null), [rewinding, setRewinding] = useState(false), [editError, setEditError] = useState('')
   const [commands, setCommands] = useState<ChatCommand[]>([]), [caret, setCaret] = useState(0), [picked, setPicked] = useState(0), [dismissed, setDismissed] = useState('')
   useEffect(() => { api<{ commands: ChatCommand[] }>(`/sessions/${session.id}/commands`).then(value => setCommands(value.commands)).catch(() => setCommands([])) }, [session.id])
   const token = commandToken(draft.text, caret, session.agent === 'codex')
@@ -115,6 +116,8 @@ export default function Conversation({ session, connected, agentLabel, openTermi
   for (let index = 0; index < messages.length; index++) if (messages[index].role === 'user') readStart = index
   const latestUserId = messages[readStart]?.role === 'user' ? messages[readStart].id : null
   useEffect(() => () => stopReading(), [latestUserId, session.id, stopReading])
+  // A message rewound from the terminal no longer has an open editor.
+  const openEdit = editing && (rewinding || messages.some(message => message.id === editing.id)) ? editing : null
   function readAloud(id: string) {
     if (speech.activeId) { speech.togglePause(); return }
     const parts = Array.from(scroller.current?.querySelectorAll<HTMLElement>('.conversation-message.assistant') || []).filter(node => Number(node.dataset.index) > readStart)
@@ -185,6 +188,23 @@ export default function Conversation({ session, connected, agentLabel, openTermi
     finally { setSending(false); input.current?.focus() }
   }
   const stop = () => api(`/sessions/${session.id}/input`, { text: '\x1b', paste: false, submit: false }).catch(reportError)
+  // Claude Code rewinds to before the message (files stay as they are), then the edited text is sent.
+  const canEdit = session.agent === 'claude' && connected && running && !working && !transcript?.prompt
+  async function sendEdit() {
+    const target = editing, text = target?.text.trimEnd() || ''
+    if (!target || rewinding || !canEdit || !text.trim()) return
+    setRewinding(true); setEditError('')
+    try { await api(`/sessions/${session.id}/rewind`, { messageId: target.id }) }
+    catch (error) { setEditError(error instanceof Error ? error.message : String(error)); setRewinding(false); return }
+    try {
+      await api(`/sessions/${session.id}/send`, { text, paths: [] })
+      follow.current = true; setShowJump(false)
+    } catch (error) {
+      // The conversation is already rewound, so keep the edited text in the composer.
+      setDraft(current => ({ ...current, text: current.text ? `${text}\n\n${current.text}` : text }))
+      setStatus(`${error instanceof Error ? error.message : String(error)} Your edited message is in the composer.`)
+    } finally { setEditing(null); setRewinding(false); void reload.current() }
+  }
 
   const stale = working && now - changedAt >= 45000
   const unreadable = transcript && !transcript.supported && session.hasConversation
@@ -195,8 +215,21 @@ export default function Conversation({ session, connected, agentLabel, openTermi
         {messages.map((message, index) => message.role === 'system' ? systemEvents !== 'hidden' && message.event && <SystemEvent key={`${message.id}:${systemEvents}`} event={message.event} time={message.at ? time(message.at) : undefined} expanded={systemEvents === 'full'}
           components={{ a: ({ href, children }) => <MessageLink href={href} sessionId={session.id}>{children}</MessageLink> }} fileLink={(file, label) => <MessageLink href={file} sessionId={session.id}>{label}</MessageLink>} />
         : <article key={message.id} data-index={index} className={`conversation-message ${message.role}`}>
-          <header>{message.role === 'user' ? <span>You</span> : <span className="conversation-agent"><AgentLogo agent={session.agent} size={15} />{agentLabel}</span>}{message.at && <time>{time(message.at)}</time>}{message.role === 'assistant' && message.text.trim() && <CopyButton text={message.text} />}</header>
-          {message.text.trim() && <div className="conversation-copy-text"><ReactMarkdown remarkPlugins={[remarkGfm]} urlTransform={keepUrl} components={{ img: () => null, a: ({ href, children }) => <MessageLink href={href} sessionId={session.id}>{children}</MessageLink> }}>{message.role === 'user' ? visibleUserMessage(message.text) : message.text}</ReactMarkdown></div>}
+          <header>{message.role === 'user' ? <span>You</span> : <span className="conversation-agent"><AgentLogo agent={session.agent} size={15} />{agentLabel}</span>}{message.at && <time>{time(message.at)}</time>}{message.role === 'assistant' && message.text.trim() && <CopyButton text={message.text} />}
+            {message.role === 'user' && canEdit && !openEdit && message.text.trim() && <button type="button" className="conversation-copy" title="Edit and send again" aria-label="Edit message" onClick={() => { setEditError(''); setEditing({ id: message.id, text: visibleUserMessage(message.text) }) }}><Icon name="edit" size={14} /></button>}</header>
+          {openEdit?.id === message.id ? <form className="conversation-edit" onSubmit={event => { event.preventDefault(); void sendEdit() }}>
+            <textarea autoFocus aria-label="Edit message" value={openEdit.text} disabled={rewinding} rows={Math.min(12, openEdit.text.split('\n').length + 1)} onChange={event => setEditing({ id: message.id, text: event.target.value })}
+              onKeyDown={event => {
+                if (event.nativeEvent.isComposing) return
+                if (event.key === 'Escape' && !rewinding) { event.preventDefault(); event.stopPropagation(); setEditing(null) }
+                if (event.key === 'Enter' && !event.shiftKey) { event.preventDefault(); void sendEdit() }
+              }} />
+            {editError && <p role="alert">{editError}</p>}
+            <footer><span>{rewinding ? 'Rewinding the conversation…' : 'Rewinds the conversation to before this message and sends the edited text. Files are not changed.'}</span>
+              <button type="button" disabled={rewinding} onClick={() => setEditing(null)}>Cancel</button>
+              <button type="submit" disabled={rewinding || !canEdit || !openEdit.text.trim()}>Send</button></footer>
+          </form>
+          : message.text.trim() && <div className="conversation-copy-text"><ReactMarkdown remarkPlugins={[remarkGfm]} urlTransform={keepUrl} components={{ img: () => null, a: ({ href, children }) => <MessageLink href={href} sessionId={session.id}>{children}</MessageLink> }}>{message.role === 'user' ? visibleUserMessage(message.text) : message.text}</ReactMarkdown></div>}
           <ConversationImages images={message.images} />
           {index === messages.length - 1 && message.role === 'assistant' && index > readStart && <div className="conversation-read-aloud">
             <button type="button" onClick={() => readAloud(message.id)} aria-label={speech.activeId ? speech.paused ? 'Resume reading' : 'Pause reading' : 'Read aloud'} title={speech.activeId ? speech.paused ? 'Resume reading' : 'Pause reading' : 'Read this reply aloud'}><Icon name={speech.activeId ? speech.paused ? 'play' : 'pause' : 'speaker'} size={15} />{speech.activeId ? speech.paused ? 'Resume' : 'Pause' : 'Read aloud'}</button>
