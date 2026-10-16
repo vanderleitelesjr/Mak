@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { systemEvent, transcriptMessages, transcriptModel } from '../mobile-transcript.mjs';
+import { systemEvent, transcriptActivity, transcriptMessages, transcriptModel } from '../mobile-transcript.mjs';
 
 const notification = result => `<task-notification>\n<task-id>ac7d</task-id>\n<tool-use-id>toolu_01</tool-use-id>\n<output-file>E:\\tmp\\ac7d.output</output-file>\n<status>completed</status>\n<summary>Agent "/code-review high" finished</summary>\n<note>A task-notification fires each time this agent stops.</note>\n<result>${result}</result>\n</task-notification>`;
 
@@ -45,4 +45,25 @@ test('transcripts keep system events out of the user count and report the model'
   ];
   assert.deepEqual(transcriptMessages(codex, 'codex').map(item => item.role), ['system', 'user']);
   assert.equal(transcriptModel(codex, 'codex'), 'gpt-6.1-sol');
+});
+
+test('Codex 0.163 transcripts read completed message items and hide injected instructions', () => {
+  const item = (type, content, extra = {}) => ({ type: 'event_msg', timestamp: 't', payload: { type: 'item_completed', item: { type, id: `${type}-${content[0].text}`, content, ...extra } } });
+  const records = [
+    { type: 'response_item', payload: { type: 'message', role: 'user', content: [{ type: 'input_text', text: '# AGENTS.md instructions for E:\\game\n\n<INSTRUCTIONS>…</INSTRUCTIONS>' }, { type: 'input_text', text: '<environment_context>…</environment_context>' }] } },
+    { type: 'response_item', payload: { type: 'message', role: 'user', content: [{ type: 'input_text', text: 'Fix the tabs' }] } },
+    item('UserMessage', [{ type: 'text', text: 'Fix the tabs' }]),
+    item('AgentMessage', [{ type: 'Text', text: 'Checking the tab bar.' }], { phase: 'commentary' }),
+    { type: 'response_item', payload: { type: 'custom_tool_call', call_id: 'c1', name: 'exec', status: 'completed' } },
+    { type: 'response_item', payload: { type: 'custom_tool_call_output', call_id: 'c1' } },
+    item('AgentMessage', [{ type: 'Text', text: 'Done.' }], { phase: 'final_answer' }),
+  ];
+  const messages = transcriptMessages(records, 'codex');
+  assert.deepEqual(messages.map(message => [message.role, message.text]), [['user', 'Fix the tabs'], ['assistant', 'Checking the tab bar.'], ['assistant', 'Done.']]);
+  assert.equal(messages[0].id, 'UserMessage-Fix the tabs');
+  assert.deepEqual(transcriptActivity(records, 'codex').map(tool => [tool.name, tool.status]), [['exec', 'completed']]);
+  // Older rollouts without message events skip the injected instructions too.
+  assert.deepEqual(transcriptMessages(records.slice(0, 2), 'codex').map(message => message.text), ['Fix the tabs']);
+  // A Codex chat imported from Claude Code keeps its paste tags.
+  assert.equal(transcriptMessages([{ type: 'event_msg', payload: { type: 'user_message', message: '<pasted_content id="ab12">\nHello\n</pasted_content id="ab12">' } }], 'codex')[0].text, 'Hello');
 });

@@ -57,7 +57,7 @@ test('chat commands list built-ins, project and user commands, skills and enable
   const codex = (await chatCommands('codex', cwd, { home, env: {} })).commands;
   assert.deepEqual(find(codex, 'level-pass'), { trigger: '$', name: 'level-pass', description: 'Lay out a level', source: 'project' });
   assert.equal(find(codex, 'prompts:triage').trigger, '/');
-  assert.ok(find(codex, 'approvals').terminal && !find(codex, 'balance-pass'));
+  assert.ok(find(codex, 'permissions').terminal && !find(codex, 'approvals') && !find(codex, 'balance-pass'));
 
   assert.deepEqual(await chatCommands('shell', cwd, { home, env: {} }), { commands: [] });
 });

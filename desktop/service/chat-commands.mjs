@@ -16,12 +16,20 @@ const CLAUDE_BUILTINS = [
   ['status', 'Show account and system status', true], ['statusline', 'Set up the status line'], ['todos', 'Show the current todo list'],
   ['usage', 'Show plan usage limits', true], ['vim', 'Toggle Vim editing mode'],
 ];
+// Checked against Codex 0.163. Commands that start another thread in the same
+// terminal (/fork, /side, /clear) are left out; /new and /resume remain.
 const CODEX_BUILTINS = [
-  ['approvals', 'Choose what Codex may do without asking', true], ['compact', 'Summarize the conversation to free context'],
-  ['diff', 'Show the Git diff, including untracked files', true], ['feedback', 'Send feedback to the Codex team', true],
-  ['init', 'Create an AGENTS.md for this project'], ['logout', 'Sign out of Codex', true], ['mcp', 'List configured MCP tools'],
-  ['mention', 'Mention a file', true], ['model', 'Choose the model and reasoning effort', true], ['new', 'Start a new conversation'],
-  ['resume', 'Resume another conversation', true], ['review', 'Review current changes', true], ['status', 'Show session configuration and token usage'],
+  ['agents', 'Open the agent command center', true], ['compact', 'Summarize the conversation to free context'],
+  ['config', 'Configure Codex preferences', true], ['copy', 'Copy the last response or part of it', true],
+  ['diff', 'Show the Git diff, including untracked files', true], ['export', 'Export the conversation as Markdown'],
+  ['fast', 'Toggle faster responses with higher usage'], ['feedback', 'Send feedback to the Codex team', true],
+  ['goal', 'Set or view the goal for a long-running task'], ['init', 'Create an AGENTS.md for this project'],
+  ['logout', 'Sign out of Codex', true], ['mcp', 'List configured MCP tools'], ['mention', 'Mention a file', true],
+  ['model', 'Choose the model and reasoning effort', true], ['new', 'Start a new conversation'],
+  ['permissions', 'Choose what Codex is allowed to do', true], ['plan', 'Switch to Plan mode'],
+  ['recap', 'Summarize the conversation now'], ['rename', 'Rename the current thread'],
+  ['resume', 'Resume another conversation', true], ['review', 'Review current changes', true],
+  ['skills', 'Choose skills for Codex to use', true], ['status', 'Show session configuration and token usage'],
 ];
 
 // A single frontmatter value, including a folded or literal block (`description: >`).

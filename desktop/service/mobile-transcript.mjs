@@ -13,8 +13,9 @@ export function transcriptActivity(records, agent) {
     }
     const p = record.payload;
     if (agent === 'codex' && record.type === 'response_item') {
-      if (p?.type === 'function_call' && typeof p.call_id === 'string') tools.set(p.call_id, { id: p.call_id, name: String(p.name || 'Tool').replace(/[^a-zA-Z0-9_.:-]/g, '').slice(0, 80), status: 'running', at: record.timestamp || '' });
-      if (p?.type === 'function_call_output' && tools.has(p.call_id)) Object.assign(tools.get(p.call_id), { status: 'completed', at: record.timestamp || '' });
+      // Codex 0.163 runs most tools as custom tool calls.
+      if (['function_call', 'custom_tool_call'].includes(p?.type) && typeof p.call_id === 'string') tools.set(p.call_id, { id: p.call_id, name: String(p.name || 'Tool').replace(/[^a-zA-Z0-9_.:-]/g, '').slice(0, 80), status: 'running', at: record.timestamp || '' });
+      if (['function_call_output', 'custom_tool_call_output'].includes(p?.type) && tools.has(p.call_id)) Object.assign(tools.get(p.call_id), { status: 'completed', at: record.timestamp || '' });
     }
   }
   return [...tools.values()].slice(-8);
@@ -54,7 +55,8 @@ function findings(result) {
 // message the person wrote, 'skip' for CLI bookkeeping, or a compact event.
 export function systemEvent(text, origin) {
   const value = text.trim();
-  if (/^<local-command-caveat>/.test(value)) return 'skip';
+  // Codex sends project instructions and its environment as user turns.
+  if (/^(?:<local-command-caveat>|# AGENTS\.md instructions for |<environment_context>|<user_instructions>|<external_codex_apps_open_page>)/.test(value)) return 'skip';
   if (/^<task-notification>/.test(value)) {
     // The result is the agent's Markdown and may contain code such as List<int>; only the event line is plain text.
     const result = tagValue(value, 'result'), parsed = findings(result), status = tagValue(value, 'status');
@@ -111,18 +113,22 @@ export function transcriptMessages(records, agent, limit = 100) {
   if (agent === 'claude') records = activeBranch(records);
   const messages = [];
   // Codex event messages avoid showing injected environment/instruction records.
-  const hasCodexEvents = records.some(item => item.type === 'event_msg' && ['user_message', 'agent_message'].includes(item.payload?.type));
+  // Codex 0.163 records them as completed UserMessage and AgentMessage items.
+  const codexItem = item => item.type === 'event_msg' && item.payload?.type === 'item_completed' ? item.payload.item : null;
+  const hasCodexEvents = records.some(item => item.type === 'event_msg' && (['user_message', 'agent_message'].includes(item.payload?.type) || ['UserMessage', 'AgentMessage'].includes(codexItem(item)?.type)));
   for (const item of records) {
     let role, text, content, imageRefs = [];
     if (agent === 'codex' && hasCodexEvents && item.type === 'event_msg') {
+      const entry = codexItem(item), parts = Array.isArray(entry?.content) ? entry.content : [];
       if (item.payload?.type === 'user_message') { role = 'user'; text = item.payload.message; imageRefs = [...(item.payload.local_images || []), ...(item.payload.images || [])].filter(value => typeof value === 'string').slice(0, 12); }
       if (item.payload?.type === 'agent_message') { role = 'assistant'; text = item.payload.message; }
+      if (entry?.type === 'UserMessage') { role = 'user'; text = parts.filter(part => part?.type === 'text').map(part => part.text || '').join('\n'); imageRefs = parts.filter(part => /image/i.test(part?.type)).map(part => part.path ?? part.image_url ?? part.url).filter(value => typeof value === 'string').slice(0, 12); }
+      if (entry?.type === 'AgentMessage') { role = 'assistant'; text = parts.filter(part => /^text$/i.test(part?.type)).map(part => part.text || '').join('\n'); }
     } else if (agent === 'codex' && !hasCodexEvents && item.type === 'response_item' && item.payload?.type === 'message') {
       role = item.payload.role; content = item.payload.content; text = textParts(content);
     } else if (agent === 'claude' && !item.isSidechain && !item.isMeta && ['user', 'assistant'].includes(item.type)) {
       role = item.type; content = item.message?.content; text = textParts(content);
       if (Array.isArray(content) && content.some(part => part.type === 'tool_result')) role = 'assistant';
-      if (role === 'user') text = unwrapPastes(text);
     }
     if (agent === 'codex' && hasCodexEvents && item.type === 'response_item' && item.payload?.type === 'message' && item.payload.role === 'assistant') { role = 'assistant'; text = ''; content = item.payload.content; }
     if (agent === 'codex' && item.type === 'response_item' && item.payload?.type === 'function_call_output') {
@@ -132,13 +138,15 @@ export function transcriptMessages(records, agent, limit = 100) {
       role = 'assistant'; text = '';
     }
     text = typeof text === 'string' ? text : '';
+    // Codex chats imported from Claude Code keep its paste tags too.
+    if (role === 'user') text = unwrapPastes(text);
     const event = role === 'user' ? systemEvent(text, item.origin) : null;
     if (event === 'skip') continue;
     if (event) { role = 'system'; text = event.title; content = undefined; imageRefs = []; }
     imageRefs = [...new Set([...imageRefs, ...imageReferences(content, text || '')])].slice(0, 12);
     if (!['user', 'assistant', 'system'].includes(role) || (!text?.trim() && !imageRefs.length)) continue;
     const at = item.timestamp || '';
-    const id = item.uuid || createHash('sha256').update(`${at}:${role}:${text}:${imageRefs.join(";")}`).digest('hex').slice(0, 24);
+    const id = item.uuid || codexItem(item)?.id || createHash('sha256').update(`${at}:${role}:${text}:${imageRefs.join(";")}`).digest('hex').slice(0, 24);
     // Streaming revisions of a Claude message have the same message ID.
     const nativeId = item.message?.id;
     const previous = nativeId && messages.findIndex(message => message.nativeId === nativeId);
