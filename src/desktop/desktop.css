@@ -116,7 +116,9 @@
 .chat-tab.selected .chat-tab-select{color:#e2dce7!important}.chat-tab-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .chat-tab-close{border:0;background:none;display:flex;align-items:center;justify-content:center;width:21px;height:23px;border-radius:4px;color:#9c91a3!important;flex-shrink:0;opacity:1}
 .chat-tab-close:hover{background:#f0a0b017;color:#edb5c0!important}
-.chat-tab-select{touch-action:none;user-select:none;cursor:grab}.chat-tab-select:active{cursor:grabbing}.chat-tab.has-color{background:color-mix(in srgb,var(--tab-accent) 9%,transparent);box-shadow:inset 0 2px 0 color-mix(in srgb,var(--tab-accent) 40%,transparent);border-radius:5px 5px 0 0}
+.chat-tab-select{touch-action:none;user-select:none;cursor:grab}.chat-tab-select:active{cursor:grabbing}
+.chat-tab-editing,.chat-tab-editing:active{cursor:text}.chat-tab-editing input{width:150px;min-width:0;padding:3px 6px;border:1px solid #dfa3b866;border-radius:4px;background:#ffffff08;color:#e2dce7;font-size:11px;user-select:text}
+.chat-tab.has-color{background:color-mix(in srgb,var(--tab-accent) 9%,transparent);box-shadow:inset 0 2px 0 color-mix(in srgb,var(--tab-accent) 40%,transparent);border-radius:5px 5px 0 0}
 .chat-tab.has-color .chat-tab-name{color:color-mix(in srgb,var(--tab-accent) 80%,#eee)}
 .chat-tab.has-color.selected{background:color-mix(in srgb,var(--tab-accent) 16%,transparent)}.chat-tab.selected:after{background:var(--tab-accent,#dfa3b8)}
 .chat-tab.dragging{opacity:.4}.chat-tab.drop-before:before,.chat-tab.drop-after:before{content:'';position:absolute;z-index:3;top:5px;bottom:5px;width:2px;background:#e7d6e3;border-radius:2px}.chat-tab.drop-before:before{left:0}.chat-tab.drop-after:before{right:0}
