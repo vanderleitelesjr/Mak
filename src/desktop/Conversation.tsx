@@ -4,6 +4,7 @@ import remarkGfm from 'remark-gfm'
 import { api, pickFiles, reportError, speakDesktopText, transcribeDesktopAudio, uploadImage } from './client'
 import type { ChatSession, SystemEventsMode } from './types'
 import SystemEvent, { type SystemEventData } from '../mobile/SystemEvent'
+import BackgroundWork, { type BackgroundCommand, type WorkingAgent } from '../mobile/BackgroundWork'
 import { AgentLogo, Icon } from './Icons'
 import { useDictation } from './useDictation'
 import ConversationImages from '../mobile/ConversationImages'
@@ -18,7 +19,7 @@ import './conversation.css'
 interface ToolActivity { id: string; name: string; status: 'running' | 'completed' | 'failed'; at: string }
 interface Message { id: string; role: 'user' | 'assistant' | 'system'; text: string; at: string; images?: ConversationImage[]; event?: SystemEventData }
 interface TerminalPrompt { id: string; question: string; detail: string[]; options: string[]; selected: number }
-interface Transcript { supported: boolean; messages: Message[]; activity?: ToolActivity[]; truncated?: boolean; prompt?: TerminalPrompt | null }
+interface Transcript { supported: boolean; messages: Message[]; activity?: ToolActivity[]; agents?: WorkingAgent[]; commands?: BackgroundCommand[]; truncated?: boolean; prompt?: TerminalPrompt | null }
 interface Draft { text: string; paths: string[] }
 
 const time = (value: string) => new Date(value).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
@@ -258,6 +259,7 @@ export default function Conversation({ session, connected, agentLabel, openTermi
     </div>
     {showJump && <button type="button" className="conversation-jump" onClick={() => { follow.current = true; setShowJump(false); const box = scroller.current; if (box) box.scrollTop = box.scrollHeight }}><Icon name="down" size={15} />Latest</button>}
     {dragging && <div className="terminal-drop"><Icon name="attach" size={30} /><strong>Drop to attach</strong><span>Files, folders and images</span></div>}
+    <BackgroundWork agents={transcript?.agents} commands={transcript?.commands} now={now} />
     <form className="conversation-composer" onSubmit={event => { event.preventDefault(); void send() }}>
       {!!suggestions.length && <ul className="conversation-commands" id="conversation-commands" role="listbox" aria-label="Commands">{suggestions.map((command, index) => <li key={`${command.trigger}${command.name}`} id={`conversation-command-${index}`} role="option" aria-selected={command === highlighted}
         onMouseDown={event => { event.preventDefault(); complete(command) }} onMouseEnter={() => setPicked(index)}>

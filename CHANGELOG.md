@@ -23,6 +23,7 @@
 - Edit a sent message in a Claude Code chat's Conversation view, as with Esc Esc in Claude Code. The pencil on your message opens an editor; sending rewinds the conversation to before that message (files are not changed) and sends the edited text. Conversation views show only the current branch after a rewind, including one made in the terminal.
 - Phone: pull down from the top of the Workspace to refresh it, as in a mobile browser. The report list reloads, and an open report reloads at the same page and section. The browser's own pull no longer reloads the whole app there.
 - Phone: the back gesture returns to the previous screen instead of leaving the app: a chat or the Workspace to the chat list, an open report to the Workspace list and History to the open chats. On the chat list it leaves the app as before. It uses the browser's close request (CloseWatcher), available in Chrome and Edge on Android.
+- Conversation views on desktop and phone show, above the composer, the subagents and background terminal commands a Claude Code chat started that are still working, including those that keep going while the chat waits. Expand the line to see each agent's task and current step (for example `Bash · Run the tests`), each command and the agent that started it, and how long each has been running.
 
 ## 0.5.1 - 2026-10-14
 

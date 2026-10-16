@@ -65,7 +65,9 @@ for (const [index, id] of ids.entries()) {
   session.preview = 'Latest notes: [Review the animation](C:/Projects/game/characters/' + 'very-long-character-name-'.repeat(12) + '/review.html) and https://example.com/research/' + 'reference'.repeat(40);
   await new Promise(resolve => session.terminal.write(Array.from({ length: 90 }, (_, line) => `Line ${line + 1}: live agent output\r\n`).join('') + `╭${'─'.repeat(60)}╮\r\n│ A long reply line that the desktop terminal draws at its full width and the phone wraps.      │\r\n`, resolve));
 }
-service.mobile.transcripts.read = async session => ({ supported: true, activity: [{ id: 'tool-one', name: 'Read test file', status: 'completed', at: new Date().toISOString() }], messages: [
+service.mobile.transcripts.read = async session => ({ supported: true, activity: [{ id: 'tool-one', name: 'Read test file', status: 'completed', at: new Date().toISOString() }],
+  agents: [{ id: 'agent-one', name: 'Bot Coder: task 8', type: 'general-purpose', step: 'Bash · Run the tests', startedAt: new Date(Date.now() - 5 * 60000).toISOString(), updatedAt: new Date().toISOString() }],
+  commands: [{ id: 'command-one', name: 'PowerShell', title: 'Run the Playwright suite', startedAt: new Date(Date.now() - 2 * 60000).toISOString(), agent: 'Bot Coder: task 8' }], messages: [
   { id: 'old-user', role: 'user', text: 'Older request excluded from speech.', at: '' },
   { id: 'old-agent', role: 'assistant', text: 'Older answer excluded from speech.', at: '' },
   { id: 'user', role: 'user', text: 'Can we make the next iteration easier to review?', at: new Date().toISOString() },
@@ -412,6 +414,15 @@ try {
   await expect(phone.getByText('Read test file', { exact: true })).toBeVisible();
   await recentActivity.locator('summary').click();
   await expect(phone.getByText('Read test file', { exact: true })).toBeHidden();
+  const workingAgents = phone.locator('.background-work');
+  await expect(workingAgents.locator('summary')).toContainText('1 agent and 1 command working');
+  await expect(phone.getByText('Bash · Run the tests')).toBeHidden();
+  await workingAgents.locator('summary').click();
+  await expect(phone.getByText('Bash · Run the tests')).toBeVisible();
+  await expect(workingAgents).toContainText('general-purpose · running 5 min');
+  await expect(workingAgents.locator('li.command')).toContainText('Run the Playwright suite');
+  await expect(workingAgents.locator('li.command')).toContainText('PowerShell · started by Bot Coder: task 8');
+  await workingAgents.locator('summary').click();
   await phone.locator('.mobile-activity-status.working').waitFor();
   assert.equal(await phone.locator('.mobile-worker-hands').evaluate(node => getComputedStyle(node).animationName), 'mobile-worker-type');
   const modeLayout = await phone.locator('.mobile-chat-tools').evaluate(node => {

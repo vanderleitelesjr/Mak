@@ -15,6 +15,7 @@ import ReadingVoiceSettings from './ReadingVoiceSettings'
 import DictationSettings from '../components/DictationSettings'
 import Results from './Results'
 import ActivityStatus from './ActivityStatus'
+import BackgroundWork, { type BackgroundCommand, type WorkingAgent } from './BackgroundWork'
 import { useInstall } from './useInstall'
 import { visibleUserMessage } from './workspace-context'
 import './mobile.css'
@@ -75,7 +76,7 @@ function Conversation({ session, active }: { session: ChatSession; active: boole
   useEffect(() => () => stopReading(), [latestUserId, stopReading])
   const [initialPosition] = useState(() => mobileChatPosition(session.id))
   const scroller = useRef<HTMLDivElement>(null), restored = useRef(false), follow = useRef(initialPosition.follow !== false), state = useMobile()
-  const [activity, setActivity] = useState<ToolActivity[]>([])
+  const [activity, setActivity] = useState<ToolActivity[]>([]), [background, setBackground] = useState<{ agents?: WorkingAgent[]; commands?: BackgroundCommand[] }>({})
   const reloadConversation = useRef<(() => Promise<void>) | null>(null)
   const [showJump, setShowJump] = useState(false)
   function jumpToLatest() { follow.current = true; setShowJump(false); const box = scroller.current; if (box) box.scrollTop = box.scrollHeight }
@@ -90,11 +91,11 @@ function Conversation({ session, active }: { session: ChatSession; active: boole
       if (working || document.visibilityState === 'hidden') return
       working = true
       try {
-        const result = await mobileApi<{ messages: Message[]; supported: boolean; activity?: ToolActivity[] }>(`/sessions/${session.id}/messages`)
+        const result = await mobileApi<{ messages: Message[]; supported: boolean; activity?: ToolActivity[]; agents?: WorkingAgent[]; commands?: BackgroundCommand[] }>(`/sessions/${session.id}/messages`)
         if (!stopped) {
           const at = Date.now(), fingerprint = JSON.stringify(result.messages)
           if (fingerprint !== transcriptFingerprint.current) { transcriptFingerprint.current = fingerprint; setChangedAt(at) }
-          setMessages(result.messages); setActivity(result.activity || []); setSupported(result.supported); setCheckedAt(at); setNow(at); setReadError('')
+          setMessages(result.messages); setActivity(result.activity || []); setBackground({ agents: result.agents, commands: result.commands }); setSupported(result.supported); setCheckedAt(at); setNow(at); setReadError('')
         }
       } catch { if (!stopped) { setReadError('Conversation could not refresh. Your previous messages are still shown.'); setNow(Date.now()) } }
       finally { working = false }
@@ -140,6 +141,7 @@ function Conversation({ session, active }: { session: ChatSession; active: boole
       {!!activity.length && <details className="mobile-tool-activity" aria-label="Recent tool activity"><summary>Recent activity</summary>{activity.map(item => <div key={item.id}><Icon name={item.status === 'running' ? 'terminal' : item.status === 'failed' ? 'bell' : 'history'} size={14} /><span>{item.name}</span><small>{item.status === 'running' && !running ? 'Interrupted' : item.status}{item.at && ` · ${new Date(item.at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`}</small></div>)}</details>}
       {session.activity === 'working' && <p className="mobile-agent-working"><i />Agent is working on your computer…</p>}
     </div>{showJump && <button className="mobile-jump-latest" onClick={jumpToLatest}><Icon name="down" size={16} />Jump to latest</button>}</div>}
+    {mode === 'messages' && <BackgroundWork agents={background.agents} commands={background.commands} now={now} />}
     {!running && <div className="mobile-resume"><span>This conversation is saved.</span><button disabled={!state.connected} onClick={async () => { try { await mobileApi(`/sessions/${session.id}/resume`, {}); setError('') } catch (err) { setError(err instanceof Error ? err.message : String(err)) } }}>Resume chat</button></div>}
     {speech.error && <p className="mobile-error" role="alert">{speech.error}</p>}
     {error && <p className="mobile-error" role="alert">{error}</p>}

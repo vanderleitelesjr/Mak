@@ -1,5 +1,6 @@
-import { open, stat } from 'node:fs/promises';
+import { open, readdir, readFile, stat } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
+import path from 'node:path';
 import { imageReferences } from './conversation-media.mjs';
 import { claudeTranscript } from './native-events.mjs';
 import { codexSegments } from './codex-history.mjs';
@@ -184,26 +185,140 @@ export async function transcriptText(files, limit = 4 * 1024 * 1024) {
   return { text, truncated: false };
 }
 
+// The task a Claude Code <task-notification> reports as stopped: a subagent or a
+// background command. It arrives as a user turn (in a subagent after a "[SYSTEM
+// NOTIFICATION]" preamble), or during a turn as a queued command, logged when queued.
+function notifiedTask(record) {
+  const text = record.type === 'user' ? textParts(record.message?.content)
+    : record.type === 'queue-operation' ? record.content
+    : record.attachment?.type === 'queued_command' ? record.attachment.prompt : '';
+  const match = typeof text === 'string' && /<task-notification>\s*<task-id>([\w-]+)<\/task-id>/.exec(text);
+  return match && (record.origin?.kind === 'task-notification' || !text.slice(0, match.index).trim()) ? match[1] : undefined;
+}
+
+// When each background task last reported that it stopped, keyed by the task id.
+export function taskStops(records) {
+  const stops = new Map();
+  for (const record of records) {
+    const id = !record.isSidechain && notifiedTask(record);
+    if (id) stops.set(id, Date.parse(record.timestamp) || 0);
+  }
+  return stops;
+}
+
+const oneLine = (value, max) => String(value ?? '').replace(/\s+/g, ' ').trim().slice(0, max);
+
+// Shell commands sent to the background (run_in_background, or a command that
+// outlived its timeout) that have not reported back or been stopped with TaskStop.
+export function backgroundCommands(records) {
+  const calls = new Map(), commands = new Map();
+  for (const record of records) {
+    for (const part of Array.isArray(record.message?.content) ? record.message.content : []) {
+      if (part.type === 'tool_use') {
+        calls.set(part.id, { tool: part, at: record.timestamp });
+        if (part.name === 'TaskStop') commands.delete(part.input?.task_id);
+      }
+      const id = record.toolUseResult?.backgroundTaskId, call = part.type === 'tool_result' && calls.get(part.tool_use_id);
+      if (call && typeof id === 'string') commands.set(id, {
+        id, name: oneLine(call.tool.name || 'Shell', 60),
+        title: oneLine(call.tool.input?.description || String(call.tool.input?.command || '').split('\n')[0] || 'Background command', 160),
+        startedAt: call.at || record.timestamp || '',
+      });
+    }
+    const stopped = notifiedTask(record);
+    if (stopped) commands.delete(stopped);
+  }
+  return [...commands.values()];
+}
+function toolStep(tool) {
+  const input = tool.input || {}, file = input.file_path || input.notebook_path || input.path;
+  const hint = input.description || (typeof file === 'string' && path.basename(file)) || input.pattern || input.query || input.url || String(input.command || '').split('\n')[0];
+  const name = String(tool.name || 'Tool').split('__').pop();
+  return oneLine(hint ? `${name} · ${hint}` : name, 160);
+}
+
+// What a subagent is doing, from the end of its transcript. Its turn ends with a
+// reply that stopped on end_turn; otherwise a tool or the model is still running.
+export function subagentStep(records) {
+  for (let index = records.length - 1; index >= 0; index--) {
+    const record = records[index];
+    if (record.type === 'user') return { working: true, at: record.timestamp, step: 'Thinking' };
+    if (record.type !== 'assistant') continue;
+    const content = Array.isArray(record.message?.content) ? record.message.content : [];
+    const tool = content.findLast(part => part.type === 'tool_use');
+    if (!tool && ['end_turn', 'stop_sequence', 'max_tokens', 'refusal'].includes(record.message?.stop_reason)) return { working: false, at: record.timestamp };
+    return { working: true, at: record.timestamp, step: tool ? toolStep(tool) : content.some(part => part.type === 'text') ? 'Writing' : 'Thinking' };
+  }
+  return null;
+}
+
 // Read-only conversation view of a native CLI transcript, for phone and desktop.
 export class ConversationTranscripts {
   cache = new Map();
+  subagents = new Map();
   async read(session) {
     if (!['codex', 'claude'].includes(session.agent) || !session.nativeId) return { supported: false, messages: [] };
     const files = session.agent === 'claude' ? [await claudeTranscript(session.cwd, session.nativeId)] : await codexSegments(session.nativeId);
     if (!files.length) return { supported: false, messages: [] };
     try {
       const info = await stat(files.at(-1));
-      const cached = this.cache.get(session.id), key = `${files.join('|')}:${info.size}:${info.mtimeMs}`;
-      if (cached?.key === key) return cached.value;
-      const { text, truncated } = await transcriptText(files);
-      const records = text.split('\n').flatMap(line => { try { return [JSON.parse(line)]; } catch { return []; } });
-      const messages = transcriptMessages(records, session.agent, Infinity);
-      // Prompts the user sent; it measures how long a conversation has become.
-      const userMessages = messages.filter(item => item.role === 'user').length;
-      const value = { supported: true, messages: messages.slice(-100), userMessages, activity: transcriptActivity(records, session.agent), model: transcriptModel(records, session.agent), truncated };
-      this.cache.set(session.id, { key, value });
-      if (this.cache.size > 25) this.cache.delete(this.cache.keys().next().value);
-      return value;
+      let cached = this.cache.get(session.id);
+      const key = `${files.join('|')}:${info.size}:${info.mtimeMs}`;
+      if (cached?.key !== key) {
+        const { text, truncated } = await transcriptText(files);
+        const records = text.split('\n').flatMap(line => { try { return [JSON.parse(line)]; } catch { return []; } });
+        const messages = transcriptMessages(records, session.agent, Infinity);
+        // Prompts the user sent; it measures how long a conversation has become.
+        const userMessages = messages.filter(item => item.role === 'user').length;
+        const value = { supported: true, messages: messages.slice(-100), userMessages, activity: transcriptActivity(records, session.agent), model: transcriptModel(records, session.agent), truncated };
+        const claude = session.agent === 'claude';
+        cached = { key, value, stops: claude ? taskStops(records) : new Map(), commands: claude ? backgroundCommands(records) : [] };
+        this.cache.set(session.id, cached);
+        if (this.cache.size > 25) this.cache.delete(this.cache.keys().next().value);
+      }
+      // Subagents write their own files, so the chat's transcript may be unchanged while they work.
+      return session.agent === 'claude' ? { ...cached.value, ...await this.backgroundWork(files[0], session, cached).catch(() => ({ agents: [], commands: [] })) } : cached.value;
     } catch { return { supported: false, messages: [] }; }
+  }
+
+  // Subagents and background commands still working. Both end with their CLI, so
+  // only work recorded since this chat's terminal started can still be running.
+  // Claude Code keeps each subagent's transcript in <chat>/subagents/agent-<id>.jsonl
+  // with a .meta.json (type, description). The chat's own transcript only has a
+  // background agent's launch and notification, which a long chat pushes out of the
+  // part read above.
+  async backgroundWork(transcript, session, { stops, commands: chatCommands }) {
+    if (!session.process) return { agents: [], commands: [] };
+    const since = command => (Date.parse(command.startedAt) || 0) >= (session.startedAt || 0);
+    const commands = chatCommands.filter(since);
+    const folder = path.join(path.dirname(transcript), session.nativeId, 'subagents');
+    const agents = [];
+    for (const name of await readdir(folder).catch(() => [])) {
+      if (!/^agent-[\w-]+\.jsonl$/.test(name)) continue;
+      const file = path.join(folder, name), info = await stat(file).catch(() => null);
+      if (!info || info.mtimeMs < (session.startedAt || 0)) continue;
+      const key = `${info.size}:${info.mtimeMs}`;
+      let entry = this.subagents.get(file);
+      if (entry?.key !== key) {
+        const text = await readRange(file, Math.max(0, info.size - 256 * 1024), info.size);
+        const records = text.split('\n').flatMap(line => { try { return [JSON.parse(line)]; } catch { return []; } });
+        let meta = {};
+        try { meta = JSON.parse(await readFile(file.replace(/\.jsonl$/, '.meta.json'), 'utf8')); } catch { /* Older CLIs wrote no metadata. */ }
+        entry = { key, state: subagentStep(records), commands: backgroundCommands(records), agent: {
+          id: name.slice(6, -6), name: oneLine(meta.description || meta.name || meta.agentType || 'Agent', 160), type: oneLine(meta.agentType, 60),
+          startedAt: (info.birthtimeMs ? info.birthtime : info.mtime).toISOString(), updatedAt: info.mtime.toISOString(),
+        } };
+        this.subagents.set(file, entry);
+        if (this.subagents.size > 300) this.subagents.delete(this.subagents.keys().next().value);
+      }
+      // A subagent's own commands may outlast its turn. They report back to it, or to the chat once it has ended.
+      commands.push(...entry.commands.filter(command => since(command) && !stops.has(command.id)).map(command => ({ ...command, agent: entry.agent.name })));
+      // A stopped or killed agent is reported in the chat's transcript after its last write.
+      const stopped = stops.get(entry.agent.id);
+      if (!entry.state?.working || (stopped && stopped >= (Date.parse(entry.state.at) || info.mtimeMs))) continue;
+      agents.push({ ...entry.agent, step: entry.state.step });
+    }
+    const byStart = (a, b) => a.startedAt.localeCompare(b.startedAt);
+    return { agents: agents.sort(byStart).slice(0, 20), commands: commands.sort(byStart).slice(0, 20) };
   }
 }
