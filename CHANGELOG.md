@@ -15,6 +15,8 @@
 - Group open tabs by project with the folder button next to New chat. Tab shortcuts follow the grouped order. When the tab bar wraps, a project label stays on the row of its first tab. Click a project label to collapse its tabs; collapsed projects line up on one row and keep the open chat visible.
 - Rename a chat from its tab: double-click it or press F2, then Enter to save or Escape to cancel.
 - Autocomplete commands in the Conversation view. Type `/` at the start of a message, or `$` before a word in a Codex chat, to list that CLI's built-in commands plus project, user and plugin commands and skills. A command that opens a picker, such as `/model`, switches the chat to Terminal.
+- Conversation views show what the CLI adds to a chat as compact events instead of raw tags: background agent results (a review's findings become a list with file links), slash commands and their output, and relays. Choose Compact, Expanded or Hidden in chat options. These events no longer count toward the fresh-chat suggestion.
+- The desktop status bar shows the model the chat last used, next to reasoning effort and permissions.
 
 ## 0.5.1 - 2026-10-14
 

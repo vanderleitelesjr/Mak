@@ -29,6 +29,68 @@ export function unwrapPastes(text) {
   return text.replace(/<pasted_content id="([^"\n]{1,40})">\n?([\s\S]*?)\n?<\/pasted_content id="\1">/g, '$2').trim();
 }
 
+const tagValue = (text, tag) => new RegExp(`<${tag}(?:\\s[^>]*)?>([\\s\\S]*?)</${tag}>`).exec(text)?.[1].trim() || '';
+const plainText = text => text.replace(/<\/?[a-zA-Z][\w-]*(?:\s[^>]*)?\/?>/g, '').replace(/\x1b\[[0-9;?]*[ -/]*[@-~]/g, '').replace(/[ \t]+\n/g, '\n').replace(/\n{3,}/g, '\n\n').trim();
+const firstLine = text => text.split('\n').map(line => line.trim()).find(Boolean)?.slice(0, 200) || '';
+
+// A review agent's result is often a JSON list of findings: bare, or in a code fence
+// after a short summary. Returns the list and the text around it.
+function findings(result) {
+  const fenced = [...result.matchAll(/```(?:json)?\s*\n([\s\S]*?)\n?```/g)].at(-1);
+  let value;
+  try { value = JSON.parse(fenced ? fenced[1] : result); } catch { return null; }
+  if (!Array.isArray(value) || !value.length || !value.every(item => item && typeof item === 'object' && typeof (item.summary ?? item.title) === 'string')) return null;
+  const prose = fenced ? (result.slice(0, fenced.index) + result.slice(fenced.index + fenced[0].length)).trim() : '';
+  return { prose, list: value.slice(0, 40).map(item => ({
+    summary: String(item.summary ?? item.title).slice(0, 2000),
+    ...(typeof item.file === 'string' ? { file: item.file.slice(0, 400) } : {}),
+    ...(Number.isInteger(item.line) ? { line: item.line } : {}),
+    ...(typeof (item.failure_scenario ?? item.scenario ?? item.details) === 'string' ? { detail: String(item.failure_scenario ?? item.scenario ?? item.details).slice(0, 4000) } : {}),
+  })) };
+}
+
+// Text the CLI itself put in the user's turn: background-task notifications, slash
+// command echoes and their output, relays between sessions. Returns null for a
+// message the person wrote, 'skip' for CLI bookkeeping, or a compact event.
+export function systemEvent(text, origin) {
+  const value = text.trim();
+  if (/^<local-command-caveat>/.test(value)) return 'skip';
+  if (/^<task-notification>/.test(value)) {
+    // The result is the agent's Markdown and may contain code such as List<int>; only the event line is plain text.
+    const result = tagValue(value, 'result'), parsed = findings(result), status = tagValue(value, 'status');
+    const detail = (parsed ? parsed.prose : result || plainText(tagValue(value, 'event'))).slice(0, 20000);
+    return { kind: 'agent', title: plainText(tagValue(value, 'summary')) || 'Background task finished', ...(status ? { status } : {}), ...(detail ? { detail } : {}), ...(parsed ? { findings: parsed.list } : {}) };
+  }
+  if (/^<command-(?:name|message)>/.test(value)) {
+    const name = tagValue(value, 'command-name') || `/${tagValue(value, 'command-message')}`, args = tagValue(value, 'command-args');
+    return { kind: 'command', title: `${name}${args ? ` ${args}` : ''}`.slice(0, 300) };
+  }
+  if (/^<bash-input>/.test(value)) return { kind: 'command', title: `! ${tagValue(value, 'bash-input')}`.slice(0, 300) };
+  if (/^<(?:local-command-stdout|bash-stdout|bash-stderr)>/.test(value)) {
+    const output = plainText(value);
+    return { kind: 'output', title: firstLine(output) || 'Command finished', ...(output.includes('\n') ? { detail: output.slice(0, 20000) } : {}) };
+  }
+  if ((origin?.kind && origin.kind !== 'human') || /^<(?:system-reminder|relay|wake|project_claude_message)[\s>]/.test(value)) {
+    const body = plainText(value);
+    return { kind: 'notice', title: firstLine(body) || 'Message from the CLI', detail: body.slice(0, 20000) };
+  }
+  return null;
+}
+
+// The model the chat last used: Codex records it per turn; Claude Code on each reply
+// and when /model changes it.
+export function transcriptModel(records, agent) {
+  for (let index = records.length - 1; index >= 0; index--) {
+    const record = records[index];
+    if (agent === 'codex' && record.type === 'turn_context' && typeof record.payload?.model === 'string') return record.payload.model;
+    if (agent !== 'claude' || record.isSidechain) continue;
+    if (record.type === 'assistant' && typeof record.message?.model === 'string' && !record.message.model.startsWith('<')) return record.message.model;
+    const set = record.type === 'user' && typeof record.message?.content === 'string' && /<local-command-stdout>Set model to (?:\x1b\[[0-9;]*m)*`?([^`\s\x1b<]+)/.exec(record.message.content);
+    if (set) return set[1];
+  }
+  return null;
+}
+
 export function transcriptMessages(records, agent, limit = 100) {
   const messages = [];
   // Codex event messages avoid showing injected environment/instruction records.
@@ -53,14 +115,17 @@ export function transcriptMessages(records, agent, limit = 100) {
       role = 'assistant'; text = '';
     }
     text = typeof text === 'string' ? text : '';
+    const event = role === 'user' ? systemEvent(text, item.origin) : null;
+    if (event === 'skip') continue;
+    if (event) { role = 'system'; text = event.title; content = undefined; imageRefs = []; }
     imageRefs = [...new Set([...imageRefs, ...imageReferences(content, text || '')])].slice(0, 12);
-    if (!['user', 'assistant'].includes(role) || (!text?.trim() && !imageRefs.length)) continue;
+    if (!['user', 'assistant', 'system'].includes(role) || (!text?.trim() && !imageRefs.length)) continue;
     const at = item.timestamp || '';
     const id = item.uuid || createHash('sha256').update(`${at}:${role}:${text}:${imageRefs.join(";")}`).digest('hex').slice(0, 24);
     // Streaming revisions of a Claude message have the same message ID.
     const nativeId = item.message?.id;
     const previous = nativeId && messages.findIndex(message => message.nativeId === nativeId);
-    const message = { id, role, text: text.slice(0, 100000), at, nativeId, ...(imageRefs.length ? { imageRefs } : {}) };
+    const message = { id, role, text: text.slice(0, 100000), at, nativeId, ...(imageRefs.length ? { imageRefs } : {}), ...(event ? { event } : {}) };
     if (typeof previous === 'number' && previous >= 0) messages[previous] = message;
     else messages.push(message);
   }
@@ -90,7 +155,7 @@ export class ConversationTranscripts {
       const messages = transcriptMessages(records, session.agent, Infinity);
       // Prompts the user sent; it measures how long a conversation has become.
       const userMessages = messages.filter(item => item.role === 'user').length;
-      const value = { supported: true, messages: messages.slice(-100), userMessages, activity: transcriptActivity(records, session.agent), truncated };
+      const value = { supported: true, messages: messages.slice(-100), userMessages, activity: transcriptActivity(records, session.agent), model: transcriptModel(records, session.agent), truncated };
       this.cache.set(session.id, { size: info.size, mtime: info.mtimeMs, value });
       if (this.cache.size > 25) this.cache.delete(this.cache.keys().next().value);
       return value;

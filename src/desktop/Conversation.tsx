@@ -2,7 +2,8 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { api, pickFiles, reportError, speakDesktopText, transcribeDesktopAudio, uploadImage } from './client'
-import type { ChatSession } from './types'
+import type { ChatSession, SystemEventsMode } from './types'
+import SystemEvent, { type SystemEventData } from '../mobile/SystemEvent'
 import { AgentLogo, Icon } from './Icons'
 import { useDictation } from './useDictation'
 import ConversationImages from '../mobile/ConversationImages'
@@ -15,7 +16,7 @@ import { commandToken, completeCommand, matchingCommands, terminalCommand, type 
 import './conversation.css'
 
 interface ToolActivity { id: string; name: string; status: 'running' | 'completed' | 'failed'; at: string }
-interface Message { id: string; role: 'user' | 'assistant'; text: string; at: string; images?: ConversationImage[] }
+interface Message { id: string; role: 'user' | 'assistant' | 'system'; text: string; at: string; images?: ConversationImage[]; event?: SystemEventData }
 interface TerminalPrompt { id: string; question: string; detail: string[]; options: string[]; selected: number }
 interface Transcript { supported: boolean; messages: Message[]; activity?: ToolActivity[]; truncated?: boolean; prompt?: TerminalPrompt | null }
 interface Draft { text: string; paths: string[] }
@@ -58,7 +59,7 @@ function CopyButton({ text }: { text: string }) {
   return <button type="button" className="conversation-copy" title="Copy message" aria-label={copied ? 'Copied' : 'Copy message'} onClick={() => navigator.clipboard.writeText(text).then(() => { setCopied(true); window.setTimeout(() => setCopied(false), 1400) }).catch(reportError)}><Icon name="copy" size={14} />{copied && <span>Copied</span>}</button>
 }
 
-export default function Conversation({ session, connected, agentLabel, openTerminal }: { session: ChatSession; connected: boolean; agentLabel: string; openTerminal: () => void }) {
+export default function Conversation({ session, connected, agentLabel, openTerminal, systemEvents = 'compact' }: { session: ChatSession; connected: boolean; agentLabel: string; openTerminal: () => void; systemEvents?: SystemEventsMode }) {
   const [transcript, setTranscript] = useState<Transcript | null>(null)
   const [readError, setReadError] = useState('')
   const [changedAt, setChangedAt] = useState(() => Date.now()), [now, setNow] = useState(() => Date.now())
@@ -191,7 +192,9 @@ export default function Conversation({ session, connected, agentLabel, openTermi
     <div className="conversation-scroll" ref={scroller} onScroll={() => { const box = scroller.current; if (!box) return; const nearEnd = box.scrollHeight - box.scrollTop - box.clientHeight < 120; follow.current = nearEnd; setShowJump(!nearEnd) }}>
       <div className="conversation-column">
         {transcript?.truncated && <p className="conversation-note">Showing the latest part of a long conversation. The terminal keeps the full history.</p>}
-        {messages.map((message, index) => <article key={message.id} data-index={index} className={`conversation-message ${message.role}`}>
+        {messages.map((message, index) => message.role === 'system' ? systemEvents !== 'hidden' && message.event && <SystemEvent key={`${message.id}:${systemEvents}`} event={message.event} time={message.at ? time(message.at) : undefined} expanded={systemEvents === 'full'}
+          components={{ a: ({ href, children }) => <MessageLink href={href} sessionId={session.id}>{children}</MessageLink> }} fileLink={(file, label) => <MessageLink href={file} sessionId={session.id}>{label}</MessageLink>} />
+        : <article key={message.id} data-index={index} className={`conversation-message ${message.role}`}>
           <header>{message.role === 'user' ? <span>You</span> : <span className="conversation-agent"><AgentLogo agent={session.agent} size={15} />{agentLabel}</span>}{message.at && <time>{time(message.at)}</time>}{message.role === 'assistant' && message.text.trim() && <CopyButton text={message.text} />}</header>
           {message.text.trim() && <div className="conversation-copy-text"><ReactMarkdown remarkPlugins={[remarkGfm]} urlTransform={keepUrl} components={{ img: () => null, a: ({ href, children }) => <MessageLink href={href} sessionId={session.id}>{children}</MessageLink> }}>{message.role === 'user' ? visibleUserMessage(message.text) : message.text}</ReactMarkdown></div>}
           <ConversationImages images={message.images} />
