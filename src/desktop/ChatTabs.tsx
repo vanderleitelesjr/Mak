@@ -55,13 +55,18 @@ export default function ChatTabs({ items, grouped = false, selectedId, agents, c
   }
   const dragged = items.find(item => item.id === dragging?.id)
   return <div className={`chat-tabs ${dragging ? 'is-reordering' : ''}`} role="tablist" aria-label="Agent chats">
-    {items.map((item, index) => <Fragment key={item.id}>{grouped && (index === 0 || projectKey(items[index - 1].cwd) !== projectKey(item.cwd)) && <span className="chat-tab-group" title={item.cwd}><Icon name="folder" size={11} />{projectName(item.cwd)}<small>{items.filter(entry => projectKey(entry.cwd) === projectKey(item.cwd)).length}</small></span>}<div data-chat-tab={item.id} className={`chat-tab ${selectedId === item.id ? 'selected' : ''} ${item.tabColor ? 'has-color' : ''} ${dragging?.id === item.id ? 'dragging' : ''} ${target?.id === item.id ? `drop-${target.position}` : ''}`} style={{ '--tab-accent': item.tabColor || '#dfa3b8' } as React.CSSProperties}>
+    {items.map((item, index) => {
+      const header = grouped && (index === 0 || projectKey(items[index - 1].cwd) !== projectKey(item.cwd))
+      const tab = <div data-chat-tab={item.id} className={`chat-tab ${selectedId === item.id ? 'selected' : ''} ${item.tabColor ? 'has-color' : ''} ${dragging?.id === item.id ? 'dragging' : ''} ${target?.id === item.id ? `drop-${target.position}` : ''}`} style={{ '--tab-accent': item.tabColor || '#dfa3b8' } as React.CSSProperties}>
       <button role="tab" aria-selected={selectedId === item.id} onClick={event => { if (!suppressClick.current || event.detail === 0) choose(item.id) }} onPointerDown={event => begin(event, item)} onPointerMove={move} onPointerUp={finish} onPointerCancel={clear} onLostPointerCapture={clear}
         className="chat-tab-select" aria-label={`${item.name} · ${chatActivityLabel(item)}`} title={`${agents.find(a => a.id === item.agent)?.label} · ${item.name}\n${chatActivityLabel(item)}\nDrag to reorder ${item.pinned ? 'pinned' : 'unpinned'} tabs\n${item.cwd}`}>
         <span style={{ color: agents.find(a => a.id === item.agent)?.color }}><SessionLogo session={item} /></span><span className="chat-tab-name">{item.name}</span>{item.pinned && <span className="tab-pinned" title="Pinned in History"><Icon name="pin" size={11} /></span>}
       </button>
       <button className="chat-tab-close" onClick={() => close(item.id)} aria-label={`Close ${item.name}`} title="Close tab · keep in History"><Icon name="close" size={12} /></button>
-    </div></Fragment>)}
+    </div>
+      // The project label shares a row with its first tab, so a wrapped bar never strands it.
+      return header ? <div key={item.id} className="chat-tab-lead"><span className="chat-tab-group" title={item.cwd}><Icon name="folder" size={11} />{projectName(item.cwd)}<small>{items.filter(entry => projectKey(entry.cwd) === projectKey(item.cwd)).length}</small></span>{tab}</div> : <Fragment key={item.id}>{tab}</Fragment>
+    })}
     {dragging && dragged && <div className="chat-tab-ghost" style={{ left: dragging.x + 13, top: dragging.y + 13, color: dragged.tabColor || '#d8c9da' }} aria-hidden="true"><SessionLogo session={dragged} /><span>{dragged.name}</span>{dragged.pinned && <Icon name="pin" size={12} />}</div>}
   </div>
 }
