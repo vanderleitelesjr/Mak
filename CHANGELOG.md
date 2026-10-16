@@ -12,7 +12,9 @@
 - Offer a fresh chat when a Claude Code or Codex chat passes a set number of your messages (chat options; 40 by default, or Off). Accepting asks the agent for a handoff, saves it in `inbox/handoffs` and opens a new chat in the same project that starts by reading it. Dismiss for later or for that chat.
 - The phone's Terminal view opens in Wrap mode: the live terminal text wraps to the screen and can be selected. Fit and Actual remain available.
 - Phone and desktop Conversation views no longer show Claude Code's `<pasted_content>` tags around messages sent from Mr. Mak.
-- Group open tabs by project with the folder button next to New chat. Tab shortcuts follow the grouped order.
+- Group open tabs by project with the folder button next to New chat. Tab shortcuts follow the grouped order. When the tab bar wraps, a project label stays on the row of its first tab.
+- Rename a chat from its tab: double-click it or press F2, then Enter to save or Escape to cancel.
+- Autocomplete commands in the Conversation view. Type `/` at the start of a message, or `$` before a word in a Codex chat, to list that CLI's built-in commands plus project, user and plugin commands and skills. A command that opens a picker, such as `/model`, switches the chat to Terminal.
 
 ## 0.5.1 - 2026-10-14
 
