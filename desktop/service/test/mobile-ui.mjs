@@ -191,7 +191,9 @@ try {
   assert.deepEqual(await phone.locator('.mobile-main-nav button.active').evaluateAll(buttons => buttons.map(button => button.getAttribute('aria-label'))), ['History']);
   assert.equal(await phone.locator('.mobile-header-count').count(), 1);
   assert.equal(await phone.locator('.mobile-list-count').count(), 0);
-  await phone.getByRole('button', { name: 'History', exact: true }).click();
+  // The phone's back gesture returns to the screen above instead of leaving the app. Esc is the
+  // desktop's close request, the same one Android's back gesture sends.
+  await phone.keyboard.press('Escape');
   await phone.getByRole('heading', { name: 'Chats', exact: true }).waitFor();
   assert.deepEqual(await phone.locator('.mobile-main-nav button.active').evaluateAll(buttons => buttons.map(button => button.getAttribute('aria-label'))), ['Chats']);
   assert.equal(await phone.locator('.mobile-connection-logo').evaluate(dot => getComputedStyle(dot).animationDuration), '3.6s');
@@ -721,6 +723,17 @@ try {
   await pullDown(phone.locator('.mobile-results-list'), 200);
   await listRefresh;
   await expect(phone.locator('.mobile-pull-refresh')).toHaveCount(0);
+  // Back steps up one screen at a time: report, Workspace list, then the chat list.
+  await phone.getByRole('button', { name: /A useful report/ }).click(); await frame.getByRole('heading', { name: 'Report ready' }).waitFor();
+  await phone.keyboard.press('Escape'); await phone.getByRole('heading', { name: 'Workspace', exact: true }).waitFor();
+  // A back request that reaches the focused report frame steps back the same way.
+  await phone.getByRole('button', { name: /A useful report/ }).click(); await frame.getByRole('heading', { name: 'Report ready' }).waitFor();
+  await frame.locator('body').press('Escape'); await phone.getByRole('heading', { name: 'Workspace', exact: true }).waitFor();
+  await phone.waitForTimeout(300); assert.equal(await phone.getByRole('heading', { name: 'Workspace', exact: true }).isVisible(), true, 'One back request steps back once');
+  await phone.keyboard.press('Escape'); await phone.getByRole('heading', { name: 'Chats', exact: true }).waitFor();
+  await phone.getByRole('button', { name: 'Chats', exact: true }).click(); await input.waitFor();
+  await phone.keyboard.press('Escape'); await phone.getByRole('heading', { name: 'Chats', exact: true }).waitFor();
+  assert.equal(await phone.getByRole('button', { name: 'Back to chats' }).count(), 0);
   await phone.getByRole('button', { name: 'Chats', exact: true }).click();
   await input.fill('There is no selected Workspace now.');
   const clearedBefore = writes.length;

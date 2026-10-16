@@ -22,6 +22,7 @@
 - A Codex chat follows a rewind made in its terminal (Esc Esc), which continues the thread in a new rollout file, and a new thread started there with `/new`. The Conversation view joins the rewound history with the new messages.
 - Edit a sent message in a Claude Code chat's Conversation view, as with Esc Esc in Claude Code. The pencil on your message opens an editor; sending rewinds the conversation to before that message (files are not changed) and sends the edited text. Conversation views show only the current branch after a rewind, including one made in the terminal.
 - Phone: pull down from the top of the Workspace to refresh it, as in a mobile browser. The report list reloads, and an open report reloads at the same page and section. The browser's own pull no longer reloads the whole app there.
+- Phone: the back gesture returns to the previous screen instead of leaving the app: a chat or the Workspace to the chat list, an open report to the Workspace list and History to the open chats. On the chat list it leaves the app as before. It uses the browser's close request (CloseWatcher), available in Chrome and Edge on Android.
 
 ## 0.5.1 - 2026-10-14
 

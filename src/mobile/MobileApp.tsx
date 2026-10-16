@@ -6,7 +6,7 @@ import SystemEvent, { type SystemEventData } from './SystemEvent'
 import type { ChatSession, RecentProject } from '../desktop/types'
 import { chatActivityLabel } from '../desktop/chatActivity'
 import { chooseMobileDictation, disconnectMobile, mobileApi, mobileEvent, reconnectMobile, onMobileEvent, selectMobileChat, startMobile, useMobile } from './client'
-import { mobileChatPosition, saveMobileChatPosition, setMobileHistory, setMobileView, useMobileNavigation } from './app-state'
+import { installMobileBack, mobileChatPosition, saveMobileChatPosition, setMobileHistory, setMobileView, useMobileNavigation } from './app-state'
 import Terminal from './Terminal'
 import Composer from './Composer'
 import ConversationImages from './ConversationImages'
@@ -192,6 +192,7 @@ export default function MobileApp() {
   }, [])
   const session = state.sessions.find(item => item.id === state.selectedId)
   useEffect(() => { if (state.ready && state.authenticated && view === 'chat' && !session) setMobileView('list') }, [state.ready, state.authenticated, view, session])
+  useEffect(() => state.authenticated ? installMobileBack() : undefined, [state.authenticated])
   function open(id: string) { selectMobileChat(id); setCloseError(''); setMobileView('chat') }
   async function closeChat() {
     if (!session || closing || !state.connected) return

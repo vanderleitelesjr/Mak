@@ -61,6 +61,9 @@ export function mobileReportStatePrelude(parentOrigin) {
   }, { passive: true, capture: true });
   const released = () => { if (pull) pulled(pull.distance, true); pull = null; };
   document.addEventListener('touchend', released, { passive: true, capture: true }); document.addEventListener('touchcancel', () => { pulled(0, true); pull = null; }, { passive: true, capture: true });
+  // A back request (the phone's back gesture, Esc) can reach this frame when it has focus: the app steps back.
+  const watchBack = () => { if (!window.CloseWatcher) return; const watcher = new CloseWatcher(); watcher.onclose = () => { send('mrmak:report-back'); watchBack(); }; };
+  watchBack();
   window.addEventListener('load', () => send('mrmak:report-ready'));
 })();
 </script>`);

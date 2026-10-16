@@ -4,7 +4,7 @@ import ReactMarkdown, { defaultUrlTransform } from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { Icon } from '../desktop/Icons'
 import { mobileApi, onMobileEvent, reconnectMobile, useMobile } from './client'
-import { reportPosition, saveReportPosition, selectMobileWorkspace, useMobileWorkspace, validReportPosition } from './app-state'
+import { mobileBack, reportPosition, saveReportPosition, selectMobileWorkspace, useMobileWorkspace, validReportPosition } from './app-state'
 import { rememberMobileReport, rememberMobileReports } from './workspace-context'
 import { PULL_REFRESH_DISTANCE, pullOffset, usePullRefresh } from './usePullRefresh'
 
@@ -33,7 +33,7 @@ export default function Results({ header, active }: { header: HTMLElement | null
   const framePull = useEffectEvent((value: number, done: boolean) => pull(value, done))
   useEffect(() => {
     function dismiss(event: PointerEvent) { if (menu.current && !menu.current.contains(event.target as Node)) menu.current.open = false }
-    function escape(event: KeyboardEvent) { if (event.key === 'Escape' && menu.current?.open) { menu.current.open = false; menu.current.querySelector('summary')?.focus() } }
+    function escape(event: KeyboardEvent) { if (event.key === 'Escape' && menu.current?.open) { event.preventDefault(); menu.current.open = false; menu.current.querySelector('summary')?.focus() } }
     document.addEventListener('pointerdown', dismiss); document.addEventListener('keydown', escape)
     return () => { document.removeEventListener('pointerdown', dismiss); document.removeEventListener('keydown', escape) }
   }, [])
@@ -75,6 +75,7 @@ export default function Results({ header, active }: { header: HTMLElement | null
     const id = selectedId, base = new URL(preview.url, location.origin), prefix = /^\/mobile\/view\/[^/]+\//.exec(base.pathname)?.[0]
     const message = (event: MessageEvent) => {
       if (event.source !== frame.current?.contentWindow || event.origin !== 'null' || !prefix) return
+      if (event.data?.type === 'mrmak:report-back') { if (active) mobileBack(); return }
       if (event.data?.type === 'mrmak:report-pull') { const { distance, done } = event.data.state || {}; if (typeof distance === 'number' && Number.isFinite(distance) && typeof done === 'boolean') framePull(Math.max(0, distance), done); return }
       if (event.data?.type === 'mrmak:report-ready') { frame.current?.contentWindow?.postMessage({ type: 'mrmak:report-restore', state: reportPosition(id, step) }, '*'); return }
       if (event.data?.type !== 'mrmak:report-state') return
