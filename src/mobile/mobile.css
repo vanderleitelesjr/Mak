@@ -128,3 +128,9 @@
 .mobile-terminal-reader pre { margin: 0; font: 13px/1.5 ui-monospace, monospace; color: #dedbe3; white-space: pre-wrap; overflow-wrap: anywhere; user-select: text; }
 /* The terminal still parses output while the reader is shown; hidden, not removed, so it keeps its measurements. */
 .mobile-terminal-viewport.reading { position: absolute; width: 1px; height: 1px; overflow: hidden; visibility: hidden; pointer-events: none; }
+/* Workspace pull to refresh. The browser's own pull would reload the whole app, so the scrollers contain it. */
+.mobile-results { position: relative; overflow: hidden; }.mobile-results-list, .mobile-report-markdown { overscroll-behavior-y: contain; }
+.mobile-pull-refresh { position: absolute; top: 0; left: 50%; z-index: 2; width: 36px; height: 36px; margin-left: -18px; display: grid; place-items: center; border-radius: 50%; background: #241d29; border: 1px solid #4a3a4f; color: #a898b1; box-shadow: 0 3px 12px #0008; transform: translateY(calc(var(--pull) - 40px)) rotate(var(--turn)); pointer-events: none; }
+.mobile-pull-refresh.ready, .mobile-pull-refresh.refreshing { color: var(--m-accent); border-color: #896076; }
+.mobile-pull-refresh.refreshing svg { animation: mobile-pull-spin .8s linear infinite; }
+@keyframes mobile-pull-spin { to { transform: rotate(360deg); } }

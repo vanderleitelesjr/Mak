@@ -668,6 +668,27 @@ try {
   await phone.getByRole('button', { name: 'Report', exact: true }).click();
   await frame.getByRole('heading', { name: 'Report ready' }).waitFor();
 
+  // Pull to refresh reloads the report only from the top, and keeps its page.
+  const pullDown = (locator, distance) => locator.evaluate((node, distance) => {
+    const touches = y => [new Touch({ identifier: 1, target: node, clientX: 120, clientY: y })];
+    node.dispatchEvent(new TouchEvent('touchstart', { touches: touches(100), bubbles: true }));
+    for (let y = 110; y <= 100 + distance; y += 10) node.dispatchEvent(new TouchEvent('touchmove', { touches: touches(y), bubbles: true }));
+    node.dispatchEvent(new TouchEvent('touchend', { touches: [], bubbles: true }));
+  }, distance);
+  const reportIdentity = () => frame.locator('body').evaluate(() => window.testReportIdentity).catch(() => 'loading');
+  await expect.poll(() => frame.locator('body').evaluate(() => window.scrollY)).toBe(500);
+  const beforePull = await frame.locator('body').evaluate(() => (window.testReportIdentity = Math.random()));
+  await pullDown(frame.locator('body'), 200);
+  await frame.locator('body').evaluate(() => window.scrollTo(0, 0));
+  await pullDown(frame.locator('body'), 40);
+  await phone.waitForTimeout(300);
+  assert.equal(await reportIdentity(), beforePull, 'A pull below the top or a short pull keeps the report');
+  await pullDown(frame.locator('body'), 200);
+  await expect.poll(reportIdentity).toBeUndefined();
+  await frame.getByRole('heading', { name: 'Report ready' }).waitFor();
+  assert.equal(await frame.locator('body').evaluate(() => location.hash), '#chapter-two');
+  await expect(phone.locator('.mobile-pull-refresh')).toHaveCount(0);
+
   await phone.getByLabel('Select report page', { exact: true }).click();
   await phone.getByRole('button', { name: 'Plan', exact: true }).click(); await phone.getByRole('heading', { name: 'Mobile plan' }).waitFor();
   await phone.locator('.mobile-report-markdown').evaluate(node => { node.scrollTop = 350; node.dispatchEvent(new Event('scroll')); });
@@ -696,6 +717,10 @@ try {
   await phone.getByLabel('Select report page', { exact: true }).click();
   await phone.getByRole('button', { name: 'Close report', exact: true }).click();
   await phone.getByRole('heading', { name: 'Workspace', exact: true }).waitFor();
+  const listRefresh = phone.waitForRequest(request => request.url().endsWith('/mobile/api/reports'));
+  await pullDown(phone.locator('.mobile-results-list'), 200);
+  await listRefresh;
+  await expect(phone.locator('.mobile-pull-refresh')).toHaveCount(0);
   await phone.getByRole('button', { name: 'Chats', exact: true }).click();
   await input.fill('There is no selected Workspace now.');
   const clearedBefore = writes.length;
