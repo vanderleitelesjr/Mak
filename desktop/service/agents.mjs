@@ -1,5 +1,7 @@
-import { existsSync, readFileSync } from 'node:fs';
+import { execFile } from 'node:child_process';
+import { existsSync, readFileSync, statSync } from 'node:fs';
 import path from 'node:path';
+import { promisify } from 'node:util';
 import { parse as parseEnv } from 'dotenv';
 import { isWindows, resolveCommand, shellCommand, shellLabel } from './platform.mjs';
 import { validAntigravityId } from './antigravity.mjs';
@@ -72,7 +74,22 @@ export function initialPromptArgument(value) {
   return value;
 }
 
-export function terminalCommand(agent, { bypass = false, resumeId, nativeId, effort, opencodeMajor = 1, antigravityLog, initialPrompt, readDir } = {}) {
+// Codex 0.163 added the shared background server and --no-daemon; an older Codex
+// rejects the option. Checked once per installed binary.
+const codexHelp = new Map();
+export function codexSupportsNoDaemon(env = process.env) {
+  const file = commandPath('codex', env);
+  if (!file) return Promise.resolve(false);
+  let key = file;
+  try { key += `:${statSync(file).mtimeMs}`; } catch { /* A bare command name is checked once. */ }
+  if (!codexHelp.has(key)) {
+    const command = wrapCommand(file, ['--help']);
+    codexHelp.set(key, promisify(execFile)(command.file, command.args, { env, windowsHide: true, timeout: 15000, maxBuffer: 512000 }).then(result => /--no-daemon\b/.test(result.stdout), () => false));
+  }
+  return codexHelp.get(key);
+}
+
+export function terminalCommand(agent, { bypass = false, resumeId, nativeId, effort, opencodeMajor = 1, antigravityLog, initialPrompt, readDir, noDaemon = false } = {}) {
   if (!AGENTS.some(item => item.id === agent)) throw new Error('Unknown agent');
   resumeId = nativeConversationId(resumeId); nativeId = nativeConversationId(nativeId);
   initialPrompt = initialPromptArgument(initialPrompt);
@@ -86,6 +103,9 @@ export function terminalCommand(agent, { bypass = false, resumeId, nativeId, eff
     if (resumeId) args.push('resume', resumeId);
     // Inline mode retains xterm scrollback for new and resumed conversations.
     args.push('--no-alt-screen');
+    // The shared background server keeps its own originator, so the terminal could
+    // not be matched to its rollout. Run Codex in this terminal's process instead.
+    if (noDaemon) args.push('--no-daemon');
     if (bypass) args.push('--dangerously-bypass-approvals-and-sandbox');
     if (effort) args.push('-c', `model_reasoning_effort="${effort}"`);
     // Codex reads outside its working folder by default.

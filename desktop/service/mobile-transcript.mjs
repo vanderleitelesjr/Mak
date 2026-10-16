@@ -1,7 +1,8 @@
 import { open, stat } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { imageReferences } from './conversation-media.mjs';
-import { claudeTranscript, codexTranscript } from './native-events.mjs';
+import { claudeTranscript } from './native-events.mjs';
+import { codexSegments } from './codex-history.mjs';
 
 export function transcriptActivity(records, agent) {
   const tools = new Map();
@@ -157,31 +158,50 @@ export function transcriptMessages(records, agent, limit = 100) {
   return messages.slice(-limit).map(({ nativeId: _nativeId, ...message }) => message);
 }
 
+async function readRange(file, start, end) {
+  const handle = await open(file, 'r');
+  try {
+    const buffer = Buffer.alloc(end - start);
+    const { bytesRead } = await handle.read(buffer, 0, buffer.length, start);
+    return buffer.subarray(0, bytesRead).toString('utf8');
+  } finally { await handle.close(); }
+}
+
+// The newest 4 MB of a transcript. A Codex rewind segment begins with its own
+// metadata and continues the previous segment up to that segment's history_base.
+export async function transcriptText(files, limit = 4 * 1024 * 1024) {
+  let text = '', budget = limit, end = (await stat(files.at(-1))).size;
+  for (let index = files.length - 1; index >= 0; index--) {
+    const start = Math.max(0, end - budget), chunk = await readRange(files[index], start, end);
+    budget -= end - start;
+    if (start > 0) return { text: chunk.slice(chunk.indexOf('\n') + 1) + text, truncated: true };
+    text = `${chunk}${chunk.endsWith('\n') ? '' : '\n'}${text}`;
+    let base = null;
+    try { base = JSON.parse(chunk.slice(0, chunk.indexOf('\n'))).payload?.history_base; } catch { /* No metadata: nothing earlier to join. */ }
+    if (!index || !Number.isInteger(base?.end_byte_offset)) break;
+    end = Math.min(base.end_byte_offset, (await stat(files[index - 1])).size);
+  }
+  return { text, truncated: false };
+}
+
 // Read-only conversation view of a native CLI transcript, for phone and desktop.
 export class ConversationTranscripts {
   cache = new Map();
   async read(session) {
     if (!['codex', 'claude'].includes(session.agent) || !session.nativeId) return { supported: false, messages: [] };
-    const file = session.agent === 'claude' ? await claudeTranscript(session.cwd, session.nativeId) : await codexTranscript(session.nativeId);
-    if (!file) return { supported: false, messages: [] };
+    const files = session.agent === 'claude' ? [await claudeTranscript(session.cwd, session.nativeId)] : await codexSegments(session.nativeId);
+    if (!files.length) return { supported: false, messages: [] };
     try {
-      const info = await stat(file);
-      const cached = this.cache.get(session.id);
-      if (cached?.size === info.size && cached?.mtime === info.mtimeMs) return cached.value;
-      const handle = await open(file, 'r');
-      let text, truncated = info.size > 4 * 1024 * 1024;
-      try {
-        const size = Math.min(info.size, 4 * 1024 * 1024), buffer = Buffer.alloc(size);
-        await handle.read(buffer, 0, size, info.size - size);
-        text = buffer.toString('utf8');
-      } finally { await handle.close(); }
-      if (truncated) text = text.slice(text.indexOf('\n') + 1);
+      const info = await stat(files.at(-1));
+      const cached = this.cache.get(session.id), key = `${files.join('|')}:${info.size}:${info.mtimeMs}`;
+      if (cached?.key === key) return cached.value;
+      const { text, truncated } = await transcriptText(files);
       const records = text.split('\n').flatMap(line => { try { return [JSON.parse(line)]; } catch { return []; } });
       const messages = transcriptMessages(records, session.agent, Infinity);
       // Prompts the user sent; it measures how long a conversation has become.
       const userMessages = messages.filter(item => item.role === 'user').length;
       const value = { supported: true, messages: messages.slice(-100), userMessages, activity: transcriptActivity(records, session.agent), model: transcriptModel(records, session.agent), truncated };
-      this.cache.set(session.id, { size: info.size, mtime: info.mtimeMs, value });
+      this.cache.set(session.id, { key, value });
       if (this.cache.size > 25) this.cache.delete(this.cache.keys().next().value);
       return value;
     } catch { return { supported: false, messages: [] }; }

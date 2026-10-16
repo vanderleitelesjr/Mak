@@ -30,6 +30,8 @@ test('a first message is one safe argument, placed before Claude\'s variadic --a
     assert.deepEqual(claude.args.slice(-2), ['--add-dir', bin]);
     const codex = terminalCommand('codex', { initialPrompt: prompt });
     assert.equal(codex.args.at(-1), prompt);
+    // Codex runs in the terminal's own process only when it offers --no-daemon.
+    assert.ok(!codex.args.includes('--no-daemon') && terminalCommand('codex', { noDaemon: true }).args.includes('--no-daemon'));
     for (const initialPrompt of ['--dangerously-skip-permissions', 'two\nlines', 'say "hi"', 'x'.repeat(4001), '   ']) assert.throws(() => terminalCommand('claude', { initialPrompt }), /first message/);
     assert.throws(() => terminalCommand('claude', { initialPrompt: prompt, resumeId: '019a0000-1111-4222-8333-444455556666' }), /new Codex or Claude/);
     assert.throws(() => terminalCommand('claude', { readDir: 'relative' }), /absolute folder/);

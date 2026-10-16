@@ -18,6 +18,8 @@
 - Conversation views show what the CLI adds to a chat as compact events instead of raw tags: background agent results (a review's findings become a list with file links), slash commands and their output, and relays. Choose Compact, Expanded or Hidden in chat options. These events no longer count toward the fresh-chat suggestion.
 - The desktop status bar shows the model the chat last used, next to reasoning effort and permissions.
 - Conversation views read Codex 0.163 chats, which record messages as completed items: your messages and replies show as before, Codex's injected project instructions and environment no longer appear as your messages, and tool activity includes its custom tool calls. Codex command autocomplete matches 0.163 (`/approvals` is now `/permissions`; `/plan`, `/skills`, `/rename`, `/goal` and others added).
+- Codex chats stay linked to their conversation with Codex 0.163's shared background server: Mr. Mak starts Codex with `--no-daemon` when the installed version offers it. Without it, chats that did not bypass permissions were never matched to their rollout, so the Conversation view, model and turn notifications stayed empty.
+- A Codex chat follows a rewind made in its terminal (Esc Esc), which continues the thread in a new rollout file, and a new thread started there with `/new`. The Conversation view joins the rewound history with the new messages.
 - Edit a sent message in a Claude Code chat's Conversation view, as with Esc Esc in Claude Code. The pencil on your message opens an editor; sending rewinds the conversation to before that message (files are not changed) and sends the edited text. Conversation views show only the current branch after a rewind, including one made in the terminal.
 
 ## 0.5.1 - 2026-10-14
