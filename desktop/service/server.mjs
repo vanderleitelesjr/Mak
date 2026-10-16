@@ -30,6 +30,7 @@ import { projectKey, recentProjects } from './recent-projects.mjs';
 import { answerPrompt, terminalPrompt } from './terminal-prompt.mjs';
 import { LocalReadAloud } from './local-read-aloud.mjs';
 import { Handoffs } from './handoff.mjs';
+import { chatCommands } from './chat-commands.mjs';
 
 const listen = server => new Promise((resolve, reject) => { server.once('error', reject); server.listen(0, '127.0.0.1', () => resolve(`http://127.0.0.1:${server.address().port}`)); });
 
@@ -314,6 +315,7 @@ export async function createService({ repo, uiDir, stateDir, token = secret(), n
             const value = await conversationMedia.present(await transcripts.read(session), session, 'desktop', grant => `/media/${session.id}/${grant}`);
             return json(response, 200, { ...value, prompt: session.process ? terminalPrompt((await sessions.read(id, 60)).screen) : null });
           }
+          if (method === 'GET' && action === 'commands') { const session = sessions.get(id); return json(response, 200, await chatCommands(session.agent, session.cwd, mcpOptions)); }
           if (method === 'GET' && action === 'stats') {
             const { supported, userMessages = 0, truncated = false } = await transcripts.read(sessions.get(id));
             return json(response, 200, { supported, userMessages, truncated, handoff: handoffs.state(id) });

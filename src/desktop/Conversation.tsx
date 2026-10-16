@@ -11,6 +11,7 @@ import VoiceInput from '../mobile/VoiceInput'
 import { visibleUserMessage } from '../mobile/workspace-context'
 import { spokenText, useReadAloud } from '../mobile/useReadAloud'
 import { readingVoiceChanged, readingVoices, saveReadingVoice, savedReadingVoice } from '../mobile/readingVoices'
+import { commandToken, completeCommand, matchingCommands, terminalCommand, type ChatCommand } from './commandSuggestions'
 import './conversation.css'
 
 interface ToolActivity { id: string; name: string; status: 'running' | 'completed' | 'failed'; at: string }
@@ -73,6 +74,18 @@ export default function Conversation({ session, connected, agentLabel, openTermi
   const speech = useReadAloud(session.id, speakDesktopText), stopReading = speech.stop
   const [voice, setVoice] = useState(savedReadingVoice)
   const [answering, setAnswering] = useState(false)
+  const [commands, setCommands] = useState<ChatCommand[]>([]), [caret, setCaret] = useState(0), [picked, setPicked] = useState(0), [dismissed, setDismissed] = useState('')
+  useEffect(() => { api<{ commands: ChatCommand[] }>(`/sessions/${session.id}/commands`).then(value => setCommands(value.commands)).catch(() => setCommands([])) }, [session.id])
+  const token = commandToken(draft.text, caret, session.agent === 'codex')
+  const tokenKey = token ? `${token.start}:${token.trigger}${token.query}` : ''
+  const suggestions = token && tokenKey !== dismissed ? matchingCommands(commands, token) : []
+  const highlighted = suggestions[Math.min(picked, suggestions.length - 1)]
+  function complete(command: ChatCommand) {
+    if (!token) return
+    const next = completeCommand(draft.text, token, command)
+    setDraft(current => ({ ...current, text: next.text })); setCaret(next.caret); setPicked(0)
+    requestAnimationFrame(() => { input.current?.focus(); input.current?.setSelectionRange(next.caret, next.caret) })
+  }
 
   useEffect(() => { try { localStorage.setItem(draftKey(session.id), JSON.stringify(draft)) } catch { /* Draft stays in memory. */ } }, [draft, session.id])
   useEffect(() => {
@@ -164,7 +177,8 @@ export default function Conversation({ session, connected, agentLabel, openTermi
     setSending(true); setStatus('')
     try {
       await api(`/sessions/${session.id}/send`, { text, paths: draft.paths })
-      setDraft({ text: '', paths: [] }); follow.current = true; setShowJump(false)
+      setDraft({ text: '', paths: [] }); setCaret(0); follow.current = true; setShowJump(false)
+      if (terminalCommand(commands, text)) openTerminal()
       void reload.current()
     } catch (error) { setStatus(`${error instanceof Error ? error.message : String(error)} Your draft is kept.`) }
     finally { setSending(false); input.current?.focus() }
@@ -209,9 +223,24 @@ export default function Conversation({ session, connected, agentLabel, openTermi
     {showJump && <button type="button" className="conversation-jump" onClick={() => { follow.current = true; setShowJump(false); const box = scroller.current; if (box) box.scrollTop = box.scrollHeight }}><Icon name="down" size={15} />Latest</button>}
     {dragging && <div className="terminal-drop"><Icon name="attach" size={30} /><strong>Drop to attach</strong><span>Files, folders and images</span></div>}
     <form className="conversation-composer" onSubmit={event => { event.preventDefault(); void send() }}>
+      {!!suggestions.length && <ul className="conversation-commands" id="conversation-commands" role="listbox" aria-label="Commands">{suggestions.map((command, index) => <li key={`${command.trigger}${command.name}`} id={`conversation-command-${index}`} role="option" aria-selected={command === highlighted}
+        onMouseDown={event => { event.preventDefault(); complete(command) }} onMouseEnter={() => setPicked(index)}>
+        <strong>{command.trigger}{command.name}</strong><span>{command.description}</span>{command.terminal && <Icon name="terminal" size={12} />}<small>{command.source}</small>
+      </li>)}</ul>}
       {!!draft.paths.length && <div className="conversation-chips">{draft.paths.map(file => <span key={file} title={file}><Icon name="attach" size={12} /><span>{fileName(file)}</span><button type="button" aria-label={`Remove ${fileName(file)}`} onClick={() => setDraft(current => ({ ...current, paths: current.paths.filter(item => item !== file) }))}>×</button></span>)}</div>}
-      <textarea ref={input} rows={1} value={draft.text} aria-label={`Message ${agentLabel}`} placeholder={running ? `Message ${agentLabel}…` : 'Reconnect this chat to send'} onChange={event => setDraft(current => ({ ...current, text: event.target.value }))}
-        onKeyDown={event => { if (event.key === 'Enter' && !event.shiftKey && !event.nativeEvent.isComposing) { event.preventDefault(); void send() } }}
+      <textarea ref={input} rows={1} value={draft.text} aria-label={`Message ${agentLabel}`} placeholder={running ? `Message ${agentLabel}…` : 'Reconnect this chat to send'} onChange={event => { setDraft(current => ({ ...current, text: event.target.value })); setCaret(event.target.selectionStart); setPicked(0) }}
+        onSelect={event => setCaret(event.currentTarget.selectionStart)}
+        role="combobox" aria-autocomplete="list" aria-expanded={!!suggestions.length} aria-controls="conversation-commands" aria-activedescendant={highlighted ? `conversation-command-${suggestions.indexOf(highlighted)}` : undefined}
+        onKeyDown={event => {
+          if (event.nativeEvent.isComposing) return
+          if (suggestions.length && highlighted) {
+            if (event.key === 'ArrowDown' || event.key === 'ArrowUp') { event.preventDefault(); setPicked((suggestions.indexOf(highlighted) + (event.key === 'ArrowDown' ? 1 : suggestions.length - 1)) % suggestions.length); return }
+            if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); setDismissed(tokenKey); return }
+            // Enter on a fully typed name sends it; otherwise Tab or Enter completes the highlighted one.
+            if (event.key === 'Tab' || (event.key === 'Enter' && !event.shiftKey && token?.query !== highlighted.name.toLowerCase())) { event.preventDefault(); complete(highlighted); return }
+          }
+          if (event.key === 'Enter' && !event.shiftKey) { event.preventDefault(); void send() }
+        }}
         onPaste={event => { const files = Array.from(event.clipboardData.files).filter(file => file.type.startsWith('image/')); if (files.length) { event.preventDefault(); void addImages(files) } }} />
       <div className="conversation-actions">
         <button type="button" className="desk-icon" title="Attach files or folders" aria-label="Attach files" onClick={() => window.dispatchEvent(new Event('mrmak-attach-file'))}><Icon name="attach" size={16} /></button>
