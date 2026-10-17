@@ -97,6 +97,12 @@ export default function Chats() {
   const filtered = active.filter(item => `${item.name} ${item.agent} ${item.cwd}`.toLowerCase().includes(query.toLowerCase()))
   const choose = (id: string) => { selectChat(id); setSwitcher(false); setMenu(false); setHistory(false); setRenaming(false) }
   const closeChat = (id: string) => api(`/sessions/${id}`, {}, 'DELETE').catch(reportError)
+  // The service accepts `seen` only for the chat this window subscribed to. TerminalPane subscribes
+  // itself, so the Conversation view does it here.
+  const shownId = session?.id
+  useEffect(() => {
+    if (state.connected && shownId && view === 'conversation') sendEvent({ type: 'subscribe', id: shownId })
+  }, [state.connected, shownId, view])
   useEffect(() => {
     if (!state.connected || !session?.unread || history || switcher || newChat) return
     let timer = 0
