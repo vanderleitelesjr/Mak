@@ -33,6 +33,13 @@ inbox/*
 **/upload.json
 **/*.blend1
 
+# Local previews and scratch output
+.local/
+
+# Heavy 3D sources of the headband fit card, kept only on disk
+workspace/2026-10-17_headband-fit/**/*.blend
+workspace/2026-10-17_headband-fit/**/*.stl
+
 # Editor and operating-system files
 .vscode/
 .idea/
