@@ -21,6 +21,7 @@
     "test:preview": "node scripts/check-preview-ui.mjs",
     "test:template": "node scripts/check-template.mjs && node scripts/sync-skills.mjs --check && npm run test:assets",
     "test:assets": "node --test scripts/asset-delivery/test/*.test.mjs",
+    "test:engine": "node --test \"workspace/_shared/engine/test/*.test.mjs\"",
     "skills:sync": "node scripts/sync-skills.mjs",
     "skills:pack": "node scripts/run-python.mjs scripts/package_skills.py"
   },

@@ -1,6 +1,6 @@
 # Template modular dos cards do Workspace
 
-Decisões da entrevista de 2026-10-17. Fases 1 a 4 (motor e app; Global Empires, Blended, Mashup, Lightkeeper e Ritualistic) implementadas em 2026-10-17; a fase 5 segue pendente.
+Decisões da entrevista de 2026-10-17. Fases 1 a 4 (motor e app; Global Empires, Blended, Mashup, Lightkeeper e Ritualistic) implementadas em 2026-10-17 e a fase 5 (skill `atualizar-workspace`) em 2026-10-21. O template está completo.
 Projetos cobertos: Global Empires, Blended, Mashup, Lightkeeper, Ritualistic.
 
 ## Estrutura
@@ -10,7 +10,10 @@ Projetos cobertos: Global Empires, Blended, Mashup, Lightkeeper, Ritualistic.
 - **Confirmada:** o mesmo conteúdo usa o mesmo módulo e o mesmo nome de aba em todos os projetos.
 - **Confirmada:** os cards ficam em português. É uma exceção registrada à regra "Workspace em inglês" do `AGENTS.md`.
 - **Confirmada:** a aba Decisões é gerada a partir do registro de decisões do repositório do projeto, com resumo por tema e o que espera aprovação.
-- **Confirmada:** uma skill genérica `atualizar-workspace` no repositório, mais uma ficha curta por projeto. Ela substitui `atualizar-workspace-ge` e `atualizar-workspace-blended`, hoje só na pasta global do usuário.
+- **Confirmada:** uma skill genérica `atualizar-workspace` no repositório, mais uma ficha curta por projeto. Ela substitui `atualizar-workspace-ge` e `atualizar-workspace-blended`.
+  - Implantado: a skill está em `.agents/skills/atualizar-workspace/`, com as fichas em `references/`. Uma entrada global de mesmo nome (`~/.claude/skills` e `~/.agents/skills`) só aponta para ela, para os bots que trabalham nos repositórios dos jogos.
+  - As duas skills antigas foram para `E:\Backups\Skills\aposentadas-2026-10-21\`.
+  - O `LEIA-ME.md` de cada card aponta para a ficha.
 - **Confirmada:** projetos de fora (Lightkeeper, Ritualistic) têm um script coletor que lê git, tags, changelog e capturas e preenche o JSON do card.
 
 ## Visual
