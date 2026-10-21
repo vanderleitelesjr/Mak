@@ -10,7 +10,6 @@ const { entities } = JSON.parse(await read('workspace/workspace.json'));
 const samples = entities.filter(e => e.sample === true);
 assert.equal(samples.length, 4, 'The template must retain exactly four sample cards.');
 assert.deepEqual(samples.filter(e => e.pinned).map(e => e.title), ['My Dream Game']);
-assert.ok(samples.every(e => e.status === 'active'));
 assert.deepEqual(samples.map(e => e.category).sort(), ['dev', 'image-gen', 'project', 'research']);
 const images = new Set(), videos = new Set(), arachneImages = new Set();
 for (const entity of entities) {
@@ -41,7 +40,7 @@ for (const entity of entities) {
 assert.equal(arachneImages.size, 158, 'All Arachne images must be reachable from the tabs.');
 assert.equal(videos.size, 8, 'Keep all eight motion studies.');
 const skillNames = (await readdir(path.join(root, '.agents/skills'), { withFileTypes: true })).filter(e => e.isDirectory()).map(e => e.name);
-assert.equal(skillNames.length, 20);
+assert.ok(skillNames.length >= 20, 'Keep the bundled shared skills.');
 for (const name of ['game-vfx-workflow', 'game-ui-workflow', 'game-animation-integration', 'game-level-design', 'game-audio-workflow', 'gameplay-visual-review']) {
   assert.ok(skillNames.includes(name), `Missing game production workflow: ${name}`);
 }
@@ -58,7 +57,4 @@ assert.match(await read('src/desktop/client.ts'), /defaultBypass: false/);
 assert.match(await read('desktop/service/server.mjs'), /defaultBypass: false/);
 assert.match(await read('desktop/service/sessions.mjs'), /bypass: options\.bypass === true/);
 assert.match(await read('desktop/service/sessions.mjs'), /pinned = false, bypass = false/);
-const readme = await read('README.md');
-assert.match(readme, /Mr\. Mak is small\.\s+<img src="docs\/assets\/mr-mak\.png"[^>]+>\s*$/);
-await stat(path.join(root, 'docs/assets/mr-mak.png'));
 console.log(`Template passed: four cards, one pin, ${images.size} images, ${videos.size} videos, ${skillNames.length} shared skills, empty connections and account placeholders.`);

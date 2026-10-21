@@ -98,7 +98,7 @@ These are implementation stages of the agreed scope. The first technical proof d
 
 The owner approved this consolidated specification as the prototype scope. All 29 recorded decisions remain confirmed. The technical approach and delivery sequence remain implementation proposals; the approval closed the requirements interview.
 
-The first rendering/runtime proof now lives in [runtime/](runtime/README.md), an isolated Rust crate inside this repository. It uses locked `wgpu` 26.0.1 and stable `winit` 0.30.13 dependencies. These are implementation choices, not additional owner-confirmed design decisions. The final game title, detailed room layout, boss behavior, complete block catalog, combat/economy tuning and a separate implementation repository remain open implementation/design work.
+The first rendering/runtime proof now lives in [runtime/](../../projects/rust-gothic-metroidvania/runtime/README.md), an isolated Rust crate inside this repository. It uses locked `wgpu` 26.0.1 and stable `winit` 0.30.13 dependencies. These are implementation choices, not additional owner-confirmed design decisions. The final game title, detailed room layout, boss behavior, complete block catalog, combat/economy tuning and a separate implementation repository remain open implementation/design work.
 
 The next technical milestone is visual room/graph authoring through this same runtime, including validated save/reload and isolated playtest state. The first proof provides a custom renderer, one 3D room, a genuinely Blender-generated animated sprite with dynamic light, planar collision, following camera, common input actions and an executable movement graph. It does not substitute for the complete approved prototype.
 
@@ -160,7 +160,7 @@ These selections establish appearance. Existing gameplay rules remain authoritat
 
 ## Rendering/runtime proof — 2026-10-20
 
-The continuation request started the first technical milestone. Sources, build commands, controls, asset format and limitations are in [runtime/README.md](runtime/README.md). Review the [native GPU evidence and video](../../workspace/2026-10-20_rust-gothic-metroidvania/runtime-proof.html) in the existing Workspace card.
+The continuation request started the first technical milestone. Sources, build commands, controls, asset format and limitations are in [runtime/README.md](../../projects/rust-gothic-metroidvania/runtime/README.md). Review the [native GPU evidence and video](../../workspace/2026-10-20_rust-gothic-metroidvania/runtime-proof.html) in the existing Workspace card.
 
 Implemented: one 3D blockout room; custom Rust rendering; an editable simple Blender armor source with Idle/Walk atlases and linear world normals; torch lighting affecting both geometry and sprite; side-following perspective camera; fixed-step planar collision; common keyboard/mouse/controller actions; and a bounded JSON control-flow graph. Reconnecting a graph branch demonstrably removes jumping without changing native code.
 
