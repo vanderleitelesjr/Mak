@@ -317,7 +317,7 @@
       "type": "group",
       "category": "game",
       "created": "2026-10-17",
-      "updated": "2026-10-17",
+      "updated": "2026-10-21",
       "folder": "2026-10-17_mashup",
       "steps": [
         {
@@ -358,11 +358,11 @@
       "defaultStep": 0,
       "cover": "media/capa/f1-4-mundo-seed1.webp",
       "progress": {
-        "done": 10,
-        "total": 11,
+        "done": 0,
+        "total": 1,
         "label": "tarefas"
       },
-      "phase": "Fase 1 · Fundação voxel"
+      "phase": "Fase 2 · Ciclo sandbox"
     },
     {
       "id": "my-dream-game",

@@ -4,10 +4,10 @@
     {
       "id": "2026-10-17-demonstracao-f1",
       "nome": "Demonstração da fase 1",
-      "aberta": true,
-      "resumo": "Pacote Win64 da `main` `7fa3ef1`, perfil alto, 1600×900, raio 8, mundo `demo` com a seed 12345. É o teste manual que fecha a fase 1 (`docs/demonstracao-f1.md`); a sessão continua aberta.",
+      "aberta": false,
+      "resumo": "Pacote Win64 da `main` `7fa3ef1`, perfil alto, 1600×900, raio 8, mundo `demo` com a seed 12345. Fechada em 21/10/2026: no reteste com o pacote do `365ac56`, a demonstração, o voo, a luz e a caverna funcionaram, sem achado novo. Fechou a fase 1.",
       "achados": [
-        { "id": "PT-2026-10-17-01", "tipo": "visual", "titulo": "Blocos iluminados dentro de caverna fechada, onde deveria estar escuro (gravidade média; corrigido na main, aguarda reteste; perfil baixo segue no R1)", "estado": "corrigido" }
+        { "id": "PT-2026-10-17-01", "tipo": "visual", "titulo": "Blocos iluminados dentro de caverna fechada, onde deveria estar escuro (gravidade média; corrigido e verificado no reteste de 21/10/2026; perfil baixo segue no R1)", "estado": "corrigido" }
       ]
     }
   ]

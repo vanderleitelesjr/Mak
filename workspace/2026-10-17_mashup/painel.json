@@ -1,22 +1,20 @@
 {
   "sobre": "Estado de agora. Reescreva a cada atualização e rode o motor; o Painel deve caber numa tela. Os números com @ são calculados dos outros JSON.",
-  "estado": "Fase 1 · demonstração",
+  "estado": "Fase 2 · entrevista",
   "numeros": [
-    { "rotulo": "Fase 1", "valor": "@roteiro.progresso", "icone": "marco" },
-    { "rotulo": "Main local", "valor": "365ac56", "icone": "codigo" },
+    { "rotulo": "Fase 2", "valor": "@roteiro.progresso", "icone": "marco" },
+    { "rotulo": "Main local", "valor": "b3a99e5", "icone": "codigo" },
     { "rotulo": "Testes", "valor": "81", "icone": "check" },
     { "rotulo": "Riscos abertos", "valor": "@riscos.abertos", "icone": "risco" },
     { "rotulo": "Decisões pendentes", "valor": "@decisoes.pendentes", "icone": "livro" },
     { "rotulo": "Achados abertos", "valor": "@playtest.abertos", "icone": "playtest" }
   ],
   "agora": [
-    { "titulo": "Fase 1 na main; falta a demonstração por você", "texto": "As 10 tarefas da fundação voxel estão na `main`, e a demonstração automática no pacote deu tudo ok (19 checagens). A fase fecha com o roteiro de `docs/demonstracao-f1.md`, que você já começou." },
-    { "titulo": "Caverna escura de novo (PT-2026-10-17-01)", "texto": "A exposição automática clareava a caverna fechada uns 7 stops. Agora a câmera só se adapta até 0,3 de luminância: a caverna sai preta e o ar livre não muda. Na `main`; sem Lumen (perfil baixo) segue no R1." },
-    { "titulo": "Depois: entrevista da fase 2", "texto": "Biomas, materiais e o ciclo de coletar e fabricar, começando pela decisão pendente de materiais e tabela de dependências." }
+    { "titulo": "Fase 1 concluída", "texto": "Você refez a demonstração no pacote: mundo por seed, fronteiras de chunk, sair e voltar, voo, luz e caverna preta (piso 0,3). Tudo está na `main`." },
+    { "titulo": "Fase 2: entrevista começando", "texto": "Biomas, materiais e o ciclo de coletar e fabricar. Começa pela decisão pendente de materiais e tabela de dependências (JG11); as tarefas da fase saem da entrevista." }
   ],
   "comVoce": [
-    { "titulo": "Retestar a caverna", "texto": "O pacote já tem a correção: `Scripts\\jogar.bat solo 8 demo` abre o seu mundo onde você saiu." },
-    { "titulo": "Terminar a demonstração da fase 1", "texto": "`Scripts\\jogar.bat solo 8 demo 12345` (mundo novo); quebre e coloque blocos nas fronteiras, saia e volte com `Scripts\\jogar.bat solo 8 demo`." },
+    { "titulo": "Responder a entrevista da fase 2", "texto": "Perguntas numeradas com opções em letra e uma recomendação; responda no formato 1A 2B." },
     { "titulo": "Revisar as configurações do jogador (F1-7)", "texto": "Decisão do Coder: teclas e idioma por máquina, Esc fixo e troca de teclas em uso. Veja a aba Decisões." }
   ]
 }

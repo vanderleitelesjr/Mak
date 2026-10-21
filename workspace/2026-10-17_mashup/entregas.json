@@ -131,7 +131,7 @@
       "area": "playtest",
       "titulo": "Playtest: caverna fechada volta a ficar escura",
       "resumo": "No seu teste, uma caverna fechada aparecia iluminada. Causa: a exposição automática clareava o escuro uns 7 stops. Agora a câmera só se adapta até a luminância 0,3: a caverna sai preta (brilho 0,3 contra 11) e o ar livre não muda.",
-      "olhar": "Achado em docs/playtests/2026-10-17-demonstracao-f1.md; números e diagnóstico (-CavernaCaptura) em docs/tecnico/iluminacao.md. Sem Lumen (perfil baixo) a caverna ainda aparece: fica no R1. Aguarda o seu reteste.",
+      "olhar": "Achado em docs/playtests/2026-10-17-demonstracao-f1.md; números e diagnóstico (-CavernaCaptura) em docs/tecnico/iluminacao.md. Sem Lumen (perfil baixo) a caverna ainda aparece: fica no R1. Verificada no seu reteste de 21/10.",
       "estado": "main",
       "refs": ["556d76c", "6ae08cf", "2272503", "PT-2026-10-17-01"]
     },
@@ -141,9 +141,19 @@
       "area": "código",
       "titulo": "Voo e luz do personagem (pedido no playtest)",
       "resumo": "Dois toques no espaço ligam o voo (espaço sobe, Shift desce, o chão encerra); L alterna luz em volta e lanterna. O voo roda dentro da previsão de movimento do motor, e um cliente remoto voou contra o servidor sem divergir.",
-      "olhar": "Detalhes e provas em docs/tecnico/jogador.md e docs/criterios/revisao-voo-luz.md. Teclas remapeáveis no menu (Esc). A sensação do voo e a intensidade da luz dependem do seu teste.",
+      "olhar": "Detalhes e provas em docs/tecnico/jogador.md e docs/criterios/revisao-voo-luz.md. Teclas remapeáveis no menu (Esc). A sensação do voo e a intensidade da luz foram aprovadas no seu teste de 21/10.",
       "estado": "main",
       "refs": ["12b167c", "cdf5783", "365ac56"]
+    },
+    {
+      "id": "2026-10-21-fase-1-concluida",
+      "data": "2026-10-21",
+      "area": "playtest",
+      "titulo": "Fase 1 concluída: demonstração feita por você",
+      "resumo": "No pacote com o voo e a luz, você refez a demonstração (fronteiras de chunk, sair e voltar), testou o voo e a luz e retestou a caverna: tudo funcionando, sem achado novo. A caverna fica preta (piso 0,3, sua decisão). A fase 2 começa pela entrevista.",
+      "olhar": "Sessão fechada em docs/playtests/2026-10-17-demonstracao-f1.md; fechamento da fase em PLANO.md e docs/criterios/revisao-f1-10.md.",
+      "estado": "main",
+      "refs": ["3c724b2", "48e38b5", "b3a99e5"]
     }
   ]
 }

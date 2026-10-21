@@ -11,19 +11,30 @@
   <script defer src="../_shared/report.js"></script>
 </head>
 <body><main class="container mk-pag">
-<p class="mk-gerado">Gerado — não edite à mão · fonte: entregas.json · 17 de outubro de 2026</p>
+<p class="mk-gerado">Gerado — não edite à mão · fonte: entregas.json · 21 de outubro de 2026</p>
 <div class="mk-capa"><div class="mk-capa-img" style="background-image:url('media/capa/f1-4-mundo-seed1.webp')" aria-hidden="true"></div>
   <header class="mk-capa-texto">
     <p class="mk-eyebrow">Mashup</p>
     <h1>Entregas</h1>
-    <p class="mk-sub">Últimos 30 dias (desde 18 de setembro de 2026) · atualizado em 17 de outubro de 2026. As mais antigas ficam na aba Arquivo.</p>
+    <p class="mk-sub">Últimos 30 dias (desde 22 de setembro de 2026) · atualizado em 21 de outubro de 2026. As mais antigas ficam na aba Arquivo.</p>
   </header>
 </div>
 <div class="mk-resumo" id="mk-filtros" hidden>
-<button class="mk-filtro" type="button" data-filtro="" aria-pressed="true">todas (13)</button>
+<button class="mk-filtro" type="button" data-filtro="" aria-pressed="true">todas (14)</button>
 <button class="mk-filtro" type="button" data-filtro="código" aria-pressed="false"><span class="mk-ico mk-i-codigo" aria-hidden="true"></span>código (11)</button>
 <button class="mk-filtro" type="button" data-filtro="ensaio" aria-pressed="false"><span class="mk-ico mk-i-alvo" aria-hidden="true"></span>ensaio (1)</button>
-<button class="mk-filtro" type="button" data-filtro="playtest" aria-pressed="false"><span class="mk-ico mk-i-playtest" aria-hidden="true"></span>playtest (1)</button>
+<button class="mk-filtro" type="button" data-filtro="playtest" aria-pressed="false"><span class="mk-ico mk-i-playtest" aria-hidden="true"></span>playtest (2)</button>
+</div>
+<div class="mk-grupo" data-dia="2026-10-21">
+<h2 class="mk-dia">21 de outubro de 2026</h2>
+<article class="mk-entrega" data-area="playtest" style="--mk-cor:#e0805c">
+  <div class="mk-corpo">
+    <div class="mk-meta"><span class="mk-tag"><span class="mk-ico mk-i-playtest" aria-hidden="true"></span>playtest</span><span class="mk-estado">main</span><code>3c724b2</code> <code>48e38b5</code> <code>b3a99e5</code></div>
+    <h3>Fase 1 concluída: demonstração feita por você</h3>
+    <p>No pacote com o voo e a luz, você refez a demonstração (fronteiras de chunk, sair e voltar), testou o voo e a luz e retestou a caverna: tudo funcionando, sem achado novo. A caverna fica preta (piso 0,3, sua decisão). A fase 2 começa pela entrevista.</p>
+    <p class="mk-olhar"><strong>O que olhar:</strong> Sessão fechada em docs/playtests/2026-10-17-demonstracao-f1.md; fechamento da fase em PLANO.md e docs/criterios/revisao-f1-10.md.</p>
+  </div>
+</article>
 </div>
 <div class="mk-grupo" data-dia="2026-10-17">
 <h2 class="mk-dia">17 de outubro de 2026</h2>
@@ -32,7 +43,7 @@
     <div class="mk-meta"><span class="mk-tag"><span class="mk-ico mk-i-codigo" aria-hidden="true"></span>código</span><span class="mk-estado">main</span><code>12b167c</code> <code>cdf5783</code> <code>365ac56</code></div>
     <h3>Voo e luz do personagem (pedido no playtest)</h3>
     <p>Dois toques no espaço ligam o voo (espaço sobe, Shift desce, o chão encerra); L alterna luz em volta e lanterna. O voo roda dentro da previsão de movimento do motor, e um cliente remoto voou contra o servidor sem divergir.</p>
-    <p class="mk-olhar"><strong>O que olhar:</strong> Detalhes e provas em docs/tecnico/jogador.md e docs/criterios/revisao-voo-luz.md. Teclas remapeáveis no menu (Esc). A sensação do voo e a intensidade da luz dependem do seu teste.</p>
+    <p class="mk-olhar"><strong>O que olhar:</strong> Detalhes e provas em docs/tecnico/jogador.md e docs/criterios/revisao-voo-luz.md. Teclas remapeáveis no menu (Esc). A sensação do voo e a intensidade da luz foram aprovadas no seu teste de 21/10.</p>
   </div>
 </article>
 <article class="mk-entrega" data-area="playtest" style="--mk-cor:#e0805c">
@@ -40,7 +51,7 @@
     <div class="mk-meta"><span class="mk-tag"><span class="mk-ico mk-i-playtest" aria-hidden="true"></span>playtest</span><span class="mk-estado">main</span><code>556d76c</code> <code>6ae08cf</code> <code>2272503</code> <code>PT-2026-10-17-01</code></div>
     <h3>Playtest: caverna fechada volta a ficar escura</h3>
     <p>No seu teste, uma caverna fechada aparecia iluminada. Causa: a exposição automática clareava o escuro uns 7 stops. Agora a câmera só se adapta até a luminância 0,3: a caverna sai preta (brilho 0,3 contra 11) e o ar livre não muda.</p>
-    <p class="mk-olhar"><strong>O que olhar:</strong> Achado em docs/playtests/2026-10-17-demonstracao-f1.md; números e diagnóstico (-CavernaCaptura) em docs/tecnico/iluminacao.md. Sem Lumen (perfil baixo) a caverna ainda aparece: fica no R1. Aguarda o seu reteste.</p>
+    <p class="mk-olhar"><strong>O que olhar:</strong> Achado em docs/playtests/2026-10-17-demonstracao-f1.md; números e diagnóstico (-CavernaCaptura) em docs/tecnico/iluminacao.md. Sem Lumen (perfil baixo) a caverna ainda aparece: fica no R1. Verificada no seu reteste de 21/10.</p>
   </div>
 </article>
 <article class="mk-entrega" data-area="código" style="--mk-cor:#6f9fd8">

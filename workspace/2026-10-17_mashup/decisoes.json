@@ -1,6 +1,6 @@
 {
   "sobre": "Montado à mão pelo agente (DECISOES.md é um log sem códigos nem estado; o coletor decisoes-md.mjs não se aplica). Mostra só o que vale hoje: uma linha que substitui outra troca o item em vez de somar. Os códigos são do card, por tema. Os pendentes espelham as decisões pendentes de PENDENCIAS.md.",
-  "fonte": "DECISOES.md (63 linhas) e PENDENCIAS.md do repositório Mashup, em 2026-10-17. Ficam de fora as linhas substituídas e as que só valiam para a fase 0, como o primeiro commit direto na `main`.",
+  "fonte": "DECISOES.md (71 linhas) e PENDENCIAS.md do repositório Mashup, em 2026-10-21. Ficam de fora as linhas substituídas e as que só valiam para a fase 0, como o primeiro commit direto na `main`.",
   "espera": [
     { "titulo": "Configurações do jogador (F1-7)", "texto": "O Coder decidiu: teclas, sensibilidade, eixo vertical e idioma por máquina, em `GameUserSettings.ini`, fora do save do mundo; Esc fixo abre o menu; remapear para uma tecla em uso troca as duas ações. Está registrado para você revisar (JG10)." }
   ],
@@ -61,7 +61,8 @@
         { "id": "VD2", "titulo": "Texturas estilizadas de 16–32 px", "estado": "Confirmada", "data": "2026-10-17" },
         { "id": "VD3", "titulo": "Metas como hipótese a medir: alto 1440p a 60 FPS com 16 chunks; baixo 1080p a 60 FPS com 8 chunks", "estado": "Confirmada", "data": "2026-10-17" },
         { "id": "VD4", "titulo": "Hardware de referência: esta máquina (RTX 5080, Ryzen 7 9800X3D, 31 GB) como perfil alto; perfil baixo simulado por configuração", "estado": "Confirmada", "data": "2026-10-17" },
-        { "id": "VD5", "titulo": "Física opcional", "estado": "Pendente", "nota": "Designer · fase 11." }
+        { "id": "VD5", "titulo": "Física opcional", "estado": "Pendente", "nota": "Designer · fase 11." },
+        { "id": "VD6", "titulo": "Piso de exposição automática em 0,3: caverna fechada sem luz fica totalmente preta; até haver tochas, ela se explora com a luz do personagem", "estado": "Confirmada", "data": "2026-10-21", "nota": "Sua escolha, contra 0,1 (contornos de leve). Achado PT-2026-10-17-01." }
       ]
     },
     {
@@ -80,7 +81,9 @@
         { "id": "JG11", "titulo": "Materiais e tabela de dependências", "estado": "Pendente", "nota": "Designer · fase 2." },
         { "id": "JG12", "titulo": "Classes e progressão: pertencem ao personagem ou ao mundo", "estado": "Pendente", "nota": "Designer · fase 4." },
         { "id": "JG13", "titulo": "Slots de equipamento", "estado": "Pendente", "nota": "Designer · fase 4." },
-        { "id": "JG14", "titulo": "Regras de aldeões", "estado": "Pendente", "nota": "Designer · fase 7." }
+        { "id": "JG14", "titulo": "Regras de aldeões", "estado": "Pendente", "nota": "Designer · fase 7." },
+        { "id": "JG15", "titulo": "Voo do personagem: dois toques no pular (0,3 s) ligam e desligam; pular sobe, Shift desce, encostar no chão encerra; 3 vezes a velocidade de andar; o servidor decide. Recurso do jogo para todos os jogadores", "estado": "Confirmada", "data": "2026-10-17", "nota": "Escolhas 1B e 3B. Shift, pouso e velocidade são padrões do Coder; a sensação depende do seu teste." },
+        { "id": "JG16", "titulo": "Luz do personagem na tecla L: desligada, em volta (12 blocos, 250 lm) e lanterna (cone de 32°, 25 blocos, 500 lm), sem sombra, vista pelos outros jogadores. Recurso do jogo para todos os jogadores", "estado": "Confirmada", "data": "2026-10-17", "nota": "Escolhas 1B e 2C. A intensidade depende do seu teste." }
       ]
     },
     {

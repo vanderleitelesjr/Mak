@@ -20,8 +20,8 @@
     {
       "id": "F1",
       "nome": "Fase 1 · Fundação voxel",
-      "estado": "atual",
-      "descricao": "Primeira entrega jogável. As 10 tarefas estão na `main`, na ordem do plano; a fase fecha com a demonstração feita por você (`docs/demonstracao-f1.md`).",
+      "estado": "feita",
+      "descricao": "Primeira entrega jogável: mundo por seed, quebrar e colocar no servidor, carregamento por distância, save e medições no pacote, mais o voo e a luz pedidos no playtest. Concluída em 21/10/2026, com a demonstração feita por você.",
       "itens": [
         { "id": "F1-1", "titulo": "Dados de chunk e registro de blocos", "estado": "feito" },
         { "id": "F1-2", "titulo": "Geração por seed: relevo, camadas, árvores e cavernas", "estado": "feito", "depende": ["F1-1"] },
@@ -36,13 +36,20 @@
         {
           "id": "F1-demo",
           "titulo": "Demonstração feita por você",
-          "estado": "em-andamento",
-          "depende": ["F1-10"],
-          "pendencias": ["PT-2026-10-17-01: blocos iluminados dentro de caverna fechada (ligado ao R1)"]
+          "estado": "feito",
+          "depende": ["F1-10"]
         }
       ]
     },
-    { "id": "F2", "nome": "Fase 2 · Ciclo sandbox", "estado": "futura", "descricao": "Biomas, materiais e o ciclo de coletar e fabricar. Antes: decidir materiais e a tabela de dependências." },
+    {
+      "id": "F2",
+      "nome": "Fase 2 · Ciclo sandbox",
+      "estado": "atual",
+      "descricao": "Biomas, materiais e o ciclo de coletar e fabricar. As tarefas saem da entrevista, que começa pelos materiais e a tabela de dependências.",
+      "itens": [
+        { "id": "F2-0", "titulo": "Entrevista: materiais e tabela de dependências, biomas e o ciclo de coletar e fabricar", "estado": "em-andamento" }
+      ]
+    },
     { "id": "F3", "nome": "Fase 3 · Multiplayer inicial", "estado": "futura", "descricao": "Internet e a escolha entre EOS e Steam; ensaios de estrutura móvel e do interior do titã até aqui." },
     { "id": "F4", "nome": "Fase 4 · Combate e progressão", "estado": "futura", "descricao": "Mobs hostis, classes e slots de equipamento." },
     { "id": "F5", "nome": "Fase 5 · Automação vertical", "estado": "futura" },

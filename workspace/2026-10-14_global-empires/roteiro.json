@@ -8,17 +8,92 @@
       "estado": "feita",
       "descricao": "Primeira iteração: só o Brasil, na Era Industrial (c. 1850–1900, assentamento rural e industrialização incipiente) e na Era do Aço (c. 1900–1918, referência à Primeira Guerra: infantaria, metralhadoras, artilharia e posições defensivas), no mapa fixo Travessia do Interior, contra a IA. Fechado com o playtest final (W14, 15/10/2026): vitória aos 40:13.",
       "itens": [
-        { "id": "Fase 0", "titulo": "Fundação", "estado": "feito" },
-        { "id": "Fase 1", "titulo": "Simulação determinística em ponto fixo", "estado": "feito", "depende": ["Fase 0"] },
-        { "id": "Fase 2", "titulo": "Mapa e controle (Travessia do Interior)", "estado": "feito", "depende": ["Fase 1"] },
-        { "id": "Fase 3", "titulo": "Economia Industrial", "estado": "feito", "depende": ["Fase 2"] },
-        { "id": "Fase 4", "titulo": "Avanço de era e combate", "estado": "feito", "depende": ["Fase 3"] },
-        { "id": "Fase 5", "titulo": "Abastecimento", "estado": "feito", "depende": ["Fase 4"] },
-        { "id": "Fase 5B", "titulo": "Estrutura das eras e elenco novo", "estado": "feito", "depende": ["Fase 5"] },
-        { "id": "Fase 6", "titulo": "IA, vitória e névoa", "estado": "feito", "depende": ["Fase 5B"] },
-        { "id": "Fase 7", "titulo": "Comércio e ligação ferroviária", "estado": "feito", "depende": ["Fase 6"] },
-        { "id": "Fase 8", "titulo": "Cobertura por obstáculos", "estado": "feito", "depende": ["Fase 7"] },
-        { "id": "W14", "titulo": "Playtest final do protótipo", "estado": "feito", "depende": ["Fase 8"], "resumo": "Ferrovia e cobertura jogadas; vitória aos 40:13. As notas 152–184 estão na aba Playtest." }
+        {
+          "id": "Fase 0",
+          "titulo": "Fundação",
+          "estado": "feito"
+        },
+        {
+          "id": "Fase 1",
+          "titulo": "Simulação determinística em ponto fixo",
+          "estado": "feito",
+          "depende": [
+            "Fase 0"
+          ]
+        },
+        {
+          "id": "Fase 2",
+          "titulo": "Mapa e controle (Travessia do Interior)",
+          "estado": "feito",
+          "depende": [
+            "Fase 1"
+          ]
+        },
+        {
+          "id": "Fase 3",
+          "titulo": "Economia Industrial",
+          "estado": "feito",
+          "depende": [
+            "Fase 2"
+          ]
+        },
+        {
+          "id": "Fase 4",
+          "titulo": "Avanço de era e combate",
+          "estado": "feito",
+          "depende": [
+            "Fase 3"
+          ]
+        },
+        {
+          "id": "Fase 5",
+          "titulo": "Abastecimento",
+          "estado": "feito",
+          "depende": [
+            "Fase 4"
+          ]
+        },
+        {
+          "id": "Fase 5B",
+          "titulo": "Estrutura das eras e elenco novo",
+          "estado": "feito",
+          "depende": [
+            "Fase 5"
+          ]
+        },
+        {
+          "id": "Fase 6",
+          "titulo": "IA, vitória e névoa",
+          "estado": "feito",
+          "depende": [
+            "Fase 5B"
+          ]
+        },
+        {
+          "id": "Fase 7",
+          "titulo": "Comércio e ligação ferroviária",
+          "estado": "feito",
+          "depende": [
+            "Fase 6"
+          ]
+        },
+        {
+          "id": "Fase 8",
+          "titulo": "Cobertura por obstáculos",
+          "estado": "feito",
+          "depende": [
+            "Fase 7"
+          ]
+        },
+        {
+          "id": "W14",
+          "titulo": "Playtest final do protótipo",
+          "estado": "feito",
+          "depende": [
+            "Fase 8"
+          ],
+          "resumo": "Ferrovia e cobertura jogadas; vitória aos 40:13. As notas 152–184 estão na aba Playtest."
+        }
       ]
     },
     {
@@ -27,19 +102,117 @@
       "estado": "atual",
       "descricao": "Trincheiras, assalto e equipamento do sapador. A primeira versão foi fechada em 16/10/2026 (TC15–TC20, TC22–TC26, TC30 e TC31); gás, máscaras e munição de gás (TC27, TC28) ficam para uma fase seguinte, e o TC21 guarda os Pendentes. Cronograma e inclusão no protótipo Pendentes.",
       "itens": [
-        { "id": "TC15–TC31", "titulo": "Decisões da primeira versão", "estado": "feito", "resumo": "Trincheiras, assalto e sapador fechados na main local; o TC21 guarda só os números da IA, o limite de desempenho e a nuvem de gás." },
-        { "id": "TR01–TR05", "titulo": "Artes conceituais das trincheiras", "estado": "feito", "resumo": "Chegaram como referência." },
-        { "id": "Etapa 1A", "titulo": "Trecho cavado pelo sapador, obra, cratera e reparo", "estado": "feito", "depende": ["TC15–TC31"], "resumo": "Comando 42, terreno sem dono (TC15, TC16; estado v34), na main local." },
-        { "id": "Etapa 1B", "titulo": "Passagem por classe", "estado": "feito", "depende": ["Etapa 1A"], "resumo": "Infantaria pelas pontas, tanque a meia velocidade, o resto dá a volta (TC17, TC31; estado v35), na main local." },
-        { "id": "Etapa 1C", "titulo": "Abertura na lateral", "estado": "feito", "depende": ["Etapa 1B"], "resumo": "Comando 43, uma por trecho, só o sapador (TC17, TC31; estado v36), na main local." },
-        { "id": "Dano", "titulo": "Dano das armas ao trecho", "estado": "feito", "depende": ["Etapa 1C"], "resumo": "Artilharia, morteiro e tanque derrubam o trecho e a passarela pela tabela contra construção (TC16, TC30, TC31; etapa 2A), na main local." },
-        { "id": "Proteção", "titulo": "Proteção dentro do trecho", "estado": "feito", "depende": ["Etapa 1C"], "resumo": "Erro de 80% andando e 50% parado contra o tiro direto, pelo parapeito; explosão fora da linha fere 25% (TC18; etapa 2B, estado v37), na main local." },
-        { "id": "Passarela", "titulo": "Passarela", "estado": "feito", "depende": ["Etapa 1C"], "resumo": "Comando 44: quem passa por cima não desce e a infantaria passa por baixo (etapa 2C, estado v38), na main local." },
-        { "id": "Resto do TC31", "titulo": "Busca de cobertura com a trincheira", "estado": "a-fazer", "depende": ["Proteção"], "resumo": "A busca de cobertura passa a incluir a trincheira, e quem está dentro ataca só o que está no alcance." },
-        { "id": "Assalto", "titulo": "Assalto", "estado": "a-fazer", "depende": ["TC15–TC31"], "resumo": "No quartel: escopeta como ataque e granada como habilidade." },
-        { "id": "Sapador", "titulo": "Equipamento do sapador", "estado": "a-fazer", "depende": ["TC15–TC31"], "resumo": "Lança-chamas ou carga, de forma permanente." },
-        { "id": "Apresentação", "titulo": "Apresentação", "estado": "a-fazer", "depende": ["Etapa 1C"] },
-        { "id": "IA", "titulo": "IA nas trincheiras", "estado": "a-fazer", "depende": ["Etapa 1C"], "resumo": "A IA cava ao chegar ao Aço." }
+        {
+          "id": "TC15–TC31",
+          "titulo": "Decisões da primeira versão",
+          "estado": "feito",
+          "resumo": "Trincheiras, assalto e sapador fechados na main local; o TC21 guarda só os números da IA, o limite de desempenho e a nuvem de gás."
+        },
+        {
+          "id": "TR01–TR05",
+          "titulo": "Artes conceituais das trincheiras",
+          "estado": "feito",
+          "resumo": "Chegaram como referência."
+        },
+        {
+          "id": "Etapa 1A",
+          "titulo": "Trecho cavado pelo sapador, obra, cratera e reparo",
+          "estado": "feito",
+          "depende": [
+            "TC15–TC31"
+          ],
+          "resumo": "Comando 42, terreno sem dono (TC15, TC16; estado v34), na main local."
+        },
+        {
+          "id": "Etapa 1B",
+          "titulo": "Passagem por classe",
+          "estado": "feito",
+          "depende": [
+            "Etapa 1A"
+          ],
+          "resumo": "Infantaria pelas pontas, tanque a meia velocidade, o resto dá a volta (TC17, TC31; estado v35), na main local."
+        },
+        {
+          "id": "Etapa 1C",
+          "titulo": "Abertura na lateral",
+          "estado": "feito",
+          "depende": [
+            "Etapa 1B"
+          ],
+          "resumo": "Comando 43, uma por trecho, só o sapador (TC17, TC31; estado v36), na main local."
+        },
+        {
+          "id": "Dano",
+          "titulo": "Dano das armas ao trecho",
+          "estado": "feito",
+          "depende": [
+            "Etapa 1C"
+          ],
+          "resumo": "Artilharia, morteiro e tanque derrubam o trecho e a passarela pela tabela contra construção (TC16, TC30, TC31; etapa 2A), na main local."
+        },
+        {
+          "id": "Proteção",
+          "titulo": "Proteção dentro do trecho",
+          "estado": "feito",
+          "depende": [
+            "Etapa 1C"
+          ],
+          "resumo": "Erro de 80% andando e 50% parado contra o tiro direto, pelo parapeito; explosão fora da linha fere 25% (TC18; etapa 2B, estado v37), na main local."
+        },
+        {
+          "id": "Passarela",
+          "titulo": "Passarela",
+          "estado": "feito",
+          "depende": [
+            "Etapa 1C"
+          ],
+          "resumo": "Comando 44: quem passa por cima não desce e a infantaria passa por baixo (etapa 2C, estado v38), na main local."
+        },
+        {
+          "id": "Resto do TC31",
+          "titulo": "Busca de cobertura com a trincheira",
+          "estado": "em-andamento",
+          "depende": [
+            "Proteção"
+          ],
+          "resumo": "Busca de cobertura e combate na trincheira implementados. Integração local e conferência humana do lote atual em andamento."
+        },
+        {
+          "id": "Assalto",
+          "titulo": "Assalto",
+          "estado": "em-andamento",
+          "depende": [
+            "TC15–TC31"
+          ],
+          "resumo": "Escopeta e granada implementadas, com base TC19/TC23 restaurada. Modelos e comandos no jogo; conferência humana e balanceamento continuam abertos."
+        },
+        {
+          "id": "Sapador",
+          "titulo": "Equipamento do sapador",
+          "estado": "em-andamento",
+          "depende": [
+            "TC15–TC31"
+          ],
+          "resumo": "Engenharia de combate, lança-chamas/carga permanentes, modelos low poly próprios e recuo protegido até a explosão implementados em v45. Integração em conferência."
+        },
+        {
+          "id": "Apresentação",
+          "titulo": "Apresentação",
+          "estado": "em-andamento",
+          "depende": [
+            "Etapa 1C"
+          ],
+          "resumo": "Kit low poly, efeitos, ícones e retratos integrados; fila global A, HUD compacto e F10 visual. Aceite visual humano pendente."
+        },
+        {
+          "id": "IA",
+          "titulo": "IA nas trincheiras",
+          "estado": "em-andamento",
+          "depende": [
+            "Etapa 1C"
+          ],
+          "resumo": "IA cava, ocupa/repara trincheiras, recruta Assalto, distribui três papéis do Sapador e opera aviação. Prova técnica disponível; ritmo e parâmetros táticos seguem em playtest."
+        }
       ]
     },
     {
@@ -48,12 +221,52 @@
       "estado": "futura",
       "descricao": "Biplano e dirigível na Era do Aço (AV1–AV12, direção aprovada em 12/10/2026): reconhecimento e apoio móvel primeiro, pesquisas de armamento depois. Números, cronograma e inclusão no protótipo Pendentes.",
       "itens": [
-        { "id": "AV-design", "titulo": "Design: parâmetros, pesquisas, missão, reposição, antiaérea e logística", "estado": "a-fazer" },
-        { "id": "AV-reconhecimento", "titulo": "Reconhecimento: aeródromo, biplano por missões, visão e retorno automático", "estado": "a-fazer", "depende": ["AV-design"] },
-        { "id": "AV-apoio", "titulo": "Apoio: dirigível com reserva finita, cura e munição reduzidas", "estado": "a-fazer", "depende": ["AV-design"] },
-        { "id": "AV-disputa", "titulo": "Disputa aérea: armamento do biplano e antiaérea das metralhadoras", "estado": "a-fazer", "depende": ["AV-reconhecimento"] },
-        { "id": "AV-bombardeio", "titulo": "Bombardeio: pesquisa do dirigível e carga limitada", "estado": "a-fazer", "depende": ["AV-apoio"] },
-        { "id": "AV-validacao", "titulo": "Validação: IA, interface, sincronia, replay, desempenho e playtest", "estado": "a-fazer", "depende": ["AV-disputa", "AV-bombardeio"] }
+        {
+          "id": "AV-design",
+          "titulo": "Design: parâmetros, pesquisas, missão, reposição, antiaérea e logística",
+          "estado": "a-fazer"
+        },
+        {
+          "id": "AV-reconhecimento",
+          "titulo": "Reconhecimento: aeródromo, biplano por missões, visão e retorno automático",
+          "estado": "a-fazer",
+          "depende": [
+            "AV-design"
+          ]
+        },
+        {
+          "id": "AV-apoio",
+          "titulo": "Apoio: dirigível com reserva finita, cura e munição reduzidas",
+          "estado": "a-fazer",
+          "depende": [
+            "AV-design"
+          ]
+        },
+        {
+          "id": "AV-disputa",
+          "titulo": "Disputa aérea: armamento do biplano e antiaérea das metralhadoras",
+          "estado": "a-fazer",
+          "depende": [
+            "AV-reconhecimento"
+          ]
+        },
+        {
+          "id": "AV-bombardeio",
+          "titulo": "Bombardeio: pesquisa do dirigível e carga limitada",
+          "estado": "a-fazer",
+          "depende": [
+            "AV-apoio"
+          ]
+        },
+        {
+          "id": "AV-validacao",
+          "titulo": "Validação: IA, interface, sincronia, replay, desempenho e playtest",
+          "estado": "a-fazer",
+          "depende": [
+            "AV-disputa",
+            "AV-bombardeio"
+          ]
+        }
       ]
     },
     {
