@@ -10,6 +10,10 @@ export default defineConfig({
     fs: {
       allow: ['.'],
     },
+    // Local previews and caches hold thousands of folders the app never imports.
+    watch: {
+      ignored: ['**/.local/**', '**/.cache/**'],
+    },
   },
   publicDir: 'public',
   build: {
