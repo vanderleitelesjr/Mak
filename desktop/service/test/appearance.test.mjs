@@ -13,8 +13,7 @@ function luminance(hex) {
 const contrast = (a, b) => (Math.max(luminance(a), luminance(b)) + .05) / (Math.min(luminance(a), luminance(b)) + .05);
 
 test('the ten approved variants match the study and preserve saved family IDs', async () => {
-  const html = await readFile(new URL('../../../workspace/2026-10-20_mrmak-theme-studies/index.html', import.meta.url), 'utf8');
-  const families = JSON.parse(html.match(/<script id="theme-data" type="application\/json">([\s\S]*?)<\/script>/)[1]);
+  const families = JSON.parse(await readFile(new URL('./fixtures/approved-theme-variants.json', import.meta.url), 'utf8'));
   const variants = themes.slice(3);
   assert.equal(families.length, 5);
   assert.equal(variants.length, 10);

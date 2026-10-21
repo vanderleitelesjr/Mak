@@ -1,8 +1,9 @@
 import { mkdir, open, stat, writeFile } from 'node:fs/promises';
+import os from 'node:os';
 import path from 'node:path';
 
 const uuid = '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}';
-const nativeLine = new RegExp(`^[IWEF]\\d{4} \\d{2}:\\d{2}:\\d{2}\\.\\d+\\s+\\d+ [^\\]\\r\\n]+:\\d+\\] (?:Created|Resuming) conversation (${uuid})\\s*$`, 'i');
+const nativeLine = new RegExp(`^[IWEF]\\d{4} \\d{2}:\\d{2}:\\d{2}\\.\\d+\\s+\\d+ [^\\]\\r\\n]+:\\d+\\] (?:Print mode:\\s+)?(?:Created|Resuming|Streaming) conversation (${uuid})(?:[^\\w-]|$)`, 'i');
 export const validAntigravityId = value => typeof value === 'string' && new RegExp(`^${uuid}$`, 'i').test(value);
 
 export function antigravityLogPath(stateDir, chatId) {
@@ -63,4 +64,20 @@ export function watchAntigravity(stateDir, chatId, onConversation) {
   };
   const timer = setInterval(tick, 400); timer.unref(); void tick();
   return () => { closed = true; clearInterval(timer); };
+}
+
+export async function antigravityTranscript(nativeId, env = process.env, home = os.homedir()) {
+  if (!validAntigravityId(nativeId)) throw new Error('Invalid Antigravity conversation ID.');
+  const roots = [
+    env.ANTIGRAVITY_BRAIN_DIR,
+    env.ANTIGRAVITY_HOME && path.join(env.ANTIGRAVITY_HOME, 'brain'),
+    path.join(home, '.gemini', 'antigravity-cli', 'brain'),
+    path.join(home, '.gemini', 'antigravity', 'brain'),
+  ].filter(Boolean);
+  for (const root of roots) {
+    const file = path.join(root, nativeId, '.system_generated', 'logs', 'transcript.jsonl');
+    if (await stat(file).then(s => s.isFile(), () => false)) return file;
+  }
+  const fallback = (env.ANTIGRAVITY_BRAIN_DIR && roots.find(r => r === env.ANTIGRAVITY_BRAIN_DIR)) || roots[0] || path.join(home, '.gemini', 'antigravity-cli', 'brain');
+  return path.join(fallback, nativeId, '.system_generated', 'logs', 'transcript.jsonl');
 }

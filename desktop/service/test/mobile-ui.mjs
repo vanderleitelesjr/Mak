@@ -74,7 +74,8 @@ service.mobile.transcripts.read = async session => ({ supported: true, activity:
   { id: 'progress', role: 'assistant', text: 'Intermediate agent progress is included.', at: '' },
   { id: 'assistant', role: 'assistant', imageRefs: [path.join(repo, 'shared-picture.png'), path.join(repo, recordingName)], text: '## Ready for review\n\nThe latest results are in your Workspace.\n\n- **Character:** proportions updated\n- **Motion:** timing checked\n- **Next step:** choose the version you prefer\n\n[Open the source](https://example.com/source)\n\n' + (session.id === ids[0] ? 'Your agent is still working on the computer.' : 'Send a follow-up whenever an idea comes to mind.'), at: new Date().toISOString() },
 ] });
-let browser, qrSource;
+let browser, qrSource, diagnosticPhone;
+const reportResponses = [];
 try {
   browser = await launchBrowser({ args: ['--use-fake-device-for-media-stream', '--use-fake-ui-for-media-stream'] });
   const recordingPage = await browser.newPage();
@@ -148,6 +149,12 @@ try {
   let reloadingPhone = false;
   const navigationCancellations = [];
   const phone = await mobileContext.newPage(); phone.setDefaultTimeout(12000);
+  diagnosticPhone = phone;
+  phone.on('response', async response => {
+    if (!response.url().endsWith('/mobile/api/reports/open')) return;
+    const value = await response.json().catch(() => ({}));
+    reportResponses.push({ status: response.status(), kind: value.kind, step: value.step, error: value.error });
+  });
   await phone.exposeFunction('testUnhandledRejection', message => errors.push(`Unhandled rejection: ${message}`));
   await phone.addInitScript(() => window.addEventListener('unhandledrejection', event => { void window.testUnhandledRejection(String(event.reason)).catch(() => {}); }));
   phone.on('pageerror', error => {
@@ -580,6 +587,7 @@ try {
   assert.deepEqual(writes.slice(beforeKeys), ['\x1b[D', '\x1b[A', '\x1b[B', '\x1b[C'].map(data => ({ id: ids[1], data })));
   for (const width of [320, 390]) {
     await phone.setViewportSize({ width, height: 844 });
+    await expect.poll(() => phone.locator('.mobile-terminal-reader').evaluate(node => node.scrollWidth - node.clientWidth), { message: `Wrapped terminal needs no horizontal scrolling at ${width}px` }).toBeLessThanOrEqual(1);
     const keyLayout = await phone.locator('.mobile-terminal-keys').evaluate(node => ({ client: node.clientWidth, scroll: node.scrollWidth, keys: [...node.querySelectorAll('button')].map(button => { const r = button.getBoundingClientRect(); return { left: r.left, right: r.right, top: r.top, width: r.width, height: r.height }; }) }));
     assert.ok(keyLayout.scroll <= keyLayout.client + 1);
     assert.equal(new Set(keyLayout.keys.map(r => r.top)).size, 1, 'Terminal controls occupy one row');
@@ -597,6 +605,11 @@ try {
   await phone.getByRole('button', { name: 'Show terminal at actual size' }).click();
   assert.equal(await phone.locator('.mobile-terminal-surface').evaluate(node => getComputedStyle(node).transform), 'matrix(1, 0, 0, 1, 0, 0)');
   await phone.getByRole('button', { name: 'Fit terminal to screen' }).click();
+  for (const width of [320, 390]) {
+    await phone.setViewportSize({ width, height: 844 });
+    // Fit is applied by ResizeObserver, after the viewport change resolves.
+    await expect.poll(() => phone.locator('.mobile-terminal-viewport').evaluate(node => node.scrollWidth - node.clientWidth), { message: `Fitted terminal needs no horizontal scrolling at ${width}px` }).toBeLessThanOrEqual(1);
+  }
   assert.deepEqual(ids.map(id => ({ cols: service.sessions.get(id).cols, rows: service.sessions.get(id).rows })), dimensions);
   await phone.getByRole('button', { name: 'Conversation', exact: true }).click();
   await phone.locator('input[type=file]').setInputFiles({ name: 'phone.png', mimeType: 'image/png', buffer: png });
@@ -606,6 +619,27 @@ try {
   await phone.getByRole('button', { name: 'Back to chats' }).click(); await phone.getByRole('button', { name: 'Results', exact: true }).click();
   await phone.getByRole('button', { name: /A useful report/ }).click();
   const frame = phone.frameLocator('iframe'); await frame.getByRole('heading', { name: 'Report ready' }).waitFor();
+  // Returning from Chats remounts the header menu above an already composited
+  // iframe. A visible menu must receive both clicks and taps, and stay on screen.
+  for (const width of [320, 390, 768]) {
+    await phone.setViewportSize({ width, height: 844 });
+    for (let round = 0; round < 4; round++) {
+      await phone.getByRole('button', { name: 'Chats', exact: true }).click();
+      await phone.getByRole('button', { name: 'Results', exact: true }).click();
+      await phone.getByLabel('Select report page', { exact: true }).click();
+      const menuBox = await phone.locator('.mobile-page-menu').boundingBox();
+      assert.ok(menuBox && menuBox.x >= 0 && menuBox.x + menuBox.width <= width, `Report menu stays in bounds at ${width}px`);
+      await phone.getByRole('button', { name: 'Plan', exact: true }).click();
+      await phone.getByRole('heading', { name: 'Mobile plan' }).waitFor();
+      await phone.getByLabel('Select report page', { exact: true }).tap();
+      await phone.getByRole('button', { name: 'Report', exact: true }).tap();
+      await frame.getByRole('heading', { name: 'Report ready' }).waitFor();
+    }
+  }
+  await phone.setViewportSize({ width: 390, height: 844 });
+  await phone.getByLabel('Select report page', { exact: true }).click();
+  await phone.screenshot({ path: path.join(repo, 'phone-report-menu.png') });
+  await phone.getByLabel('Select report page', { exact: true }).click();
   await frame.getByAltText('Report image', { exact: true }).click();
   await frame.getByRole('dialog', { name: 'Image preview' }).waitFor();
   const downloadEvent = phone.waitForEvent('download'); await frame.getByRole('link', { name: 'Download', exact: true }).click();
@@ -617,7 +651,7 @@ try {
   assert.equal(await phone.locator('.mobile-header h1').innerText(), 'A useful report');
   await expect.poll(() => frame.locator('#delayed-content').evaluate(node => node.offsetHeight)).toBe(2200);
   const htmlIdentity = await frame.locator('body').evaluate(() => { window.testReportIdentity = Math.random(); location.hash = '#chapter-two'; window.scrollTo(0,500); document.getElementById('nested-scroll').scrollTop = 180; return window.testReportIdentity; });
-  const reportKey = 'mrmak.mobile.report.mobile-report.0';
+  const reportKey = 'mrmak.mobile.report.mobile-report.page.' + encodeURIComponent('workspace/report/index.html');
   await expect.poll(() => phone.evaluate(key => JSON.parse(localStorage.getItem(key) || '{}').top, reportKey)).toBe(500);
   await phone.getByRole('button', { name: 'Chats', exact: true }).click();
   await expect(stableDraft).toBeVisible();
@@ -683,10 +717,16 @@ try {
 
   // Pull to refresh reloads the report only from the top, and keeps its page.
   const pullDown = (locator, distance) => locator.evaluate((node, distance) => {
-    const touches = y => [new Touch({ identifier: 1, target: node, clientX: 120, clientY: y })];
-    node.dispatchEvent(new TouchEvent('touchstart', { touches: touches(100), bubbles: true }));
-    for (let y = 110; y <= 100 + distance; y += 10) node.dispatchEvent(new TouchEvent('touchmove', { touches: touches(y), bubbles: true }));
-    node.dispatchEvent(new TouchEvent('touchend', { touches: [], bubbles: true }));
+    // Desktop WebKit exposes Touch but does not allow constructing it. The
+    // handlers consume touch coordinates, so use the same event data in both engines.
+    const dispatch = (type, y) => {
+      const event = new Event(type, { bubbles: true, cancelable: true });
+      Object.defineProperty(event, 'touches', { value: y == null ? [] : [{ identifier: 1, target: node, clientX: 120, clientY: y }] });
+      node.dispatchEvent(event);
+    };
+    dispatch('touchstart', 100);
+    for (let y = 110; y <= 100 + distance; y += 10) dispatch('touchmove', y);
+    dispatch('touchend');
   }, distance);
   const reportIdentity = () => frame.locator('body').evaluate(() => window.testReportIdentity).catch(() => 'loading');
   await expect.poll(() => frame.locator('body').evaluate(() => window.scrollY)).toBe(500);
@@ -802,6 +842,17 @@ try {
   if (navigationCancellations.length) console.log(`Expected WebKit read cancellations during reload: ${navigationCancellations.length}`);
   assert.deepEqual(errors, []);
   console.log(JSON.stringify({ ok: true, fixture: repo, checks: ['Workspace context follows card/tab/page and section', 'navigation-only references; no report content or grant URLs', 'context frozen across lost reply, page change and reload', 'automatic context excluded from display and read aloud', 'cleared selection, slash commands and pre-update pending drafts', 'QR + desktop approval', 'independent views and PTY sizes', 'microphone permission / record / stop / cancel', 'dictation never auto-sends', 'saved recording recovery after reload and chat switch', 'lost transcription reply reuses provider result', 'lost reply / retry once', 'drafts per chat', 'offline recovery', 'image attachment', 'sandboxed report + image download', 'Markdown preview', 'long-link chat cards at 320/360/393/430/768px', '360/390/768px report layout', 'four terminal arrows and touch targets', 'close confirmation / desktop tab sync / History resume / draft retention', 'device revocation'] }));
+} catch (error) {
+  if (diagnosticPhone) {
+    const state = await diagnosticPhone.evaluate(() => ({
+      navigation: localStorage.getItem('mrmak.mobile.navigation'), workspace: localStorage.getItem('mrmak.mobile.workspace'),
+      report: document.querySelector('.mobile-results')?.textContent?.slice(0, 800),
+      headings: [...document.querySelectorAll('h1,h2')].map(node => node.textContent),
+    })).catch(() => null);
+    console.error(JSON.stringify({ mobileFailure: state, reportResponses }));
+    await diagnosticPhone.screenshot({ path: path.join(repo, 'failure.png') }).catch(() => {});
+  }
+  throw error;
 } finally {
   await browser?.close(); for (const session of service.sessions.items.values()) session.process = null;
   if (qrSource) { qrSource.closeAllConnections(); await new Promise(resolve => qrSource.close(resolve)); }

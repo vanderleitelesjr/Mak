@@ -5,6 +5,8 @@ import '@xterm/xterm/css/xterm.css'
 import { Icon } from '../desktop/Icons'
 import { mobileChatPosition, saveMobileChatPosition, type TerminalView } from './app-state'
 import { mobileApi, mobileEvent, onMobileEvent, useMobile } from './client'
+import { useWorkspaceTheme } from '../lib/workspace-theme'
+import { terminalTheme } from '../desktop/terminalAppearance'
 
 // Reading text for the phone. The CLI draws for the desktop's column width, so
 // the terminal cannot be re-wrapped; its rows become text the browser wraps.
@@ -23,6 +25,7 @@ function terminalText(term: Xterm, limit = 2000) {
 }
 
 export default function Terminal({ id }: { id: string }) {
+  const { resolved } = useWorkspaceTheme('chat')
   const viewport = useRef<HTMLDivElement>(null), stage = useRef<HTMLDivElement>(null), host = useRef<HTMLDivElement>(null), terminalRef = useRef<Xterm | null>(null)
   const state = useMobile(), [error, setError] = useState(''), [view, setView] = useState<TerminalView>(() => mobileChatPosition(id).terminalView || 'wrap')
   const text = useRef<HTMLPreElement>(null), reader = useRef<HTMLDivElement>(null)
@@ -31,7 +34,7 @@ export default function Terminal({ id }: { id: string }) {
   useEffect(() => {
     if (!host.current) return
     const element = host.current
-    const terminal = new Xterm({ disableStdin: true, cursorBlink: false, fontSize: 12, lineHeight: 1.25, fontFamily: 'ui-monospace, monospace', scrollback: 3000, theme: { background: '#101116', foreground: '#dedbe3', cursor: '#c4a7b8' } })
+    const terminal = new Xterm({ disableStdin: true, cursorBlink: false, fontSize: 12, lineHeight: 1.25, fontFamily: 'ui-monospace, monospace', scrollback: 3000, theme: terminalTheme('original', 'dark') })
     terminal.loadAddon(new WebLinksAddon((event, text) => { event.preventDefault(); try { const url = new URL(text); if (['http:', 'https:'].includes(url.protocol)) window.open(url.href, '_blank', 'noopener,noreferrer') } catch { /* Invalid terminal link. */ } }))
     terminal.open(element); terminalRef.current = terminal
     const layout = () => {
@@ -84,6 +87,7 @@ export default function Terminal({ id }: { id: string }) {
     subscribe()
     return () => { generation++; off(); scroll.dispose(); parsed.dispose(); cancelAnimationFrame(frame); observer.disconnect(); layoutRef.current = null; readRef.current = null; terminal.dispose(); terminalRef.current = null }
   }, [id])
+  useEffect(() => { if (terminalRef.current) terminalRef.current.options.theme = terminalTheme('original', resolved) }, [resolved, id])
   async function key(value: string) {
     if (value === 'interrupt' && !window.confirm('Interrupt the current task in this chat?')) return
     try { await mobileApi(`/sessions/${id}/key`, { key: value }); setError('') } catch (err) { setError(err instanceof Error ? err.message : String(err)) }

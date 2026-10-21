@@ -18,7 +18,7 @@ import './conversation.css'
 
 interface ToolActivity { id: string; name: string; status: 'running' | 'completed' | 'failed'; at: string }
 interface Message { id: string; role: 'user' | 'assistant' | 'system'; text: string; at: string; images?: ConversationImage[]; event?: SystemEventData }
-interface TerminalPrompt { id: string; question: string; detail: string[]; options: string[]; notes?: string[]; selected: number }
+interface TerminalPrompt { id: string; question: string; detail: string[]; options: string[]; selected: number }
 interface Transcript { supported: boolean; messages: Message[]; activity?: ToolActivity[]; agents?: WorkingAgent[]; commands?: BackgroundCommand[]; truncated?: boolean; prompt?: TerminalPrompt | null }
 interface Draft { text: string; paths: string[] }
 
@@ -30,6 +30,9 @@ function savedDraft(id: string): Draft {
     const value = JSON.parse(localStorage.getItem(draftKey(id)) || '')
     return { text: typeof value.text === 'string' ? value.text : '', paths: Array.isArray(value.paths) ? value.paths.filter((item: unknown) => typeof item === 'string') : [] }
   } catch { return { text: '', paths: [] } }
+}
+function saveDraft(id: string, draft: Draft) {
+  try { localStorage.setItem(draftKey(id), JSON.stringify(draft)) } catch { /* The draft stays in memory. */ }
 }
 
 // Web and mail links open in the browser. A file: URL, a drive path or a scheme-less
@@ -90,7 +93,7 @@ export default function Conversation({ session, connected, agentLabel, openTermi
     requestAnimationFrame(() => { input.current?.focus(); input.current?.setSelectionRange(next.caret, next.caret) })
   }
 
-  useEffect(() => { try { localStorage.setItem(draftKey(session.id), JSON.stringify(draft)) } catch { /* Draft stays in memory. */ } }, [draft, session.id])
+  useEffect(() => { saveDraft(session.id, draft) }, [draft, session.id])
   useEffect(() => {
     let stopped = false, busy = false
     const load = async () => {
@@ -182,6 +185,9 @@ export default function Conversation({ session, connected, agentLabel, openTermi
     setSending(true); setStatus('')
     try {
       await api(`/sessions/${session.id}/send`, { text, paths: draft.paths })
+      // A picker command unmounts this view immediately, before its draft effect
+      // can run. Clear the saved draft now so returning cannot resend it.
+      saveDraft(session.id, { text: '', paths: [] })
       setDraft({ text: '', paths: [] }); setCaret(0); follow.current = true; setShowJump(false)
       if (terminalCommand(commands, text)) openTerminal()
       void reload.current()
@@ -250,7 +256,7 @@ export default function Conversation({ session, connected, agentLabel, openTermi
         {transcript?.prompt && <section className="conversation-prompt" aria-label="The agent is asking for a choice">
           <header><Icon name="bell" size={14} /><strong>{transcript.prompt.question}</strong></header>
           {!!transcript.prompt.detail.length && <pre>{transcript.prompt.detail.join('\n')}</pre>}
-          <div className="conversation-prompt-options">{transcript.prompt.options.map((option, index) => <button type="button" key={index} disabled={answering} className={index === transcript.prompt!.selected ? 'selected' : ''} onClick={() => void answer(transcript.prompt!, index)}><span>{index + 1}</span><div>{option}{transcript.prompt!.notes?.[index] && <small>{transcript.prompt!.notes[index]}</small>}</div></button>)}</div>
+          <div className="conversation-prompt-options">{transcript.prompt.options.map((option, index) => <button type="button" key={index} disabled={answering} className={index === transcript.prompt!.selected ? 'selected' : ''} onClick={() => void answer(transcript.prompt!, index)}><span>{index + 1}</span>{option}</button>)}</div>
           <footer><button type="button" disabled={answering} onClick={() => void answer(transcript.prompt!, 'cancel')}>Esc · cancel</button><button type="button" onClick={openTerminal}><Icon name="terminal" size={13} />Open terminal</button></footer>
         </section>}
         {working && <p className="conversation-working"><i />{agentLabel} is working…</p>}
@@ -282,7 +288,7 @@ export default function Conversation({ session, connected, agentLabel, openTermi
         onPaste={event => { const files = Array.from(event.clipboardData.files).filter(file => file.type.startsWith('image/')); if (files.length) { event.preventDefault(); void addImages(files) } }} />
       <div className="conversation-actions">
         <button type="button" className="desk-icon" title="Attach files or folders" aria-label="Attach files" onClick={() => window.dispatchEvent(new Event('mrmak-attach-file'))}><Icon name="attach" size={16} /></button>
-        <div className="terminal-dictation"><VoiceInput id={`desktop-conversation-${session.id}`} connected={connected} disabled={sending} config={dictation} transcriber={transcribeDesktopAudio} onBusy={setVoiceBusy} onText={text => setDraft(current => ({ ...current, text: current.text ? `${current.text}${/\s$/.test(current.text) ? '' : '\n'}${text}` : text }))} /></div>
+        <div className="terminal-dictation"><VoiceInput id={`desktop-conversation-${session.id}`} connected={connected} disabled={sending} config={dictation} hotkey transcriber={transcribeDesktopAudio} onBusy={setVoiceBusy} onText={text => setDraft(current => ({ ...current, text: current.text ? `${current.text}${/\s$/.test(current.text) ? '' : '\n'}${text}` : text }))} /></div>
         <span className="conversation-status" role="status">{status || (uploading ? 'Saving images…' : 'Enter to send · Shift+Enter for a new line')}</span>
         {working && <button type="button" className="conversation-stop" onClick={stop} title="Interrupt the agent (Esc)"><Icon name="stop" size={14} />Stop</button>}
         <button type="submit" className="conversation-send" aria-label={sending ? 'Sending…' : 'Send'} title="Send" disabled={!connected || !running || sending || uploading || voiceBusy || (!draft.text.trim() && !draft.paths.length)}><Icon name="send" size={16} /></button>

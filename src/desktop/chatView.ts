@@ -6,7 +6,7 @@ const key = (id: string) => `mrmak.chatView.${id}`
 const read = (name: string) => { try { return localStorage.getItem(name) } catch { return null } }
 
 // Only these CLIs write a transcript Mr. Mak can read as a conversation.
-export const hasConversationView = (session: ChatSession) => session.agent === 'claude' || session.agent === 'codex'
+export const hasConversationView = (session: ChatSession) => session.agent === 'claude' || session.agent === 'codex' || session.agent === 'antigravity'
 
 export function chatView(session: ChatSession): ChatView {
   if (!hasConversationView(session)) return 'terminal'

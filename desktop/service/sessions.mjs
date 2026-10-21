@@ -1,24 +1,44 @@
 import { EventEmitter } from 'node:events';
 import { randomUUID } from 'node:crypto';
-import { mkdir, stat } from 'node:fs/promises';
+import { mkdir, realpath, stat } from 'node:fs/promises';
 import path from 'node:path';
 import pty from 'node-pty';
 import headless from '@xterm/headless';
 import { TerminalSnapshotAddon } from './terminal-snapshot.mjs';
 import { terminalCommand, childEnvironment, nativeConversationId, codexSupportsNoDaemon } from './agents.mjs';
-import { readJson, saveJson } from './util.mjs';
+import { expandHome, readJson, saveJson } from './util.mjs';
 import { claudeTranscript, codexTranscript, tailNativeFile } from './native-events.mjs';
 import { findCodexChat, newerCodexRollout } from './codex-history.mjs';
-import { englishTitle, restoredTitle } from './titles.mjs';
+import { englishTitle, groupLabel, restoredTitle } from './titles.mjs';
 import { defaultWorkerEffort, workerEfforts } from './effort.mjs';
+import { projectKey } from './recent-projects.mjs';
 import { ptyOptions } from './platform.mjs';
 import { opencodeVersion, opencodeEnvironment, readOpencodeState, watchOpencode } from './opencode.mjs';
-import { prepareAntigravityLog, readAntigravityConversation, validAntigravityId, watchAntigravity } from './antigravity.mjs';
+import { antigravityTranscript, prepareAntigravityLog, readAntigravityConversation, validAntigravityId, watchAntigravity } from './antigravity.mjs';
 
 const { Terminal } = headless;
+// Native CLIs record getcwd(): symlinks resolved (/tmp -> /private/tmp, cloud
+// drive links) and, on macOS, the on-disk case and Unicode form. Store that
+// spelling so their transcripts match. Windows keeps drive-letter spellings.
+async function workingFolder(value) {
+  const folder = path.resolve(expandHome(value));
+  return process.platform === 'win32' ? folder : realpath(folder).catch(() => folder);
+}
 const publicSession = session => {
-  const { id, name, agent, cwd, bypass, effort, status, createdAt, lastOutputAt, lastInputAt, exitCode, nativeId, attention, activity, unread, completionVersion, lastCompletedId, cols, rows, open, pinned, tabOrder, tabColor, updatedAt, preview, hasConversation, restoreError } = session;
-  return { id, name, agent, cwd, bypass, effort, status, createdAt, lastOutputAt, lastInputAt, exitCode, nativeId, attention, activity, unread, completionVersion, lastCompletedId, cols, rows, open, pinned, tabOrder, tabColor, updatedAt, preview, hasConversation, restoreError };
+  const { id, name, agent, cwd, bypass, effort, status, createdAt, lastOutputAt, lastInputAt, exitCode, nativeId, attention, activity, unread, completionVersion, lastCompletedId, cols, rows, open, pinned, tabOrder, tabColor, group, updatedAt, preview, hasConversation, restoreError } = session;
+  return { id, name, agent, cwd, bypass, effort, status, createdAt, lastOutputAt, lastInputAt, exitCode, nativeId, attention, activity, unread, completionVersion, lastCompletedId, cols, rows, open, pinned, tabOrder, tabColor, group, updatedAt, preview, hasConversation, restoreError };
+};
+
+// Grouped tabs sit together at the position of their earliest open member; a tab
+// without a group keeps its own position. The frontend (chatOrder.ts) mirrors this.
+export const groupRanks = items => {
+  const ranks = new Map();
+  for (const item of items) {
+    if (!item.open || !item.group) continue;
+    const key = `${item.pinned}:${item.group}`;
+    ranks.set(key, Math.min(ranks.get(key) ?? Infinity, item.tabOrder));
+  }
+  return item => (item.group ? ranks.get(`${item.pinned}:${item.group}`) : undefined) ?? item.tabOrder;
 };
 
 export class Sessions extends EventEmitter {
@@ -46,7 +66,7 @@ export class Sessions extends EventEmitter {
   }
 
   make(metadata) {
-    return { activity: 'idle', unread: false, completionVersion: 0, tabOrder: this.items.size, tabColor: null, ...metadata, effort: ['codex', 'claude', 'antigravity'].includes(metadata.agent) ? metadata.effort || defaultWorkerEffort : undefined, terminal: null, serializer: null, process: null, sequence: 0, pendingOutput: '', outputTimer: null };
+    return { activity: 'idle', unread: false, completionVersion: 0, tabOrder: this.items.size, tabColor: null, group: null, ...metadata, effort: ['codex', 'claude', 'antigravity'].includes(metadata.agent) ? metadata.effort || defaultWorkerEffort : undefined, terminal: null, serializer: null, process: null, sequence: 0, pendingOutput: '', outputTimer: null };
   }
 
   async hydrate(session) {
@@ -59,11 +79,16 @@ export class Sessions extends EventEmitter {
       session.terminal = terminal; session.serializer = serializer;
       const screen = await readJson(path.join(this.stateDir, `screen-${session.id}.json`), null);
       if (screen?.data) await new Promise(resolve => terminal.write(screen.data, resolve));
+      session.savedScreen = screen?.data;
     })();
     try { await session.hydrating; } finally { session.hydrating = null; }
   }
 
-  list() { return [...this.items.values()].map(publicSession).sort((a, b) => Number(b.pinned) - Number(a.pinned) || a.tabOrder - b.tabOrder); }
+  list() {
+    const items = [...this.items.values()].map(publicSession);
+    const rank = groupRanks(items);
+    return items.sort((a, b) => Number(b.pinned) - Number(a.pinned) || rank(a) - rank(b) || a.tabOrder - b.tabOrder);
+  }
   active() { return this.list().filter(item => item.open); }
   async restore() {
     // Open windows immediately; restore their terminals in the background.
@@ -90,14 +115,14 @@ export class Sessions extends EventEmitter {
     const agent = String(options.agent || 'codex');
     nativeConversationId(options.resumeId);
     if (options.effort && !workerEfforts.includes(options.effort)) throw new Error('Reasoning effort must be medium, high, xhigh or max.');
-    const cwd = path.resolve(options.cwd || this.repo);
+    const cwd = await workingFolder(options.cwd || this.repo);
     if (!(await stat(cwd)).isDirectory()) throw new Error('Working folder must be a directory');
     const now = new Date().toISOString();
     const session = this.make({
       id: randomUUID(), agent, name: englishTitle(options.name, `Conversation ${this.items.size + 1}`),
       tabOrder: Math.max(-1, ...this.list().map(item => item.tabOrder)) + 1,
       cwd, bypass: options.bypass === true, createdAt: now, lastInputAt: null, lastOutputAt: null,
-      effort: options.effort,
+      effort: options.effort, group: groupLabel(options.group),
       status: 'starting', nativeId: options.resumeId || (agent === 'claude' ? randomUUID() : null),
       open: true, pinned: false, updatedAt: now, preview: '', hasConversation: !!options.resumeId || !!options.initialPrompt, restoreError: null,
       attention: false, cols: Math.min(500, Math.max(20, options.cols || 90)), rows: Math.min(200, Math.max(5, options.rows || 32)),
@@ -112,18 +137,31 @@ export class Sessions extends EventEmitter {
     return publicSession(session);
   }
 
-  async importConversation({ agent, nativeId, name, cwd, pinned = false, bypass = false }) {
+  async importConversation({ agent, nativeId, name, cwd, pinned = false, bypass = false, group = null }) {
     if (!['codex', 'claude', 'antigravity', 'opencode', 'kimi'].includes(agent) || typeof nativeId !== 'string' || !nativeId.trim()) throw new Error('Choose an agent and its native conversation ID.');
     nativeId = nativeConversationId(nativeId.trim());
     if (agent === 'antigravity' && !validAntigravityId(nativeId)) throw new Error('Use the Antigravity conversation UUID from its /resume picker.');
-    cwd = path.resolve(cwd || this.repo);
+    cwd = await workingFolder(cwd || this.repo);
     if (!(await stat(cwd)).isDirectory()) throw new Error('Working folder must be a directory');
     const existing = [...this.items.values()].find(item => item.agent === agent && item.nativeId === nativeId);
     if (existing) { existing.name = englishTitle(name, existing.name); existing.pinned = pinned; this.changed(existing); await this.persist(); return publicSession(existing); }
     const now = new Date().toISOString();
-    const session = this.make({ id: randomUUID(), agent, nativeId, name: englishTitle(name), cwd: path.resolve(cwd || this.repo), bypass, pinned, open: false, status: 'stopped', createdAt: now, updatedAt: now, hasConversation: true, lastInputAt: null, lastOutputAt: null, preview: '', cols: 90, rows: 32, attention: false });
+    const session = this.make({ id: randomUUID(), agent, nativeId, name: englishTitle(name), cwd, bypass, pinned, group: groupLabel(group), open: false, status: 'stopped', createdAt: now, updatedAt: now, hasConversation: true, lastInputAt: null, lastOutputAt: null, preview: '', cols: 90, rows: 32, attention: false });
     this.items.set(session.id, session); this.changed(session); await this.persist();
     return publicSession(session);
+  }
+
+  // A CLI that is killed cannot restore the terminal it drew on. The session's
+  // terminal is reused across restarts, so a fullscreen CLI's alternate screen
+  // and mouse capture would otherwise outlive it and strand the next process,
+  // or a renderer that changed between runs, on a screen with no scrollback
+  // where wheel events arrive as mouse reports. Clear those modes before each
+  // launch, in the service's terminal and in every attached renderer.
+  resetTerminal(session) {
+    const reset = '\x1b[?1000l\x1b[?1002l\x1b[?1003l\x1b[?1006l\x1b[?1015l\x1b[?1016l\x1b[?2004l\x1b[?1004l\x1b[?1049l\x1b[?47l\x1b[?25h\x1b[0m';
+    session.terminal.write(reset);
+    session.pendingOutput = (session.pendingOutput || '') + reset;
+    if (!session.outputTimer) session.outputTimer = setTimeout(() => this.flushOutput(session), 16);
   }
 
   async launch(session, resumeId, nativeWatch, first = {}) {
@@ -144,6 +182,7 @@ export class Sessions extends EventEmitter {
     if (this.closed || !session.open) throw new Error('The chat was closed before its terminal started.');
     const command = terminalCommand(session.agent, { bypass: session.bypass, resumeId, nativeId: session.nativeId, effort: session.effort, opencodeMajor, antigravityLog, noDaemon, ...first });
     if (session.agent === 'codex') env.CODEX_INTERNAL_ORIGINATOR_OVERRIDE = `mrmak_chat_${session.id}`;
+    if (session.terminal) this.resetTerminal(session);
     const proc = pty.spawn(command.file, command.args, ptyOptions({ cwd: session.cwd, env, cols: session.cols, rows: session.rows }));
     session.process = proc;
     session.deviceReplies?.dispose();
@@ -210,6 +249,9 @@ export class Sessions extends EventEmitter {
     });
     if (nativeWatch) this.watchNative(session, nativeWatch.file, nativeWatch.offset);
     else if (session.agent === 'claude' && session.nativeId) claudeTranscript(session.cwd, session.nativeId).then(file => {
+      if (session.process === proc) this.watchNative(session, file);
+    }).catch(() => {});
+    else if (session.agent === 'antigravity' && session.nativeId) antigravityTranscript(session.nativeId).then(file => {
       if (session.process === proc) this.watchNative(session, file);
     }).catch(() => {});
   }
@@ -304,6 +346,9 @@ export class Sessions extends EventEmitter {
     if (!id || id === session.nativeId || [...this.items.values()].some(item => item !== session && item.agent === 'antigravity' && item.nativeId === id)) return;
     session.nativeId = id; session.hasConversation = true; session.restoreError = null;
     this.changed(session);
+    if (session.process) antigravityTranscript(id).then(file => {
+      if (session.process && session.agent === 'antigravity') this.watchNative(session, file);
+    }).catch(() => {});
   }
 
   flushOutput(session) {
@@ -403,19 +448,120 @@ export class Sessions extends EventEmitter {
     const session = this.get(id); session.tabColor = value?.toLowerCase() || null; this.changed(session);
     return publicSession(session);
   }
+  // Convert project-based ordering into ordinary named groups. The same action
+  // is used for the old settings migration and the header's project shortcut.
+  async groupByProject(projectOrder = []) {
+    const open = [...this.items.values()].filter(item => item.open).sort((a, b) => Number(b.pinned) - Number(a.pinned) || a.tabOrder - b.tabOrder);
+    const projects = new Map();
+    for (const item of open) {
+      const key = projectKey(item.cwd);
+      if (!projects.has(key)) projects.set(key, []);
+      projects.get(key).push(item);
+    }
+    const reserved = new Map();
+    for (const item of this.items.values()) {
+      if (!item.group) continue;
+      if (!reserved.has(item.group)) reserved.set(item.group, new Set());
+      reserved.get(item.group).add(projectKey(item.cwd));
+    }
+    const names = new Map();
+    for (const [key, members] of projects) {
+      const existing = [...reserved].find(([, folders]) => folders.size === 1 && folders.has(key));
+      if (existing) { names.set(key, existing[0]); continue; }
+      let base = members[0].cwd.split(/[\\/]/).filter(Boolean).at(-1)?.slice(0, 50) || 'Project';
+      try { base = groupLabel(base) || 'Project'; } catch { base = 'Project'; }
+      if (Object.hasOwn(Object.prototype, base)) base += ' project';
+      let name = base, suffix = 2;
+      while (reserved.has(name)) name = `${base} (${suffix++})`;
+      reserved.set(name, new Set([key])); names.set(key, name);
+    }
+    const rank = new Map();
+    if (Array.isArray(projectOrder)) for (const [index, folder] of projectOrder.entries()) {
+      if (typeof folder === 'string' && !rank.has(projectKey(folder))) rank.set(projectKey(folder), index);
+    }
+    let order = 0;
+    for (const pinned of [true, false]) {
+      const keys = [...new Set(open.filter(item => !!item.pinned === pinned).map(item => projectKey(item.cwd)))];
+      keys.sort((a, b) => (rank.get(a) ?? Infinity) - (rank.get(b) ?? Infinity));
+      for (const key of keys) for (const item of projects.get(key).filter(item => !!item.pinned === pinned)) {
+        const group = names.get(key), tabOrder = order++;
+        if (item.group !== group || item.tabOrder !== tabOrder) { item.group = group; item.tabOrder = tabOrder; this.changed(item); }
+      }
+    }
+    await this.persist();
+    return { grouped: open.length, groups: projects.size };
+  }
+  async assign(id, value) {
+    const session = this.get(id);
+    const group = groupLabel(value);
+    if (session.group === group) return publicSession(session);
+    session.group = group;
+    this.changed(session);
+    // Joining a group places the tab after that group's last open member, as a
+    // drag there would. Leaving a group keeps the tab where it is.
+    const last = group && session.open ? this.active().filter(item => item.id !== id && item.pinned === session.pinned && item.group === group).at(-1) : null;
+    if (last) await this.reorder(id, last.id, 'after');
+    else await this.persist();
+    return publicSession(session);
+  }
   async reorder(id, targetId, position) {
     const session = this.get(id), target = this.get(targetId);
     if (!['before', 'after'].includes(position)) throw new Error('Choose a valid tab position.');
     if (!session.open || !target.open) throw new Error('Only open tabs can be reordered.');
-    if (session.pinned !== target.pinned) throw new Error('Pinned tabs stay together. Reorder within the same group.');
+    if (session.pinned !== target.pinned) throw new Error('Pinned tabs stay together. Move a tab within the pinned or the unpinned tabs.');
     if (id === targetId) return this.active();
+    // Dropping beside a tab of another group joins that group; dropping beside an
+    // ungrouped tab leaves the current group.
+    if (session.group !== target.group) { session.group = target.group; this.changed(session); }
     // Retain closed chats between their neighbours so reopening History keeps
-    // their place. Reordering one group cannot affect the other group.
-    const group = this.list().filter(item => item.pinned === session.pinned && item.id !== id);
-    group.splice(group.findIndex(item => item.id === targetId) + Number(position === 'after'), 0, publicSession(session));
-    group.forEach((item, index) => { const changed = this.get(item.id); if (changed.tabOrder !== index) { changed.tabOrder = index; this.changed(changed); } });
+    // their place. Reordering pinned tabs cannot affect unpinned tabs.
+    const siblings = this.list().filter(item => item.pinned === session.pinned && item.id !== id);
+    siblings.splice(siblings.findIndex(item => item.id === targetId) + Number(position === 'after'), 0, publicSession(session));
+    siblings.forEach((item, index) => { const changed = this.get(item.id); if (changed.tabOrder !== index) { changed.tabOrder = index; this.changed(changed); } });
     await this.persist();
     return this.active();
+  }
+  // A group moves as one block, closed members included, beside an ungrouped
+  // tab or beside the whole of another group, never into the middle of one.
+  async moveGroup(name, pinned, targetId, position) {
+    const group = groupLabel(name), target = this.get(targetId);
+    if (!['before', 'after'].includes(position)) throw new Error('Choose a valid tab position.');
+    if (!target.open) throw new Error('Only open tabs can be reordered.');
+    if (target.pinned !== !!pinned) throw new Error('Pinned tabs stay together. Move a group within the pinned or the unpinned tabs.');
+    const siblings = this.list().filter(item => item.pinned === target.pinned);
+    const block = siblings.filter(item => item.group === group);
+    if (!group || !block.some(item => item.open)) throw Object.assign(new Error('That group has no open tabs.'), { status: 404 });
+    if (target.group === group) return this.active();
+    const rest = siblings.filter(item => item.group !== group);
+    const anchor = rest.map((item, index) => (target.group ? item.group === target.group : item.id === targetId) ? index : -1).filter(index => index >= 0);
+    rest.splice(position === 'after' ? anchor.at(-1) + 1 : anchor[0], 0, ...block);
+    rest.forEach((item, index) => { const changed = this.get(item.id); if (changed.tabOrder !== index) { changed.tabOrder = index; this.changed(changed); } });
+    await this.persist();
+    return this.active();
+  }
+  // Renaming relabels every chat in the group, History included. A name another
+  // group already uses merges the two.
+  async renameGroup(from, to) {
+    const source = groupLabel(from), name = groupLabel(to);
+    if (!name) throw new Error('Name the group.');
+    const members = [...this.items.values()].filter(item => source && item.group === source);
+    if (!members.length) throw Object.assign(new Error('That group no longer exists.'), { status: 404 });
+    if (name !== source) {
+      for (const session of members) { session.group = name; this.changed(session); }
+      await this.persist();
+    }
+    return this.active();
+  }
+  // Deleting a group ungroups every chat that carries it, History included;
+  // the chats themselves stay. Unlike ungrouping from a chip, this also
+  // reaches a group that no open tab shows any more.
+  async deleteGroup(name) {
+    const label = groupLabel(name);
+    if (!label) throw new Error('Name the group.');
+    const members = [...this.items.values()].filter(item => item.group === label);
+    for (const session of members) { session.group = null; this.changed(session); }
+    if (members.length) await this.persist();
+    return { removed: members.length, history: members.filter(item => !item.open).length };
   }
   async clearScreen(id) {
     const session = this.get(id); await this.hydrate(session);
@@ -437,15 +583,18 @@ export class Sessions extends EventEmitter {
     session.unread = false; session.attention = false; this.changed(session);
   }
   async nativeBoundary(session, resumeId) {
-    const file = !resumeId ? null : session.agent === 'codex' ? await codexTranscript(resumeId) : session.agent === 'claude' ? await claudeTranscript(session.cwd, resumeId) : null;
+    const file = !resumeId ? null : session.agent === 'codex' ? await codexTranscript(resumeId) : session.agent === 'claude' ? await claudeTranscript(session.cwd, resumeId) : session.agent === 'antigravity' ? await antigravityTranscript(resumeId) : null;
     return file ? { file, offset: (await stat(file).catch(() => null))?.size || 0 } : null;
   }
   stop(id) { const session = this.get(id); this.requestStop(session); return { stopped: !!session.process }; }
   requestStop(session) {
     const proc = session.process;
     if (!proc) return;
-    if (!['opencode', 'antigravity'].includes(session.agent)) { proc.kill(); return; }
-    // Let OpenCode flush and close its SQLite store before ConPTY is destroyed.
+    if (!['opencode', 'antigravity', 'claude'].includes(session.agent)) { proc.kill(); return; }
+    // Let OpenCode flush and close its SQLite store before ConPTY is destroyed,
+    // and let Claude leave its fullscreen renderer the way it expects: a killed
+    // fullscreen session counts as a failed start on its side, and two of those
+    // switch later sessions to the classic renderer.
     // Ctrl+C cancels work; a second press exits the native TUI. Custom keymaps
     // or an unresponsive CLI still have a bounded hard-stop fallback.
     proc.write('\x03');
@@ -500,14 +649,26 @@ export class Sessions extends EventEmitter {
     return publicSession(session);
   }
   async persist() {
-    this.dirty = false;
     this.saveChain = this.saveChain.catch(() => {}).then(async () => {
+      this.dirty = false;
       await saveJson(path.join(this.stateDir, 'sessions.json'), this.list());
+      let screenError;
       for (const session of this.items.values()) {
         if (!session.terminal) continue;
-        await new Promise(resolve => session.terminal.write('', resolve));
-        await saveJson(path.join(this.stateDir, `screen-${session.id}.json`), { data: session.serializer.serialize({ scrollback: 1500 }) });
+        try {
+          await new Promise(resolve => session.terminal.write('', resolve));
+          const data = session.serializer.serialize({ scrollback: 1500 });
+          if (data === session.savedScreen) continue;
+          await saveJson(path.join(this.stateDir, `screen-${session.id}.json`), { data });
+          session.savedScreen = data;
+        } catch (error) { screenError ??= error; }
       }
+      if (screenError) throw screenError;
+    }).catch(error => {
+      // A failed screen must not prevent the remaining chats from saving or
+      // disappear from the next autosave when there is no further output.
+      this.dirty = true;
+      throw error;
     });
     return this.saveChain;
   }
@@ -515,7 +676,7 @@ export class Sessions extends EventEmitter {
     this.closed = true; clearInterval(this.timer);
     // Preserve the open-tab flags on app quit while giving OpenCode time to
     // close the database used by the next launch.
-    await Promise.all([...this.items.values()].filter(s => ['opencode', 'antigravity'].includes(s.agent) && s.process).map(session => new Promise(resolve => {
+    await Promise.all([...this.items.values()].filter(s => ['opencode', 'antigravity', 'claude'].includes(s.agent) && s.process).map(session => new Promise(resolve => {
       const proc = session.process;
       const timer = setTimeout(() => { subscription.dispose(); resolve(); }, 5000);
       const subscription = proc.onExit(() => { clearTimeout(timer); subscription.dispose(); resolve(); });

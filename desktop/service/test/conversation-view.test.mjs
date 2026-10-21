@@ -6,7 +6,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createService } from '../server.mjs';
 import { recentProjects } from '../recent-projects.mjs';
-import { answerPrompt, terminalPrompt } from '../terminal-prompt.mjs';
+import { answerPrompt, readPrompt, terminalPrompt } from '../terminal-prompt.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..');
 const png = Buffer.concat([Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]), Buffer.alloc(32)]);
@@ -93,12 +93,12 @@ test('desktop conversation view reads the native transcript, grants its media an
   assert.deepEqual(pinned.filter(item => item.pinned).map(item => item.path), [game]);
   assert.deepEqual((await service.coordinator.execute('list_projects', { query: 'game' })).map(item => item.path), [game]);
 
-  assert.deepEqual(await (await request(`/sessions/${session.id}/stats`)).json(), { supported: true, userMessages: 1, truncated: false, model: null, handoff: null });
+  assert.deepEqual(await (await request(`/sessions/${session.id}/stats`)).json(), { supported: true, userMessages: 1, truncated: false, model: null, usage: null, handoff: null });
   const handoff = await request(`/sessions/${session.id}/handoff`, {});
   assert.equal(handoff.status, 400); assert.match((await handoff.json()).error, /Reconnect this chat/);
-  assert.equal((await (await request('/settings', { handoffAfter: 5, groupTabsByProject: 'yes' })).json()).handoffAfter, 40);
-  const settings = await (await request('/settings', { handoffAfter: 0, groupTabsByProject: true })).json();
-  assert.equal(settings.handoffAfter, 0); assert.equal(settings.groupTabsByProject, true);
+  assert.equal((await (await request('/settings', { handoffAfter: 5 })).json()).handoffAfter, 40);
+  const settings = await (await request('/settings', { handoffAfter: 0 })).json();
+  assert.equal(settings.handoffAfter, 0);
 });
 
 const claudeScreen = [
@@ -125,7 +125,6 @@ test('terminal permission menus are read from the bottom of the screen only', ()
   assert.deepEqual(prompt.options, ['Yes', "Yes, and don't ask again for npm test", 'No, and tell Claude what to do']);
   assert.equal(prompt.selected, 0);
   assert.deepEqual(prompt.detail, ['Bash command', 'npm test', 'Run the service tests']);
-  assert.deepEqual(prompt.notes, ['', 'commands in this folder', 'differently (esc)']);
   const codex = terminalPrompt(['▌ Allow command?', '▌ $ cargo build', '', '  › 1. Yes, proceed (y)', "    2. Yes, and don't ask again for this command (a)", '    3. No, and tell Codex what to do differently (esc)', '', '  Press enter to confirm or esc to cancel'].join('\n'));
   assert.equal(codex.question, 'Allow command?'); assert.equal(codex.options.length, 3); assert.equal(codex.selected, 0);
   // An ordinary numbered answer has no selected marker; an old menu is no longer at the bottom.
@@ -134,29 +133,25 @@ test('terminal permission menus are read from the bottom of the screen only', ()
   assert.equal(terminalPrompt(''), null);
 });
 
-test('an AskUserQuestion menu is read when its option descriptions wrap over several lines', () => {
-  const description = ['     The infantry crosses on top and can also step down into the trench or climb out of it', '     by the walkway. Inside, the line still runs underneath. It is simple and it works, but', '     the walkway becomes an entrance too, cheaper than the opening (15 against 20 wood).', '     Live tuning can correct it by raising the cost.'];
-  const prompt = terminalPrompt(['─'.repeat(60), ' ☐ Walkway', '', '│ Step 2B is ready and tested. The path grid has a single layer.', '│ How does the infantry use the walkway?', '',
-    '❯ 1. Cross and step down (Recommended)', ...description, '  2. Cross, but split the line', ...description.slice(0, 2), '  3. Only for units that stay out', ...description.slice(0, 3),
-    '  4. Type something.', '─'.repeat(60), '  5. Chat about this', '', 'Enter to select · ↑/↓ to navigate · Esc to cancel', ''].join('\n'));
-  assert.equal(prompt.question, 'Step 2B is ready and tested. The path grid has a single layer. How does the infantry use the walkway?');
-  assert.deepEqual(prompt.detail, ['☐ Walkway']);
-  assert.deepEqual(prompt.options, ['Cross and step down (Recommended)', 'Cross, but split the line', 'Only for units that stay out', 'Type something.', 'Chat about this']);
-  assert.deepEqual(prompt.notes.map(note => note.split(' ').length > 1), [true, true, true, false, false]);
-  assert.ok(prompt.notes[0].endsWith('Live tuning can correct it by raising the cost.'));
-  assert.equal(prompt.selected, 0);
-});
-
 test('answering a prompt re-checks it and moves the selection one key at a time', async () => {
   const writes = [];
   let screen = claudeScreen;
-  const sessions = { read: async () => ({ screen }), input: (_id, data) => writes.push(data) };
-  const { id } = terminalPrompt(screen);
+  const sessions = { read: async () => ({ screen }), keys: (_id, data) => {
+    writes.push(data);
+    if (data === '\x1b[B') {
+      const selected = terminalPrompt(screen).selected;
+      screen = screen.replace('❯ ', '  ').replace(`  ${selected + 2}.`, `❯ ${selected + 2}.`);
+    }
+  } };
+  const { id } = await readPrompt(sessions, 'chat');
+  await assert.rejects(answerPrompt(sessions, 'chat', id, 7), /listed options/);
   assert.deepEqual(await answerPrompt(sessions, 'chat', id, 2), { delivered: true, choice: 2, option: 'No, and tell Claude what to do' });
   assert.deepEqual(writes, ['\x1b[B', '\x1b[B', '\r']);
-  await assert.rejects(answerPrompt(sessions, 'chat', id, 7), /listed options/);
+  await assert.rejects(answerPrompt(sessions, 'chat', id, 2), error => error.status === 409);
   await assert.rejects(answerPrompt(sessions, 'chat', 'stale', 0), error => error.status === 409);
-  writes.length = 0; await answerPrompt(sessions, 'chat', id, 'cancel');
+  screen = 'Done.\n'; await readPrompt(sessions, 'chat'); screen = claudeScreen;
+  const next = await readPrompt(sessions, 'chat');
+  writes.length = 0; await answerPrompt(sessions, 'chat', next.id, 'cancel');
   assert.deepEqual(writes, ['\x1b']);
   screen = 'Done.\n';
   await assert.rejects(answerPrompt(sessions, 'chat', id, 0), error => error.status === 409);

@@ -59,7 +59,6 @@ assert.match(await read('desktop/service/server.mjs'), /defaultBypass: false/);
 assert.match(await read('desktop/service/sessions.mjs'), /bypass: options\.bypass === true/);
 assert.match(await read('desktop/service/sessions.mjs'), /pinned = false, bypass = false/);
 const readme = await read('README.md');
-assert.match(readme, /^# Mr\. Mak Workspace/m);
-assert.match(readme, /\[original repository\]\(https:\/\/github\.com\/witnesstodark\/mr-mak-workspace\)/, 'The fork README must link to the original application and installation instructions.');
+assert.match(readme, /Mr\. Mak is small\.\s+<img src="docs\/assets\/mr-mak\.png"[^>]+>\s*$/);
 await stat(path.join(root, 'docs/assets/mr-mak.png'));
 console.log(`Template passed: four cards, one pin, ${images.size} images, ${videos.size} videos, ${skillNames.length} shared skills, empty connections and account placeholders.`);

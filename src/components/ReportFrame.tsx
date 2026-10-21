@@ -1,12 +1,13 @@
-import { useCallback, useEffect, useRef, useState, type IframeHTMLAttributes } from 'react'
+import { useCallback, useEffect, useImperativeHandle, useRef, useState, type IframeHTMLAttributes, type Ref } from 'react'
 import { useWorkspaceTheme } from '../lib/workspace-theme'
 import { reportThemeCSS } from '../../desktop/service/report-theme.mjs'
 
-type Props = Omit<IframeHTMLAttributes<HTMLIFrameElement>, 'src' | 'onLoad'> & { url: string; onLoad?: () => void }
+type Props = Omit<IframeHTMLAttributes<HTMLIFrameElement>, 'src' | 'onLoad'> & { url: string; onLoad?: () => void; ref?: Ref<HTMLIFrameElement> }
 
-function ThemedFrame({ url, onLoad, ...props }: Props) {
+function ThemedFrame({ url, onLoad, ref, ...props }: Props) {
   const { resolved } = useWorkspaceTheme()
   const frame = useRef<HTMLIFrameElement>(null)
+  useImperativeHandle(ref, () => frame.current!)
   // Set the initial colour before a desktop report paints. Later theme changes
   // use a message, preserving scroll position and the report's interactive state.
   const [src] = useState(() => {
@@ -21,7 +22,8 @@ function ThemedFrame({ url, onLoad, ...props }: Props) {
     // second origin, whose prelude accepts theme messages only from its UI.
     // Only touch the document when same-origin: WebKit reports every blocked
     // cross-origin access as an error, even inside try/catch.
-    const sameOrigin = new URL(url, location.href).origin === location.origin
+    const opaque = props.sandbox !== undefined && !props.sandbox.split(/\s+/).includes('allow-same-origin')
+    const sameOrigin = !opaque && new URL(url, location.href).origin === location.origin
     if (sameOrigin) try {
       const doc = element.contentDocument
       if (doc?.documentElement) {
@@ -34,8 +36,8 @@ function ThemedFrame({ url, onLoad, ...props }: Props) {
         doc.documentElement.dataset.mrmakTheme = resolved
       }
     } catch { /* Cross-origin reports use the message below. */ }
-    element.contentWindow?.postMessage({ type: 'mrmak:theme', theme: resolved }, new URL(url, location.href).origin)
-  }, [resolved, url])
+    element.contentWindow?.postMessage({ type: 'mrmak:theme', theme: resolved }, opaque ? '*' : new URL(url, location.href).origin)
+  }, [resolved, url, props.sandbox])
   useEffect(applyTheme, [applyTheme])
   return <iframe {...props} ref={frame} src={src} onLoad={() => { applyTheme(); onLoad?.() }} />
 }

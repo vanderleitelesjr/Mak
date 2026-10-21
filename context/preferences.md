@@ -9,3 +9,5 @@ This is a starting point. Replace it with your preferences when you are ready.
 - Permissions: choose the level appropriate for each task; do not infer a personal
   preference for bypassing approvals from the examples.
 - Restarts: ask before interrupting a running application or agent chat.
+- During owner testing: record feedback only. Implement a change or fix only
+  after the owner explicitly requests implementation.

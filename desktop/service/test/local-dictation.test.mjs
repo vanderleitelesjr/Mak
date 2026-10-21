@@ -27,4 +27,3 @@ test('a local transcript keeps accented letters through the Python output pipe',
   const result = await localTranscribe({ python, model: folder }, Buffer.alloc(32), 'webm');
   assert.equal(result.text, 'Eu falo português, não é?');
 });
-

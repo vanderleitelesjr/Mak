@@ -9,9 +9,15 @@ import { launchBrowser } from './browser.mjs';
 import { themes } from '../appearance.mjs';
 
 async function readable(locator, background, description) {
-  const color = await locator.evaluate(node => getComputedStyle(node).color);
+  const color = await locator.evaluate(node => {
+    // Let the browser convert computed colour-mix()/color() values to sRGB.
+    const canvas = document.createElement('canvas'); canvas.width = canvas.height = 1;
+    const context = canvas.getContext('2d');
+    context.fillStyle = getComputedStyle(node).color; context.fillRect(0, 0, 1, 1);
+    return [...context.getImageData(0, 0, 1, 1).data].slice(0, 3);
+  });
   const luminance = channels => channels.map(c => c / 255).map(c => c <= .04045 ? c / 12.92 : ((c + .055) / 1.055) ** 2.4).reduce((sum, c, i) => sum + c * [.2126, .7152, .0722][i], 0);
-  const foreground = luminance(color.match(/[\d.]+/g).slice(0, 3).map(Number));
+  const foreground = luminance(color);
   const backdrop = luminance([1, 3, 5].map(i => parseInt(background.slice(i, i + 2), 16)));
   const ratio = (Math.max(foreground, backdrop) + .05) / (Math.min(foreground, backdrop) + .05);
   assert.ok(ratio >= 4.5, `${description}: rendered contrast ${ratio.toFixed(2)}`);
@@ -30,8 +36,8 @@ await writeFile(path.join(repo, 'workspace/test/notes.md'), '# Readable notes\n\
 await writeFile(path.join(repo, 'workspace/workspace.json'), JSON.stringify({ entities: [{ id: 'test', folder: 'test', title: 'Theme check', sample: true, category: 'dev', created: '2026-10-02', status: 'active', defaultStep: 0, steps: [{ name: 'Report', path: 'report.html' }, { name: 'Notes', path: 'notes.md' }, { name: 'Custom game', path: 'custom.html' }] }] }));
 let service, browser;
 try {
-  service = await createService({ repo, uiDir: path.join(root, 'dist') });
-  const session = service.sessions.make({ id: 'theme-chat', name: 'Theme preview', agent: 'codex', cwd: repo, status: 'running', open: true, createdAt: new Date().toISOString(), cols: 90, rows: 30 });
+  service = await createService({ repo, uiDir: path.join(root, 'dist'), mcpOptions: { home: repo, env: {} } });
+  const session = service.sessions.make({ id: 'theme-chat', name: 'Theme preview', group: 'Theme group', agent: 'codex', cwd: repo, status: 'running', open: true, createdAt: new Date().toISOString(), cols: 90, rows: 30 });
   const writes = [];
   session.process = { write: data => writes.push(data), resize() {}, kill() {} };
   service.sessions.items.set(session.id, session);
@@ -90,6 +96,12 @@ try {
     await chats.getByLabel('Chat theme', { exact: true }).selectOption(theme.id);
     await expect(chats.locator('html')).toHaveAttribute('data-workspace-theme', theme.id);
     assert.equal(await terminalElement.evaluate(node => node.isConnected), true);
+    await readable(chats.locator('.chat-group-chip .chip-name'), theme.bg, `${theme.id} group label`);
+    await chats.getByRole('tab', { name: /^Theme preview/ }).click({ button: 'right' });
+    await expect(chats.locator('.tab-menu')).toHaveCSS('background-color', theme.panel.replace(/#(..)(..)(..)/, (_, r, g, b) => `rgb(${parseInt(r, 16)}, ${parseInt(g, 16)}, ${parseInt(b, 16)})`));
+    await readable(chats.locator('.tab-menu [role=menuitem]').first(), theme.panel, `${theme.id} tab menu`);
+    await chats.keyboard.press('Escape');
+    await expect(chats.locator('.tab-menu')).toHaveCount(0);
     await expect(chats.locator('.chats-surface')).toHaveCSS('background-color', theme.bg.replace(/#(..)(..)(..)/, (_, r, g, b) => `rgb(${parseInt(r, 16)}, ${parseInt(g, 16)}, ${parseInt(b, 16)})`));
     await second.screenshot({ path: path.join(output, `${theme.id}-workspace.png`) });
     await chats.screenshot({ path: path.join(output, `${theme.id}-terminal.png`) });
@@ -148,7 +160,7 @@ try {
   assert.deepEqual(errors, []);
   await context.close();
   await service.close();
-  service = await createService({ repo, uiDir: path.join(root, 'dist') });
+  service = await createService({ repo, uiDir: path.join(root, 'dist'), mcpOptions: { home: repo, env: {} } });
   const restarted = await browser.newPage();
   await restarted.goto(service.urls.workspace);
   await expect(restarted.locator('html')).toHaveAttribute('data-workspace-theme', 'light');

@@ -4,10 +4,13 @@ import { chmod, mkdtemp, mkdir, readFile, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import { randomUUID } from 'node:crypto';
-import { antigravityConversation, antigravityLogPath, prepareAntigravityLog, readAntigravityConversation, watchAntigravity } from '../antigravity.mjs';
+import { antigravityConversation, antigravityLogPath, antigravityTranscript, prepareAntigravityLog, readAntigravityConversation, validAntigravityId, watchAntigravity } from '../antigravity.mjs';
 import { terminalCommand } from '../agents.mjs';
 import { commandSearchRoots, resolveCommand } from '../platform.mjs';
 import { Sessions } from '../sessions.mjs';
+import { ConversationTranscripts } from '../mobile-transcript.mjs';
+import { completedTurn, nativeActivity } from '../native-events.mjs';
+import { chatCommands } from '../chat-commands.mjs';
 
 const idA = '11111111-1111-4111-8111-111111111111';
 const idB = '22222222-2222-4222-8222-222222222222';
@@ -21,14 +24,14 @@ test('Antigravity is discoverable before the app refreshes PATH', async () => {
   const bin = process.platform === 'win32' ? path.join(local, 'agy/bin') : path.join(home, '.local/bin');
   await mkdir(bin, { recursive: true });
   const file = path.join(bin, process.platform === 'win32' ? 'agy.exe' : 'agy');
-  await writeFile(file, '');
+  await writeFile(file, '', { mode: 0o755 });
   assert.ok(commandSearchRoots({ LOCALAPPDATA: local }, home).includes(bin));
   assert.equal(resolveCommand('agy', { PATH: '', LOCALAPPDATA: local }, home), file);
 });
 
 test('Antigravity command preserves permissions, explicit effort and an exact conversation target', async () => {
   const bin = await mkdtemp(path.join(os.tmpdir(), 'mrmak-agy-command-'));
-  await writeFile(path.join(bin, process.platform === 'win32' ? 'agy.cmd' : 'agy'), '');
+  await writeFile(path.join(bin, process.platform === 'win32' ? 'agy.cmd' : 'agy'), '', { mode: 0o755 });
   const previous = process.env.PATH;
   process.env.PATH = bin;
   try {
@@ -52,6 +55,9 @@ test('Native ID discovery ignores echoed UUIDs, partial records and unrelated me
   assert.equal(antigravityConversation(`I1013 23:48:17.916254 258 tool.go:12] echo Created conversation ${idA}\n`), null);
   assert.equal(antigravityConversation(line(idA) + `tool result ${idB}\n`), idA);
   assert.equal(antigravityConversation(line(idA) + line(idB, 'Resuming')), idB);
+  assert.equal(antigravityConversation(`I1018 18:32:13.352646 1402 server.go:1199] Created conversation ${idA} (backend=BACKEND_TYPE_UNSPECIFIED)\n`), idA);
+  assert.equal(antigravityConversation(`I1018 19:00:17.884963 1 session.go:156] Print mode: resuming conversation ${idB}\n`), idB);
+  assert.equal(antigravityConversation(`I1018 18:32:13.353168 1402 conversation_manager.go:973] Streaming conversation ${idA}\n`), idA);
   assert.equal(antigravityConversation(line('not-a-uuid')), null);
   assert.throws(() => antigravityLogPath(os.tmpdir(), '../secret'), /Invalid/);
 });
@@ -146,4 +152,66 @@ console.log('AGY_FIXTURE '+id); setTimeout(()=>process.exit(0),650);`);
     for (const args of launches) { assert.ok(args.includes('--log-file')); assert.ok(args.includes('xhigh')); assert.ok(!args.includes('--dangerously-skip-permissions')); }
     assert.deepEqual(launches.slice(2).map(args=>args[args.indexOf('--conversation')+1]).sort(),[a.id,b.id].sort());
   } finally { await sessions.close(); if (previous === undefined) delete process.env.PATH; else process.env.PATH = previous; }
+});
+
+test('Antigravity conversation transcript reading, turn completion, and commands', async () => {
+  const temp = await mkdtemp(path.join(os.tmpdir(), 'mrmak-agy-transcript-'));
+  const brain = path.join(temp, 'brain');
+  const nativeId = randomUUID();
+  const logDir = path.join(brain, nativeId, '.system_generated', 'logs');
+  await mkdir(logDir, { recursive: true });
+  const transcriptPath = path.join(logDir, 'transcript.jsonl');
+
+  const records = [
+    { step_index: 0, source: 'USER_EXPLICIT', type: 'USER_INPUT', status: 'DONE', created_at: '2026-10-18T10:00:00Z', content: '<USER_REQUEST>\nFix the collision bug in player.ts\n</USER_REQUEST>\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 3.8 Flash (High).\n</USER_SETTINGS_CHANGE>' },
+    { step_index: 1, source: 'MODEL', type: 'PLANNER_RESPONSE', status: 'DONE', created_at: '2026-10-18T10:00:02Z', tool_calls: [{ name: 'view_file', args: { path: 'player.ts' } }] },
+    { step_index: 2, source: 'MODEL', type: 'GENERIC', status: 'DONE', created_at: '2026-10-18T10:00:04Z', content: 'file contents...' },
+    { step_index: 3, source: 'MODEL', type: 'PLANNER_RESPONSE', status: 'DONE', created_at: '2026-10-18T10:00:06Z', content: 'Fixed the collision issue in `player.ts`. Check ![preview](screenshot.png) for details.' },
+    { step_index: 4, source: 'SYSTEM', type: 'SYSTEM_MESSAGE', status: 'DONE', created_at: '2026-10-18T10:00:08Z', content: 'The following is a <SYSTEM_MESSAGE>\ncontent=Task id task-1 completed with exit code 0\n</SYSTEM_MESSAGE>' },
+    { step_index: 5, source: 'MODEL', type: 'GENERIC', status: 'DONE', created_at: '2026-10-18T10:00:10Z', content: 'const match = /`Model Selection` from .+? to (.+?)/.exec(code);' },
+  ];
+  await writeFile(transcriptPath, records.map(r => JSON.stringify(r)).join('\n') + '\n');
+
+  const prior = process.env.ANTIGRAVITY_BRAIN_DIR;
+  process.env.ANTIGRAVITY_BRAIN_DIR = brain;
+  try {
+    const resolved = await antigravityTranscript(nativeId);
+    assert.equal(resolved, transcriptPath);
+
+    const transcripts = new ConversationTranscripts();
+    const result = await transcripts.read({ id: 'agy-session-1', agent: 'antigravity', nativeId, cwd: temp });
+    assert.equal(result.supported, true);
+    assert.equal(result.userMessages, 1);
+    assert.equal(result.model, 'Gemini 3.8 Flash (High)');
+    assert.equal(result.messages.length, 3);
+    assert.equal(result.messages[0].role, 'user');
+    assert.equal(result.messages[0].text, 'Fix the collision bug in player.ts');
+    assert.equal(result.messages[1].role, 'assistant');
+    assert.ok(result.messages[1].text.includes('Fixed the collision issue'));
+    assert.deepEqual(result.messages[1].imageRefs, ['screenshot.png']);
+    assert.equal(result.messages[2].role, 'system');
+    assert.ok(result.messages[2].text.includes('task-1 completed'));
+
+    assert.equal(result.activity.length, 1);
+    assert.equal(result.activity[0].name, 'view_file');
+    assert.equal(result.activity[0].status, 'completed');
+
+    assert.deepEqual(completedTurn(records[3], 'antigravity'), {
+      kind: 'turn-completed',
+      id: '3',
+      text: 'The agent finished its turn. Review the result.',
+      preview: String(records[3].content).slice(-350),
+    });
+    assert.equal(completedTurn(records[1], 'antigravity'), null);
+    assert.deepEqual(nativeActivity(records[0], 'antigravity'), { kind: 'turn-started' });
+    assert.deepEqual(nativeActivity(records[1], 'antigravity'), { kind: 'turn-started' });
+
+    const commands = await chatCommands('antigravity', temp);
+    assert.ok(commands.commands.some(c => c.name === 'plan'));
+    assert.ok(commands.commands.some(c => c.name === 'goal'));
+    assert.ok(commands.commands.some(c => c.name === 'model' && c.terminal));
+  } finally {
+    if (prior === undefined) delete process.env.ANTIGRAVITY_BRAIN_DIR;
+    else process.env.ANTIGRAVITY_BRAIN_DIR = prior;
+  }
 });

@@ -105,6 +105,7 @@ html[data-workspace-theme] .desktop-root .conversation-send{color:var(--on-accen
 html[data-color-scheme=light] .agent-label{color:var(--text-dim)!important;opacity:1}
 html[data-color-scheme=light] :is(.session-logo,.agent-mark,.choice-check){color:var(--pink)!important}
 html[data-color-scheme=light] .chat-tab.has-color .chat-tab-name{color:var(--text)}
+html[data-color-scheme=light] .chat-group-chip{color:var(--text)!important}
 
 /* The Antigravity logo's spectrum stays on narrow accents, away from reading surfaces. */
 html[data-workspace-theme=antigravity]{--antigravity-spectrum:linear-gradient(90deg,var(--green),var(--blue) 26%,var(--purple) 55%,var(--red) 78%,var(--amber))}

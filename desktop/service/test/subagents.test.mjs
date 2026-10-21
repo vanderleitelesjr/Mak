@@ -13,7 +13,10 @@ test('a subagent works until its reply ends the turn', () => {
   const prompt = { type: 'user', timestamp: 't1', message: { content: 'Map the code' } };
   assert.deepEqual(subagentStep([prompt]), { working: true, at: 't1', step: 'Thinking' });
   assert.deepEqual(subagentStep([prompt, toolUse('Bash', { command: 'npm test', description: 'Run the tests' }), { type: 'attachment' }]), { working: true, at: 't2', step: 'Bash · Run the tests' });
-  assert.equal(subagentStep([prompt, toolUse('Read', { file_path: 'E:\\game\\src\\Hud.cs' })]).step, 'Read · Hud.cs');
+  assert.equal(subagentStep([prompt, toolUse('Read', { file_path: path.resolve('game', 'src', 'Hud.cs') })]).step, 'Read · Hud.cs');
+  if (process.platform !== 'win32') {
+    assert.equal(subagentStep([prompt, toolUse('Read', { file_path: '/game/src/literal\\name.cs' })]).step, 'Read · literal\\name.cs');
+  }
   assert.equal(subagentStep([prompt, toolUse('mcp__mixar__render_viewport', {})]).step, 'render_viewport');
   // A streamed reply is recorded in parts before it stops.
   assert.equal(subagentStep([prompt, { type: 'assistant', timestamp: 't3', message: { stop_reason: null, content: [{ type: 'thinking', thinking: '' }] } }]).step, 'Thinking');

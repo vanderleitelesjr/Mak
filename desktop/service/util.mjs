@@ -1,4 +1,5 @@
 import { readFile, writeFile, rename, mkdir, realpath, stat, unlink } from 'node:fs/promises';
+import os from 'node:os';
 import path from 'node:path';
 import { randomBytes, timingSafeEqual } from 'node:crypto';
 
@@ -10,18 +11,40 @@ export function equalSecret(a, b) {
   return left.length === right.length && timingSafeEqual(left, right);
 }
 export async function readJson(file, fallback) {
-  try { return JSON.parse(await readFile(file, 'utf8')); } catch { return fallback; }
+  try { return JSON.parse((await readFile(file, 'utf8')).replace(/^\uFEFF/, '')); } catch { return fallback; }
 }
+const jsonSaves = new Map();
 export async function saveJson(file, value) {
+  const data = JSON.stringify(value, null, 2) + '\n';
+  const resolved = path.resolve(file);
+  const key = process.platform === 'win32' ? resolved.toLowerCase() : resolved;
+  // A delayed retry must not overwrite a newer save to the same destination.
+  const saving = (jsonSaves.get(key) || Promise.resolve()).catch(() => {}).then(() => writeJson(file, data));
+  jsonSaves.set(key, saving);
+  try { await saving; }
+  finally { if (jsonSaves.get(key) === saving) jsonSaves.delete(key); }
+}
+async function writeJson(file, data) {
   await mkdir(path.dirname(file), { recursive: true });
   const temp = `${file}.${randomBytes(5).toString('hex')}.tmp`;
   try {
-    await writeFile(temp, JSON.stringify(value, null, 2) + '\n', { mode: 0o600 });
-    await rename(temp, file);
+    await writeFile(temp, data, { mode: 0o600 });
+    // Windows can briefly deny replacement while a reader or scanner holds the
+    // destination. Keep the previous file intact and retry the atomic rename.
+    for (let attempt = 0; ; attempt++) {
+      try { await rename(temp, file); break; }
+      catch (error) {
+        if (!['EPERM', 'EACCES', 'EBUSY'].includes(error.code) || attempt >= 5) throw error;
+        await sleep(50 * 2 ** attempt);
+      }
+    }
   } finally {
     await unlink(temp).catch(() => {});
   }
 }
+// Typed folders such as `~/Projects` mean the home folder, not a `~` folder
+// under the service's working directory. `~user` and inner `~` stay literal.
+export const expandHome = value => typeof value === 'string' && (process.platform === 'win32' ? /^~(?=$|[\\/])/ : /^~(?=$|\/)/).test(value) ? path.join(os.homedir(), value.slice(1)) : value;
 export const within = (root, file) => {
   const rel = path.relative(root, file);
   return rel === '' || (!rel.startsWith('..' + path.sep) && rel !== '..' && !path.isAbsolute(rel));

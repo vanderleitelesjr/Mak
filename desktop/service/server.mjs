@@ -11,7 +11,7 @@ import { importFile, dragFiles, moveFile, recyclePath, MAX_FILE_BYTES } from './
 import { inventory } from './agents.mjs';
 import { Attachments, attachmentText, MAX_IMAGE_BYTES } from './attachments.mjs';
 import { ContextLibrary } from './context.mjs';
-import { taskTitle } from './titles.mjs';
+import { groupLabel, taskTitle } from './titles.mjs';
 import { taskEffort } from './effort.mjs';
 import { Workspace, localDay, metadataPatch } from './workspace.mjs';
 import { QuickActions } from './quick-actions.mjs';
@@ -27,7 +27,7 @@ import { MobileGateway } from './mobile.mjs';
 import { ConversationTranscripts } from './mobile-transcript.mjs';
 import { ConversationMedia } from './conversation-media.mjs';
 import { projectKey, recentProjects } from './recent-projects.mjs';
-import { answerPrompt, terminalPrompt } from './terminal-prompt.mjs';
+import { answerPrompt, readPrompt } from './terminal-prompt.mjs';
 import { rewindToMessage } from './message-edit.mjs';
 import { LocalReadAloud } from './local-read-aloud.mjs';
 import { Handoffs } from './handoff.mjs';
@@ -56,7 +56,12 @@ export async function createService({ repo, uiDir, stateDir, token = secret(), n
   const environment = parseEnv(await readFile(path.join(repo, '.env'), 'utf8').catch(() => ''));
   const settingsPath = path.join(stateDir, 'settings.json');
   const savedSettings = await readJson(settingsPath, null);
-  let settings = { defaultAgent: 'codex', defaultBypass: false, coordinatorModel: environment.MRMAK_COORDINATOR_MODEL?.trim() || null, terminalFontSize: 13, terminalAppearance: 'original', workspaceTheme: 'dark', coordinatorEffort: 'medium', voiceName: 'cedar', voiceStyle: defaultVoiceStyle, handoffAfter: 40, groupTabsByProject: false, systemEvents: 'compact', ...savedSettings };
+  let settings = { defaultAgent: 'codex', defaultBypass: false, coordinatorModel: environment.MRMAK_COORDINATOR_MODEL?.trim() || null, terminalFontSize: 13, terminalAppearance: 'original', workspaceTheme: 'dark', coordinatorEffort: 'medium', voiceName: 'cedar', voiceStyle: defaultVoiceStyle, handoffAfter: 40, groupTabsByProject: false, projectOrder: [], usageLimitMode: 'all', usageDirection: 'used', systemEvents: 'compact', ...savedSettings };
+  if (settings.groupTabsByProject === true) {
+    await sessions.groupByProject(settings.projectOrder);
+    settings.groupTabsByProject = false;
+    await saveJson(settingsPath, settings);
+  }
   if (await dictation.initializeProvider?.(settings, savedSettings !== null)) await saveJson(settingsPath, settings);
   dictation.providerChoice = () => settings.transcribeProvider || null;
   const chooseDictation = async provider => {
@@ -89,7 +94,7 @@ export async function createService({ repo, uiDir, stateDir, token = secret(), n
   const focus = id => { sessions.get(id); selectedId = id; settings.selectedId = id; scheduleSettings(); show('chats', { sessionId: id }); return { selectedId: id }; };
   const registry = async () => readJson(path.join(repo, 'workspace', 'workspace.json'), { entities: [] });
   const workspace = new Workspace(repo, () => broadcast('workspace-changed', {}));
-  const history = query => sessions.list().filter(item => !query || `${item.name} ${item.agent} ${item.cwd} ${item.preview || ''}`.toLowerCase().includes(query.toLowerCase())).sort((a, b) => Number(b.pinned) - Number(a.pinned) || String(b.updatedAt).localeCompare(String(a.updatedAt)));
+  const history = query => sessions.list().filter(item => !query || `${item.name} ${item.agent} ${item.cwd} ${item.preview || ''}`.normalize('NFC').toLowerCase().includes(query.normalize('NFC').toLowerCase())).sort((a, b) => Number(b.pinned) - Number(a.pinned) || String(b.updatedAt).localeCompare(String(a.updatedAt)));
   const closeChat = async id => {
     await sessions.remove(id);
     if (selectedId === id) { selectedId = sessions.active()[0]?.id || null; settings.selectedId = selectedId; scheduleSettings(); broadcast('selection', { selectedId }); }
@@ -192,7 +197,7 @@ export async function createService({ repo, uiDir, stateDir, token = secret(), n
     try {
       const url = new URL(request.url, origin);
       if (request.headers.host !== new URL(origin).host) throw Object.assign(new Error('Unexpected host'), { status: 403 });
-      if (url.pathname === '/health') return json(response, 200, { service: 'mrmak', version: '0.5.1' });
+      if (url.pathname === '/health') return json(response, 200, { service: 'mrmak', version: '0.5.2' });
       // An <img> cannot send the bearer token. Its unguessable, short-lived grant
       // is issued only through an authorized messages request for this chat.
       const media = /^\/media\/([a-f0-9-]{36})\/([a-zA-Z0-9_-]{43})$/.exec(url.pathname);
@@ -300,16 +305,47 @@ export async function createService({ repo, uiDir, stateDir, token = secret(), n
           if (typeof data.defaultBypass === 'boolean') settings.defaultBypass = data.defaultBypass;
           if (Number.isInteger(data.terminalFontSize) && data.terminalFontSize >= 10 && data.terminalFontSize <= 24) settings.terminalFontSize = data.terminalFontSize;
           if (['focus', 'original'].includes(data.terminalAppearance)) settings.terminalAppearance = data.terminalAppearance;
+          if (typeof data.terminalOptionMeta === 'boolean') settings.terminalOptionMeta = data.terminalOptionMeta;
           if (Number.isInteger(data.handoffAfter) && (data.handoffAfter === 0 || (data.handoffAfter >= 10 && data.handoffAfter <= 500))) settings.handoffAfter = data.handoffAfter;
-          if (typeof data.groupTabsByProject === 'boolean') settings.groupTabsByProject = data.groupTabsByProject;
+          if (['all', 'general'].includes(data.usageLimitMode)) settings.usageLimitMode = data.usageLimitMode;
+          if (['used', 'remaining'].includes(data.usageDirection)) settings.usageDirection = data.usageDirection;
           if (['full', 'compact', 'hidden'].includes(data.systemEvents)) settings.systemEvents = data.systemEvents;
           if (isThemePreference(data.workspaceTheme)) settings.workspaceTheme = data.workspaceTheme;
           if (isThemePreference(data.chatTheme)) settings.chatTheme = data.chatTheme;
           if (['medium', 'high'].includes(data.coordinatorEffort)) settings.coordinatorEffort = data.coordinatorEffort;
           if (['cedar', 'marin'].includes(data.voiceName)) settings.voiceName = data.voiceName;
+          if (data.groupColors && typeof data.groupColors === 'object' && !Array.isArray(data.groupColors)) settings.groupColors = Object.fromEntries(Object.entries(data.groupColors).filter(([name, value]) => name.length <= 60 && typeof value === 'string' && /^#[0-9a-f]{6}$/i.test(value)).slice(0, 200).map(([name, value]) => [name, value.toLowerCase()]));
+          if (Array.isArray(data.collapsedGroups)) settings.collapsedGroups = [...new Set(data.collapsedGroups.filter(item => typeof item === 'string' && item.length <= 60))].slice(0, 200);
           await saveSettings(); broadcast('settings', { settings }); return json(response, 200, settings);
         }
         if (method === 'POST' && url.pathname === '/api/sessions') { const session = await sessions.create({ ...data, bypass: data.bypass ?? settings.defaultBypass }); await integrations.publish('session', { event: 'started', session }); focus(session.id); return json(response, 201, session); }
+        if (method === 'POST' && url.pathname === '/api/groups/by-project') return json(response, 200, await sessions.groupByProject());
+        if (method === 'POST' && url.pathname === '/api/groups/move') return json(response, 200, await sessions.moveGroup(data.group, data.pinned, data.targetId, data.position));
+        if (method === 'POST' && url.pathname === '/api/groups/rename') {
+          // A renamed group keeps its color and collapsed state; merging into an
+          // existing group keeps that group's.
+          const from = groupLabel(data.from), to = groupLabel(data.to);
+          const merging = sessions.list().some(item => item.group === to);
+          const result = await sessions.renameGroup(from, to);
+          if (from !== to) {
+            const { [from]: color, ...colors } = settings.groupColors || {};
+            settings.groupColors = color && !merging ? { ...colors, [to]: color } : colors;
+            const collapsed = settings.collapsedGroups || [];
+            settings.collapsedGroups = [...new Set(collapsed.filter(item => item !== from).concat(collapsed.includes(from) && !merging ? [to] : []))];
+            await saveSettings(); broadcast('settings', { settings });
+          }
+          return json(response, 200, result);
+        }
+        if (method === 'POST' && url.pathname === '/api/groups/delete') {
+          // The group's color and collapsed state go with it; the chats stay.
+          const name = groupLabel(data.name);
+          const result = await sessions.deleteGroup(name);
+          const colors = { ...(settings.groupColors || {}) }; delete colors[name];
+          settings.groupColors = colors;
+          settings.collapsedGroups = (settings.collapsedGroups || []).filter(item => item !== name);
+          await saveSettings(); broadcast('settings', { settings });
+          return json(response, 200, result);
+        }
         const sessionRoute = /^\/api\/sessions\/([\w-]+)(?:\/(\w+))?$/.exec(url.pathname);
         if (sessionRoute) {
           const [, id, action] = sessionRoute;
@@ -317,12 +353,12 @@ export async function createService({ repo, uiDir, stateDir, token = secret(), n
           if (method === 'GET' && action === 'messages') {
             const session = sessions.get(id);
             const value = await conversationMedia.present(await transcripts.read(session), session, 'desktop', grant => `/media/${session.id}/${grant}`);
-            return json(response, 200, { ...value, prompt: session.process ? terminalPrompt((await sessions.read(id, 60)).screen) : null });
+            return json(response, 200, { ...value, prompt: session.process ? await readPrompt(sessions, id) : null });
           }
           if (method === 'GET' && action === 'commands') { const session = sessions.get(id); return json(response, 200, await chatCommands(session.agent, session.cwd, mcpOptions)); }
           if (method === 'GET' && action === 'stats') {
-            const { supported, userMessages = 0, truncated = false, model = null } = await transcripts.read(sessions.get(id));
-            return json(response, 200, { supported, userMessages, truncated, model, handoff: handoffs.state(id) });
+            const { supported, userMessages = 0, truncated = false, model = null, usage = null } = await transcripts.read(sessions.get(id));
+            return json(response, 200, { supported, userMessages, truncated, model, usage, handoff: handoffs.state(id) });
           }
           if (method === 'POST' && action === 'handoff') return json(response, 200, handoffs.start(id));
           if (method === 'POST' && action === 'prompt') return json(response, 200, await answerPrompt(sessions, id, data.id, data.choice));
@@ -349,7 +385,7 @@ export async function createService({ repo, uiDir, stateDir, token = secret(), n
           if (method === 'POST' && action === 'clear') return json(response, 200, await sessions.clearScreen(id));
           if (method === 'POST' && action === 'reorder') return json(response, 200, await sessions.reorder(id, data.targetId, data.position));
           if (method === 'POST' && action === 'input') return json(response, 200, sessions.input(id, data.text, { coordinator: data.paste !== false, submit: data.submit !== false }));
-          if (method === 'PATCH' && !action) return json(response, 200, typeof data.pinned === 'boolean' ? sessions.pin(id, data.pinned) : 'tabColor' in data ? sessions.color(id, data.tabColor) : sessions.rename(id, data.name));
+          if (method === 'PATCH' && !action) return json(response, 200, typeof data.pinned === 'boolean' ? sessions.pin(id, data.pinned) : 'tabColor' in data ? sessions.color(id, data.tabColor) : 'group' in data ? await sessions.assign(id, data.group) : sessions.rename(id, data.name));
           if (method === 'DELETE' && !action) return json(response, 200, await closeChat(id));
         }
         if (method === 'POST' && url.pathname === '/api/window') {

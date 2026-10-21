@@ -14,7 +14,7 @@ const normal = text => text.replace(/\s+/g, ' ').trim();
 export const messageLabel = text => normal(String(text || '').split('\n').find(line => line.trim()) || '');
 export function sameLabel(shown, label) {
   const cut = shown.replace(/(…|\.\.\.)$/, '').trim();
-  return !!cut && (shown === label || label.startsWith(cut));
+  return !!cut && (shown === label || (/(…|\.\.\.)$/.test(shown) && label.startsWith(cut)));
 }
 
 // The open rewind list, from its title to the bottom of the screen, and the
@@ -72,7 +72,13 @@ export async function rewindToMessage(sessions, transcripts, id, messageId) {
       const next = await until(value => { const item = rewindList(value); return item && item.text !== previous ? item : null; }, 1000);
       if (!next) throw conflict('This message was not found in the rewind list. Use Esc Esc in the terminal.');
       list = next;
-      if (sameLabel(list.selected, label) && skip-- === 0) break;
+      if (sameLabel(list.selected, label)) {
+        // The native menu can hide the difference between truncated messages.
+        if (messages.some(item => item.role === 'user' && messageLabel(item.text) !== label && sameLabel(list.selected, messageLabel(item.text)))) {
+          throw conflict('Several messages match this shortened label. Use Esc Esc in the terminal to choose the message.');
+        }
+        if (skip-- === 0) break;
+      }
     }
     press('\r');
     const confirm = await until(value => { const prompt = terminalPrompt(value); return prompt?.options.some(option => /^Restore conversation$/i.test(option)) ? prompt : null; }, 3000);

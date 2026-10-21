@@ -28,6 +28,7 @@ test('Rewind list labels match a message by its first line, even when cut', () =
   assert.equal(messageLabel('\n  Fix the   tabs\nand more'), 'Fix the tabs');
   assert.ok(sameLabel('Fix the ta…', 'Fix the tabs'));
   assert.ok(!sameLabel('Fix the tabs', 'Fix the'));
+  assert.ok(!sameLabel('Fix the tabs', 'Fix the tabs and their colors'));
   assert.ok(!sameLabel('…', 'Anything'));
   const screen = '❯ earlier prompt\n   Rewind\n   Restore the code and/or conversation to the point before…\n   ❯ Fix the tabs\n     No code changes\n   (current)\n   Enter to continue · Esc to cancel';
   assert.equal(rewindList(screen).selected, 'Fix the tabs');
@@ -90,4 +91,21 @@ test('A message missing from the rewind list closes the list and reports it', as
   await assert.rejects(rewindToMessage(sessions, transcripts, 'chat', 'u1'), /not found in the rewind list/);
   assert.equal(state.mode, 'idle');
   assert.equal(state.restored, null);
+});
+
+test('rewind distinguishes full labels that share a prefix', async () => {
+  const labels = ['Fix the tabs and their colors', 'Fix the tabs'];
+  const { state, sessions } = fakeClaude(labels);
+  const messages = labels.map((text, i) => ({ id: `u${i}`, role: 'user', text }));
+  await rewindToMessage(sessions, { read: async () => ({ messages }) }, 'chat', 'u0');
+  assert.equal(state.restored, 0);
+});
+
+test('rewind refuses ambiguous truncated labels without confirming a restore', async () => {
+  const { state, sessions } = fakeClaude(['Fix the tabs…', 'Fix the tabs…']);
+  const messages = ['Fix the tabs and their colors', 'Fix the tabs and their order'].map((text, i) => ({ id: `u${i}`, role: 'user', text }));
+  await assert.rejects(rewindToMessage(sessions, { read: async () => ({ messages }) }, 'chat', 'u0'), /Several messages/);
+  assert.equal(state.restored, null);
+  assert.equal(state.mode, 'idle');
+  assert.ok(!state.keys.includes('\r'));
 });
