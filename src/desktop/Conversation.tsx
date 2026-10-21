@@ -18,7 +18,8 @@ import './conversation.css'
 
 interface ToolActivity { id: string; name: string; status: 'running' | 'completed' | 'failed'; at: string }
 interface Message { id: string; role: 'user' | 'assistant' | 'system'; text: string; at: string; images?: ConversationImage[]; event?: SystemEventData }
-interface TerminalPrompt { id: string; question: string; detail: string[]; options: string[]; selected: number }
+// A multiple choice also lists its checked boxes, the box that needs typing and its button.
+interface TerminalPrompt { id: string; kind?: 'single' | 'multiple'; question: string; detail: string[]; options: string[]; selected: number; checked?: boolean[]; input?: number; submit?: string }
 interface Transcript { supported: boolean; messages: Message[]; activity?: ToolActivity[]; agents?: WorkingAgent[]; commands?: BackgroundCommand[]; truncated?: boolean; prompt?: TerminalPrompt | null }
 interface Draft { text: string; paths: string[] }
 
@@ -78,7 +79,7 @@ export default function Conversation({ session, connected, agentLabel, openTermi
   const reload = useRef<() => Promise<void>>(async () => {})
   const speech = useReadAloud(session.id, speakDesktopText), stopReading = speech.stop
   const [voice, setVoice] = useState(savedReadingVoice)
-  const [answering, setAnswering] = useState(false)
+  const [answering, setAnswering] = useState(false), [picks, setPicks] = useState<{ id: string; values: number[] } | null>(null)
   const [editing, setEditing] = useState<{ id: string; text: string } | null>(null), [rewinding, setRewinding] = useState(false), [editError, setEditError] = useState('')
   const [commands, setCommands] = useState<ChatCommand[]>([]), [caret, setCaret] = useState(0), [picked, setPicked] = useState(0), [dismissed, setDismissed] = useState('')
   useEffect(() => { api<{ commands: ChatCommand[] }>(`/sessions/${session.id}/commands`).then(value => setCommands(value.commands)).catch(() => setCommands([])) }, [session.id])
@@ -127,7 +128,10 @@ export default function Conversation({ session, connected, agentLabel, openTermi
     const parts = Array.from(scroller.current?.querySelectorAll<HTMLElement>('.conversation-message.assistant') || []).filter(node => Number(node.dataset.index) > readStart)
     speech.read(id, parts.map(node => spokenText(node.querySelector<HTMLElement>('.conversation-copy-text'))).filter(Boolean).join('\n\n'))
   }
-  async function answer(prompt: TerminalPrompt, choice: number | 'cancel') {
+  const asking = transcript?.prompt
+  const chosen = asking?.kind === 'multiple' ? picks?.id === asking.id ? picks.values : (asking.checked || []).flatMap((on, index) => on ? [index] : []) : []
+  const toggleChosen = (index: number) => asking && setPicks({ id: asking.id, values: chosen.includes(index) ? chosen.filter(item => item !== index) : [...chosen, index].sort((a, b) => a - b) })
+  async function answer(prompt: TerminalPrompt, choice: number | 'cancel' | { checked: number[] }) {
     if (answering) return
     setAnswering(true)
     try { await api(`/sessions/${session.id}/prompt`, { id: prompt.id, choice }); follow.current = true }
@@ -256,8 +260,12 @@ export default function Conversation({ session, connected, agentLabel, openTermi
         {transcript?.prompt && <section className="conversation-prompt" aria-label="The agent is asking for a choice">
           <header><Icon name="bell" size={14} /><strong>{transcript.prompt.question}</strong></header>
           {!!transcript.prompt.detail.length && <pre>{transcript.prompt.detail.join('\n')}</pre>}
-          <div className="conversation-prompt-options">{transcript.prompt.options.map((option, index) => <button type="button" key={index} disabled={answering} className={index === transcript.prompt!.selected ? 'selected' : ''} onClick={() => void answer(transcript.prompt!, index)}><span>{index + 1}</span>{option}</button>)}</div>
-          <footer><button type="button" disabled={answering} onClick={() => void answer(transcript.prompt!, 'cancel')}>Esc · cancel</button><button type="button" onClick={openTerminal}><Icon name="terminal" size={13} />Open terminal</button></footer>
+          {transcript.prompt.kind === 'multiple'
+            ? <div className="conversation-prompt-options" role="group" aria-label="Choose any">{transcript.prompt.options.map((option, index) => index === transcript.prompt!.input
+              ? <button type="button" key={index} disabled title="Type your own answer in the terminal"><span>{index + 1}</span>{option} · in the terminal</button>
+              : <button type="button" key={index} role="checkbox" aria-checked={chosen.includes(index)} disabled={answering} className={chosen.includes(index) ? 'checked' : ''} onClick={() => toggleChosen(index)}><span>{chosen.includes(index) ? '✓' : index + 1}</span>{option}</button>)}</div>
+            : <div className="conversation-prompt-options">{transcript.prompt.options.map((option, index) => <button type="button" key={index} disabled={answering} className={index === transcript.prompt!.selected ? 'selected' : ''} onClick={() => void answer(transcript.prompt!, index)}><span>{index + 1}</span>{option}</button>)}</div>}
+          <footer>{transcript.prompt.kind === 'multiple' && <button type="button" className="conversation-prompt-submit" disabled={answering} onClick={() => void answer(transcript.prompt!, { checked: chosen })}>{transcript.prompt.submit}{chosen.length ? ` · ${chosen.length}` : ''}</button>}<button type="button" disabled={answering} onClick={() => void answer(transcript.prompt!, 'cancel')}>Esc · cancel</button><button type="button" onClick={openTerminal}><Icon name="terminal" size={13} />Open terminal</button></footer>
         </section>}
         {working && <p className="conversation-working"><i />{agentLabel} is working…</p>}
         {!transcript?.prompt && (session.activity === 'waiting' || stale || readError) && <div className="conversation-notice" role="status"><p>{readError || (session.activity === 'waiting' ? `${agentLabel} is waiting for you in the terminal.` : 'No new messages for a while. A permission prompt or question may be waiting in the terminal.')}</p><button type="button" onClick={openTerminal}><Icon name="terminal" size={14} />Open terminal</button></div>}
