@@ -1,0 +1,1567 @@
+{
+  "sobre": "Gerado por coletores/lightkeeper.mjs a partir de Concepts/, Docs/Marco1/capturas e Audio/Musica. Cada item junta as vistas do mesmo nome (categoria_nome_vista.png); só prévias WebP de 480 px.",
+  "familias": {
+    "personagens/chefe": "Chefes",
+    "personagens/inimigo": "Inimigos",
+    "personagens/personagem": "Personagens",
+    "cenario/ambiente": "Ambientes",
+    "cenario/nivel": "Níveis",
+    "cenario/props": "Props",
+    "arte-chave/keyart": "Arte-chave",
+    "interface/ui": "Telas",
+    "construcoes-objetos/equipamento": "Equipamentos",
+    "construcoes-objetos/ferramenta": "Ferramentas",
+    "construcoes-objetos/luz": "Luz",
+    "construcoes-objetos/item": "Itens",
+    "construcoes-objetos/bancada": "Bancadas",
+    "construcoes-objetos/construcao": "Construção",
+    "construcoes-objetos/lanterna": "Lanternas",
+    "capturas/marco-1": "Marco 1",
+    "audio/musica": "Música"
+  },
+  "itens": [
+    {
+      "id": "chefe-afogado-gigante",
+      "nome": "Afogado gigante",
+      "categoria": "personagens",
+      "familia": "chefe",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/chefe/chefe-afogado-gigante-v01.webp",
+      "original": "Concepts/Characters/chefe_afogado-gigante_ficha.png",
+      "miniaturaRotulo": "Ficha"
+    },
+    {
+      "id": "chefe-cavaleiro-morto-vivo",
+      "nome": "Cavaleiro morto vivo",
+      "categoria": "personagens",
+      "familia": "chefe",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/chefe/chefe-cavaleiro-morto-vivo-v01.webp",
+      "original": "Concepts/Characters/chefe_cavaleiro-morto-vivo_turnaround.png",
+      "miniaturaRotulo": "Turnaround"
+    },
+    {
+      "id": "chefe-escuridao-viva",
+      "nome": "Escuridao viva",
+      "categoria": "personagens",
+      "familia": "chefe",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/chefe/chefe-escuridao-viva-v01.webp",
+      "original": "Concepts/Characters/chefe_escuridao-viva_ficha.png",
+      "miniaturaRotulo": "Ficha"
+    },
+    {
+      "id": "chefe-keeper",
+      "nome": "Keeper",
+      "categoria": "personagens",
+      "familia": "chefe",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/chefe/chefe-keeper-v01.webp",
+      "original": "Concepts/Characters/chefe_keeper_turnaround.png, Concepts/Characters/chefe_keeper_turnaround_adormecido.png",
+      "miniaturaRotulo": "Turnaround",
+      "vistas": [
+        {
+          "rotulo": "Turnaround adormecido",
+          "arquivo": "media/personagens/chefe/chefe-keeper-v01-turnaround-adormecido.webp"
+        }
+      ]
+    },
+    {
+      "id": "inimigo-abominacao",
+      "nome": "Abominacao",
+      "categoria": "personagens",
+      "familia": "inimigo",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/inimigo/inimigo-abominacao-v01.webp",
+      "original": "Concepts/Characters/inimigo_abominacao_turnaround.png",
+      "miniaturaRotulo": "Turnaround"
+    },
+    {
+      "id": "inimigo-aranha-gigante-reacao-a-luz",
+      "nome": "Aranha gigante reacao a luz",
+      "categoria": "personagens",
+      "familia": "inimigo",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/inimigo/inimigo-aranha-gigante-reacao-a-luz-v01.webp",
+      "original": "Concepts/Characters/inimigo_aranha-gigante-reacao-a-luz_cena.png",
+      "miniaturaRotulo": "Cena"
+    },
+    {
+      "id": "inimigo-aranha-gigante",
+      "nome": "Aranha gigante",
+      "categoria": "personagens",
+      "familia": "inimigo",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/inimigo/inimigo-aranha-gigante-v01.webp",
+      "original": "Concepts/Characters/inimigo_aranha-gigante_ficha.png",
+      "miniaturaRotulo": "Ficha"
+    },
+    {
+      "id": "inimigo-cavaleiro-corroido",
+      "nome": "Cavaleiro corroido",
+      "categoria": "personagens",
+      "familia": "inimigo",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/inimigo/inimigo-cavaleiro-corroido-v01.webp",
+      "original": "Concepts/Characters/inimigo_cavaleiro-corroido_turnaround.png, Concepts/Characters/inimigo_cavaleiro-corroido_vista-unica.png",
+      "miniaturaRotulo": "Turnaround",
+      "vistas": [
+        {
+          "rotulo": "Vista unica",
+          "arquivo": "media/personagens/inimigo/inimigo-cavaleiro-corroido-v01-vista-unica.webp"
+        }
+      ]
+    },
+    {
+      "id": "inimigo-cavaleiro-e-esqueletos-reacao-a-luz",
+      "nome": "Cavaleiro e esqueletos reacao a luz",
+      "categoria": "personagens",
+      "familia": "inimigo",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/inimigo/inimigo-cavaleiro-e-esqueletos-reacao-a-luz-v01.webp",
+      "original": "Concepts/Characters/inimigo_cavaleiro-e-esqueletos-reacao-a-luz_cena.png",
+      "miniaturaRotulo": "Cena"
+    },
+    {
+      "id": "inimigo-esqueleto",
+      "nome": "Esqueleto",
+      "categoria": "personagens",
+      "familia": "inimigo",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/inimigo/inimigo-esqueleto-v01.webp",
+      "original": "Concepts/Characters/inimigo_esqueleto_turnaround.png",
+      "miniaturaRotulo": "Turnaround"
+    },
+    {
+      "id": "inimigo-fauna-inicial",
+      "nome": "Fauna inicial",
+      "categoria": "personagens",
+      "familia": "inimigo",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/inimigo/inimigo-fauna-inicial-v01.webp",
+      "original": "Concepts/Characters/inimigo_fauna-inicial_ficha.png",
+      "miniaturaRotulo": "Ficha"
+    },
+    {
+      "id": "inimigo-fauna-reacao-a-luz",
+      "nome": "Fauna reacao a luz",
+      "categoria": "personagens",
+      "familia": "inimigo",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/inimigo/inimigo-fauna-reacao-a-luz-v01.webp",
+      "original": "Concepts/Characters/inimigo_fauna-reacao-a-luz_cena.png",
+      "miniaturaRotulo": "Cena"
+    },
+    {
+      "id": "inimigo-lobo",
+      "nome": "Lobo",
+      "categoria": "personagens",
+      "familia": "inimigo",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/inimigo/inimigo-lobo-v01.webp",
+      "original": "Concepts/Characters/inimigo_lobo_vista-unica.png",
+      "miniaturaRotulo": "Vista unica"
+    },
+    {
+      "id": "inimigo-rato-gigante",
+      "nome": "Rato gigante",
+      "categoria": "personagens",
+      "familia": "inimigo",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/inimigo/inimigo-rato-gigante-v01.webp",
+      "original": "Concepts/Characters/inimigo_rato-gigante_vista-unica.png",
+      "miniaturaRotulo": "Vista unica"
+    },
+    {
+      "id": "inimigo-reacao-a-luz",
+      "nome": "Reacao a luz",
+      "categoria": "personagens",
+      "familia": "inimigo",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/inimigo/inimigo-reacao-a-luz-v01.webp",
+      "original": "Concepts/Characters/inimigo_reacao-a-luz_cena.png",
+      "miniaturaRotulo": "Cena"
+    },
+    {
+      "id": "inimigo-urso",
+      "nome": "Urso",
+      "categoria": "personagens",
+      "familia": "inimigo",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/inimigo/inimigo-urso-v01.webp",
+      "original": "Concepts/Characters/inimigo_urso_vista-unica.png",
+      "miniaturaRotulo": "Vista unica"
+    },
+    {
+      "id": "inimigo-zumbi-afogado",
+      "nome": "Zumbi afogado",
+      "categoria": "personagens",
+      "familia": "inimigo",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/inimigo/inimigo-zumbi-afogado-v01.webp",
+      "original": "Concepts/Characters/inimigo_zumbi-afogado_turnaround.png, Concepts/Characters/inimigo_zumbi-afogado_vista-unica.png",
+      "miniaturaRotulo": "Turnaround",
+      "vistas": [
+        {
+          "rotulo": "Vista unica",
+          "arquivo": "media/personagens/inimigo/inimigo-zumbi-afogado-v01-vista-unica.webp"
+        }
+      ]
+    },
+    {
+      "id": "inimigo-zumbi-armado",
+      "nome": "Zumbi armado",
+      "categoria": "personagens",
+      "familia": "inimigo",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/inimigo/inimigo-zumbi-armado-v01.webp",
+      "original": "Concepts/Characters/inimigo_zumbi-armado_turnaround.png",
+      "miniaturaRotulo": "Turnaround"
+    },
+    {
+      "id": "inimigo-zumbi-arqueiro",
+      "nome": "Zumbi arqueiro",
+      "categoria": "personagens",
+      "familia": "inimigo",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/inimigo/inimigo-zumbi-arqueiro-v01.webp",
+      "original": "Concepts/Characters/inimigo_zumbi-arqueiro_turnaround.png",
+      "miniaturaRotulo": "Turnaround"
+    },
+    {
+      "id": "inimigo-zumbi-comum-reacao-a-luz",
+      "nome": "Zumbi comum reacao a luz",
+      "categoria": "personagens",
+      "familia": "inimigo",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/inimigo/inimigo-zumbi-comum-reacao-a-luz-v01.webp",
+      "original": "Concepts/Characters/inimigo_zumbi-comum-reacao-a-luz_cena.png",
+      "miniaturaRotulo": "Cena"
+    },
+    {
+      "id": "inimigo-zumbi-comum",
+      "nome": "Zumbi comum",
+      "categoria": "personagens",
+      "familia": "inimigo",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/inimigo/inimigo-zumbi-comum-v01.webp",
+      "original": "Concepts/Characters/inimigo_zumbi-comum_turnaround.png, Concepts/Characters/inimigo_zumbi-comum_vista-unica.png",
+      "miniaturaRotulo": "Turnaround",
+      "vistas": [
+        {
+          "rotulo": "Vista unica",
+          "arquivo": "media/personagens/inimigo/inimigo-zumbi-comum-v01-vista-unica.webp"
+        }
+      ]
+    },
+    {
+      "id": "inimigo-zumbi-rastejante",
+      "nome": "Zumbi rastejante",
+      "categoria": "personagens",
+      "familia": "inimigo",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/inimigo/inimigo-zumbi-rastejante-v01.webp",
+      "original": "Concepts/Characters/inimigo_zumbi-rastejante_turnaround.png, Concepts/Characters/inimigo_zumbi-rastejante_vista-unica.png",
+      "miniaturaRotulo": "Turnaround",
+      "vistas": [
+        {
+          "rotulo": "Vista unica",
+          "arquivo": "media/personagens/inimigo/inimigo-zumbi-rastejante-v01-vista-unica.webp"
+        }
+      ]
+    },
+    {
+      "id": "inimigo-zumbi-soldado-reacao-a-luz",
+      "nome": "Zumbi soldado reacao a luz",
+      "categoria": "personagens",
+      "familia": "inimigo",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/inimigo/inimigo-zumbi-soldado-reacao-a-luz-v01.webp",
+      "original": "Concepts/Characters/inimigo_zumbi-soldado-reacao-a-luz_cena.png",
+      "miniaturaRotulo": "Cena"
+    },
+    {
+      "id": "inimigo-zumbi-soldado",
+      "nome": "Zumbi soldado",
+      "categoria": "personagens",
+      "familia": "inimigo",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/inimigo/inimigo-zumbi-soldado-v01.webp",
+      "original": "Concepts/Characters/inimigo_zumbi-soldado_turnaround.png",
+      "miniaturaRotulo": "Turnaround"
+    },
+    {
+      "id": "personagem-lightkeeper",
+      "nome": "Lightkeeper",
+      "categoria": "personagens",
+      "familia": "personagem",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/personagem/personagem-lightkeeper-v01.webp",
+      "original": "Concepts/Characters/personagem_lightkeeper_ficha_direcao-a.png, Concepts/Characters/personagem_lightkeeper_ficha_versao-limpa.png",
+      "miniaturaRotulo": "Ficha direcao a",
+      "vistas": [
+        {
+          "rotulo": "Ficha versao limpa",
+          "arquivo": "media/personagens/personagem/personagem-lightkeeper-v01-ficha-versao-limpa.webp"
+        }
+      ]
+    },
+    {
+      "id": "personagem-protagonista",
+      "nome": "Protagonista",
+      "categoria": "personagens",
+      "familia": "personagem",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/personagem/personagem-protagonista-v01.webp",
+      "original": "Concepts/Characters/personagem_protagonista_corrupcao_ficha.png, Concepts/Characters/personagem_protagonista_estados_ficha.png, Concepts/Characters/personagem_protagonista_fontes-de-luz_ficha.png, Concepts/Characters/personagem_protagonista_turnaround.png, Concepts/Characters/personagem_protagonista_vista-unica.png",
+      "miniaturaRotulo": "Corrupcao ficha",
+      "vistas": [
+        {
+          "rotulo": "Estados ficha",
+          "arquivo": "media/personagens/personagem/personagem-protagonista-v01-estados-ficha.webp"
+        },
+        {
+          "rotulo": "Fontes de luz ficha",
+          "arquivo": "media/personagens/personagem/personagem-protagonista-v01-fontes-de-luz-ficha.webp"
+        },
+        {
+          "rotulo": "Turnaround",
+          "arquivo": "media/personagens/personagem/personagem-protagonista-v01-turnaround.webp"
+        },
+        {
+          "rotulo": "Vista unica",
+          "arquivo": "media/personagens/personagem/personagem-protagonista-v01-vista-unica.webp"
+        }
+      ]
+    },
+    {
+      "id": "ambiente-patio-corrompido",
+      "nome": "Patio corrompido",
+      "categoria": "cenario",
+      "familia": "ambiente",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/ambiente/ambiente-patio-corrompido-v01.webp",
+      "original": "Concepts/Environment/ambiente_patio-corrompido_cena.png",
+      "miniaturaRotulo": "Cena"
+    },
+    {
+      "id": "nivel-00-patio",
+      "nome": "00 patio",
+      "categoria": "cenario",
+      "familia": "nivel",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/nivel/nivel-00-patio-v01.webp",
+      "original": "Concepts/Environment/nivel_00_patio.png, Concepts/Environment/nivel_00_patio_catalogo_estruturas.png, Concepts/Environment/nivel_00_patio_catalogo_paredes.png, Concepts/Environment/nivel_00_patio_catalogo_pisos.png, Concepts/Environment/nivel_00_patio_cena_passagem.png, Concepts/Environment/nivel_00_patio_cena_perigo.png, Concepts/Environment/nivel_00_patio_cena_ponte-destruida.png, Concepts/Environment/nivel_00_patio_cena_ponto-seguro.png, Concepts/Environment/nivel_00_patio_cena_trecho-jogavel.png, Concepts/Environment/nivel_00_patio_voxel.png",
+      "vistas": [
+        {
+          "rotulo": "Catalogo estruturas",
+          "arquivo": "media/cenario/nivel/nivel-00-patio-v01-catalogo-estruturas.webp"
+        },
+        {
+          "rotulo": "Catalogo paredes",
+          "arquivo": "media/cenario/nivel/nivel-00-patio-v01-catalogo-paredes.webp"
+        },
+        {
+          "rotulo": "Catalogo pisos",
+          "arquivo": "media/cenario/nivel/nivel-00-patio-v01-catalogo-pisos.webp"
+        },
+        {
+          "rotulo": "Cena passagem",
+          "arquivo": "media/cenario/nivel/nivel-00-patio-v01-cena-passagem.webp"
+        },
+        {
+          "rotulo": "Cena perigo",
+          "arquivo": "media/cenario/nivel/nivel-00-patio-v01-cena-perigo.webp"
+        },
+        {
+          "rotulo": "Cena ponte destruida",
+          "arquivo": "media/cenario/nivel/nivel-00-patio-v01-cena-ponte-destruida.webp"
+        },
+        {
+          "rotulo": "Cena ponto seguro",
+          "arquivo": "media/cenario/nivel/nivel-00-patio-v01-cena-ponto-seguro.webp"
+        },
+        {
+          "rotulo": "Cena trecho jogavel",
+          "arquivo": "media/cenario/nivel/nivel-00-patio-v01-cena-trecho-jogavel.webp"
+        },
+        {
+          "rotulo": "Voxel",
+          "arquivo": "media/cenario/nivel/nivel-00-patio-v01-voxel.webp"
+        }
+      ]
+    },
+    {
+      "id": "nivel-01-aposentos",
+      "nome": "01 aposentos",
+      "categoria": "cenario",
+      "familia": "nivel",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/nivel/nivel-01-aposentos-v01.webp",
+      "original": "Concepts/Environment/nivel_01_aposentos.png, Concepts/Environment/nivel_01_aposentos_cena_passagem.png, Concepts/Environment/nivel_01_aposentos_cena_perigo.png, Concepts/Environment/nivel_01_aposentos_cena_ponto-seguro.png, Concepts/Environment/nivel_01_aposentos_voxel.png",
+      "vistas": [
+        {
+          "rotulo": "Cena passagem",
+          "arquivo": "media/cenario/nivel/nivel-01-aposentos-v01-cena-passagem.webp"
+        },
+        {
+          "rotulo": "Cena perigo",
+          "arquivo": "media/cenario/nivel/nivel-01-aposentos-v01-cena-perigo.webp"
+        },
+        {
+          "rotulo": "Cena ponto seguro",
+          "arquivo": "media/cenario/nivel/nivel-01-aposentos-v01-cena-ponto-seguro.webp"
+        },
+        {
+          "rotulo": "Voxel",
+          "arquivo": "media/cenario/nivel/nivel-01-aposentos-v01-voxel.webp"
+        }
+      ]
+    },
+    {
+      "id": "nivel-02-cisterna",
+      "nome": "02 cisterna",
+      "categoria": "cenario",
+      "familia": "nivel",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/nivel/nivel-02-cisterna-v01.webp",
+      "original": "Concepts/Environment/nivel_02_cisterna.png, Concepts/Environment/nivel_02_cisterna_cena_passagem.png, Concepts/Environment/nivel_02_cisterna_cena_perigo.png, Concepts/Environment/nivel_02_cisterna_cena_ponto-seguro.png, Concepts/Environment/nivel_02_cisterna_voxel.png",
+      "vistas": [
+        {
+          "rotulo": "Cena passagem",
+          "arquivo": "media/cenario/nivel/nivel-02-cisterna-v01-cena-passagem.webp"
+        },
+        {
+          "rotulo": "Cena perigo",
+          "arquivo": "media/cenario/nivel/nivel-02-cisterna-v01-cena-perigo.webp"
+        },
+        {
+          "rotulo": "Cena ponto seguro",
+          "arquivo": "media/cenario/nivel/nivel-02-cisterna-v01-cena-ponto-seguro.webp"
+        },
+        {
+          "rotulo": "Voxel",
+          "arquivo": "media/cenario/nivel/nivel-02-cisterna-v01-voxel.webp"
+        }
+      ]
+    },
+    {
+      "id": "nivel-03-pilares",
+      "nome": "03 pilares",
+      "categoria": "cenario",
+      "familia": "nivel",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/nivel/nivel-03-pilares-v01.webp",
+      "original": "Concepts/Environment/nivel_03_pilares.png, Concepts/Environment/nivel_03_pilares_cena_passagem.png, Concepts/Environment/nivel_03_pilares_cena_perigo.png, Concepts/Environment/nivel_03_pilares_cena_ponto-seguro.png, Concepts/Environment/nivel_03_pilares_voxel.png",
+      "vistas": [
+        {
+          "rotulo": "Cena passagem",
+          "arquivo": "media/cenario/nivel/nivel-03-pilares-v01-cena-passagem.webp"
+        },
+        {
+          "rotulo": "Cena perigo",
+          "arquivo": "media/cenario/nivel/nivel-03-pilares-v01-cena-perigo.webp"
+        },
+        {
+          "rotulo": "Cena ponto seguro",
+          "arquivo": "media/cenario/nivel/nivel-03-pilares-v01-cena-ponto-seguro.webp"
+        },
+        {
+          "rotulo": "Voxel",
+          "arquivo": "media/cenario/nivel/nivel-03-pilares-v01-voxel.webp"
+        }
+      ]
+    },
+    {
+      "id": "nivel-04-reservatorio",
+      "nome": "04 reservatorio",
+      "categoria": "cenario",
+      "familia": "nivel",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/nivel/nivel-04-reservatorio-v01.webp",
+      "original": "Concepts/Environment/nivel_04_reservatorio.png, Concepts/Environment/nivel_04_reservatorio_cena_passagem.png, Concepts/Environment/nivel_04_reservatorio_cena_perigo.png, Concepts/Environment/nivel_04_reservatorio_cena_ponto-seguro.png, Concepts/Environment/nivel_04_reservatorio_voxel.png",
+      "vistas": [
+        {
+          "rotulo": "Cena passagem",
+          "arquivo": "media/cenario/nivel/nivel-04-reservatorio-v01-cena-passagem.webp"
+        },
+        {
+          "rotulo": "Cena perigo",
+          "arquivo": "media/cenario/nivel/nivel-04-reservatorio-v01-cena-perigo.webp"
+        },
+        {
+          "rotulo": "Cena ponto seguro",
+          "arquivo": "media/cenario/nivel/nivel-04-reservatorio-v01-cena-ponto-seguro.webp"
+        },
+        {
+          "rotulo": "Voxel",
+          "arquivo": "media/cenario/nivel/nivel-04-reservatorio-v01-voxel.webp"
+        }
+      ]
+    },
+    {
+      "id": "nivel-05-castelo-inferior",
+      "nome": "05 castelo inferior",
+      "categoria": "cenario",
+      "familia": "nivel",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/nivel/nivel-05-castelo-inferior-v01.webp",
+      "original": "Concepts/Environment/nivel_05_castelo-inferior.png, Concepts/Environment/nivel_05_castelo-inferior_cena_passagem.png, Concepts/Environment/nivel_05_castelo-inferior_cena_perigo.png, Concepts/Environment/nivel_05_castelo-inferior_cena_ponto-seguro.png, Concepts/Environment/nivel_05_castelo-inferior_voxel.png",
+      "vistas": [
+        {
+          "rotulo": "Cena passagem",
+          "arquivo": "media/cenario/nivel/nivel-05-castelo-inferior-v01-cena-passagem.webp"
+        },
+        {
+          "rotulo": "Cena perigo",
+          "arquivo": "media/cenario/nivel/nivel-05-castelo-inferior-v01-cena-perigo.webp"
+        },
+        {
+          "rotulo": "Cena ponto seguro",
+          "arquivo": "media/cenario/nivel/nivel-05-castelo-inferior-v01-cena-ponto-seguro.webp"
+        },
+        {
+          "rotulo": "Voxel",
+          "arquivo": "media/cenario/nivel/nivel-05-castelo-inferior-v01-voxel.webp"
+        }
+      ]
+    },
+    {
+      "id": "nivel-06-criptas",
+      "nome": "06 criptas",
+      "categoria": "cenario",
+      "familia": "nivel",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/nivel/nivel-06-criptas-v01.webp",
+      "original": "Concepts/Environment/nivel_06_criptas.png, Concepts/Environment/nivel_06_criptas_cena_passagem.png, Concepts/Environment/nivel_06_criptas_cena_perigo.png, Concepts/Environment/nivel_06_criptas_cena_ponto-seguro.png, Concepts/Environment/nivel_06_criptas_voxel.png",
+      "vistas": [
+        {
+          "rotulo": "Cena passagem",
+          "arquivo": "media/cenario/nivel/nivel-06-criptas-v01-cena-passagem.webp"
+        },
+        {
+          "rotulo": "Cena perigo",
+          "arquivo": "media/cenario/nivel/nivel-06-criptas-v01-cena-perigo.webp"
+        },
+        {
+          "rotulo": "Cena ponto seguro",
+          "arquivo": "media/cenario/nivel/nivel-06-criptas-v01-cena-ponto-seguro.webp"
+        },
+        {
+          "rotulo": "Voxel",
+          "arquivo": "media/cenario/nivel/nivel-06-criptas-v01-voxel.webp"
+        }
+      ]
+    },
+    {
+      "id": "nivel-07-catacumbas",
+      "nome": "07 catacumbas",
+      "categoria": "cenario",
+      "familia": "nivel",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/nivel/nivel-07-catacumbas-v01.webp",
+      "original": "Concepts/Environment/nivel_07_catacumbas.png, Concepts/Environment/nivel_07_catacumbas_cena_passagem.png, Concepts/Environment/nivel_07_catacumbas_cena_perigo.png, Concepts/Environment/nivel_07_catacumbas_cena_ponto-seguro.png, Concepts/Environment/nivel_07_catacumbas_voxel.png",
+      "vistas": [
+        {
+          "rotulo": "Cena passagem",
+          "arquivo": "media/cenario/nivel/nivel-07-catacumbas-v01-cena-passagem.webp"
+        },
+        {
+          "rotulo": "Cena perigo",
+          "arquivo": "media/cenario/nivel/nivel-07-catacumbas-v01-cena-perigo.webp"
+        },
+        {
+          "rotulo": "Cena ponto seguro",
+          "arquivo": "media/cenario/nivel/nivel-07-catacumbas-v01-cena-ponto-seguro.webp"
+        },
+        {
+          "rotulo": "Voxel",
+          "arquivo": "media/cenario/nivel/nivel-07-catacumbas-v01-voxel.webp"
+        }
+      ]
+    },
+    {
+      "id": "nivel-08-cavernas",
+      "nome": "08 cavernas",
+      "categoria": "cenario",
+      "familia": "nivel",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/nivel/nivel-08-cavernas-v01.webp",
+      "original": "Concepts/Environment/nivel_08_cavernas.png, Concepts/Environment/nivel_08_cavernas_cena_passagem.png, Concepts/Environment/nivel_08_cavernas_cena_perigo.png, Concepts/Environment/nivel_08_cavernas_cena_ponto-seguro.png, Concepts/Environment/nivel_08_cavernas_voxel.png",
+      "vistas": [
+        {
+          "rotulo": "Cena passagem",
+          "arquivo": "media/cenario/nivel/nivel-08-cavernas-v01-cena-passagem.webp"
+        },
+        {
+          "rotulo": "Cena perigo",
+          "arquivo": "media/cenario/nivel/nivel-08-cavernas-v01-cena-perigo.webp"
+        },
+        {
+          "rotulo": "Cena ponto seguro",
+          "arquivo": "media/cenario/nivel/nivel-08-cavernas-v01-cena-ponto-seguro.webp"
+        },
+        {
+          "rotulo": "Voxel",
+          "arquivo": "media/cenario/nivel/nivel-08-cavernas-v01-voxel.webp"
+        }
+      ]
+    },
+    {
+      "id": "nivel-09-profundezas",
+      "nome": "09 profundezas",
+      "categoria": "cenario",
+      "familia": "nivel",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/nivel/nivel-09-profundezas-v01.webp",
+      "original": "Concepts/Environment/nivel_09_profundezas.png, Concepts/Environment/nivel_09_profundezas_cena_passagem.png, Concepts/Environment/nivel_09_profundezas_cena_perigo.png, Concepts/Environment/nivel_09_profundezas_cena_ponto-seguro.png, Concepts/Environment/nivel_09_profundezas_voxel.png",
+      "vistas": [
+        {
+          "rotulo": "Cena passagem",
+          "arquivo": "media/cenario/nivel/nivel-09-profundezas-v01-cena-passagem.webp"
+        },
+        {
+          "rotulo": "Cena perigo",
+          "arquivo": "media/cenario/nivel/nivel-09-profundezas-v01-cena-perigo.webp"
+        },
+        {
+          "rotulo": "Cena ponto seguro",
+          "arquivo": "media/cenario/nivel/nivel-09-profundezas-v01-cena-ponto-seguro.webp"
+        },
+        {
+          "rotulo": "Voxel",
+          "arquivo": "media/cenario/nivel/nivel-09-profundezas-v01-voxel.webp"
+        }
+      ]
+    },
+    {
+      "id": "nivel-10-abismo",
+      "nome": "10 abismo",
+      "categoria": "cenario",
+      "familia": "nivel",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/nivel/nivel-10-abismo-v01.webp",
+      "original": "Concepts/Environment/nivel_10_abismo.png, Concepts/Environment/nivel_10_abismo_cena_passagem.png, Concepts/Environment/nivel_10_abismo_cena_perigo.png, Concepts/Environment/nivel_10_abismo_cena_ponto-seguro.png, Concepts/Environment/nivel_10_abismo_voxel.png",
+      "vistas": [
+        {
+          "rotulo": "Cena passagem",
+          "arquivo": "media/cenario/nivel/nivel-10-abismo-v01-cena-passagem.webp"
+        },
+        {
+          "rotulo": "Cena perigo",
+          "arquivo": "media/cenario/nivel/nivel-10-abismo-v01-cena-perigo.webp"
+        },
+        {
+          "rotulo": "Cena ponto seguro",
+          "arquivo": "media/cenario/nivel/nivel-10-abismo-v01-cena-ponto-seguro.webp"
+        },
+        {
+          "rotulo": "Voxel",
+          "arquivo": "media/cenario/nivel/nivel-10-abismo-v01-voxel.webp"
+        }
+      ]
+    },
+    {
+      "id": "props-aguas",
+      "nome": "Aguas",
+      "categoria": "cenario",
+      "familia": "props",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/props/props-aguas-v01.webp",
+      "original": "Concepts/Environment/props_aguas_catalogo.png",
+      "miniaturaRotulo": "Catalogo"
+    },
+    {
+      "id": "props-castelo",
+      "nome": "Castelo",
+      "categoria": "cenario",
+      "familia": "props",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/props/props-castelo-v01.webp",
+      "original": "Concepts/Environment/props_castelo_catalogo.png",
+      "miniaturaRotulo": "Catalogo"
+    },
+    {
+      "id": "props-cavernas-corrupcao",
+      "nome": "Cavernas corrupcao",
+      "categoria": "cenario",
+      "familia": "props",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/props/props-cavernas-corrupcao-v01.webp",
+      "original": "Concepts/Environment/props_cavernas-corrupcao_catalogo.png",
+      "miniaturaRotulo": "Catalogo"
+    },
+    {
+      "id": "props-criptas-catacumbas",
+      "nome": "Criptas catacumbas",
+      "categoria": "cenario",
+      "familia": "props",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/props/props-criptas-catacumbas-v01.webp",
+      "original": "Concepts/Environment/props_criptas-catacumbas_catalogo.png",
+      "miniaturaRotulo": "Catalogo"
+    },
+    {
+      "id": "props-patio-modelagem",
+      "nome": "Patio modelagem",
+      "categoria": "cenario",
+      "familia": "props",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/props/props-patio-modelagem-v01.webp",
+      "original": "Concepts/Environment/props_patio-modelagem_ficha_v1.png, Concepts/Environment/props_patio-modelagem_ficha_v2.png",
+      "miniaturaRotulo": "Ficha v1",
+      "vistas": [
+        {
+          "rotulo": "Ficha v2",
+          "arquivo": "media/cenario/props/props-patio-modelagem-v01-ficha-v2.webp"
+        }
+      ]
+    },
+    {
+      "id": "props-patio",
+      "nome": "Patio",
+      "categoria": "cenario",
+      "familia": "props",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/props/props-patio-v01.webp",
+      "original": "Concepts/Environment/props_patio_catalogo.png",
+      "miniaturaRotulo": "Catalogo"
+    },
+    {
+      "id": "keyart-cercado-na-nevoa",
+      "nome": "Cercado na nevoa",
+      "categoria": "arte-chave",
+      "familia": "keyart",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/arte-chave/keyart/keyart-cercado-na-nevoa-v01.webp",
+      "original": "Concepts/KeyArt/keyart_cercado-na-nevoa_cena.png",
+      "miniaturaRotulo": "Cena"
+    },
+    {
+      "id": "keyart-keeper",
+      "nome": "Keeper",
+      "categoria": "arte-chave",
+      "familia": "keyart",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/arte-chave/keyart/keyart-keeper-v01.webp",
+      "original": "Concepts/KeyArt/keyart_keeper_cena.png",
+      "miniaturaRotulo": "Cena"
+    },
+    {
+      "id": "keyart-ultima-vela",
+      "nome": "Ultima vela",
+      "categoria": "arte-chave",
+      "familia": "keyart",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/arte-chave/keyart/keyart-ultima-vela-v01.webp",
+      "original": "Concepts/KeyArt/keyart_ultima-vela_cena_oficial.png",
+      "miniaturaRotulo": "Cena oficial"
+    },
+    {
+      "id": "ui-hud",
+      "nome": "Hud",
+      "categoria": "interface",
+      "familia": "ui",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/ui/ui-hud-v01.webp",
+      "original": "Concepts/UI/ui_hud_tela.png",
+      "miniaturaRotulo": "Tela"
+    },
+    {
+      "id": "ui-inventario-diegetico",
+      "nome": "Inventario diegetico",
+      "categoria": "interface",
+      "familia": "ui",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/ui/ui-inventario-diegetico-v01.webp",
+      "original": "Concepts/UI/ui_inventario-diegetico_tela.png",
+      "miniaturaRotulo": "Tela"
+    },
+    {
+      "id": "ui-inventario",
+      "nome": "Inventario",
+      "categoria": "interface",
+      "familia": "ui",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/ui/ui-inventario-v01.webp",
+      "original": "Concepts/UI/ui_inventario_tela.png",
+      "miniaturaRotulo": "Tela"
+    },
+    {
+      "id": "ui-livro-receitas",
+      "nome": "Livro receitas",
+      "categoria": "interface",
+      "familia": "ui",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/ui/ui-livro-receitas-v01.webp",
+      "original": "Concepts/UI/ui_livro-receitas_tela.png",
+      "miniaturaRotulo": "Tela"
+    },
+    {
+      "id": "ui-mapa-diario",
+      "nome": "Mapa diario",
+      "categoria": "interface",
+      "familia": "ui",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/ui/ui-mapa-diario-v01.webp",
+      "original": "Concepts/UI/ui_mapa-diario_tela.png",
+      "miniaturaRotulo": "Tela"
+    },
+    {
+      "id": "ui-menus",
+      "nome": "Menus",
+      "categoria": "interface",
+      "familia": "ui",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/ui/ui-menus-v01.webp",
+      "original": "Concepts/UI/ui_menus_ficha.png",
+      "miniaturaRotulo": "Ficha"
+    },
+    {
+      "id": "ui-morte",
+      "nome": "Morte",
+      "categoria": "interface",
+      "familia": "ui",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/ui/ui-morte-v01.webp",
+      "original": "Concepts/UI/ui_morte_tela.png",
+      "miniaturaRotulo": "Tela"
+    },
+    {
+      "id": "ui-sono",
+      "nome": "Sono",
+      "categoria": "interface",
+      "familia": "ui",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/ui/ui-sono-v01.webp",
+      "original": "Concepts/UI/ui_sono_tela.png",
+      "miniaturaRotulo": "Tela"
+    },
+    {
+      "id": "equipamento-armadura-de-couro",
+      "nome": "Armadura de couro",
+      "categoria": "construcoes-objetos",
+      "familia": "equipamento",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/equipamento/equipamento-armadura-de-couro-v01.webp",
+      "original": "Concepts/Equipment/Armor/equipamento_armadura-de-couro_ficha.png, Concepts/Equipment/Armor/equipamento_armadura-de-couro_turnaround.png",
+      "miniaturaRotulo": "Ficha",
+      "vistas": [
+        {
+          "rotulo": "Turnaround",
+          "arquivo": "media/construcoes-objetos/equipamento/equipamento-armadura-de-couro-v01-turnaround.webp"
+        }
+      ]
+    },
+    {
+      "id": "equipamento-armadura-de-sucata",
+      "nome": "Armadura de sucata",
+      "categoria": "construcoes-objetos",
+      "familia": "equipamento",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/equipamento/equipamento-armadura-de-sucata-v01.webp",
+      "original": "Concepts/Equipment/Armor/equipamento_armadura-de-sucata_ficha.png, Concepts/Equipment/Armor/equipamento_armadura-de-sucata_turnaround.png",
+      "miniaturaRotulo": "Ficha",
+      "vistas": [
+        {
+          "rotulo": "Turnaround",
+          "arquivo": "media/construcoes-objetos/equipamento/equipamento-armadura-de-sucata-v01-turnaround.webp"
+        }
+      ]
+    },
+    {
+      "id": "equipamento-traje-nomade",
+      "nome": "Traje nomade",
+      "categoria": "construcoes-objetos",
+      "familia": "equipamento",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/equipamento/equipamento-traje-nomade-v01.webp",
+      "original": "Concepts/Equipment/Armor/equipamento_traje-nomade_ficha.png, Concepts/Equipment/Armor/equipamento_traje-nomade_referencia-b.png, Concepts/Equipment/Armor/equipamento_traje-nomade_turnaround.png",
+      "miniaturaRotulo": "Ficha",
+      "vistas": [
+        {
+          "rotulo": "Referencia b",
+          "arquivo": "media/construcoes-objetos/equipamento/equipamento-traje-nomade-v01-referencia-b.webp"
+        },
+        {
+          "rotulo": "Turnaround",
+          "arquivo": "media/construcoes-objetos/equipamento/equipamento-traje-nomade-v01-turnaround.webp"
+        }
+      ]
+    },
+    {
+      "id": "equipamento-cantis",
+      "nome": "Cantis",
+      "categoria": "construcoes-objetos",
+      "familia": "equipamento",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/equipamento/equipamento-cantis-v01.webp",
+      "original": "Concepts/Equipment/Tools/equipamento_cantis_ficha.png",
+      "miniaturaRotulo": "Ficha"
+    },
+    {
+      "id": "equipamento-mochila-de-couro",
+      "nome": "Mochila de couro",
+      "categoria": "construcoes-objetos",
+      "familia": "equipamento",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/equipamento/equipamento-mochila-de-couro-v01.webp",
+      "original": "Concepts/Equipment/Tools/equipamento_mochila-de-couro_ficha.png",
+      "miniaturaRotulo": "Ficha"
+    },
+    {
+      "id": "equipamento-mochila-de-sucata",
+      "nome": "Mochila de sucata",
+      "categoria": "construcoes-objetos",
+      "familia": "equipamento",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/equipamento/equipamento-mochila-de-sucata-v01.webp",
+      "original": "Concepts/Equipment/Tools/equipamento_mochila-de-sucata_ficha.png",
+      "miniaturaRotulo": "Ficha"
+    },
+    {
+      "id": "equipamento-mochila-de-tecido",
+      "nome": "Mochila de tecido",
+      "categoria": "construcoes-objetos",
+      "familia": "equipamento",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/equipamento/equipamento-mochila-de-tecido-v01.webp",
+      "original": "Concepts/Equipment/Tools/equipamento_mochila-de-tecido_aberta_ficha.png, Concepts/Equipment/Tools/equipamento_mochila-de-tecido_ficha.png",
+      "miniaturaRotulo": "Aberta ficha",
+      "vistas": [
+        {
+          "rotulo": "Ficha",
+          "arquivo": "media/construcoes-objetos/equipamento/equipamento-mochila-de-tecido-v01-ficha.webp"
+        }
+      ]
+    },
+    {
+      "id": "equipamento-mochila",
+      "nome": "Mochila",
+      "categoria": "construcoes-objetos",
+      "familia": "equipamento",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/equipamento/equipamento-mochila-v01.webp",
+      "original": "Concepts/Equipment/Tools/equipamento_mochila_aberta_esboco.png, Concepts/Equipment/Tools/equipamento_mochila_aberta_esboco-anotado.png",
+      "miniaturaRotulo": "Aberta esboco",
+      "vistas": [
+        {
+          "rotulo": "Aberta esboco anotado",
+          "arquivo": "media/construcoes-objetos/equipamento/equipamento-mochila-v01-aberta-esboco-anotado.webp"
+        }
+      ]
+    },
+    {
+      "id": "ferramenta-arcaica",
+      "nome": "Arcaica",
+      "categoria": "construcoes-objetos",
+      "familia": "ferramenta",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/ferramenta/ferramenta-arcaica-v01.webp",
+      "original": "Concepts/Equipment/Tools/ferramenta_arcaica_ficha.png",
+      "miniaturaRotulo": "Ficha"
+    },
+    {
+      "id": "ferramenta-enferrujadas",
+      "nome": "Enferrujadas",
+      "categoria": "construcoes-objetos",
+      "familia": "ferramenta",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/ferramenta/ferramenta-enferrujadas-v01.webp",
+      "original": "Concepts/Equipment/Tools/ferramenta_enferrujadas_ficha.png",
+      "miniaturaRotulo": "Ficha"
+    },
+    {
+      "id": "ferramenta-pedra",
+      "nome": "Pedra",
+      "categoria": "construcoes-objetos",
+      "familia": "ferramenta",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/ferramenta/ferramenta-pedra-v01.webp",
+      "original": "Concepts/Equipment/Tools/ferramenta_pedra_ficha.png",
+      "miniaturaRotulo": "Ficha"
+    },
+    {
+      "id": "ferramenta-sucata",
+      "nome": "Sucata",
+      "categoria": "construcoes-objetos",
+      "familia": "ferramenta",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/ferramenta/ferramenta-sucata-v01.webp",
+      "original": "Concepts/Equipment/Tools/ferramenta_sucata_ficha.png",
+      "miniaturaRotulo": "Ficha"
+    },
+    {
+      "id": "ferramenta-tiers",
+      "nome": "Tiers",
+      "categoria": "construcoes-objetos",
+      "familia": "ferramenta",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/ferramenta/ferramenta-tiers-v01.webp",
+      "original": "Concepts/Equipment/Tools/ferramenta_tiers_1e3_referencia.png",
+      "miniaturaRotulo": "1e3 referencia"
+    },
+    {
+      "id": "luz-comparativo-fontes",
+      "nome": "Comparativo fontes",
+      "categoria": "construcoes-objetos",
+      "familia": "luz",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/luz/luz-comparativo-fontes-v01.webp",
+      "original": "Concepts/Lighting/luz_comparativo-fontes_cena.png",
+      "miniaturaRotulo": "Cena"
+    },
+    {
+      "id": "luz-emergencia",
+      "nome": "Emergencia",
+      "categoria": "construcoes-objetos",
+      "familia": "luz",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/luz/luz-emergencia-v01.webp",
+      "original": "Concepts/Lighting/luz_emergencia_catalogo.png",
+      "miniaturaRotulo": "Catalogo"
+    },
+    {
+      "id": "luz-estacionaria",
+      "nome": "Estacionaria",
+      "categoria": "construcoes-objetos",
+      "familia": "luz",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/luz/luz-estacionaria-v01.webp",
+      "original": "Concepts/Lighting/luz_estacionaria_catalogo.png",
+      "miniaturaRotulo": "Catalogo"
+    },
+    {
+      "id": "luz-estudo-patio",
+      "nome": "Estudo patio",
+      "categoria": "construcoes-objetos",
+      "familia": "luz",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/luz/luz-estudo-patio-v01.webp",
+      "original": "Concepts/Lighting/luz_estudo-patio_cena.png",
+      "miniaturaRotulo": "Cena"
+    },
+    {
+      "id": "luz-farois-direcionais",
+      "nome": "Farois direcionais",
+      "categoria": "construcoes-objetos",
+      "familia": "luz",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/luz/luz-farois-direcionais-v01.webp",
+      "original": "Concepts/Lighting/luz_farois-direcionais_catalogo.png, Concepts/Lighting/luz_farois-direcionais_catalogo_estagios.png",
+      "miniaturaRotulo": "Catalogo",
+      "vistas": [
+        {
+          "rotulo": "Catalogo estagios",
+          "arquivo": "media/construcoes-objetos/luz/luz-farois-direcionais-v01-catalogo-estagios.webp"
+        }
+      ]
+    },
+    {
+      "id": "luz-lampioes",
+      "nome": "Lampioes",
+      "categoria": "construcoes-objetos",
+      "familia": "luz",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/luz/luz-lampioes-v01.webp",
+      "original": "Concepts/Lighting/luz_lampioes_catalogo.png, Concepts/Lighting/luz_lampioes_catalogo_estagios.png",
+      "miniaturaRotulo": "Catalogo",
+      "vistas": [
+        {
+          "rotulo": "Catalogo estagios",
+          "arquivo": "media/construcoes-objetos/luz/luz-lampioes-v01-catalogo-estagios.webp"
+        }
+      ]
+    },
+    {
+      "id": "luz-luz-magica",
+      "nome": "Luz magica",
+      "categoria": "construcoes-objetos",
+      "familia": "luz",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/luz/luz-luz-magica-v01.webp",
+      "original": "Concepts/Lighting/luz_luz-magica_catalogo.png, Concepts/Lighting/luz_luz-magica_catalogo_estagios.png",
+      "miniaturaRotulo": "Catalogo",
+      "vistas": [
+        {
+          "rotulo": "Catalogo estagios",
+          "arquivo": "media/construcoes-objetos/luz/luz-luz-magica-v01-catalogo-estagios.webp"
+        }
+      ]
+    },
+    {
+      "id": "luz-raios-de-alcance",
+      "nome": "Raios de alcance",
+      "categoria": "construcoes-objetos",
+      "familia": "luz",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/luz/luz-raios-de-alcance-v01.webp",
+      "original": "Concepts/Lighting/luz_raios-de-alcance_cena.png",
+      "miniaturaRotulo": "Cena"
+    },
+    {
+      "id": "luz-tocha-vs-lampiao",
+      "nome": "Tocha vs lampiao",
+      "categoria": "construcoes-objetos",
+      "familia": "luz",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/luz/luz-tocha-vs-lampiao-v01.webp",
+      "original": "Concepts/Lighting/luz_tocha-vs-lampiao_cena.png",
+      "miniaturaRotulo": "Cena"
+    },
+    {
+      "id": "luz-tochas",
+      "nome": "Tochas",
+      "categoria": "construcoes-objetos",
+      "familia": "luz",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/luz/luz-tochas-v01.webp",
+      "original": "Concepts/Lighting/luz_tochas_catalogo.png, Concepts/Lighting/luz_tochas_catalogo_estagios.png",
+      "miniaturaRotulo": "Catalogo",
+      "vistas": [
+        {
+          "rotulo": "Catalogo estagios",
+          "arquivo": "media/construcoes-objetos/luz/luz-tochas-v01-catalogo-estagios.webp"
+        }
+      ]
+    },
+    {
+      "id": "luz-velas",
+      "nome": "Velas",
+      "categoria": "construcoes-objetos",
+      "familia": "luz",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/luz/luz-velas-v01.webp",
+      "original": "Concepts/Lighting/luz_velas_catalogo.png, Concepts/Lighting/luz_velas_catalogo_estagios.png",
+      "miniaturaRotulo": "Catalogo",
+      "vistas": [
+        {
+          "rotulo": "Catalogo estagios",
+          "arquivo": "media/construcoes-objetos/luz/luz-velas-v01-catalogo-estagios.webp"
+        }
+      ]
+    },
+    {
+      "id": "item-alimentos-crus",
+      "nome": "Alimentos crus",
+      "categoria": "construcoes-objetos",
+      "familia": "item",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/item/item-alimentos-crus-v01.webp",
+      "original": "Concepts/Items/item_alimentos-crus_catalogo.png",
+      "miniaturaRotulo": "Catalogo"
+    },
+    {
+      "id": "item-bebidas",
+      "nome": "Bebidas",
+      "categoria": "construcoes-objetos",
+      "familia": "item",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/item/item-bebidas-v01.webp",
+      "original": "Concepts/Items/item_bebidas_catalogo.png",
+      "miniaturaRotulo": "Catalogo"
+    },
+    {
+      "id": "item-combustiveis",
+      "nome": "Combustiveis",
+      "categoria": "construcoes-objetos",
+      "familia": "item",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/item/item-combustiveis-v01.webp",
+      "original": "Concepts/Items/item_combustiveis_catalogo.png",
+      "miniaturaRotulo": "Catalogo"
+    },
+    {
+      "id": "item-corrompidos",
+      "nome": "Corrompidos",
+      "categoria": "construcoes-objetos",
+      "familia": "item",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/item/item-corrompidos-v01.webp",
+      "original": "Concepts/Items/item_corrompidos_catalogo.png",
+      "miniaturaRotulo": "Catalogo"
+    },
+    {
+      "id": "item-medicos",
+      "nome": "Medicos",
+      "categoria": "construcoes-objetos",
+      "familia": "item",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/item/item-medicos-v01.webp",
+      "original": "Concepts/Items/item_medicos_catalogo.png",
+      "miniaturaRotulo": "Catalogo"
+    },
+    {
+      "id": "item-notas-do-lightkeeper",
+      "nome": "Notas do lightkeeper",
+      "categoria": "construcoes-objetos",
+      "familia": "item",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/item/item-notas-do-lightkeeper-v01.webp",
+      "original": "Concepts/Items/item_notas-do-lightkeeper_catalogo.png",
+      "miniaturaRotulo": "Catalogo"
+    },
+    {
+      "id": "item-recursos-naturais",
+      "nome": "Recursos naturais",
+      "categoria": "construcoes-objetos",
+      "familia": "item",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/item/item-recursos-naturais-v01.webp",
+      "original": "Concepts/Items/item_recursos-naturais_ficha.png",
+      "miniaturaRotulo": "Ficha"
+    },
+    {
+      "id": "item-refeicoes",
+      "nome": "Refeicoes",
+      "categoria": "construcoes-objetos",
+      "familia": "item",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/item/item-refeicoes-v01.webp",
+      "original": "Concepts/Items/item_refeicoes_catalogo.png",
+      "miniaturaRotulo": "Catalogo"
+    },
+    {
+      "id": "item-residuo-magico",
+      "nome": "Residuo magico",
+      "categoria": "construcoes-objetos",
+      "familia": "item",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/item/item-residuo-magico-v01.webp",
+      "original": "Concepts/Items/item_residuo-magico_ficha.png",
+      "miniaturaRotulo": "Ficha"
+    },
+    {
+      "id": "item-sucata",
+      "nome": "Sucata",
+      "categoria": "construcoes-objetos",
+      "familia": "item",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/item/item-sucata-v01.webp",
+      "original": "Concepts/Items/item_sucata_catalogo.png",
+      "miniaturaRotulo": "Catalogo"
+    },
+    {
+      "id": "bancada-bancadas",
+      "nome": "Bancadas",
+      "categoria": "construcoes-objetos",
+      "familia": "bancada",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/bancada/bancada-bancadas-v01.webp",
+      "original": "Concepts/Workstations/bancada_bancadas_catalogo.png",
+      "miniaturaRotulo": "Catalogo"
+    },
+    {
+      "id": "bancada-curtume-progressao",
+      "nome": "Curtume progressao",
+      "categoria": "construcoes-objetos",
+      "familia": "bancada",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/bancada/bancada-curtume-progressao-v01.webp",
+      "original": "Concepts/Workstations/bancada_curtume-progressao_catalogo.png",
+      "miniaturaRotulo": "Catalogo"
+    },
+    {
+      "id": "bancada-curtume",
+      "nome": "Curtume",
+      "categoria": "construcoes-objetos",
+      "familia": "bancada",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/bancada/bancada-curtume-v01.webp",
+      "original": "Concepts/Workstations/bancada_curtume_cena.png",
+      "miniaturaRotulo": "Cena"
+    },
+    {
+      "id": "bancada-geral-progressao",
+      "nome": "Geral progressao",
+      "categoria": "construcoes-objetos",
+      "familia": "bancada",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/bancada/bancada-geral-progressao-v01.webp",
+      "original": "Concepts/Workstations/bancada_geral-progressao_catalogo.png",
+      "miniaturaRotulo": "Catalogo"
+    },
+    {
+      "id": "bancada-geral",
+      "nome": "Geral",
+      "categoria": "construcoes-objetos",
+      "familia": "bancada",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/bancada/bancada-geral-v01.webp",
+      "original": "Concepts/Workstations/bancada_geral_cena.png",
+      "miniaturaRotulo": "Cena"
+    },
+    {
+      "id": "bancada-sucata-progressao",
+      "nome": "Sucata progressao",
+      "categoria": "construcoes-objetos",
+      "familia": "bancada",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/bancada/bancada-sucata-progressao-v01.webp",
+      "original": "Concepts/Workstations/bancada_sucata-progressao_catalogo.png",
+      "miniaturaRotulo": "Catalogo"
+    },
+    {
+      "id": "bancada-sucata",
+      "nome": "Sucata",
+      "categoria": "construcoes-objetos",
+      "familia": "bancada",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/bancada/bancada-sucata-v01.webp",
+      "original": "Concepts/Workstations/bancada_sucata_cena.png",
+      "miniaturaRotulo": "Cena"
+    },
+    {
+      "id": "bancada-tecelagem-progressao",
+      "nome": "Tecelagem progressao",
+      "categoria": "construcoes-objetos",
+      "familia": "bancada",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/bancada/bancada-tecelagem-progressao-v01.webp",
+      "original": "Concepts/Workstations/bancada_tecelagem-progressao_catalogo.png",
+      "miniaturaRotulo": "Catalogo"
+    },
+    {
+      "id": "bancada-tecelagem",
+      "nome": "Tecelagem",
+      "categoria": "construcoes-objetos",
+      "familia": "bancada",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/bancada/bancada-tecelagem-v01.webp",
+      "original": "Concepts/Workstations/bancada_tecelagem_cena.png",
+      "miniaturaRotulo": "Cena"
+    },
+    {
+      "id": "construcao-abrigo-ruinas",
+      "nome": "Abrigo ruinas",
+      "categoria": "construcoes-objetos",
+      "familia": "construcao",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/construcao/construcao-abrigo-ruinas-v01.webp",
+      "original": "Concepts/Construction/construcao_abrigo-ruinas_cena.png",
+      "miniaturaRotulo": "Cena"
+    },
+    {
+      "id": "construcao-pecas",
+      "nome": "Pecas",
+      "categoria": "construcoes-objetos",
+      "familia": "construcao",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/construcao/construcao-pecas-v01.webp",
+      "original": "Concepts/Construction/construcao_pecas_catalogo_improvisado.png",
+      "miniaturaRotulo": "Catalogo improvisado"
+    },
+    {
+      "id": "construcao-refugio-cripta",
+      "nome": "Refugio cripta",
+      "categoria": "construcoes-objetos",
+      "familia": "construcao",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/construcao/construcao-refugio-cripta-v01.webp",
+      "original": "Concepts/Construction/construcao_refugio-cripta_cena.png",
+      "miniaturaRotulo": "Cena"
+    },
+    {
+      "id": "construcao-santuario",
+      "nome": "Santuario",
+      "categoria": "construcoes-objetos",
+      "familia": "construcao",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/construcao/construcao-santuario-v01.webp",
+      "original": "Concepts/Construction/construcao_santuario_cena_abandonado.png, Concepts/Construction/construcao_santuario_cena_antes-depois.png, Concepts/Construction/construcao_santuario_cena_consolidado.png, Concepts/Construction/construcao_santuario_cena_primeira-chama.png",
+      "miniaturaRotulo": "Cena abandonado",
+      "vistas": [
+        {
+          "rotulo": "Cena antes depois",
+          "arquivo": "media/construcoes-objetos/construcao/construcao-santuario-v01-cena-antes-depois.webp"
+        },
+        {
+          "rotulo": "Cena consolidado",
+          "arquivo": "media/construcoes-objetos/construcao/construcao-santuario-v01-cena-consolidado.webp"
+        },
+        {
+          "rotulo": "Cena primeira chama",
+          "arquivo": "media/construcoes-objetos/construcao/construcao-santuario-v01-cena-primeira-chama.webp"
+        }
+      ]
+    },
+    {
+      "id": "lanterna-lanternas-magicas",
+      "nome": "Lanternas magicas",
+      "categoria": "construcoes-objetos",
+      "familia": "lanterna",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/lanterna/lanterna-lanternas-magicas-v01.webp",
+      "original": "Concepts/Lanterns/lanterna_lanternas-magicas_catalogo_ativadas.png, Concepts/Lanterns/lanterna_lanternas-magicas_catalogo_dormentes.png",
+      "miniaturaRotulo": "Catalogo ativadas",
+      "vistas": [
+        {
+          "rotulo": "Catalogo dormentes",
+          "arquivo": "media/construcoes-objetos/lanterna/lanterna-lanternas-magicas-v01-catalogo-dormentes.webp"
+        }
+      ]
+    },
+    {
+      "id": "marco-1-capturas",
+      "nome": "Capturas do marco 1",
+      "categoria": "capturas",
+      "familia": "marco-1",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/capturas/marco-1/marco-1-capturas-v01.webp",
+      "original": "Docs/Marco1/capturas/01_inicio.png, Docs/Marco1/capturas/02_andando.png, Docs/Marco1/capturas/05_ataque_leve.png, Docs/Marco1/capturas/10_bloqueio_andando.png, Docs/Marco1/capturas/04_camera_girada_zoom.png, Docs/Marco1/capturas/03_correndo.png, Docs/Marco1/capturas/07_interagir.png, Docs/Marco1/capturas/08_mochila.png, Docs/Marco1/capturas/06_parede_translucida.png, Docs/Marco1/capturas/09_pausa.png",
+      "vistas": [
+        {
+          "rotulo": "Andando",
+          "arquivo": "media/capturas/marco-1/marco-1-capturas-v01-andando.webp"
+        },
+        {
+          "rotulo": "Ataque leve",
+          "arquivo": "media/capturas/marco-1/marco-1-capturas-v01-ataque-leve.webp"
+        },
+        {
+          "rotulo": "Bloqueio andando",
+          "arquivo": "media/capturas/marco-1/marco-1-capturas-v01-bloqueio-andando.webp"
+        },
+        {
+          "rotulo": "Camera girada zoom",
+          "arquivo": "media/capturas/marco-1/marco-1-capturas-v01-camera-girada-zoom.webp"
+        },
+        {
+          "rotulo": "Correndo",
+          "arquivo": "media/capturas/marco-1/marco-1-capturas-v01-correndo.webp"
+        },
+        {
+          "rotulo": "Interagir",
+          "arquivo": "media/capturas/marco-1/marco-1-capturas-v01-interagir.webp"
+        },
+        {
+          "rotulo": "Mochila",
+          "arquivo": "media/capturas/marco-1/marco-1-capturas-v01-mochila.webp"
+        },
+        {
+          "rotulo": "Parede translucida",
+          "arquivo": "media/capturas/marco-1/marco-1-capturas-v01-parede-translucida.webp"
+        },
+        {
+          "rotulo": "Pausa",
+          "arquivo": "media/capturas/marco-1/marco-1-capturas-v01-pausa.webp"
+        }
+      ]
+    },
+    {
+      "id": "musica-menu-principal",
+      "nome": "Menu principal",
+      "categoria": "audio",
+      "familia": "musica",
+      "status": "vigente",
+      "versao": 5,
+      "audio": "media/audio/musica/musica-menu-principal-v05.mp3",
+      "original": "Audio/Musica/musica_menu-principal_v5.mp3",
+      "nota": "As versões 1 a 4 e os loops em WAV ficam em `Audio/Musica/` no repositório."
+    }
+  ]
+}

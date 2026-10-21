@@ -1,0 +1,61 @@
+<!-- Gerado — não edite à mão. Fonte: decisoes.json. Para mudar, edite o JSON e rode: node workspace/_shared/engine/gerar.mjs <pasta-do-card> -->
+<!doctype html>
+<html lang="pt-BR" data-mak-report="document" style="--mk-destaque:#d9a441">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Decisões · Lightkeeper</title>
+  <link rel="stylesheet" href="../_shared/report.css">
+  <link rel="stylesheet" href="../_shared/examples.css">
+  <link rel="stylesheet" href="../_shared/engine/tema-base.css">
+  <script defer src="../_shared/report.js"></script>
+</head>
+<body><main class="container mk-pag">
+<p class="mk-gerado">Gerado — não edite à mão · fonte: decisoes.json · 17 de outubro de 2026</p>
+<div class="mk-capa"><div class="mk-capa-img" style="background-image:url('media/capa/keyart-ultima-vela.webp')" aria-hidden="true"></div>
+  <header class="mk-capa-texto">
+    <p class="mk-eyebrow">Lightkeeper</p>
+    <h1>Decisões</h1>
+    <p class="mk-sub">0 decisões pendentes de 13 · atualizado em 17 de outubro de 2026.</p>
+  </header>
+</div>
+<section class="mk-bloco">
+<div class="mk-contadores"><span><b>0</b> pendentes</span> <span class="mk-chip mk-ok">13 confirmadas</span> <span class="mk-chip mk-neutro">2 temas</span></div>
+<p class="mk-nota">Fonte: Docs/EditorModelos_Especificacao.md e AGENTS.md do repositório Lightkeeper.</p>
+</section>
+<section class="mk-bloco">
+<h2 class="mk-t"><span class="mk-ico mk-i-livro" aria-hidden="true"></span>Por tema</h2>
+<details>
+<summary>Editor de modelos · 12 decisões</summary>
+<div class="mk-rolagem"><table class="mk-tabela ">
+<thead><tr><th scope="col">Id</th><th scope="col">Decisão</th><th scope="col">Estado</th><th scope="col">Data</th></tr></thead>
+<tbody>
+<tr><td><span class="mk-id">EM1</span></td><td>Primeira versão é uma página web; o editor vai para dentro do jogo depois, então tudo é pensado para essa porta.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>12 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">EM2</span></td><td>Você edita à mão (faces, pixels, poses) e os bots usam a mesma ferramenta pela linha de comando.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>12 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">EM3</span></td><td>O original de cada modelo passa a ser um arquivo próprio em JSON (<code>.lkmodel.json</code>), como os mapas.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>12 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">EM4</span></td><td>Ordem: textura, faces, animações, modelos novos. Um PR por etapa.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>12 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">EM5</span></td><td>Fora dos limites PS1: aviso em vermelho; o modelo não entra no jogo nem passa no CI.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>12 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">EM6</span></td><td>Armaduras: a peça é vista vestida no corpo (com checagem de atravessar) e também sozinha.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>12 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">EM7</span></td><td>A página roda no seu PC, servida pelo Python do próprio Blender, gravando direto nos arquivos do projeto.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>12 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">EM8</span></td><td>Ao fechar uma versão, a ferramenta gera vistas e vídeos e um bot publica a revisão no Acervo, guardando a antiga.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>12 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">EM9</span></td><td>O que você edita à mão já vale como aprovado; o que um bot edita fica pendente até você aprovar.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>12 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">EM10</span></td><td>Modelos novos nascem de formas básicas ou de uma base que um bot gera em Blender a partir do concept.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>12 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">EM11</span></td><td>Botão Enviar: grava num branch, abre o PR, e um bot faz a revisão e o merge sozinho.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>12 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">EM12</span></td><td>Depois do Enviar, você avisa o bot na conversa (&quot;enviei&quot;) e ele age na hora (sem rotina diária).</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>12 de outubro de 2026</td></tr>
+</tbody>
+</table></div>
+</details>
+<details>
+<summary>Fluxo de trabalho · 1 decisão</summary>
+<div class="mk-rolagem"><table class="mk-tabela ">
+<thead><tr><th scope="col">Id</th><th scope="col">Decisão</th><th scope="col">Estado</th><th scope="col">Data</th></tr></thead>
+<tbody>
+<tr><td><span class="mk-id">FL1</span></td><td>Revisão de PR obrigatória pelas skills internas (<code>/code-review</code>, <code>/simplify</code> quando muda código, <code>/security-review</code> em CI, scripts e entrada de arquivos), sem o Codex; merge só sem achado bloqueante, com CI verde e sem conflito</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>12 de outubro de 2026</td></tr>
+</tbody>
+</table></div>
+</details>
+</section>
+</main>
+
+</body>
+</html>

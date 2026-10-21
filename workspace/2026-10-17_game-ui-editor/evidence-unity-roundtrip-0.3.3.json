@@ -1,0 +1,156 @@
+{
+  "checkedAt": "2026-10-21T02:06:43.463Z",
+  "status": "Supported persistent source property round-trip passed; full product acceptance remains open",
+  "version": "0.3.3",
+  "native": {
+    "date": "2026-10-21T02:04:43.743Z",
+    "independent": {
+      "screens": 3,
+      "systems": [
+        "uitoolkit",
+        "ugui"
+      ],
+      "prefab": true,
+      "originalImageHash": "92debfa79d9433149b7caa4ec201dff55a84ef0f5f32a9b75ab4f56ab51a3ddb",
+      "originalAssetBytesPreserved": true,
+      "sourceIdentitySurvivedReorder": true,
+      "callbacksInvoked": 0,
+      "writeback": {
+        "changes": 4,
+        "callbacksPreserved": true,
+        "staleRefused": true,
+        "reopened": true
+      },
+      "localOverlaySurvivedReimport": true,
+      "importReviewAndSaveMilliseconds": 67
+    },
+    "ge": {
+      "screens": 6,
+      "nodes": 430,
+      "assets": 28,
+      "referenceScreenshot": false,
+      "preparedMilliseconds": 78,
+      "queueAction": "ge.queue.cancel",
+      "coverage": [
+        {
+          "name": "GE - HUD and selection templates",
+          "partial": 217,
+          "unmapped": 16,
+          "native": 1
+        },
+        {
+          "name": "GE - Main menu",
+          "partial": 26,
+          "unmapped": 3
+        },
+        {
+          "name": "GE - Menu options",
+          "partial": 48,
+          "unmapped": 7
+        },
+        {
+          "name": "GE - Pause",
+          "partial": 15,
+          "unmapped": 2
+        },
+        {
+          "name": "GE - Pause options",
+          "partial": 42,
+          "unmapped": 7
+        },
+        {
+          "name": "GE - End summary (current match)",
+          "partial": 37,
+          "unmapped": 2
+        }
+      ]
+    },
+    "limits": [
+      "GE custom minimap renderer stays native.",
+      "GE command grid is an observed snapshot, not a full imported command template.",
+      "Procedural GE writeback requires its native adapter and reviewed mappings.",
+      "This independent Unity fixture is not a second shipped game."
+    ]
+  },
+  "focusedConflictTests": {
+    "passed": 3,
+    "failed": 0,
+    "command": "node --test '--test-name-pattern=reimport preserves|stale source/project|source removal conflicts' test/ui-import.test.ts"
+  },
+  "preflight": {
+    "sourceAndDeliveredOwnerFilesMatched": [
+      "project.ts",
+      "ui-import.ts",
+      "source-edits.ts",
+      "visual-document.ts",
+      "behavior.ts"
+    ],
+    "installedExporterMatchesDeliveredSource": true,
+    "behaviorCatalogHashesMatched": true,
+    "environmentOnlyExporterAlignment": "UISourceEdits.cs in the isolated .local package was older than the already delivered 0.3.3; backed up before alignment.",
+    "backup": "E:\\MrMak\\GameUIEditor\\.local\\unity-roundtrip-MbaM5L\\installed-exporter-before"
+  },
+  "preservation": {
+    "protectedFiles": {
+      "E:\\MrMak\\GameUIEditor\\.local\\manual-test-0.3.0-MndmD0\\projects\\ge-importada\\project.json": "af7aacaffcfd0ae61f56d60c6e8ebc9ee4354a98f699d6e727f6738219837ded",
+      "E:\\ClaudeTemp\\ge-ui-editor-m1\\unity\\Assets\\Resources\\GameUI\\Authoring.asset": "21c1ce9994f3fd39182b81519eab546593c8683fbf21989ddc318040cf017d2e",
+      "E:\\ClaudeTemp\\ge-ui-editor-m1\\unity\\Assets\\Resources\\GameUI\\VisualAuthoring.asset": "74253f160b4608ba4b3ea506d12e31bda43d174f2ba547c954345d95f9388180",
+      "E:\\ClaudeTemp\\ge-ui-editor-m1\\unity\\Assets\\Scenes\\TesteSimulacao.unity": "d2c8269baf36f2610fa98bb99f75f1f48eb796bf415ae114da5d69cb3df4ad32",
+      "E:\\ClaudeTemp\\ge-ui-editor-m1\\unity\\Assets\\Scenes\\UIEditorM1.unity": "881b317cd407493f0a39dac2943f08658d047cc08c8511641b61ba62711788fb",
+      "E:\\ClaudeTemp\\ge-ui-editor-m1\\unity\\Assets\\Settings\\DefaultVolumeProfile.asset": "6698bfacfad479acfd9766d00aba81ab52527d3b15c8b133d03ed7a2401499d6",
+      "E:\\ClaudeTemp\\ge-ui-editor-m1\\unity\\Assets\\Settings\\PC_Renderer.asset": "3d0b01d8ded3327263b6690be128a3de58d17c514943ae42fe743a3e084a9c79",
+      "E:\\ClaudeTemp\\ge-ui-editor-m1\\unity\\Assets\\Settings\\PC_RPAsset.asset": "65b657b87062616fca959aecbb64b4b01dfd3b0051ac1119fb65be615539df96",
+      "E:\\ClaudeTemp\\ge-ui-editor-m1\\unity\\Assets\\Settings\\PC_VolumeProfile.asset": "0290d126ee357981680e0397a31f05490f8bda8bb7c1773a2c17c137541c5337",
+      "E:\\ClaudeTemp\\ge-ui-editor-m1\\unity\\Assets\\Settings\\UniversalRenderPipelineGlobalSettings.asset": "f074f70005181226c7614cbfb06b064e692c1032763bef94ccf334d91d0056d0"
+    },
+    "originalExportManifestPreserved": true,
+    "ownerProjectPreserved": true
+  },
+  "execution": {
+    "nativeMode": "Fresh independent Unity 6000.6.5f1 batch project using the existing test/structured-import-native.mjs; evidence directory redirected to a fresh path.",
+    "mcpAttempt": "Official MCP wrapper connected only to the explicit isolated GE project. Interactive export did not finish; no source write was applied by that attempt. The task-created editor was exited and the previous export inventory restored before the successful independent batch run.",
+    "failedAttemptEvidence": [
+      "E:\\MrMak\\GameUIEditor\\.local\\unity-roundtrip-MbaM5L\\proof.json",
+      "E:\\MrMak\\GameUIEditor\\.local\\unity-roundtrip-Yj3dmY\\proof.json"
+    ],
+    "nativeEvidence": "E:\\MrMak\\GameUIEditor\\.local\\unity-roundtrip-batch-9SJrgM\\native-proof.json"
+  },
+  "acceptance": {
+    "owner033GeneralRetestStillAccepted": true,
+    "newHumanAcceptance": false,
+    "milestones": {
+      "done": 4,
+      "total": 6
+    },
+    "m4Closed": false,
+    "m6Closed": false
+  },
+  "limits": [
+    "Native fixture and project-owner APIs; Windows UI editing/review/apply interaction was not repeated.",
+    "No native visual capture or human visual acceptance in this run.",
+    "GE imported inventory was read only: six screens, 430 nodes, 28 original resources. The GE procedural HUD was not rewritten.",
+    "Dynamic command selection, availability, costs and dispatch remain separate.",
+    "Full core/UI suites and the current installer lifecycle were not repeated."
+  ],
+  "applicationSourceChanged": false,
+  "workspacePreview": {
+    "checkedAt": "2026-10-21T02:07:49.186Z",
+    "tabs": 5,
+    "markdownChecks": 6,
+    "viewports": [
+      1440,
+      768,
+      390
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "checks": 24,
+    "media": "loaded, previewed, zoomed, download URLs and close verified",
+    "links": true,
+    "reportTheme": "actual isolated service and report-theme.mjs",
+    "errors": [],
+    "scratch": "E:\\MrMak\\Mak\\.local\\unity-roundtrip-033-workspace-preview-QMPQDy"
+  }
+}

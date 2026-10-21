@@ -1,0 +1,30 @@
+{
+  "id": "mashup",
+  "titulo": "Mashup",
+  "sobre": "Sandbox voxel na Unreal Engine 5.8.3 (nome provisório): explorar, minerar, construir, fabricar e sobreviver.",
+  "tema": "base",
+  "destaque": "#5f9e4f",
+  "capa": "media/capa/f1-4-mundo-seed1.webp",
+  "janelaDias": 30,
+  "areas": [
+    { "id": "código", "cor": "#6f9fd8", "icone": "codigo" },
+    { "id": "ensaio", "cor": "#d9a441", "icone": "alvo" },
+    { "id": "design", "cor": "#c98bd0", "icone": "design" },
+    { "id": "arte", "cor": "#e08a9c", "icone": "arte" },
+    { "id": "áudio", "cor": "#55b89a", "icone": "audio" },
+    { "id": "playtest", "cor": "#e0805c", "icone": "playtest" },
+    { "id": "ferramentas", "cor": "#9a90d8", "icone": "ferramentas" }
+  ],
+  "estadosEntrega": ["main", "branch", "em revisão"],
+  "repositorio": "E:/Claude Projects/Mashup",
+  "abas": [
+    { "modulo": "painel", "nome": "Painel" },
+    { "modulo": "roteiro", "nome": "Roteiro" },
+    { "modulo": "entregas", "nome": "Entregas" },
+    { "modulo": "playtest", "nome": "Playtest" },
+    { "modulo": "decisoes", "nome": "Decisões" },
+    { "modulo": "riscos", "nome": "Riscos" },
+    { "modulo": "metricas", "nome": "Métricas" },
+    { "modulo": "arquivo", "nome": "Arquivo" }
+  ]
+}

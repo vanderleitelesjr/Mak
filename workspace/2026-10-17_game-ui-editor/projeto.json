@@ -1,0 +1,59 @@
+{
+  "id": "game-ui-editor",
+  "titulo": "Game UI Editor",
+  "sobre": "Windows HUD authoring. Owner accepted 0.3.3; native persistent UXML/uGUI property round-trip verified. Procedural GE integration and M4/M6 acceptance remain open.",
+  "tema": "base",
+  "destaque": "#64b5a4",
+  "capa": "media/chat-0.2.2/chat-dark.png",
+  "janelaDias": 30,
+  "areas": [
+    {
+      "id": "editor",
+      "cor": "#64b5a4",
+      "icone": "ferramentas"
+    },
+    {
+      "id": "integracao",
+      "cor": "#7e9ee8",
+      "icone": "codigo"
+    },
+    {
+      "id": "validacao",
+      "cor": "#deb56c",
+      "icone": "marco"
+    }
+  ],
+  "repositorio": "E:/MrMak/GameUIEditor",
+  "abas": [
+    {
+      "modulo": "painel",
+      "nome": "Painel"
+    },
+    {
+      "modulo": "livre",
+      "base": "chat-proposal",
+      "nome": "Proposta de chat"
+    },
+    {
+      "modulo": "roteiro",
+      "nome": "Roteiro"
+    },
+    {
+      "modulo": "entregas",
+      "nome": "Entregas"
+    },
+    {
+      "modulo": "decisoes",
+      "nome": "Decisões"
+    },
+    {
+      "modulo": "arquivo",
+      "nome": "Arquivo"
+    },
+    {
+      "modulo": "livre",
+      "base": "documentacao",
+      "nome": "Documentação"
+    }
+  ]
+}

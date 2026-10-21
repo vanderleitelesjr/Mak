@@ -1,0 +1,68 @@
+{
+  "preparedAt": "2026-10-20T21:56:29.071Z",
+  "version": "0.3.0",
+  "kit": "E:\\MrMak\\GameUIEditor\\.local\\manual-test-0.3.0-MndmD0",
+  "release": "E:\\MrMak\\GameUIEditor\\.local\\releases\\game-ui-editor-0.3.0-20261020T161005573Z",
+  "archiveHashesChecked": [
+    "portable-windows.zip",
+    "editable-sources.zip",
+    "unity-integration.zip",
+    "portable-ge-pilot.zip",
+    "Game UI Editor_0.3.0_x64-setup.exe"
+  ],
+  "manifestFiles": 260,
+  "recordedExport": {
+    "manifestSha256": "d3a6c04f8a174b8f4a07c35514341774b809d175691f3f4e5158c36de01aa528",
+    "screens": [
+      "GE - HUD and selection templates",
+      "GE - Main menu",
+      "GE - Menu options",
+      "GE - Pause",
+      "GE - Pause options",
+      "GE - End summary (current match)"
+    ],
+    "nodes": 430,
+    "assets": 22,
+    "nativeUnityProject": false
+  },
+  "windowsPreparationCheck": {
+    "checkedAt": "2026-10-20T21:57:42.329Z",
+    "version": "0.3.0",
+    "packagedWindows": true,
+    "uiImportScreens": 6,
+    "savedNodes": 430,
+    "originalAssets": 22,
+    "reloadPreservedImport": true,
+    "queueSimulation": "3 -> 2",
+    "inference": false,
+    "unityDispatch": false,
+    "errors": []
+  },
+  "installedApplicationModified": false,
+  "unityStarted": false,
+  "inference": false,
+  "humanAcceptance": false,
+  "feedbackPolicy": "Record feedback only; implement after a separate explicit request.",
+  "testWindowOpened": true,
+  "testWindowResponding": true,
+  "workspacePreview": {
+    "checkedAt": "2026-10-20T21:59:31.944Z",
+    "tabs": 2,
+    "markdownChecks": 6,
+    "viewports": [
+      1440,
+      768,
+      390
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "checks": 12,
+    "media": "loaded, previewed, zoomed, download URLs and close verified",
+    "links": true,
+    "reportTheme": "actual isolated service and report-theme.mjs",
+    "errors": [],
+    "scratch": "E:\\MrMak\\Mak\\.local\\test-preparation-workspace-preview-PYuUoE"
+  }
+}

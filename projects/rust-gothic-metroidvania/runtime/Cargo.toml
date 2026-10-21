@@ -1,0 +1,17 @@
+[package]
+name = "rusted-proof"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+
+[dependencies]
+anyhow = "1"
+bytemuck = { version = "1.25", features = ["derive"] }
+gilrs = "0.11.2"
+glam = "0.30"
+image = { version = "0.25", default-features = false, features = ["png"] }
+pollster = "0.4"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+wgpu = { version = "26.0.1", default-features = false, features = ["std", "parking_lot", "dx12", "wgsl"] }
+winit = { version = "0.30.13", default-features = false, features = ["rwh_06"] }

@@ -1,0 +1,193 @@
+{
+  "checkedAt": "2026-10-20T03:52:17.273Z",
+  "version": "0.2.1",
+  "status": "F01-F04 implemented, verified and packaged locally; chat redesign remains a visual proposal",
+  "validation": {
+    "coreTestsPassed": 112,
+    "browserCasesPassed": 34,
+    "desktopCasesPassed": 34,
+    "coreLog": "E:/MrMak/GameUIEditor/.local/followup-core-final.log",
+    "uiLog": "E:/MrMak/GameUIEditor/.local/followup-ui-final.log",
+    "realInference": false,
+    "newUnityRuntimeProof": false,
+    "physicalWindowsDragAcceptance": false,
+    "nativeDragEvidence": "Tauri requires disable_drag_drop_handler for HTML5 drag/drop on Windows. Source/runtime updated. CDP mouse tests already passed before the platform correction; they do not prove the physical OS drag path.",
+    "archives": {
+      "checkedAt": "2026-10-20T03:46:51.3126416Z",
+      "archives": [
+        {
+          "file": "portable-windows.zip",
+          "verifiedFiles": 44,
+          "sha256": "f3b36a3788dbe4c3e2c2be9d39701bc1435ff205d5138ce6592e5c48d4c630b7"
+        },
+        {
+          "file": "editable-sources.zip",
+          "verifiedFiles": 141,
+          "sha256": "2c1af9d293acead57b2fb47ed5f0667d460dfe10de91bb5cd4a87190309d546a"
+        },
+        {
+          "file": "unity-integration.zip",
+          "verifiedFiles": 25,
+          "sha256": "581c039297b36c131f5188baec1648a6d783f7cae7b2dfd42652325b8c26b8c5"
+        },
+        {
+          "file": "portable-ge-pilot.zip",
+          "verifiedFiles": 7,
+          "sha256": "2656c493e8190e59f0d92100594761ac371146cc5ea89487564d629c9c4ea156"
+        }
+      ],
+      "verifiedFiles": 217,
+      "installerHashMatches": true,
+      "privatePaths": false,
+      "newUnityRuntimeProof": false,
+      "errors": []
+    }
+  },
+  "proposal": "chat-proposal.html",
+  "chatRedesignApplied": false,
+  "ownerInstallationTouched": false,
+  "activeSessionsRestarted": false,
+  "published": false,
+  "committed": false,
+  "screenshots": [
+    {
+      "arquivo": "media/followup-0.2.1/hierarchy-connectors.png",
+      "legenda": "Ramos por profundidade e coluna do pai — Windows 0.2.1."
+    },
+    {
+      "arquivo": "media/followup-0.2.1/canvas-content-caret.png",
+      "legenda": "Conteúdo com cursor espelhado no canvas — Windows 0.2.1."
+    },
+    {
+      "arquivo": "media/followup-0.2.1/chat-no-overlap.png",
+      "legenda": "Agente conectado: limites separados entre canvas e chat — peer de teste."
+    }
+  ],
+  "artifacts": {
+    "folder": "E:/MrMak/GameUIEditor/.local/releases/game-ui-editor-0.2.1-20261020T034611369Z",
+    "version": "0.2.1",
+    "createdAt": "2026-10-20T03:46:16.334Z",
+    "published": false,
+    "signed": false,
+    "archives": [
+      {
+        "file": "portable-windows.zip",
+        "sha256": "f3b36a3788dbe4c3e2c2be9d39701bc1435ff205d5138ce6592e5c48d4c630b7",
+        "bytes": 37338283
+      },
+      {
+        "file": "editable-sources.zip",
+        "sha256": "2c1af9d293acead57b2fb47ed5f0667d460dfe10de91bb5cd4a87190309d546a",
+        "bytes": 439771
+      },
+      {
+        "file": "unity-integration.zip",
+        "sha256": "581c039297b36c131f5188baec1648a6d783f7cae7b2dfd42652325b8c26b8c5",
+        "bytes": 51871
+      },
+      {
+        "file": "portable-ge-pilot.zip",
+        "sha256": "2656c493e8190e59f0d92100594761ac371146cc5ea89487564d629c9c4ea156",
+        "bytes": 429753
+      }
+    ],
+    "installer": {
+      "file": "Game UI Editor_0.2.1_x64-setup.exe",
+      "sha256": "829884917924df836f836fdb4119fa6cd99ffc5b3eec67595aabf390e765002d",
+      "bytes": 25325280
+    }
+  },
+  "workspace": {
+    "tabs": 6,
+    "defaultStep": 0,
+    "progress": {
+      "done": 4,
+      "total": 4
+    },
+    "tabPreview": {
+      "checkedAt": "2026-10-20T03:50:26.856Z",
+      "tabs": 6,
+      "viewports": [
+        1440,
+        768,
+        390
+      ],
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "checks": 36,
+      "media": "loaded, previewed, zoomed, download URLs and close verified",
+      "links": true,
+      "reportTheme": "actual isolated service and report-theme.mjs",
+      "errors": [],
+      "scratch": "E:\\MrMak\\Mak\\.local\\followup-workspace-preview-lQNJT0"
+    },
+    "proposalAndMarkdown": {
+      "proposalChecks": 6,
+      "markdownChecks": 6,
+      "widths": [
+        1440,
+        768,
+        390
+      ],
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "errors": []
+    },
+    "proposalScreenshots": ".local/followup-workspace-preview-rQk5GY",
+    "totalChecks": 48,
+    "currentTabCount": 7,
+    "proposalTabRegistration": {
+      "checkedAt": "2026-10-20T13:33:13.613Z",
+      "registeredTabs": 7,
+      "testedTabs": [
+        "Painel",
+        "Proposta de chat"
+      ],
+      "checks": 12,
+      "widths": [
+        1440,
+        768,
+        390
+      ],
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "errors": [],
+      "scratch": "E:\\MrMak\\Mak\\.local\\chat-tab-preview-s4oX1y"
+    }
+  },
+  "chatVisualApproval": {
+    "recordedAt": "2026-10-20T13:43:56.580Z",
+    "status": "visual reference accepted as the current baseline; implementation pending",
+    "ownerFeedback": "Gostei, talvez façamos alguns ajustes mais tarde, mas por enquanto está bom.",
+    "applicationChanged": false,
+    "milestoneAcceptanceChanged": false,
+    "workspaceVerification": {
+      "checkedAt": "2026-10-20T13:45:02.286Z",
+      "registeredTabs": 7,
+      "testedTabs": [
+        "Painel",
+        "Proposta de chat",
+        "Roteiro",
+        "Decisões"
+      ],
+      "checks": 24,
+      "widths": [
+        1440,
+        768,
+        390
+      ],
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "errors": [],
+      "scratch": "E:\\MrMak\\Mak\\.local\\chat-approval-preview-dMadyG"
+    }
+  }
+}

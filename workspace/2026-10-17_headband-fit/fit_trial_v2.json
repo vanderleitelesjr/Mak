@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-17",
+  "revision": "v2",
+  "test_file": "v2/Headband_58cm_fit_test_v2.stl",
+  "test_sha256": "a299198d8922407eb9391fea18fac7dd0464ef07b1553a6ff424cca622cda8f9",
+  "result": "passed",
+  "reported_by": "wearer",
+  "crown_sits_on_head": true,
+  "tips_hold_without_pressure": true,
+  "remaining_gap": false,
+  "wearer_feedback_original": "assentou, seguram sem apertar, nenhum vão",
+  "wearer_feedback": "The crown sits correctly, the tips hold without squeezing, and there is no remaining gap.",
+  "approved_scope": "The physical fit of the plain v2 gauge. Apply this nominal contour to the complete ornament.",
+  "limitation": "The complete ornament has different stiffness, weight and front-to-back sweep; its physical comfort is still untested."
+}

@@ -1,0 +1,450 @@
+{
+  "date": "2026-10-19T18:56:23.637Z",
+  "milestone": "M4",
+  "test": "B: protected real image on demand",
+  "status": "Failed visual confirmation",
+  "productionRuntimeCodeChanged": false,
+  "model": "gpt-6.1-sol",
+  "effort": "low",
+  "guards": {
+    "maximumTurns": 1,
+    "maximumToolCalls": 1,
+    "maximumSeconds": 90,
+    "maximumReportedTokens": 35000,
+    "maximumReplyBytes": 8192,
+    "automaticContinue": false,
+    "automaticSendRetry": false
+  },
+  "startRequests": 1,
+  "acceptedTurns": 1,
+  "toolCalls": [
+    {
+      "name": "read_image",
+      "success": true,
+      "requestedAssetMatchesManifest": true,
+      "specificReasonProvided": true
+    }
+  ],
+  "nativeTurnStatus": "completed",
+  "transportStatus": "Passed: one original PNG image block returned",
+  "modelVisualStatus": "Failed: model explicitly reported no accessible visual content",
+  "functionalReview": {
+    "imageReturnedByOwner": true,
+    "originalHashVerified": true,
+    "imageContentVisibleToModel": "Model reported unavailable",
+    "visualIdentificationPassed": false,
+    "metadataAndConfiguredHoverDescriptionCorrect": true,
+    "expected": {
+      "left": "red circle",
+      "middle": "green square",
+      "right": "blue triangle",
+      "background": "white"
+    },
+    "rootCause": "Unconfirmed; inspect the Code Mode image forwarding/consumption path before retrying."
+  },
+  "fixture": {
+    "image": {
+      "name": "fixture-b.png",
+      "width": 512,
+      "height": 256,
+      "bytes": 6656,
+      "sha256": "bcff994076eefddf6ec306a96f488a9b4a5ae4a7cdcc7f6d776e2811df82a203"
+    },
+    "element": {
+      "id": "image-target",
+      "rect": {
+        "x": 120,
+        "y": 90,
+        "width": 384,
+        "height": 192
+      },
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "width": 1,
+        "height": 1
+      },
+      "slice": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "borderRadius": 12
+    },
+    "hoverTooltip": "Asset preview",
+    "expectedContent": {
+      "left": "red circle",
+      "middle": "green square",
+      "right": "blue triangle",
+      "background": "white"
+    },
+    "expectedContentNotInModelMetadata": true,
+    "referenceImage": "media/m4-tests/test-b-fixture.png",
+    "creator": "Deterministic local canvas; no generative service"
+  },
+  "imageResponse": {
+    "count": 1,
+    "mime": "image/png",
+    "bytes": 6656,
+    "sha256": "bcff994076eefddf6ec306a96f488a9b4a5ae4a7cdcc7f6d776e2811df82a203",
+    "hashMatchesOriginal": true
+  },
+  "initialImageReads": 0,
+  "initialImageBytesSent": 0,
+  "totalImageReads": 1,
+  "modelMetadataAndConfigurationDescriptionCorrect": true,
+  "rootCause": "Unconfirmed. Diagnose image forwarding/consumption through Code Mode.",
+  "tokenUsage": {
+    "total": {
+      "totalTokens": 27434,
+      "inputTokens": 27079,
+      "cachedInputTokens": 13312,
+      "cacheWriteInputTokens": 0,
+      "outputTokens": 355,
+      "reasoningOutputTokens": 24
+    },
+    "last": {
+      "totalTokens": 13826,
+      "inputTokens": 13631,
+      "cachedInputTokens": 13312,
+      "cacheWriteInputTokens": 0,
+      "outputTokens": 195,
+      "reasoningOutputTokens": 24
+    },
+    "modelContextWindow": 475000
+  },
+  "accountQuotaDelta": "Not measured",
+  "elapsedMs": 12196,
+  "documentUnchanged": true,
+  "proposals": 0,
+  "unexpectedWarnings": [],
+  "expectedAdvisories": [
+    "skip_host_skill_discovery experimental feature",
+    "Intentional skills-catalog truncation at 512"
+  ],
+  "diagnosticsCaptured": true,
+  "retries": 0,
+  "furtherInferenceAfterFailure": 0,
+  "remainingOwnedProcesses": 0,
+  "temporaryProjectRemoved": true,
+  "validationThisTurn": [
+    "Canvas fixture generated and visually inspected",
+    "node --check .local/test-real-codex-b.mjs",
+    "One real protected Test B",
+    "Manual comparison with known image contents"
+  ],
+  "gradingNote": "Native terminal completion and successful image-byte transport were not accepted as an end-to-end visual pass. The original transport-only harness verdict was corrected after inspecting the real reply.",
+  "unchangedCodePreviousProof": {
+    "core": 99,
+    "focusedUI": 6,
+    "build": "Passed on unchanged production code; not rerun for this test-only work"
+  },
+  "sources": [
+    {
+      "path": "app/codex-rpc.ts",
+      "sha256": "b3d900ca6c80f8d9bc7b08e02224f0d7cf59a07c7a74f8dc4c75f480b4598285"
+    },
+    {
+      "path": "app/codex-assistant.ts",
+      "sha256": "875980beb73a8846b305417de819089fecac52ce36f6dba37a1600bdde6191e6"
+    },
+    {
+      "path": "test/codex-assistant.test.ts",
+      "sha256": "ae23f91075c561828f8fe8da212ee7cfa137c44c16600269ac417ce3467cf3f9"
+    },
+    {
+      "path": "test/codex-rpc.test.ts",
+      "sha256": "915140ae02869988cee02b638ed0c1a52eeefe4be3410a874d2e989a87e538fd"
+    },
+    {
+      "path": "test/fake-codex.mjs",
+      "sha256": "7ba04779095b45c4947bf623344f4bf06b5da94c1a4bded13de44abe0b31d7ef"
+    },
+    {
+      "path": "README.md",
+      "sha256": "2879dc648bb738c5117030d8bf6da221acb5ca3e38da76be42e84a1c17127180"
+    }
+  ],
+  "runtime": {
+    "files": [
+      {
+        "path": "app/agent-structure.ts",
+        "sha256": "6ec6eebe4750fc02421143eb8f2ea722c88e600e6f56538f886804fc4abdcc34"
+      },
+      {
+        "path": "app/agent-tools.ts",
+        "sha256": "6259551308afa1884cff5e6dc241e0677f5e0bee9e128bb0b19cd6478fc60380"
+      },
+      {
+        "path": "app/agent.ts",
+        "sha256": "0c7155ea5db7364d2fb70bb050001a416315763bc39aafad97ae8cdb246455ea"
+      },
+      {
+        "path": "app/assistant-options.ts",
+        "sha256": "415ee8d163f7fac6fc4f6a5e44f70f84dbc020ceb8eab63cd80ecd45a5b90a88"
+      },
+      {
+        "path": "app/behavior-catalog.json",
+        "sha256": "f2aaf807ab0299f59b76f40fd935e62b715afdde109e6803b955a97758a14fd8"
+      },
+      {
+        "path": "app/behavior-demo.ts",
+        "sha256": "680264e0573245a409de6a7600f8673a984544e7ea0741de9d777b8cbc85e716"
+      },
+      {
+        "path": "app/behavior.ts",
+        "sha256": "8a2478df5c432a5e93f8e4cfe14a3480650361b7d457aca1b513aa9359a5b3cd"
+      },
+      {
+        "path": "app/codex-assistant.ts",
+        "sha256": "875980beb73a8846b305417de819089fecac52ce36f6dba37a1600bdde6191e6"
+      },
+      {
+        "path": "app/codex-rpc.ts",
+        "sha256": "b3d900ca6c80f8d9bc7b08e02224f0d7cf59a07c7a74f8dc4c75f480b4598285"
+      },
+      {
+        "path": "app/conversation.ts",
+        "sha256": "53bb43bfd37ef9003cef9d5e3b1e7d94719c210b1c988dadf6fa3c1e9afc1d81"
+      },
+      {
+        "path": "app/document.ts",
+        "sha256": "2114389945f26e66487c3d30a5b317eaf67f8c807965d1e6c0bb29bb17613e86"
+      },
+      {
+        "path": "app/mcp.ts",
+        "sha256": "edf754bd8e3ad6800a974f111190f27caf6a94002e1c07dbb6a7f19b319cc52d"
+      },
+      {
+        "path": "app/preview.ts",
+        "sha256": "32a88e3d3a70be9a69e11c76c7866d55717f3858243acb37554e7412b39f51c1"
+      },
+      {
+        "path": "app/project.ts",
+        "sha256": "69441b7454dd6d75bfa87c5c5371d5f1c2ccd330e1def80e065a27324ff0db5c"
+      },
+      {
+        "path": "app/server.ts",
+        "sha256": "fde10c812cf44b0be574ec1f6e86c56e26f6878579196a94f5ef8c99e9f64ad5"
+      },
+      {
+        "path": "app/sync-document.ts",
+        "sha256": "fd4d7e1dae12f1936e76e16950632644b87de8abca796826388586443a93f473"
+      },
+      {
+        "path": "app/visual-document.ts",
+        "sha256": "f48a7ed8838cf9c0323698fe74038c7a351f28e7bf1c141eb7d7f5707b505ab5"
+      },
+      {
+        "path": "app/visual-layout.ts",
+        "sha256": "4e68656cbdf44c541d85a3e600bd2b14c3369f81cd682b92cacc1a705094f36a"
+      },
+      {
+        "path": "dist/assets/index--cDToDu5.css",
+        "sha256": "0eae7873a368ffe26a414f122f82f856a667f4bceb1ba046cb4daa35b43fb2e1"
+      },
+      {
+        "path": "dist/assets/index-4qFdiRoW.js",
+        "sha256": "308e8ae377deb5409e86416ccd6a6959938516efc7020a60234f4040c9008d8a"
+      },
+      {
+        "path": "dist/assets/index-BaTW88sH.css",
+        "sha256": "63ecfc6aaddbc7915f8ade4dcea079111336131b64f015376f8ca86a51d8ef91"
+      },
+      {
+        "path": "dist/assets/index-BBb_QFZq.css",
+        "sha256": "e3bcf0f397831c937109daca493f37bd0498d2db31e285bffb7ea450854fa1bf"
+      },
+      {
+        "path": "dist/assets/index-Bbc9j3g_.js",
+        "sha256": "3951e5582fc814b1505e811f4709ac5a0a49999b00d682d0f14299d5eec62cee"
+      },
+      {
+        "path": "dist/assets/index-BnJLJC0Z.js",
+        "sha256": "5aa3ceb129de6ac92b51351f0d1f65b82995828de14163f8576f00bce796bda4"
+      },
+      {
+        "path": "dist/assets/index-BRSOU-qb.css",
+        "sha256": "2a24cd28b98b1b022572b34f0b5ff3a680adb6b8801b8de035ee0ab0a42efc06"
+      },
+      {
+        "path": "dist/assets/index-BX6Gre1W.js",
+        "sha256": "05de0f30ac794873398dae2171f517131b2030866b4bc38925596180435f2972"
+      },
+      {
+        "path": "dist/assets/index-CbRomeB2.css",
+        "sha256": "4ca36ad48d66afa9ba171708c6384a18bc6294b5e908ff3cd6b7279be29583fa"
+      },
+      {
+        "path": "dist/assets/index-CbwaODX7.js",
+        "sha256": "7b8b84453dc0588d5904f5192df2078fedb88aaad2753e8269e0ed1a49927d7d"
+      },
+      {
+        "path": "dist/assets/index-CFQCA54y.js",
+        "sha256": "64b072efe5c4f9113d37cff52cfa75f51debae0a818d56e966219abfdbbf6469"
+      },
+      {
+        "path": "dist/assets/index-Chxogpck.js",
+        "sha256": "9c65f5224e6f6d6d50c74651dabddf422b9fe89b7327e9d4c6ae52a4430d7144"
+      },
+      {
+        "path": "dist/assets/index-COXcdeHN.js",
+        "sha256": "9d7be33c9abb302e8806b3f7f9c8be049c412f0e7fea038b082700b630a9ff5d"
+      },
+      {
+        "path": "dist/assets/index-CS1woh99.js",
+        "sha256": "63414acb9356f93c5e4a0b1673287a40e8fed626503006130cc371f1a997b285"
+      },
+      {
+        "path": "dist/assets/index-CylCVelT.js",
+        "sha256": "d221c594a9d4ad86c6a3b6255a944c06975f281408adfbf1ce55eecb86ee8269"
+      },
+      {
+        "path": "dist/assets/index-D-lVDZNe.js",
+        "sha256": "bf4314192cf07ee3c841cf6e9eeebd807f75ddd0ccd70648bb82e9ada78f994a"
+      },
+      {
+        "path": "dist/assets/index-D3XHnpfV.css",
+        "sha256": "4ea81f6902c25a4a3807ef88a009d97be873c463c48a5db42aa8364ed9e78b24"
+      },
+      {
+        "path": "dist/assets/index-D6j7CSM6.js",
+        "sha256": "c438b80d20e8162450d9907384aab9a4a4efd7d9f62ec901c0a128dcc0ce9d60"
+      },
+      {
+        "path": "dist/assets/index-D8eLB10M.js",
+        "sha256": "1acd9c75571d377ccf6bb1aa760fd1bf0d406b46649cc9729bec9fcc2b02d1d1"
+      },
+      {
+        "path": "dist/assets/index-DbtPG_96.js",
+        "sha256": "c00dbf3551f82b5cc117a5267d84981a38a4d14d95c4ae081a0ad2aedc049442"
+      },
+      {
+        "path": "dist/assets/index-DFAPJDxN.css",
+        "sha256": "0cebc331c817b543aa4b4e3fab2c0e19508c602def935a14a07225ce40e86fbc"
+      },
+      {
+        "path": "dist/assets/index-DhQz1J8U.js",
+        "sha256": "c09d090f575107a041e888138a24ada91b893b15cbe77f686d724ff0bd48a14d"
+      },
+      {
+        "path": "dist/assets/index-DKElalDm.js",
+        "sha256": "cc39cdefedec143b86790fab8d4184b491b554510262f2ad415f0f053d2c8658"
+      },
+      {
+        "path": "dist/assets/index-Do8TU-N4.js",
+        "sha256": "461c76ff84f82532cd83ae9df54528e1fa5a578bdbb4e381f57834ec2be7f0db"
+      },
+      {
+        "path": "dist/assets/index-GxZ5SSqI.js",
+        "sha256": "e92e58d47cdb350306d4ba88f0727755cd228a2ba76f1d6465cfb0ca1e993c31"
+      },
+      {
+        "path": "dist/assets/index-hHmWvtSX.css",
+        "sha256": "139ef92e7fee5f69606b2076220e68ba95c6168a051640a960a417bc29c09e68"
+      },
+      {
+        "path": "dist/assets/index-jVKHLuGY.js",
+        "sha256": "3456afe1f6c731eea0c4730834b0f223f06b6ad72a15fb044f58ea3808c93a88"
+      },
+      {
+        "path": "dist/assets/index-THZWCql9.js",
+        "sha256": "608d08892d25f6e486e69b495c9457e1754fd59a9228a3edb93d07401afd9e55"
+      },
+      {
+        "path": "dist/assets/index-UGEgzSL9.js",
+        "sha256": "cb115ef195de428750950b13f2788bb74abf9880d742c83054a16e04f7fa4fee"
+      },
+      {
+        "path": "dist/assets/index-vqmiVXjm.js",
+        "sha256": "35da7b33c528769a5fbc697599a114e4b01db268f5651848bfdf45839896a497"
+      },
+      {
+        "path": "dist/assets/index-vSRzrtCq.css",
+        "sha256": "52f2e62783969655b48dbddf58fdc789626b6d940149a2a4effb4c2aff8ae7d6"
+      },
+      {
+        "path": "dist/assets/index-_bsOIZWd.js",
+        "sha256": "a06ca26a89d1d9ce12696e86508ef394751f8687a68fbf6e9b862f05bc648288"
+      },
+      {
+        "path": "dist/assets/index-_EKVBoSz.js",
+        "sha256": "54e969a6e220e47f2bd984193023906618c01965b64de1800d55f5a9c38b67cd"
+      },
+      {
+        "path": "dist/index.html",
+        "sha256": "edfb930dd0c1ab1dbe43757e920f2eb7d7fa88b61dea87281a2d870d928045f1"
+      },
+      {
+        "path": "dist/startup-error.css",
+        "sha256": "1c2b3d8f770d0cd45d5818f5381fb7d2926333d187935192cfbd7441246f2da6"
+      },
+      {
+        "path": "dist/startup-error.html",
+        "sha256": "8a86184b627c946d76c495cad00729fa7e6259b40c5dfc43563c47055c091ead"
+      },
+      {
+        "path": "dist/startup-error.js",
+        "sha256": "4fd0f13deb9f9f1828a97c6ca2ea2d89d132c655273196ed5816b59d7fceb912"
+      },
+      {
+        "path": "MCP-LICENSES.txt",
+        "sha256": "34027e807f5f9598ea56b17d995cd3b0c606e2f5f97ba18f33b65bd9c694ee1f"
+      },
+      {
+        "path": "mcp.mjs",
+        "sha256": "731a31ae8c70f20564b4eec1937d31a884a9485faf8aa2b7dec7d59126410b1b"
+      },
+      {
+        "path": "NODE-LICENSE.txt",
+        "sha256": "148eacf7863ef4329224a29398623077200a27194aa075569faf4a0a85566ca5"
+      },
+      {
+        "path": "node.exe",
+        "sha256": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237"
+      },
+      {
+        "path": "package.json",
+        "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae"
+      },
+      {
+        "path": "startup-error.css",
+        "sha256": "1c2b3d8f770d0cd45d5818f5381fb7d2926333d187935192cfbd7441246f2da6"
+      },
+      {
+        "path": "startup-error.html",
+        "sha256": "8a86184b627c946d76c495cad00729fa7e6259b40c5dfc43563c47055c091ead"
+      },
+      {
+        "path": "startup-error.js",
+        "sha256": "4fd0f13deb9f9f1828a97c6ca2ea2d89d132c655273196ed5816b59d7fceb912"
+      }
+    ],
+    "applicationsRestarted": 0,
+    "stagingUnchanged": true
+  },
+  "completedMilestones": 4,
+  "pending": [
+    "Diagnose and fix Code Mode image forwarding/consumption",
+    "Protected B rerun only with explicit inference authorization",
+    "Test C",
+    "Owner acceptance and M6"
+  ],
+  "workspacePreview": {
+    "status": "Passed",
+    "widths": [1440, 768, 390],
+    "themes": ["light", "dark"],
+    "combinations": 6,
+    "reportImages": 28,
+    "errors": [],
+    "checks": [
+      "Markdown rendering",
+      "No document horizontal overflow",
+      "Report links",
+      "All images loaded",
+      "Full-size image previews",
+      "Image download and close controls"
+    ]
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "entregas": [
+    {
+      "id": "2026-10-17-fase-0-viabilidade",
+      "data": "2026-10-17",
+      "area": "ensaio",
+      "titulo": "Fase 0: viabilidade (F0-1 a F0-7)",
+      "resumo": "Projeto C++ na UE 5.8.3 compila e empacota (Win64, 104 s, 897 MB). No pacote, terreno em chunks editável com Lumen rodou com média acima de 120 FPS em 1440p com 16 chunks na RTX 5080. Iluminação decidida em três perfis; 9 riscos registrados; revisão F0-7 aprovada.",
+      "olhar": "O poço escavado no ensaio: com Lumen por hardware, a parede na sombra recebe luz rebatida (brilho 65); sem Lumen, fica mais escura (50). Números completos em docs/pesquisa/f0-4-f0-5-ensaio-terreno-iluminacao.md.",
+      "estado": "main",
+      "refs": ["d7346bb", "c7a2bb4", "F0-1–F0-7"],
+      "miniaturas": [
+        { "arquivo": "media/2026-10/f0-poco-lumen-hardware.webp", "legenda": "Poço no ensaio, Lumen com ray tracing de hardware (1440p, 16 chunks)" },
+        { "arquivo": "media/2026-10/f0-poco-sem-lumen.webp", "legenda": "Mesmo ponto de vista sem Lumen (perfil baixo): sombra mais escura" }
+      ]
+    },
+    {
+      "id": "2026-10-17-f1-1-registro-blocos",
+      "data": "2026-10-17",
+      "area": "código",
+      "titulo": "F1-1: registro de blocos e dados de coluna",
+      "resumo": "Blocos viraram assets de dados com nome estável (mashup:pedra): 6 assets mais o ar. Coluna de 384 blocos em 24 seções de 16, com 2 bytes por bloco. ID desconhecido no save gera erro e preserva o nome. 13 testes Mashup.Voxel.* passando.",
+      "olhar": "Formato em docs/tecnico/formato-chunk.md; revisão em docs/criterios/revisao-f1-1.md (aprovada na rodada 1, com os 10 achados do code-review tratados).",
+      "estado": "main",
+      "refs": ["ebb4e42", "98430f3", "F1-1"]
+    },
+    {
+      "id": "2026-10-17-f1-2-geracao-seed",
+      "data": "2026-10-17",
+      "area": "código",
+      "titulo": "F1-2: geração do terreno por seed",
+      "resumo": "Gerador próprio com hash da seed (o mundo não se repete): relevo, grama, terra, pedra, praias de areia, cavernas e árvores que cruzam a borda dos chunks sem depender da ordem. Valores dourados de 3 seeds × 25 chunks; 19 testes passando.",
+      "olhar": "Regras e números em docs/tecnico/geracao.md; revisão em docs/criterios/revisao-f1-2.md (aprovada na rodada 1, 8 dos 10 achados corrigidos).",
+      "estado": "main",
+      "refs": ["550ce2a", "28b77b1", "f7bc499", "F1-2"]
+    },
+    {
+      "id": "2026-10-17-f1-4-malha-colisao",
+      "data": "2026-10-17",
+      "area": "código",
+      "titulo": "F1-4: malha e colisão do terreno",
+      "resumo": "Faces visíveis por seção em cache compacto, uma peça por coluna e colisão da própria malha. Sem faces internas nem buracos nas fronteiras; editar um bloco remalha só as seções afetadas. Colisão 64/64 nas fronteiras (traço e cápsula); 25 testes; pacote Win64 conferido.",
+      "olhar": "Docs em docs/tecnico/malha.md; revisão em docs/criterios/revisao-f1-4.md (10 achados tratados). Falta provar o personagem andando pelas fronteiras (F1-7).",
+      "estado": "main",
+      "refs": ["f4844b6", "73c9e6f", "68d2d7d", "F1-4"],
+      "miniaturas": [
+        { "arquivo": "media/2026-10/f1-4-mundo-seed1.webp", "legenda": "Mundo da seed 1 no pacote Win64 (raio 8, 289 colunas): relevo, árvores, praia e cavernas" }
+      ]
+    },
+    {
+      "id": "2026-10-17-f1-7-personagem",
+      "data": "2026-10-17",
+      "area": "código",
+      "titulo": "F1-7: personagem em 1ª pessoa, entrada remapeável e menu",
+      "resumo": "Câmera em 1ª pessoa com movimento e pulo. Esc abre o menu: sensibilidade, eixo vertical, idioma (PT-BR ou inglês) e teclas remapeáveis, com textos numa tabela nos dois idiomas. 37 testes; o personagem cruza as fronteiras entre colunas sem engasgar e sobe 1 bloco.",
+      "olhar": "Ainda precisa de teste manual: a sensação do mouse, o clique e a captura de tecla no menu. Docs em docs/tecnico/jogador.md; revisão em docs/criterios/revisao-f1-7.md.",
+      "estado": "main",
+      "refs": ["598be85", "509408e", "af05b26", "F1-7"],
+      "miniaturas": [
+        { "arquivo": "media/2026-10/f1-7-primeira-pessoa.webp", "legenda": "Vista em 1ª pessoa no pacote, sem menu" },
+        { "arquivo": "media/2026-10/f1-7-menu.webp", "legenda": "Vista em 1ª pessoa com o menu de configurações aberto (Esc)" }
+      ]
+    },
+    {
+      "id": "2026-10-17-f1-5-selecao",
+      "data": "2026-10-17",
+      "area": "código",
+      "titulo": "F1-5: seleção de blocos com alcance, destaque e mira",
+      "resumo": "O olhar escolhe o bloco por um raio pela grade de blocos, sem atravessar sólidos, até 5 m (ajustável). Moldura preta no bloco escolhido e mira no centro da tela. 400 raios aleatórios conferidos contra uma amostragem fina; verificado com a câmera real do personagem.",
+      "olhar": "Docs em docs/tecnico/selecao.md; revisão em docs/criterios/revisao-f1-5.md (10 achados corrigidos).",
+      "estado": "main",
+      "refs": ["f5d0f1f", "a0e6f6c", "930908a", "F1-5"],
+      "miniaturas": [
+        { "arquivo": "media/2026-10/f1-5-selecao.webp", "legenda": "Bloco de grama destacado pela moldura, olhando 30° para baixo" }
+      ]
+    },
+    {
+      "id": "2026-10-17-f1-6-edicao-servidor",
+      "data": "2026-10-17",
+      "area": "código",
+      "titulo": "F1-6: quebrar e colocar blocos, com o servidor decidindo",
+      "resumo": "O cliente só pede; o servidor confere 10 motivos (alcance, visão através de parede, lugar ocupado, sobrepor jogador...), limita 10 pedidos por segundo, aplica e avisa todos. Em rede, com dois clientes no mesmo PC, o segundo vê as 3 mudanças do primeiro, na ordem.",
+      "olhar": "Rodar de novo: powershell -File Scripts\\verificar_rede.ps1 (ou -Solo). Docs em docs/tecnico/edicao.md; revisão (code-review e Codex, 13 correções) em docs/criterios/revisao-f1-6.md.",
+      "estado": "main",
+      "refs": ["0b89504", "d341514", "dc8657a", "F1-6"]
+    },
+    {
+      "id": "2026-10-17-f1-3-carregamento",
+      "data": "2026-10-17",
+      "area": "código",
+      "titulo": "F1-3: o mundo segue o jogador (carregamento por distância)",
+      "resumo": "Colunas geradas em segundo plano das mais próximas para as mais distantes; resultado atrasado nunca recria coluna descarregada nem sobrescreve uma editada; colunas editadas são guardadas e voltam com as edições. Raios 8 e 16 conferidos indo a 40 colunas e voltando.",
+      "olhar": "Docs em docs/tecnico/carregamento.md; revisão em docs/criterios/revisao-f1-3.md (10 achados corrigidos). O chão embaixo do jogador fica pronto em 1 a 4 quadros.",
+      "estado": "main",
+      "refs": ["2895fbe", "100982d", "4031825", "F1-3"]
+    },
+    {
+      "id": "2026-10-17-f1-8-salvar",
+      "data": "2026-10-17",
+      "area": "código",
+      "titulo": "F1-8: salvar e carregar o mundo",
+      "resumo": "O mundo grava seed, versão do gerador e as colunas editadas, a cada 2 minutos e ao sair, com arquivo temporário, troca atômica e 3 backups. O processo morto no meio do save, nas 3 etapas, reabre o último estado completo; versão incompatível é recusada sem tocar no arquivo.",
+      "olhar": "Rodar de novo: powershell -File Scripts\\verificar_save.ps1. O mundo fica em Saved\\Mundos\\mundo.mashup (-MundoNome= escolhe outro). Docs em docs/tecnico/save.md; revisão (code-review e Codex, 9 correções) em docs/criterios/revisao-f1-8.md. Fora do pacote ainda não foi provado: fica para a F1-10.",
+      "estado": "main",
+      "refs": ["349eaf1", "4cbec0e", "4489acb", "F1-8"]
+    },
+    {
+      "id": "2026-10-17-f1-9-medicoes",
+      "data": "2026-10-17",
+      "area": "código",
+      "titulo": "F1-9: medições no pacote (alto e baixo)",
+      "resumo": "Roteiro automático no pacote: parado, caminhando, explorando a 30 m/s e editando muito. 60 FPS na média em todos os perfis; picos de 20 a 28 ms (p99) na exploração rápida; uma edição custa 7 a 9 ms; cerca de 1 MB por coluna exibida.",
+      "olhar": "Análise em docs/pesquisa/medicoes-f1-9.md (JSON brutos em docs/pesquisa/medicoes-f1-9/). Rodar de novo: powershell -File Scripts\\medir_desempenho.ps1. Revisão em docs/criterios/revisao-f1-9.md. R4 encerrado e R13 novo; o código do ensaio da fase 0 foi apagado (decisão 5A).",
+      "estado": "main",
+      "refs": ["9cc57e7", "35613f7", "ce4acc1", "F1-9"]
+    },
+    {
+      "id": "2026-10-17-f1-10-demonstracao",
+      "data": "2026-10-17",
+      "area": "código",
+      "titulo": "F1-10: demonstração no build empacotado",
+      "resumo": "Mundo novo com a seed escolhida, blocos quebrados e colocados nas fronteiras de chunk, sair e voltar: no pacote, 19 checagens tudo ok (inclusive processo morto no meio do save). Roteiro manual com o bloco e a coluna mirados no canto da tela.",
+      "olhar": "Roteiro em docs/demonstracao-f1.md: Scripts\\jogar.bat solo 8 demo 12345, depois Scripts\\jogar.bat solo 8 demo. Automático: powershell -File Scripts\\verificar_save.ps1 -Pacote. A fase 1 fecha com a demonstração feita por você.",
+      "estado": "main",
+      "refs": ["ae27456", "0c503cd", "7fa3ef1", "F1-10"],
+      "miniaturas": [{ "arquivo": "media/2026-10/f1-10-hud-mira.webp", "legenda": "Canto da tela com o bloco mirado e a coluna dele, para achar a fronteira" }]
+    },
+    {
+      "id": "2026-10-17-pt01-caverna-escura",
+      "data": "2026-10-17",
+      "area": "playtest",
+      "titulo": "Playtest: caverna fechada volta a ficar escura",
+      "resumo": "No seu teste, uma caverna fechada aparecia iluminada. Causa: a exposição automática clareava o escuro uns 7 stops. Agora a câmera só se adapta até a luminância 0,3: a caverna sai preta (brilho 0,3 contra 11) e o ar livre não muda.",
+      "olhar": "Achado em docs/playtests/2026-10-17-demonstracao-f1.md; números e diagnóstico (-CavernaCaptura) em docs/tecnico/iluminacao.md. Sem Lumen (perfil baixo) a caverna ainda aparece: fica no R1. Aguarda o seu reteste.",
+      "estado": "main",
+      "refs": ["556d76c", "6ae08cf", "2272503", "PT-2026-10-17-01"]
+    },
+    {
+      "id": "2026-10-17-voo-e-luz",
+      "data": "2026-10-17",
+      "area": "código",
+      "titulo": "Voo e luz do personagem (pedido no playtest)",
+      "resumo": "Dois toques no espaço ligam o voo (espaço sobe, Shift desce, o chão encerra); L alterna luz em volta e lanterna. O voo roda dentro da previsão de movimento do motor, e um cliente remoto voou contra o servidor sem divergir.",
+      "olhar": "Detalhes e provas em docs/tecnico/jogador.md e docs/criterios/revisao-voo-luz.md. Teclas remapeáveis no menu (Esc). A sensação do voo e a intensidade da luz dependem do seu teste.",
+      "estado": "main",
+      "refs": ["12b167c", "cdf5783", "365ac56"]
+    }
+  ]
+}

@@ -1,0 +1,603 @@
+{
+  "sobre": "Gerado por coletores/lightkeeper.mjs: um PR mesclado na main por entrega. Títulos, resumos e \"olhar\" escritos à mão ficam preservados.",
+  "entregas": [
+    {
+      "id": "pr-1",
+      "data": "2026-10-09",
+      "area": "ferramentas",
+      "titulo": "PR #1 · Importa o projeto Unreal Lightkeeper v0.1.0 com Git LFS",
+      "resumo": "Importa o projeto Unreal Lightkeeper v0.1.0 com Concepts, Audio e arquivos do Blender",
+      "estado": "main",
+      "refs": [
+        "PR #1",
+        "a223bb0"
+      ]
+    },
+    {
+      "id": "pr-2",
+      "data": "2026-10-09",
+      "area": "ferramentas",
+      "titulo": "PR #2 · Adiciona README do projeto",
+      "resumo": "Adiciona README com visão geral, estado da fatia e como rodar",
+      "estado": "main",
+      "refs": [
+        "PR #2",
+        "a7c0974"
+      ]
+    },
+    {
+      "id": "pr-8",
+      "data": "2026-10-09",
+      "area": "ferramentas",
+      "titulo": "PR #8 · Build e testes automáticos a cada PR",
+      "resumo": "Adiciona workflow que compila e roda os testes a cada PR; Usa o Windows PowerShell no workflow e atualiza as actions para Node 24; Roda os passos do workflow em cmd e usa upload-artifact v6; Usa o Python do Unreal para comparar as animações no workflow; Usa o Python do Blender…",
+      "estado": "main",
+      "refs": [
+        "PR #8",
+        "90506e4"
+      ]
+    },
+    {
+      "id": "pr-9",
+      "data": "2026-10-09",
+      "area": "jogo",
+      "titulo": "PR #9 · Etapa 1: luz e percepção, mochila com enquadramento, teclas remapeáveis e jogo empacotado",
+      "resumo": "Luz com combustível e percepção do personagem (issue #3); Fecha a etapa 1: mochila com enquadramento, teclas remapeáveis e jogo empacotado (issue #3)",
+      "estado": "main",
+      "refs": [
+        "PR #9",
+        "530ebf4"
+      ],
+      "miniaturas": [
+        {
+          "arquivo": "media/capturas/marco-1/marco-1-capturas-v01.webp",
+          "legenda": "Início no pátio"
+        },
+        {
+          "arquivo": "media/capturas/marco-1/marco-1-capturas-v01-parede-translucida.webp",
+          "legenda": "Parede translúcida entre a câmera e o personagem"
+        }
+      ]
+    },
+    {
+      "id": "pr-10",
+      "data": "2026-10-10",
+      "area": "jogo",
+      "titulo": "PR #10 · Etapa 2: interação e sobrevivência (issue #4)",
+      "resumo": "Interação e sobrevivência: mochila física, coleta, recipientes, bancada e necessidades (issue #4)",
+      "estado": "main",
+      "refs": [
+        "PR #10",
+        "b908a3e"
+      ]
+    },
+    {
+      "id": "pr-11",
+      "data": "2026-10-10",
+      "area": "jogo",
+      "titulo": "PR #11 · Abrigo funcional: construção na grade, baú pareado, leito, pira e corpos (issue #5)",
+      "resumo": "Abrigo funcional: construção na grade, baú pareado, leito, pira e corpos (issue #5); Evita nomes repetidos entre arquivos na compilação unity do CI",
+      "estado": "main",
+      "refs": [
+        "PR #11",
+        "6f68c11"
+      ]
+    },
+    {
+      "id": "pr-12",
+      "data": "2026-10-10",
+      "area": "jogo",
+      "titulo": "PR #12 · Etapa 4: ratos, zumbis, combate e ataques organizados à base",
+      "resumo": "Ameaças e consequências: ratos, zumbis, combate e ataques organizados (issue #6)",
+      "estado": "main",
+      "refs": [
+        "PR #12",
+        "b063d1f"
+      ]
+    },
+    {
+      "id": "pr-13",
+      "data": "2026-10-11",
+      "area": "jogo",
+      "titulo": "PR #13 · Etapa 5: integração, persistência e seeds (issue #7)",
+      "resumo": "Integração, persistência e seeds (issue #7); Kit do nível 0 na geração do pátio",
+      "estado": "main",
+      "refs": [
+        "PR #13",
+        "a9e5581"
+      ]
+    },
+    {
+      "id": "pr-14",
+      "data": "2026-10-11",
+      "area": "arte",
+      "titulo": "PR #14 · Kit do Level 0: 17 props e 8 estruturas modelados no Blender",
+      "resumo": "Poço v1 do kit do Level 0 e base de modelagem de props (Blender); Props do Level 0: os 16 do catálogo modelados no Blender (primeira rodada); Kit do Level 0: 8 estruturas e paredes com aberturas góticas; prévias de todos os modelos",
+      "estado": "main",
+      "refs": [
+        "PR #14",
+        "ab7b402"
+      ]
+    },
+    {
+      "id": "pr-16",
+      "data": "2026-10-11",
+      "area": "editor de mapas",
+      "titulo": "PR #16 · Editor de mapas, etapa 1: formato JSON dos mapas e leitura no jogo",
+      "resumo": "Formato dos mapas feitos à mão (JSON) e leitura no jogo",
+      "estado": "main",
+      "refs": [
+        "PR #16",
+        "28f44cb"
+      ]
+    },
+    {
+      "id": "pr-17",
+      "data": "2026-10-11",
+      "area": "editor de mapas",
+      "titulo": "PR #17 · Editor de mapas, etapa 2: a aba do editor dentro do Unreal",
+      "resumo": "Editor de mapas dentro do Unreal (aba Slate)",
+      "estado": "main",
+      "refs": [
+        "PR #17",
+        "4da54da"
+      ]
+    },
+    {
+      "id": "pr-18",
+      "data": "2026-10-11",
+      "area": "arte",
+      "titulo": "PR #18 · Kit do Level 0: pisos e paredes modulares",
+      "resumo": "Kit do Level 0: 12 pisos, guia, degrau e 12 paredes modulares",
+      "estado": "main",
+      "refs": [
+        "PR #18",
+        "cd4b4d7"
+      ]
+    },
+    {
+      "id": "pr-19",
+      "data": "2026-10-11",
+      "area": "editor de mapas",
+      "titulo": "PR #19 · Editor de mapas, etapa 3: gatilhos, saídas e respawns no jogo",
+      "resumo": "Gatilhos, saídas e respawns dos mapas no jogo",
+      "estado": "main",
+      "refs": [
+        "PR #19",
+        "8a42c97"
+      ]
+    },
+    {
+      "id": "pr-20",
+      "data": "2026-10-11",
+      "area": "editor de mapas",
+      "titulo": "PR #20 · Editor de mapas, etapas 4 e 5: blocos, validação e gerador por seed",
+      "resumo": "Blocos, validação dos mapas e gerador por seed a partir de um mapa base",
+      "estado": "main",
+      "refs": [
+        "PR #20",
+        "81692f1"
+      ]
+    },
+    {
+      "id": "pr-21",
+      "data": "2026-10-11",
+      "area": "editor de mapas",
+      "titulo": "PR #21 · Pisos e paredes do kit no pátio e na paleta do editor de mapas",
+      "resumo": "Pisos e paredes do kit no pátio e na paleta do editor de mapas; Pisos do pátio voltam a ser instanciados; materiais do kit marcados para isso",
+      "estado": "main",
+      "refs": [
+        "PR #21",
+        "c6894c2"
+      ]
+    },
+    {
+      "id": "pr-22",
+      "data": "2026-10-11",
+      "area": "editor de mapas",
+      "titulo": "PR #22 · Mapa base completo do nível 0 e passeio por mapas",
+      "resumo": "Mapa base completo do nível 0 (pátio arruinado) e passeio por mapas",
+      "estado": "main",
+      "refs": [
+        "PR #22",
+        "e4a1847"
+      ]
+    },
+    {
+      "id": "pr-23",
+      "data": "2026-10-11",
+      "area": "arte",
+      "titulo": "PR #23 · Mochilas de tecido e de couro (modelos v1)",
+      "resumo": "Mochilas de tecido e de couro (modelos v1 para aprovação); Mochilas abertas com uma casa por slot físico; Mochila aberta como inventário: páginas de 10 bolsos; Mochilas segundo a arte conceito: aba em V e painel de bolsos; Mochila aberta segundo a ficha nova: bolsos-caixa…",
+      "estado": "main",
+      "refs": [
+        "PR #23",
+        "93edf85"
+      ]
+    },
+    {
+      "id": "pr-24",
+      "data": "2026-10-11",
+      "area": "editor de mapas",
+      "titulo": "PR #24 · Menu principal e editor de mapas dentro do jogo",
+      "resumo": "Menu principal e editor de mapas dentro do jogo",
+      "estado": "main",
+      "refs": [
+        "PR #24",
+        "4042042"
+      ]
+    },
+    {
+      "id": "pr-25",
+      "data": "2026-10-11",
+      "area": "arte",
+      "titulo": "PR #25 · Mochilas no jogo: nas costas, tampa animada e um bolso por pilha",
+      "resumo": "Mochilas no jogo: nas costas, tampa animada e um bolso por pilha",
+      "estado": "main",
+      "refs": [
+        "PR #25",
+        "beaf618"
+      ]
+    },
+    {
+      "id": "pr-33",
+      "data": "2026-10-11",
+      "area": "jogo",
+      "titulo": "PR #33 · Ajustes do playtest: confirmações no editor, apagar mapas e clique do meio",
+      "resumo": "Ajustes do playtest: confirmações no editor, apagar mapas e clique do meio",
+      "estado": "main",
+      "refs": [
+        "PR #33",
+        "a8d4beb"
+      ]
+    },
+    {
+      "id": "pr-34",
+      "data": "2026-10-11",
+      "area": "editor de mapas",
+      "titulo": "PR #34 · Vista 3D no editor de mapas dentro do jogo",
+      "resumo": "Vista 3D no editor de mapas dentro do jogo",
+      "estado": "main",
+      "refs": [
+        "PR #34",
+        "4a09145"
+      ]
+    },
+    {
+      "id": "pr-35",
+      "data": "2026-10-11",
+      "area": "arte",
+      "titulo": "PR #35 · Mochila aberta de frente para o personagem e nome do item visível (#31, #32)",
+      "resumo": "Mochila aberta de frente para o personagem e nome do item na frente",
+      "estado": "main",
+      "refs": [
+        "PR #35",
+        "3ff5ab3"
+      ]
+    },
+    {
+      "id": "pr-36",
+      "data": "2026-10-12",
+      "area": "áudio",
+      "titulo": "PR #36 · Sons temporários do slice",
+      "resumo": "Sons temporários do slice: sistema de som e eventos ligados; Sons normalizados pelo volume percebido (LUFS)",
+      "estado": "main",
+      "refs": [
+        "PR #36",
+        "026f844"
+      ]
+    },
+    {
+      "id": "pr-37",
+      "data": "2026-10-12",
+      "area": "áudio",
+      "titulo": "PR #37 · Empacotamento inclui a pasta dos sons",
+      "resumo": "Empacotamento inclui a pasta dos sons",
+      "estado": "main",
+      "refs": [
+        "PR #37",
+        "272ad3f"
+      ]
+    },
+    {
+      "id": "pr-38",
+      "data": "2026-10-12",
+      "area": "áudio",
+      "titulo": "PR #38 · Controle de volume na tela de pausa",
+      "resumo": "Controle de volume na tela de pausa; Volumes também no menu principal",
+      "estado": "main",
+      "refs": [
+        "PR #38",
+        "e122241"
+      ]
+    },
+    {
+      "id": "pr-39",
+      "data": "2026-10-12",
+      "area": "arte",
+      "titulo": "PR #39 · Modelos dos equipamentos de mão do slice",
+      "resumo": "Vela rudimentar (modelo v1 para aprovação); Faca rudimentar (modelo v1 para aprovação); vela aprovada; Ferramentas restantes do slice (modelos v1 para aprovação); faca aprovada",
+      "estado": "main",
+      "refs": [
+        "PR #39",
+        "938c6ed"
+      ]
+    },
+    {
+      "id": "pr-40",
+      "data": "2026-10-12",
+      "area": "arte",
+      "titulo": "PR #40 · Modelos dos tiers 2 e 3, pedra e entulho removível",
+      "resumo": "Tier Sucata: 10 equipamentos (modelos v1 para aprovação); Pedra solta (recurso, modelo v1 para aprovação); Referência tiers 1 e 3 para gerar a ficha do tier 2; Sucata v2: martelo, maça e espada mais improvisados; Ficha conceito do tier 2 (Arcaico); Tier Arcaico: 7 equipamentos…",
+      "estado": "main",
+      "refs": [
+        "PR #40",
+        "fae0c7f"
+      ]
+    },
+    {
+      "id": "pr-41",
+      "data": "2026-10-12",
+      "area": "jogo",
+      "titulo": "PR #41 · Nova tela de pausa: o diário do protagonista, com mouse e teclado",
+      "resumo": "Pausa em Slate com duas páginas, mouse e teclado (base para o visual novo); Pausa como o diário do protagonista (direção B); Letra IM Fell English (OFL) na tela de pausa",
+      "estado": "main",
+      "refs": [
+        "PR #41",
+        "f7638d3"
+      ]
+    },
+    {
+      "id": "pr-42",
+      "data": "2026-10-12",
+      "area": "arte",
+      "titulo": "PR #42 · Tochas 3 a 5, lampiões e teste do traje nômade modular",
+      "resumo": "Tochas 3 a 5 (aprovadas) e lampiões (v1 para aprovação); Lampiões aprovados; traje nômade (armadura tier tecido, v1 para aprovação); Traje nômade v2: capuz, túnica, lenço e faixa mais fiéis à ficha; Traje nômade v3: fiel ao turnaround vestido, capuz justo com cabelo prensado…",
+      "estado": "main",
+      "refs": [
+        "PR #42",
+        "03963ab"
+      ]
+    },
+    {
+      "id": "pr-43",
+      "data": "2026-10-12",
+      "area": "arte",
+      "titulo": "PR #43 · Mochila de sucata e corpo arredondado nas três mochilas",
+      "resumo": "Mochila de sucata (L3, modelo v1 para aprovação): 13 slots e 6 pontos de módulo; Mochila de sucata v2: mesmo formato aberta e fechada, pano costurado, frente sucateada; Mochila de sucata v3: corpo arredondado igual aberta e fechada; Mochilas de tecido e couro v7: corpo…",
+      "estado": "main",
+      "refs": [
+        "PR #43",
+        "ed3b7e9"
+      ]
+    },
+    {
+      "id": "pr-44",
+      "data": "2026-10-12",
+      "area": "áudio",
+      "titulo": "PR #44 · Música nova do menu principal em loop",
+      "resumo": "Música nova do menu principal, em loop sem emenda; Música do menu: a entrada toca uma vez antes do loop",
+      "estado": "main",
+      "refs": [
+        "PR #44",
+        "46ab096"
+      ]
+    },
+    {
+      "id": "pr-45",
+      "data": "2026-10-12",
+      "area": "arte",
+      "titulo": "PR #45 · Modelos dos 12 itens soltos do slice",
+      "resumo": "Itens do slice (v1 para aprovação): 8 recursos e 4 de comida e remédio",
+      "estado": "main",
+      "refs": [
+        "PR #45",
+        "764ef8f"
+      ]
+    },
+    {
+      "id": "pr-46",
+      "data": "2026-10-12",
+      "area": "arte",
+      "titulo": "PR #46 · Módulos da mochila de sucata: garrafa, corda e balde",
+      "resumo": "Módulos da mochila de sucata (v1 para aprovação): garrafa, corda e balde",
+      "estado": "main",
+      "refs": [
+        "PR #46",
+        "b2cdd21"
+      ]
+    },
+    {
+      "id": "pr-47",
+      "data": "2026-10-12",
+      "area": "ferramentas",
+      "titulo": "PR #47 · Revisão de código obrigatória pelas skills internas (sem Codex)",
+      "resumo": "CLAUDE.md: revisão de código passa a usar /code-review, /simplify e /security-review; Revisão pelas skills internas obrigatória em todo PR",
+      "estado": "main",
+      "refs": [
+        "PR #47",
+        "74df5a9"
+      ]
+    },
+    {
+      "id": "pr-48",
+      "data": "2026-10-12",
+      "area": "arte",
+      "titulo": "PR #48 · Itens do jogo com os modelos aprovados",
+      "resumo": "Itens do jogo com os modelos aprovados no lugar das formas provisórias",
+      "estado": "main",
+      "refs": [
+        "PR #48",
+        "80fff34"
+      ]
+    },
+    {
+      "id": "pr-49",
+      "data": "2026-10-12",
+      "area": "arte",
+      "titulo": "PR #49 · Mochilas e módulos no Unreal, sem perder as animações do bolso",
+      "resumo": "Mochilas no Unreal: tecido e couro v7, sucata v4 e os módulos; animações do bolso não somem mais",
+      "estado": "main",
+      "refs": [
+        "PR #49",
+        "1941773"
+      ]
+    },
+    {
+      "id": "pr-50",
+      "data": "2026-10-12",
+      "area": "arte",
+      "titulo": "PR #50 · Armadura de couro (aprovada), modular com a textura do turnaround",
+      "resumo": "Armadura de couro (v1 para aprovação), modular com a textura do turnaround; Armadura de couro v2: sem a correia flutuante, braçadeiras até o pulso; Armadura de couro v3: correia em volta do tronco com ombreira, braçadeiras fechadas",
+      "estado": "main",
+      "refs": [
+        "PR #50",
+        "d4ddd3a"
+      ]
+    },
+    {
+      "id": "pr-51",
+      "data": "2026-10-12",
+      "area": "arte",
+      "titulo": "PR #51 · Ambientação do nível 0: variações do kit e peças das muralhas",
+      "resumo": "Ambientação do nível 0 (v1 para aprovação): variações do kit e peças das muralhas; Hera enxugada (3,5 mil para 1,1 mil triângulos); ambientação do nível 0 aprovada",
+      "estado": "main",
+      "refs": [
+        "PR #51",
+        "64af8a0"
+      ]
+    },
+    {
+      "id": "pr-52",
+      "data": "2026-10-12",
+      "area": "editor de modelos",
+      "titulo": "PR #52 · Editor de modelos, etapa 0: formato .lkmodel.json, protagonista convertido e a página local",
+      "resumo": "Editor de modelos, etapa 0: formato .lkmodel.json, protagonista convertido e a página local; Editor de modelos: achados do /code-review; Editor de modelos: destino da exportação preso a Concepts/ e Saved/ (/security-review); Editor de modelos: limpezas do /simplify e o teste do…",
+      "estado": "main",
+      "refs": [
+        "PR #52",
+        "432039a"
+      ]
+    },
+    {
+      "id": "pr-53",
+      "data": "2026-10-12",
+      "area": "editor de modelos",
+      "titulo": "PR #53 · Editor de modelos, etapa 1: pintar a textura, projetar o turnaround, Enviar e Unreal",
+      "resumo": "Editor de modelos, etapa 1: pintar a textura, projetar o turnaround, Enviar e atualizar o Unreal; Editor de modelos: achados do /code-review da etapa 1; Editor de modelos: limpeza do /simplify da etapa 1; lk_setup: confere o nome da textura do modelo antes de importar (achado…",
+      "estado": "main",
+      "refs": [
+        "PR #53",
+        "9f0bdb8"
+      ]
+    },
+    {
+      "id": "pr-54",
+      "data": "2026-10-12",
+      "area": "editor de modelos",
+      "titulo": "PR #54 · Editor de modelos, etapa 2: editar faces e peças modulares",
+      "resumo": "Editor de modelos, etapa 2: editar faces e peças modulares; Editor de modelos: achados do /code-review da etapa 2; Editor de modelos: limpeza do /simplify da etapa 2; Editor de modelos: o rascunho das faces não se confunde com o de outro modelo (achado do /security-review)",
+      "estado": "main",
+      "refs": [
+        "PR #54",
+        "d188be0"
+      ]
+    },
+    {
+      "id": "pr-55",
+      "data": "2026-10-12",
+      "area": "editor de modelos",
+      "titulo": "PR #55 · Editor de modelos, etapa 3: animar",
+      "resumo": "Editor de modelos, etapa 3: animar; Editor de modelos: achados do /code-review da etapa 3; Editor de modelos: limpeza do /simplify da etapa 3",
+      "estado": "main",
+      "refs": [
+        "PR #55",
+        "36347a8"
+      ]
+    },
+    {
+      "id": "pr-56",
+      "data": "2026-10-13",
+      "area": "editor de modelos",
+      "titulo": "PR #56 · Editor de modelos, etapa 4: modelos novos",
+      "resumo": "Editor de modelos, etapa 4: modelos novos; Editor de modelos: achados do /code-review da etapa 4; Editor de modelos: teste do atalho em Concepts/ roda só onde dá para criar atalho (no runner Windows, criar atalho pede permissão); Editor de modelos: limpeza do /simplify da etapa…",
+      "estado": "main",
+      "refs": [
+        "PR #56",
+        "3ff73df"
+      ]
+    },
+    {
+      "id": "pr-57",
+      "data": "2026-10-13",
+      "area": "editor de modelos",
+      "titulo": "PR #57 · Editor de modelos, modo fácil (item 1): modo simples, assistente e dicas",
+      "resumo": "Editor de modelos, modo fácil (item 1): modo simples, assistente e dicas; Editor de modelos, modo fácil: achados do /code-review e do /simplify; Editor de modelos, modo fácil: segunda rodada do /code-review; Editor de modelos, modo fácil: terceira rodada do /code-review; Editor…",
+      "estado": "main",
+      "refs": [
+        "PR #57",
+        "d1e0d0c"
+      ]
+    },
+    {
+      "id": "pr-58",
+      "data": "2026-10-13",
+      "area": "editor de modelos",
+      "titulo": "PR #58 · Editor de modelos, modo fácil (item 2): galeria de modelos e busca",
+      "resumo": "Editor de modelos, modo fácil (item 2): galeria de modelos e busca",
+      "estado": "main",
+      "refs": [
+        "PR #58",
+        "13741c4"
+      ]
+    },
+    {
+      "id": "pr-59",
+      "data": "2026-10-13",
+      "area": "editor de modelos",
+      "titulo": "PR #59 · Editor de modelos, modo fácil (item 3): cubo de vistas e Ver no jogo",
+      "resumo": "Editor de modelos, modo fácil (item 3): cubo de vistas e Ver no jogo",
+      "estado": "main",
+      "refs": [
+        "PR #59",
+        "3ab7823"
+      ]
+    },
+    {
+      "id": "pr-60",
+      "data": "2026-10-13",
+      "area": "editor de modelos",
+      "titulo": "PR #60 · Editor de modelos, modo fácil (item 4): pintar textura",
+      "resumo": "Editor de modelos, modo fácil (item 4): pintar textura",
+      "estado": "main",
+      "refs": [
+        "PR #60",
+        "5afaa92"
+      ]
+    },
+    {
+      "id": "pr-61",
+      "data": "2026-10-13",
+      "area": "editor de modelos",
+      "titulo": "PR #61 · Editor de modelos, modo fácil (item 5, primeira entrega): esculpir e proteção da forma",
+      "resumo": "Editor de modelos, modo fácil (item 5, primeira entrega): esculpir e proteção da forma",
+      "estado": "main",
+      "refs": [
+        "PR #61",
+        "fd313b5"
+      ]
+    },
+    {
+      "id": "pr-62",
+      "data": "2026-10-13",
+      "area": "editor de modelos",
+      "titulo": "PR #62 · Editor de modelos, modo fácil (item 5, segunda entrega): proporções e peças de grudar",
+      "resumo": "Editor de modelos, modo fácil (item 5, segunda entrega): proporções e peças de grudar",
+      "estado": "main",
+      "refs": [
+        "PR #62",
+        "93854dc"
+      ]
+    }
+  ]
+}

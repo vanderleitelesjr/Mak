@@ -1,0 +1,57 @@
+{
+  "estado": "0.3.3 · reteste geral aprovado",
+  "numeros": [
+    {
+      "rotulo": "Revisão atual",
+      "valor": "@roteiro.progresso",
+      "icone": "marco"
+    },
+    {
+      "rotulo": "Lote anterior",
+      "valor": "18/18",
+      "icone": "entrega"
+    },
+    {
+      "rotulo": "Marcos",
+      "valor": "4/6",
+      "icone": "marco"
+    },
+    {
+      "rotulo": "Interface focada",
+      "valor": "30 verificações",
+      "icone": "codigo"
+    }
+  ],
+  "agora": [
+    {
+      "titulo": "Importar HUDs e telas existentes",
+      "texto": "Unity UI Toolkit/uGUI/prefabs, artes originais, estados, templates de seleção/fila e reimportação com conflitos. Piloto GE: seis telas e 430 nós; cobertura parcial declarada."
+    },
+    {
+      "titulo": "Hierarquia recolhível por ramo",
+      "texto": "Seta à direita em cada item com filhos, incluindo a raiz. Estados aninhados, seleção, arraste e documento preservados; 16 verificações focadas de interface aprovadas."
+    },
+    {
+      "titulo": "Canvas inteiro, sem scroll até o pé",
+      "texto": "Enquadramento pela largura e altura livres, chat no rodapé e comandos preservados. Trinta verificações focadas e 16 combinações na amostra Windows aprovadas; mesmos dados de teste."
+    },
+    {
+      "titulo": "Unity property round-trip verified",
+      "texto": "Four persistent properties in UXML, a uGUI scene and a prefab; native reopen, reimport, callback preservation and stale-review refusal passed. Three focused conflict tests passed."
+    }
+  ],
+  "comVoce": [
+    {
+      "titulo": "Reteste aprovado",
+      "texto": "Owner: “testado e funcionando”. General acceptance of the delivered 0.3.3 adjustments. Supported persistent properties now have separate native technical proof; Windows interaction and full M4/M6 acceptance remain open."
+    },
+    {
+      "titulo": "Primeiro login real",
+      "texto": "O fluxo novo foi verificado por protocolo com peer de teste; um login novo pelo navegador ainda precisa ser observado, sem deslogar a conta atual automaticamente."
+    },
+    {
+      "titulo": "Cobertura parcial e aceite",
+      "texto": "The native property writer passed its isolated fixture. Procedural GE HUD application, dynamic commands and complete M4/M6 acceptance remain separate."
+    }
+  ]
+}

@@ -1,0 +1,1344 @@
+{
+  "sobre": "Fonte única das abas Entregas e Arquivo (e da tira de imagens do Painel). Só o coordenador acrescenta entradas; depois rode o motor: node workspace/_shared/engine/gerar.mjs workspace/2026-10-14_global-empires. Links só para PDF.",
+  "entregas": [
+    {
+      "id": "2026-10-09-base",
+      "data": "2026-10-09",
+      "area": "ferramentas",
+      "titulo": "Repositório, specs e regras entre agentes",
+      "resumo": "Specs de design importadas, instruções comuns para Claude Code e Codex com revisão cruzada, base do protótipo com testes automáticos.",
+      "estado": "main",
+      "refs": [
+        "#1",
+        "#2",
+        "#3",
+        "#6",
+        "#7"
+      ],
+      "links": [
+        {
+          "rotulo": "Handout do projeto (PDF)",
+          "url": "https://github.com/vanderleitelesjr/GE-game/blob/main/HANDOUT_PROJETO.pdf"
+        },
+        {
+          "rotulo": "Conceito da primeira iteração (PDF)",
+          "url": "https://github.com/vanderleitelesjr/GE-game/blob/main/Conceito_Primeira_Iteracao.pdf"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-09-simulacao",
+      "data": "2026-10-09",
+      "area": "código",
+      "titulo": "Simulação determinística (D1–D13)",
+      "resumo": "Ponto fixo Q48.16 sem float, RNG com semente e passo fixo de 20 ticks: a base do lockstep.",
+      "estado": "main",
+      "refs": [
+        "#4",
+        "#5"
+      ]
+    },
+    {
+      "id": "2026-10-10-processo",
+      "data": "2026-10-10",
+      "area": "ferramentas",
+      "titulo": "Merge automático e decisões de processo",
+      "resumo": "O bot que acompanha o PR mescla sozinho quando a revisão e o CI estão limpos; regras de processo no decisoes.md.",
+      "estado": "main",
+      "refs": [
+        "#8",
+        "#19",
+        "#20"
+      ]
+    },
+    {
+      "id": "2026-10-10-fase2",
+      "data": "2026-10-10",
+      "area": "código",
+      "titulo": "Fase 2: mapa e controle (N1–N12)",
+      "resumo": "Travessia do Interior v0, busca de caminho, ordem de grupo, terreno, câmera, seleção e ordens na Unity.",
+      "estado": "main",
+      "refs": [
+        "#9",
+        "#10",
+        "#11",
+        "#12",
+        "#14",
+        "#17",
+        "#18"
+      ]
+    },
+    {
+      "id": "2026-10-10-arte-conflito",
+      "data": "2026-10-10",
+      "area": "arte",
+      "titulo": "Arte de referência do conflito",
+      "resumo": "Pranchas de referência do conflito no protótipo; P04 movida para Prototype/ e registrada em A1.",
+      "estado": "main",
+      "refs": [
+        "#13",
+        "#15"
+      ]
+    },
+    {
+      "id": "2026-10-11-fase3",
+      "data": "2026-10-11",
+      "area": "código",
+      "titulo": "Fase 3: economia Industrial (R1–R14)",
+      "resumo": "Coleta, construção, população, coletoria com alíquota, fila de recrutamento e interface mínima; medição com 60 por lado.",
+      "estado": "main",
+      "refs": [
+        "#21",
+        "#22",
+        "#23",
+        "#24",
+        "#25",
+        "#26",
+        "#27"
+      ]
+    },
+    {
+      "id": "2026-10-11-modelos-temporarios",
+      "data": "2026-10-11",
+      "area": "arte",
+      "titulo": "Modelos low-poly e props temporários",
+      "resumo": "Elenco do protótipo em low-poly, dez props com prefabs, blocos dos recursos trocados por árvores, frutas e minério.",
+      "estado": "main",
+      "refs": [
+        "#28",
+        "#29",
+        "#31",
+        "#32",
+        "#39",
+        "#43"
+      ]
+    },
+    {
+      "id": "2026-10-11-fase4",
+      "data": "2026-10-11",
+      "area": "código",
+      "titulo": "Fase 4: avanço e combate (Q1–Q12)",
+      "resumo": "Vida, morte e ataque; oficina, avanço para o Aço e quartel; metralhadora, artilharia, cobertura e reparo; roteiro com os dois lados na ponte e no vau.",
+      "estado": "main",
+      "refs": [
+        "#30",
+        "#33",
+        "#34",
+        "#36",
+        "#38",
+        "#44",
+        "#45",
+        "#46",
+        "#47",
+        "#50",
+        "#53",
+        "#63"
+      ]
+    },
+    {
+      "id": "2026-10-11-ferramentas-teste",
+      "data": "2026-10-11",
+      "area": "ferramentas",
+      "titulo": "+9999 de teste e Claude pelo GitHub",
+      "resumo": "Botão de recursos de teste só no editor (comando 16) e encaminhamento de pedidos ao Claude pelo GitHub.",
+      "estado": "main",
+      "refs": [
+        "#35",
+        "#48"
+      ]
+    },
+    {
+      "id": "2026-10-11-playtest-1-23",
+      "data": "2026-10-11",
+      "area": "playtest",
+      "titulo": "Primeiro playtest: itens 1–23",
+      "resumo": "Economia K5, ordens em fila com Shift, platôs no mapa, empurrão por massa, posição defensiva girável, áudio provisório e ajustes de interface.",
+      "estado": "main",
+      "refs": [
+        "#41",
+        "#42",
+        "#49",
+        "#54",
+        "#55",
+        "#56",
+        "#57",
+        "#58",
+        "#59",
+        "#60",
+        "#61"
+      ]
+    },
+    {
+      "id": "2026-10-11-planos",
+      "data": "2026-10-11",
+      "area": "design",
+      "titulo": "Planos das fases 5 e 6",
+      "resumo": "Abastecimento (U1–U9, H1–H7) e IA, vitória e névoa (W1–W14, J1–J11) quebrados em tarefas.",
+      "estado": "main",
+      "refs": [
+        "#51",
+        "#52"
+      ]
+    },
+    {
+      "id": "2026-10-12-menu-playtest",
+      "data": "2026-10-12",
+      "area": "ferramentas",
+      "titulo": "Menu Global Empires → Playtest",
+      "resumo": "Um menu único recria a cena do playtest atual e entra no Play; o nome da cena aparece no canto da tela.",
+      "olhar": "Sempre abrir o jogo por Global Empires → Playtest.",
+      "estado": "main",
+      "refs": [
+        "#62"
+      ]
+    },
+    {
+      "id": "2026-10-12-fase5",
+      "data": "2026-10-12",
+      "area": "código",
+      "titulo": "Fase 5: rede de abastecimento (U1–U13)",
+      "resumo": "Depósito avançado, rede por proximidade, zona abastecida, cura e corte na Unity. Critério V5 passou: o corte é entendido e muda o jogo.",
+      "estado": "main",
+      "refs": [
+        "#64",
+        "#65",
+        "#66",
+        "#69",
+        "#72",
+        "#73",
+        "#78",
+        "#79"
+      ]
+    },
+    {
+      "id": "2026-10-12-fase5b",
+      "data": "2026-10-12",
+      "area": "código",
+      "titulo": "Fase 5B: estrutura das eras e elenco novo",
+      "resumo": "Oficina e quartel na Era I, fábrica no Aço, sapador, morteiro, cavalaria e tanque; modelos por era; plano da IA refeito (J3–J5). Estado v15.",
+      "estado": "main",
+      "refs": [
+        "#67",
+        "#70",
+        "#71",
+        "#74",
+        "#75",
+        "#76",
+        "#77",
+        "#80",
+        "#81",
+        "#82"
+      ]
+    },
+    {
+      "id": "2026-10-12-referencias-eras",
+      "data": "2026-10-12",
+      "area": "arte",
+      "titulo": "Referências e oficinas das Eras I e II",
+      "resumo": "Referências visuais de estruturas do Codex e oficinas atuais trocadas pelos modelos aprovados.",
+      "estado": "main",
+      "refs": [
+        "#68",
+        "#89"
+      ]
+    },
+    {
+      "id": "2026-10-12-playtest-24-40",
+      "data": "2026-10-12",
+      "area": "playtest",
+      "titulo": "Playtest 24–40",
+      "resumo": "Golpes, tiros e anel de seleção; caixa só com militares e duplo clique; sapador, cancelar obra (comando 29), veias em grupos, morteiro e trincheira.",
+      "estado": "main",
+      "refs": [
+        "#84",
+        "#85",
+        "#86"
+      ]
+    },
+    {
+      "id": "2026-10-12-playtest-41-57",
+      "data": "2026-10-12",
+      "area": "playtest",
+      "titulo": "Playtest 41–57",
+      "resumo": "Arco das equipes, milícia vira fuzileiro no Aço, fábrica 8 × 8, granada do morteiro, ataque em movimento (comando 30), câmera sem WASD, três casas. Estado v17.",
+      "estado": "main",
+      "refs": [
+        "#87",
+        "#88",
+        "#90",
+        "#91"
+      ]
+    },
+    {
+      "id": "2026-10-12-pesquisas-ferrovia-cobertura",
+      "data": "2026-10-12",
+      "area": "código",
+      "titulo": "Pesquisas novas, fase 7 ferrovia e fase 8 cobertura",
+      "resumo": "Cinco pesquisas novas (PO1), comércio ferroviário com RestoreRail e Trade, cobertura por obstáculos com chance de erro (CB5–CB9). Estado v19.",
+      "estado": "main",
+      "refs": [
+        "#83",
+        "#92",
+        "#99",
+        "#95"
+      ]
+    },
+    {
+      "id": "2026-10-12-playtest-58-73",
+      "data": "2026-10-12",
+      "area": "playtest",
+      "titulo": "Playtest 58–73",
+      "resumo": "Cavalaria, melhoria Fuzileiros, tanque com 10 tiros, volta ao lugar após empurrão; arco no arrasto, dano e explosões; teto das oficinas. Estado v20.",
+      "estado": "main",
+      "refs": [
+        "#94",
+        "#96",
+        "#97"
+      ]
+    },
+    {
+      "id": "2026-10-12-revisao-mcp",
+      "data": "2026-10-12",
+      "area": "ferramentas",
+      "titulo": "Revisão sem Codex e Unity MCP oficial",
+      "resumo": "Revisão de PR passa a ser code-review high mais guarda-determinismo; Unity MCP oficial com --project-path obrigatório.",
+      "estado": "main",
+      "refs": [
+        "#98",
+        "#100"
+      ]
+    },
+    {
+      "id": "2026-10-12-playtest-74-84",
+      "data": "2026-10-12",
+      "area": "playtest",
+      "titulo": "Playtest 74–84",
+      "resumo": "Fuzileiro num botão, terminal que gira, modo de teste instantâneo (comando 33), pesquisas inteiras, garagem do trem, relevo liso. Estado v21.",
+      "estado": "main",
+      "refs": [
+        "#101",
+        "#102"
+      ]
+    },
+    {
+      "id": "2026-10-12-playtest-85-95",
+      "data": "2026-10-12",
+      "area": "playtest",
+      "titulo": "Playtest 85–95",
+      "resumo": "Formação e inclinação no relevo, várias estações e curvas de raio mínimo, busca automática de cobertura e escudo sobre a unidade coberta. Estado v23.",
+      "estado": "main",
+      "refs": [
+        "#104",
+        "#105",
+        "#106"
+      ]
+    },
+    {
+      "id": "2026-10-13-fase6",
+      "data": "2026-10-13",
+      "area": "código",
+      "titulo": "Fase 6: IA, névoa e fim de partida",
+      "resumo": "Névoa na simulação e na tela, minimapa com alertas, IA de economia e de exército com ondas, partida contra a IA no menu. Estado v25.",
+      "olhar": "Cena \"Partida contra a IA (W12)\" no menu.",
+      "estado": "main",
+      "refs": [
+        "#108",
+        "#110",
+        "#112",
+        "#113"
+      ]
+    },
+    {
+      "id": "2026-10-13-playtest-96-103",
+      "data": "2026-10-13",
+      "area": "playtest",
+      "titulo": "Playtest 96–103",
+      "resumo": "Clique em terreno vazio, cura do depósito avançado, anel das estações, destaque de cobertura, depósito desconectado, estação na rede, construir sobre ruína.",
+      "estado": "main",
+      "refs": [
+        "#109"
+      ]
+    },
+    {
+      "id": "2026-10-13-fechamento-6-7-8",
+      "data": "2026-10-13",
+      "area": "código",
+      "titulo": "Fechamento das fases 6, 7 e 8",
+      "resumo": "IA protege e corta linhas, usa cobertura e pesquisas, perfis turtle e balanceado; mapa encorpado; som do alerta; medições W13. Estado v26.",
+      "olhar": "Falta só o W14: as suas partidas contra a IA.",
+      "estado": "main",
+      "refs": [
+        "#114",
+        "#115",
+        "#118",
+        "#120"
+      ]
+    },
+    {
+      "id": "2026-10-13-som-lote1",
+      "data": "2026-10-13",
+      "area": "áudio",
+      "titulo": "Som, lote 1: combate, mixer e volumes",
+      "resumo": "Sons de combate gerados por receita, mixer com grupos e volumes no Shift+M e na pausa.",
+      "estado": "main",
+      "refs": [
+        "#116"
+      ]
+    },
+    {
+      "id": "2026-10-13-tema",
+      "data": "2026-10-13",
+      "area": "áudio",
+      "titulo": "Tema \"Através das Eras\"",
+      "resumo": "Versão 2 do ElevenLabs escolhida como tema; toca nas telas da partida.",
+      "estado": "main",
+      "refs": [
+        "#119"
+      ]
+    },
+    {
+      "id": "2026-10-13-decisoes-design",
+      "data": "2026-10-13",
+      "area": "design",
+      "titulo": "Cobertura, mercado, ajustes ao vivo e unidades únicas",
+      "resumo": "Guarnição vira chance de erro sem flanco, mercado por jogador com metal mais caro, ajustes ao vivo só em dev, unidades únicas de BR, DE e EUA.",
+      "estado": "main",
+      "refs": [
+        "#122",
+        "CB20–CB21",
+        "F31–F32",
+        "AJ1–AJ12",
+        "UN1–UN5"
+      ]
+    },
+    {
+      "id": "2026-10-13-combate-camadas",
+      "data": "2026-10-13",
+      "area": "design",
+      "titulo": "Combate em duas camadas (CL1–CL14)",
+      "resumo": "Classes de alvo e de arma no modelo do AoE3, triângulo de contra-ataque das Eras I e II, faixas por papel e regra das únicas.",
+      "estado": "main",
+      "refs": [
+        "#123",
+        "#125",
+        "#127"
+      ]
+    },
+    {
+      "id": "2026-10-13-codex-combate-aviacao",
+      "data": "2026-10-13",
+      "area": "design",
+      "titulo": "Assalto, trincheiras e aviação do Aço (Codex)",
+      "resumo": "Especializações do sapador, trincheiras e assalto; biplano, dirigível logístico e antiaérea (AV1–AV12). Só documentação.",
+      "estado": "main",
+      "refs": [
+        "#107",
+        "#111"
+      ]
+    },
+    {
+      "id": "2026-10-13-som-lotes-2-3",
+      "data": "2026-10-13",
+      "area": "áudio",
+      "titulo": "Som, lotes 2 e 3",
+      "resumo": "Vila, ambiente do mapa (campo e rio), interface, motores, compressor no Master; tiros e ordem de atacar refeitos no ElevenLabs.",
+      "estado": "main",
+      "refs": [
+        "#124"
+      ]
+    },
+    {
+      "id": "2026-10-13-acervo-conceitos",
+      "data": "2026-10-13",
+      "area": "arte",
+      "titulo": "Acervo de conceitos aprovado (A3)",
+      "resumo": "21 folhas U/B/C e 12 pranchas do mapa (EST, PR, TER) aprovadas como referência visual.",
+      "estado": "main",
+      "refs": [
+        "#126"
+      ],
+      "links": [
+        {
+          "rotulo": "Catálogo das 21 folhas (PDF)",
+          "url": "https://github.com/vanderleitelesjr/GE-game/blob/main/Catalogo_21_Folhas.pdf"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-13-repertorio",
+      "data": "2026-10-13",
+      "area": "áudio",
+      "titulo": "Repertório: Terra de Ninguém no menu e 5 músicas na partida",
+      "resumo": "Menu sorteia entre as versões em latim e português; na partida, cinco músicas com silêncio de 1 a 3 min entre elas e ducking no combate.",
+      "estado": "main",
+      "refs": [
+        "#129"
+      ]
+    },
+    {
+      "id": "2026-10-13-modelos-folhas",
+      "data": "2026-10-13",
+      "area": "arte",
+      "titulo": "94 modelos das folhas e ponte central de pedra",
+      "resumo": "FBX por script do Blender para EST, PR, TER01, U11–U13 e B14; a ponte central já aparece no jogo.",
+      "estado": "main",
+      "refs": [
+        "#132"
+      ]
+    },
+    {
+      "id": "2026-10-14-altafid-quartel-oficinas",
+      "data": "2026-10-14",
+      "area": "arte",
+      "titulo": "Alta fidelidade: quartel do Aço e oficinas",
+      "resumo": "Piloto de construções modelados no Blender, com LOD e ruína; desligados por padrão (A2).",
+      "olhar": "Ligar em Global Empires → Alta fidelidade.",
+      "estado": "main",
+      "refs": [
+        "#133"
+      ]
+    },
+    {
+      "id": "2026-10-14-playtest-104-121",
+      "data": "2026-10-14",
+      "area": "playtest",
+      "titulo": "Playtest 104–121 integrado",
+      "resumo": "Suprimento (pilha do depósito destruído, cura, reparo com metal), combate (explosões quebram obstáculos, escombros cobrem), mapa com mais bosques, turtle mais forte. Estado v28.",
+      "estado": "main",
+      "refs": [
+        "#128",
+        "#130",
+        "#131",
+        "#135"
+      ]
+    },
+    {
+      "id": "2026-10-14-leitura-unidades",
+      "data": "2026-10-14",
+      "area": "arte",
+      "titulo": "Pranchas de leitura das 8 unidades",
+      "resumo": "16 pranchas (2 variações por unidade) e a escolha de uma por unidade; base do corpo fardado das unidades novas.",
+      "estado": "main",
+      "refs": [
+        "#134",
+        "Art/Concepts/Leitura_Unidades"
+      ],
+      "miniatura": "media/2026-10/leitura-fuzileiro-2.webp"
+    },
+    {
+      "id": "2026-10-14-altafid-unidades",
+      "data": "2026-10-14",
+      "area": "arte",
+      "titulo": "Alta fidelidade: fuzileiro e sapador animados",
+      "resumo": "Modelos do Meshy com rig e animações do catálogo, no jogo atrás da mesma chave da alta fidelidade.",
+      "olhar": "Ligar em Global Empires → Alta fidelidade.",
+      "estado": "main",
+      "refs": [
+        "#134"
+      ]
+    },
+    {
+      "id": "2026-10-14-corpo-base",
+      "data": "2026-10-14",
+      "area": "arte",
+      "titulo": "Corpo-base, peças do Meshy e tons de pele",
+      "resumo": "Um corpo fardado com rig e 18 peças do Meshy montam trabalhador, milícia, fuzileiro e sapador; seis tons de pele sorteados por unidade.",
+      "estado": "main local",
+      "refs": [
+        "#137",
+        "2b7a91e"
+      ],
+      "miniatura": "media/2026-10/pecas-meshy.webp"
+    },
+    {
+      "id": "2026-10-14-cenario-mapa",
+      "data": "2026-10-14",
+      "area": "arte",
+      "titulo": "Cenário no mapa: props e ruínas (G37, G38)",
+      "resumo": "Mina nos veios, telégrafo, caixotes nas travessias, curral nas clareiras; ruínas e marcos nos cantos. Mapa e simulação iguais.",
+      "estado": "main local",
+      "refs": [
+        "0f69a92",
+        "G37",
+        "G38"
+      ]
+    },
+    {
+      "id": "2026-10-14-ajustes-ao-vivo",
+      "data": "2026-10-14",
+      "area": "ferramentas",
+      "titulo": "Ajustes ao vivo, etapa 1 (AJ1–AJ22)",
+      "resumo": "Arquivo de regras como fonte única, painel de ajuste, velocidade, salvar e voltar momento, assumir o outro lado, notas com relatório. Estado v29.",
+      "olhar": "F10 painel, F11 nota, F5/F6 velocidade, F7 pausa, F8 salvar momento, Shift+F8 voltar.",
+      "estado": "main local",
+      "refs": [
+        "6ccbc63",
+        "AJ1–AJ22"
+      ]
+    },
+    {
+      "id": "2026-10-14-altafid-estruturas",
+      "data": "2026-10-14",
+      "area": "arte",
+      "titulo": "Alta fidelidade: Centro Urbano, casas e quartel da Era I",
+      "resumo": "Centro Urbano (prancha B01), casas A, B e C (B02) e quartel Industrial no Blender, com LOD e no lote exato.",
+      "estado": "main local",
+      "refs": [
+        "2b7a91e",
+        "3ed38f0",
+        "8e5194e",
+        "7e07445"
+      ],
+      "miniatura": "media/2026-10/centro-urbano.webp"
+    },
+    {
+      "id": "2026-10-14-playtest-122-128",
+      "data": "2026-10-14",
+      "area": "playtest",
+      "titulo": "Playtest 122–128 (menos o 124)",
+      "resumo": "Busca de cobertura para mais unidades, câmera girada 30°, fora do mapa preto, névoa sem escada, tiro da metralhadora tracejado, IA recolhe trabalhadores. Estado v30.",
+      "olhar": "Ver a aba Playtest.",
+      "estado": "main local",
+      "refs": [
+        "16bee16",
+        "L31–L32",
+        "G39–G45",
+        "J72–J74"
+      ]
+    },
+    {
+      "id": "2026-10-14-hud-codex",
+      "data": "2026-10-14",
+      "area": "arte",
+      "titulo": "Conceitos do HUD da partida (Codex)",
+      "resumo": "Quatro formas de mostrar a seleção no Aço, mais a folha de 30 ícones e a de molduras. Guardadas no acervo do repositório e usadas no visual deste card.",
+      "estado": "main local",
+      "refs": [
+        "62abf00",
+        "Art/Concepts/HUD_Codex"
+      ],
+      "miniatura": "media/2026-10/hud-unidade-detalhe.webp"
+    },
+    {
+      "id": "2026-10-15-altafid-texturas-modelos",
+      "data": "2026-10-15",
+      "area": "arte",
+      "titulo": "Alta fidelidade: texturas CC0 + PBR e modelos novos",
+      "resumo": "Todas as construções reassadas com texturas CC0 e telha capa-canal; coletoria, depósitos, roça, terminal, trem, garagem ferroviária, bomba elétrica, quatro coberturas e jazida de metal no jogo.",
+      "olhar": "Ligar em Global Empires → Alta fidelidade (desligada por padrão).",
+      "estado": "main local",
+      "refs": [
+        "2b7a91e",
+        "cc0b142"
+      ],
+      "miniatura": "media/2026-10/altafid-modelos-novos.webp"
+    },
+    {
+      "id": "2026-10-15-playtest-133-145",
+      "data": "2026-10-15",
+      "area": "playtest",
+      "titulo": "Décimo playtest: notas 129–145, CB20/CB21, mapa estendido (124) e etapa 2 dos ajustes ao vivo",
+      "resumo": "Mapa de 328 m com borda jogável circular, minimapa em losango, ruas visuais, clima, suprimento com reserva nos depósitos, mixer de áudio, modo Mapa no F10 e casas giradas. Estado v31.",
+      "olhar": "Ver a aba Playtest. As sementes 1 e 5 da IA × IA passam dos 40 min (J78, aceito por enquanto).",
+      "estado": "main local",
+      "refs": [
+        "9eca6ec",
+        "v31",
+        "J78",
+        "AJ23–AJ31",
+        "G46–G65",
+        "H30–H44",
+        "CM1–CM8"
+      ]
+    },
+    {
+      "id": "2026-10-15-revisao-merge-133",
+      "data": "2026-10-15",
+      "area": "código",
+      "titulo": "Revisão do merge da rodada 133",
+      "resumo": "A chuva não troca mais o material com o X de sem linha de tiro; a rota ruim do trem volta a ficar vermelha; os modelos novos do cenário reimportam como uma peça só; teste da casa girada na alta fidelidade.",
+      "olhar": "Ao abrir a Unity, ela reimporta os modelos uma vez (demora mais).",
+      "estado": "main local",
+      "refs": [
+        "485a26b",
+        "5c139c8"
+      ]
+    },
+    {
+      "id": "2026-10-15-altafid-fabrica",
+      "data": "2026-10-15",
+      "area": "arte",
+      "titulo": "Fábrica da Era II em alta fidelidade (B15) e tijolo novo",
+      "resumo": "Prancha B15 aprovada; fábrica com três dentes de serra, duas chaminés e portão de correr no lugar da oficina com canhões. O tijolo passou a ser o red_brick (CC0, mais claro) em todos os prédios de tijolo.",
+      "olhar": "Ligar em Global Empires → Alta fidelidade e avançar para o Aço.",
+      "estado": "main local",
+      "refs": [
+        "939eb18",
+        "B15"
+      ],
+      "miniatura": "media/2026-10/fabrica.webp"
+    },
+    {
+      "id": "2026-10-15-notas-146-151-hud-audio",
+      "data": "2026-10-15",
+      "area": "código",
+      "titulo": "Notas 146–151, HUD em UI Toolkit e áudio do clima",
+      "resumo": "Fora do círculo jogável fica preto; ruas do inimigo só pelo que você conhece; casas giram para os dois lados; ruas seguem o relevo e chegam pela frente. HUD novo (grade Q W E R, cartão, minimapa, telas) e sons do avanço, do clima e do rio.",
+      "olhar": "Global Empires → Playtest abre a partida contra a IA; F11, aba Checklist.",
+      "estado": "main local",
+      "refs": [
+        "3c3be3f",
+        "G66–G75",
+        "EditMode 1645/1645"
+      ]
+    },
+    {
+      "id": "2026-10-15-playtest-final-w14",
+      "data": "2026-10-15",
+      "area": "playtest",
+      "titulo": "Playtest final do protótipo (W14)",
+      "resumo": "Vitória aos 40:13 contra a IA; ferrovia, cobertura e HUD novo ok. A IA ainda fácil: só duas travessias e nenhuma defesa da economia. 10 ajustes do F10 e 33 notas novas (152–184).",
+      "estado": "main local",
+      "refs": [
+        "W14",
+        "152–184",
+        "M6 → 40 min"
+      ],
+      "miniatura": "media/2026-10/playtest-final-w14.webp"
+    },
+    {
+      "id": "2026-10-16-ui-acabamento-v02",
+      "data": "2026-10-16",
+      "area": "arte",
+      "titulo": "UI: acabamento v02 das molduras, barras e ícones",
+      "resumo": "Proposta salva no Acervo, fora de GE-game: 46 sprites com resíduos de alfa removidos e brilho das barras reduzido. Originais preservados; ainda não aplicada à Unity.",
+      "olhar": "Acervo → Interface: acabamento v02. Comparar fundos claros e escuros e o diagnóstico do alfa.",
+      "estado": "main local",
+      "refs": [
+        "UI v02",
+        "fora de GE-game",
+        "em revisão"
+      ],
+      "miniatura": "media/2026-10/ui-acabamento-v02.webp"
+    },
+    {
+      "id": "2026-10-16-ui-economia-producao-v01",
+      "data": "2026-10-16",
+      "area": "arte",
+      "titulo": "UI: economia, produção e manutenção da roça",
+      "resumo": "Duas pranchas para avaliação no Acervo: seis situações de economia e produção, mais roça em produção e esgotada. Grade atual de 5 × 3; valores ilustrativos. Fora de GE-game, sem implementação na Unity.",
+      "olhar": "Acervo → Interface: economia e produção. Conferir custos, filas, progresso, requisitos e renovação.",
+      "estado": "main local",
+      "refs": [
+        "UI-EP01",
+        "fora de GE-game",
+        "em revisão"
+      ],
+      "miniatura": "media/2026-10/ui-economia-producao-v01.webp"
+    },
+    {
+      "id": "2026-10-16-ui-retratos-icones-v01",
+      "data": "2026-10-16",
+      "area": "arte",
+      "titulo": "UI: dez retratos e quinze ícones",
+      "resumo": "Proposta no Acervo: 10 retratos, 15 ícones, PNGs transparentes individuais, dois atlases e comparação em 24/32/48/64 px. Salva no Workspace, fora de GE-game; sem integração na Unity.",
+      "olhar": "Acervo → Interface: retratos e ícones. Conferir equipamentos, variantes de era e leitura em tamanho pequeno.",
+      "estado": "main local",
+      "refs": [
+        "UI-RI01",
+        "fora de GE-game",
+        "em revisão"
+      ],
+      "miniatura": "media/2026-10/ui-retratos-icones-v01.webp"
+    },
+    {
+      "id": "2026-10-16-ui-estados-alertas-v01",
+      "data": "2026-10-16",
+      "area": "arte",
+      "titulo": "UI: estados e alertas",
+      "resumo": "12 indicadores no Acervo, PNGs transparentes, atlas, estudo de aplicação e comparação em 24/32/48/64 px. Proposta salva no Workspace, fora de GE-game; sem integração na Unity.",
+      "olhar": "Acervo → Interface: estados e alertas. Conferir suprimento versus rede, cobertura versus linha de tiro e as setas de montagem.",
+      "estado": "main local",
+      "refs": [
+        "UI-EA01",
+        "fora de GE-game",
+        "em revisão"
+      ],
+      "miniatura": "media/2026-10/ui-estados-alertas-v01.webp"
+    },
+    {
+      "id": "2026-10-16-acervo-subcategorias",
+      "data": "2026-10-16",
+      "area": "ferramentas",
+      "titulo": "Acervo: subcategorias recolhíveis",
+      "resumo": "Acervo local com 17 subcategorias recolhidas, contagem e controles para expandir ou recolher a categoria exibida. Filtros, mídias e downloads preservados; navegação por teclado e toque.",
+      "estado": "main local",
+      "refs": [
+        "Workspace",
+        "fora de GE-game"
+      ]
+    },
+    {
+      "id": "2026-10-16-ui-menus-identidade-v01",
+      "data": "2026-10-16",
+      "area": "arte",
+      "titulo": "UI: menus, logo e título Global Empires",
+      "resumo": "Proposta no Acervo: logo, símbolo e título em PNG transparente, dois botões e oito telas da partida. Confirmações propostas; números ilustrativos. Fora de GE-game, sem integração na Unity.",
+      "olhar": "Acervo → Interface: menus, logo e título. Abrir os grupos de telas completas e PNGs transparentes.",
+      "estado": "main local",
+      "refs": [
+        "UI-MI01",
+        "fora de GE-game",
+        "em revisão"
+      ],
+      "miniatura": "media/2026-10/ui-menus-identidade-v01.webp"
+    },
+    {
+      "id": "2026-10-16-ui-tecnologias-comandos-v01",
+      "data": "2026-10-16",
+      "area": "arte",
+      "titulo": "UI: tecnologias e comandos",
+      "resumo": "24 ícones no Acervo: 12 tecnologias e 12 comandos, com um ícone reutilizado. PNGs transparentes, atlases, comparação e grade da oficina. Retratos genéricos anotados para a etapa final. Fora de GE-game; sem integração na Unity.",
+      "olhar": "Acervo → Interface: tecnologias e comandos. Abrir os grupos de comparação, atlases e PNGs individuais.",
+      "estado": "main local",
+      "refs": [
+        "UI-TC01",
+        "fora de GE-game",
+        "em revisão"
+      ],
+      "miniatura": "media/2026-10/ui-tecnologias-comandos-v01.webp"
+    },
+    {
+      "id": "2026-10-16-ui-cursores-ordens-v01",
+      "data": "2026-10-16",
+      "area": "arte",
+      "titulo": "UI: cursores e sinais de ordens",
+      "resumo": "28 combinações de cursores em 32/48/64 px, sete marcadores, quatro atlases e pranchas de contraste/contexto no Acervo. Pictogramas reaproveitados, hotspots documentados. Proposta fora de GE-game; sem integração na Unity.",
+      "olhar": "Acervo → Interface: cursores e sinais de ordens. Comparar as três condições e abrir as pranchas em tamanho original.",
+      "estado": "main local",
+      "refs": [
+        "UI-CO01",
+        "fora de GE-game",
+        "em revisão"
+      ],
+      "miniatura": "media/2026-10/ui-cursores-ordens-v01.webp"
+    },
+    {
+      "id": "2026-10-16-ui-minimapa-moldura-v01",
+      "data": "2026-10-16",
+      "area": "arte",
+      "titulo": "UI: moldura circular do minimapa",
+      "resumo": "Aro circular alinhado à área jogável, com 290 px úteis preservados no estudo. Três tamanhos, máscara, fundo e prévia do mapa real no Acervo. Diretriz registrada em Decisões. Proposta fora de GE-game; sem integração.",
+      "olhar": "Acervo → Interface: moldura circular do minimapa. Conferir o aro, a abertura e a escala de 290 px.",
+      "estado": "main local",
+      "refs": [
+        "UI-MM01",
+        "fora de GE-game",
+        "em revisão"
+      ],
+      "miniatura": "media/2026-10/ui-minimapa-moldura-v01.webp"
+    },
+    {
+      "id": "2026-10-16-ui-minimapa-simbolos-v01",
+      "data": "2026-10-16",
+      "area": "arte",
+      "titulo": "UI: símbolos e estados do minimapa",
+      "resumo": "Oito símbolos em 16/32/64 px, linha da câmera e oito quadros de pulso no Acervo. Cores, névoa e alerta atuais preservados na proposta; composição na moldura circular. SVGs e atlases editáveis. Fora de GE-game; sem integração.",
+      "olhar": "Acervo → Interface: símbolos e estados do minimapa. Comparar a escala real, memória de estruturas e alertas junto à borda.",
+      "estado": "main local",
+      "refs": [
+        "UI-MS01",
+        "fora de GE-game",
+        "em revisão"
+      ],
+      "miniatura": "media/2026-10/ui-minimapa-simbolos-v01.webp"
+    },
+    {
+      "id": "2026-10-16-ui-retratos-unidades-v02",
+      "data": "2026-10-16",
+      "area": "arte",
+      "titulo": "UI: retratos genéricos por unidade v02",
+      "resumo": "Piloto de fuzileiro: um retrato próprio por unidade, reutilizável entre nações sem indicar identidade nacional. Realismo estilizado. Amostra 1 de 10; aguardando avaliação antes de continuar. Fora de GE-game, sem integração na Unity.",
+      "olhar": "Acervo → Interface: retratos e ícones. Conferir o acabamento, leitura como fuzileiro e neutralidade nacional.",
+      "estado": "main local",
+      "refs": [
+        "UI-RU02",
+        "fora de GE-game",
+        "em revisão"
+      ],
+      "miniatura": "media/2026-10/ui-retratos-unidades-v02.webp"
+    },
+    {
+      "id": "2026-10-16-ui-retratos-unidades-v03",
+      "data": "2026-10-16",
+      "area": "arte",
+      "titulo": "UI: retratos genéricos por unidade v03",
+      "resumo": "Revisão do piloto de fuzileiro como miniatura de botão, seguindo os primeiros conceitos C05. Uma figura por unidade, reutilizável entre nações sem identidade nacional. Amostra 1 de 10; aguardando avaliação.",
+      "olhar": "Acervo → Interface: retratos e ícones. Comparar a miniatura do fuzileiro com os primeiros botões C05 e conferir legibilidade em escala pequena.",
+      "estado": "main local",
+      "refs": [
+        "UI-RU03",
+        "revisão de UI-RU02",
+        "fora de GE-game",
+        "em revisão"
+      ],
+      "miniatura": "media/2026-10/ui-retratos-unidades-v03.webp"
+    },
+    {
+      "id": "2026-10-16-ui-retratos-unidades-v04",
+      "data": "2026-10-16",
+      "area": "arte",
+      "titulo": "UI: retratos individuais de unidades v04",
+      "resumo": "Dez retratos de botão no acabamento C05 aprovado, um por unidade e sem identidade nacional. Catálogo, PNGs originais e manifestos no Acervo. Arte conceitual fora de GE-game, sem integração na Unity.",
+      "olhar": "Acervo → Interface: retratos e ícones. Conferir a prancha e abrir os dez PNGs individuais.",
+      "estado": "main local",
+      "refs": [
+        "UI-RU04",
+        "direção aprovada a partir de C05",
+        "fora de GE-game"
+      ],
+      "miniatura": "media/2026-10/ui-retratos-unidades-v04.webp"
+    },
+    {
+      "id": "2026-10-16-ia-balanceada",
+      "data": "2026-10-16",
+      "area": "código",
+      "titulo": "IA balanceada do playtest final (J80–J82) e ajustes do F10 (AJ32)",
+      "resumo": "A IA defende a economia em volta da base, solta ondas do Aço com dois terços do tamanho, contra-ataca e desiste no colapso sem exército. Os dez ajustes do F10 entraram nas regras e a M6 passou a 40 min.",
+      "olhar": "Jogar contra a IA (Global Empires → Playtest): atacar as roças dela, ver a reação, e levar o exército à base dela depois que ela ficar sem militares (desiste em 60 s).",
+      "estado": "main local",
+      "refs": [
+        "AJ32",
+        "J80–J82",
+        "M6",
+        "5 rodadas de code-review"
+      ]
+    },
+    {
+      "id": "2026-10-16-ui-retratos-unidades-v05",
+      "data": "2026-10-16",
+      "area": "arte",
+      "titulo": "UI: retratos de unidades corrigidos v05",
+      "resumo": "Batedor montado da Era Industrial, milícia com roupa e fuzil de época e cavalaria com sabre. Sete retratos preservados. Catálogo e PNGs no Acervo; arte conceitual, sem integração na Unity.",
+      "olhar": "Acervo → Interface: retratos e ícones. Conferir as três correções no catálogo e nos PNGs individuais.",
+      "estado": "main local",
+      "refs": [
+        "UI-RU05",
+        "revisão de UI-RU04",
+        "equipamento do jogo",
+        "fora de GE-game"
+      ],
+      "miniatura": "media/2026-10/ui-retratos-unidades-v05.webp"
+    },
+    {
+      "id": "2026-10-16-ui-retratos-unidades-v06",
+      "data": "2026-10-16",
+      "area": "arte",
+      "titulo": "UI: retratos ajustados ao jogo v06",
+      "resumo": "Batedor com uniforme militar da Era Industrial e milícia refeita no acabamento dos botões C05. Cavalaria mantém sabre. Catálogo e PNGs atualizados no Acervo; arte conceitual, sem integração na Unity.",
+      "olhar": "Acervo → Interface: retratos e ícones. Conferir a roupa do Batedor e o acabamento da Milícia junto aos demais botões.",
+      "estado": "main local",
+      "refs": [
+        "UI-RU06",
+        "revisão de UI-RU05",
+        "C05",
+        "fora de GE-game"
+      ],
+      "miniatura": "media/2026-10/ui-retratos-unidades-v06.webp"
+    },
+    {
+      "id": "2026-10-16-ui-milicia-paleta-v07",
+      "data": "2026-10-16",
+      "area": "arte",
+      "titulo": "UI: Milícia com paleta harmonizada v07",
+      "resumo": "Redistribuição das cores da Milícia para aproximá-la dos tons cáqui, ocre e castanha do conjunto; traje civil, pose e armamento preservados. Catálogo e PNGs atualizados no Acervo.",
+      "olhar": "Acervo → Interface: retratos e ícones. Comparar a paleta da Milícia com Fuzileiro e Sapador; a roupa civil deve permanecer distinta.",
+      "estado": "main local",
+      "refs": [
+        "UI-RU07",
+        "revisão cromática da v06",
+        "fora de GE-game"
+      ],
+      "miniatura": "media/2026-10/ui-retratos-milicia-v07.webp"
+    },
+    {
+      "id": "2026-10-16-ui-milicia-paleta-v08",
+      "data": "2026-10-16",
+      "area": "arte",
+      "titulo": "UI: Milícia com paleta reequilibrada v08",
+      "resumo": "Correção mais visível da paleta da Milícia: camisa em cáqui-ocre médio e colete civil em castanho médio, aproximando os valores do restante conjunto. Traje, pose e armamento preservados.",
+      "olhar": "Acervo — Interface: retratos e ícones. Conferir a leitura da Milícia em tamanho de cartela junto a Fuzileiro e Sapador.",
+      "estado": "main local",
+      "refs": [
+        "UI-RU08",
+        "revisão da paleta Milícia",
+        "fora de GE-game"
+      ],
+      "miniatura": "media/2026-10/ui-retratos-milicia-v08.webp"
+    },
+    {
+      "area": "arte",
+      "data": "2026-10-16",
+      "estado": "main local",
+      "id": "2026-10-16-ui-milicia-paleta-v09",
+      "miniatura": "media/2026-10/ui-retratos-milicia-v09.webp",
+      "olhar": "Acervo — Interface: retratos e ícones. Conferir a leitura da Milícia em tamanho de cartela junto às outras unidades.",
+      "refs": [
+        "UI-RU09",
+        "revisão cromática da Milícia com cartela de referência",
+        "fora de GE-game"
+      ],
+      "resumo": "Paleta da Milícia ajustada pela cartela de referência: tecidos em cáqui-ocre dourado mais quente e claro e couro menos alaranjado. Traje civil, pose e armamento preservados.",
+      "titulo": "UI: Milícia com paleta alinhada à cartela v09"
+    },
+    {
+      "id": "2026-10-16-botao-opcoes",
+      "data": "2026-10-16",
+      "area": "código",
+      "titulo": "Botão Opções no menu principal e na pausa (A12, A13)",
+      "resumo": "As Opções reúnem os cinco volumes (que saíram da raiz das telas) e a troca entre os modelos do protótipo e os de alta fidelidade, que vale na hora, também no meio da partida. A escolha fica guardada.",
+      "olhar": "Menu principal e pausa (Esc) → Opções: mexer nos volumes, trocar Protótipo/Alta fidelidade e conferir que as unidades e construções mudam; Esc fecha só as Opções.",
+      "estado": "main local",
+      "refs": [
+        "A12",
+        "A13",
+        "2 rodadas de code-review",
+        "EditMode 1666/1666"
+      ]
+    },
+    {
+      "area": "arte",
+      "data": "2026-10-16",
+      "estado": "main local",
+      "id": "2026-10-16-ui-milicia-referencia-v10",
+      "miniatura": "media/2026-10/ui-retratos-unidades-v10.webp",
+      "olhar": "Acervo — Interface: retratos e ícones. Arte da Milícia copiada diretamente da referência aprovada.",
+      "refs": [
+        "UI-RU10",
+        "recorte direto da cartela enviada",
+        "sem recriação"
+      ],
+      "resumo": "A Milícia agora usa diretamente a arte da cartela de referência, recortada e redimensionada para o retrato quadrado; nenhum elemento visual foi recriado. Os outros nove retratos permanecem iguais à v09.",
+      "titulo": "UI: Milícia com arte da cartela de referência v10"
+    },
+    {
+      "area": "arte",
+      "data": "2026-10-16",
+      "estado": "main local",
+      "id": "2026-10-16-ui-milicia-hd-v11",
+      "miniatura": "media/2026-10/ui-retratos-milicia-v11.webp",
+      "olhar": "Acervo — Interface: retratos e ícones. Conferir a Milícia individual em alta resolução e na cartela completa.",
+      "refs": [
+        "UI-RU11",
+        "alta resolução baseada somente no recorte aprovado",
+        "sem alterar as demais unidades"
+      ],
+      "resumo": "Retrato individual da Milícia reconstruído em 1254 × 1254 px a partir somente do recorte aprovado, para alinhar resolução e acabamento ao restante do conjunto.",
+      "titulo": "UI: Milícia em alta resolução baseada no recorte v11"
+    },
+    {
+      "area": "arte",
+      "data": "2026-10-16",
+      "estado": "main local",
+      "id": "2026-10-16-ui-comandos-complemento-v01",
+      "miniatura": "media/2026-10/ui-comandos-complemento-v01.webp",
+      "olhar": "Acervo — Interface: tecnologias e comandos. Conferir os três comandos complementares em escala de catálogo e como sprites individuais.",
+      "refs": [
+        "UI-TC02",
+        "comandos sem arte específica da rodada v01",
+        "proposta visual sem integração"
+      ],
+      "resumo": "Ícones novos para Guardar, Formação e Produção contínua, com acabamento dourado tridimensional e PNGs transparentes. Não ativam os comandos nem alteram regras.",
+      "titulo": "UI: ícones complementares de comandos v01"
+    },
+    {
+      "id": "2026-10-16-classes-triangulo",
+      "data": "2026-10-16",
+      "area": "código",
+      "titulo": "Classes de alvo e tipos de arma: tabela, triângulo, precisão e dispersão (CL1–CL10)",
+      "resumo": "Cada unidade tem classe e arma; a tabela arma × classe e os bônus do triângulo (fuzileiro vence cavalaria, que vence a artilharia, que vence metralhadora e posição) ficam no F10. Milícia acerta 85% e metralhadora 80%; morteiro e artilharia se espalham.",
+      "olhar": "F10 → grupo Classes e os bônus de cada unidade; jogar fuzileiros contra cavalaria, cavalaria contra artilharia e metralhadora numa posição contra fuzileiros de frente.",
+      "estado": "main local",
+      "refs": [
+        "CL15–CL18",
+        "estado v32",
+        "5 rodadas de code-review"
+      ]
+    },
+    {
+      "id": "2026-10-16-faixas-artilharia-cl19-cl20",
+      "data": "2026-10-16",
+      "area": "código",
+      "titulo": "Faixas por papel (CL19) e artilharia com dano 58 (CL20)",
+      "resumo": "A medida das faixas passa a vida 100 (AJ32) e a metralhadora vira exceção de dano/s. A artilharia sobe de 55 para 58 de dano (0,8 de dano/s) com cerco × construção em 285, e a casa segue caindo no quarto tiro. Docs de cobertura, comércio e escopo em dia.",
+      "olhar": "F10 → grupo Classes: artilharia com dano 58 e cerco × construção 285. A partida IA × IA da semente 2026 acaba aos 44:59 (era 43:40).",
+      "estado": "main local",
+      "refs": [
+        "CL19",
+        "CL20",
+        "lote de 13 sementes igual ao do CL18",
+        "3 rodadas de code-review"
+      ]
+    },
+    {
+      "id": "2026-10-16-trincheiras-assalto-sapador-decisoes",
+      "data": "2026-10-16",
+      "area": "design",
+      "titulo": "Trincheiras, assalto e novas funções do sapador: decisões TC15–TC30",
+      "resumo": "Trecho de 6 × 2 m sem dono, aberturas e passarela, só soldados a pé entram e só a esteira cruza. Assalto no quartel com escopeta e granada como habilidade. Sapador se equipa com lança-chamas ou carga; gás e máscaras ficam para depois.",
+      "olhar": "Só texto por ora: docs/specs/combate-posicoes.md, seção Primeira versão. O código vem em 6 etapas; o TC21 guarda o que falta fechar.",
+      "estado": "main local",
+      "refs": [
+        "TC15–TC30",
+        "TC21 com os Pendentes",
+        "TC13 Confirmado",
+        "artes TR01–TR05 do Codex (referência)",
+        "3 rodadas de revisão"
+      ]
+    },
+    {
+      "id": "2026-10-16-centros-urbanos-construiveis",
+      "data": "2026-10-16",
+      "area": "código",
+      "titulo": "Centros urbanos construíveis e derrota só sem centro concluído (J83, J84)",
+      "resumo": "O centro urbano agora se constrói (500 madeira + 200 metal, 90 s) e perde quem fica sem nenhum concluído. Cada um dá +10 de população e é raiz do abastecimento. A IA ataca o mais perto que viu e procura os escondidos com um grupo de cavalaria.",
+      "olhar": "Selecione um trabalhador → construir → tecla X (centro urbano). Derrube o centro inicial com outro concluído de pé: a partida continua.",
+      "estado": "main local",
+      "refs": [
+        "J83",
+        "J84 (Pendente, com limitações conhecidas)",
+        "estado v33",
+        "4 rodadas de code-review"
+      ]
+    },
+    {
+      "id": "2026-10-17-trincheira-detalhes-tc31",
+      "data": "2026-10-17",
+      "area": "design",
+      "titulo": "Detalhes da primeira versão da trincheira fechados (TC31)",
+      "resumo": "Fechados na entrevista: uma abertura por trecho, só o trecho concluído protege, canhão do tanque a 150% no trecho, rebaixo visual, botões do sapador e quando a IA cava e pesquisa. O TC21 fica só com o que falta.",
+      "olhar": "Só texto por ora: docs/specs/decisoes.md (TC31, TC21) e a seção Primeira versão de combate-posicoes.md.",
+      "estado": "main local",
+      "refs": [
+        "TC31",
+        "TC21 reduzido",
+        "main 1de211c"
+      ]
+    },
+    {
+      "id": "2026-10-17-trincheira-etapa-1a",
+      "data": "2026-10-17",
+      "area": "código",
+      "titulo": "Trincheira, etapa 1A: o trecho cavado pelo sapador (TC15, TC16)",
+      "resumo": "O sapador arrasta uma linha de trechos de 6 × 2 m (80 madeira + 20 metal, 30 s, vida 400); concluído, o trecho vira terreno sem dono, e a vida zero o transforma em cratera, que qualquer sapador ou trabalhador repara. Ainda sem passagem, proteção nem dano das armas.",
+      "olhar": "Só testes por ora (comando 42, sem botão na tela): 203 trechos custam cerca de 0,3 ms a mais por tick. A tela vem na etapa da apresentação.",
+      "estado": "main local",
+      "refs": [
+        "TC15",
+        "TC16",
+        "estado v34",
+        "comando 42",
+        "2 rodadas de code-review",
+        "main 2c6529e"
+      ]
+    },
+    {
+      "id": "2026-10-17-trincheira-etapa-1b",
+      "data": "2026-10-17",
+      "area": "código",
+      "titulo": "Trincheira, etapa 1B: a passagem por classe (TC17, TC31)",
+      "resumo": "A infantaria entra e sai só pelas pontas livres da linha e anda por dentro; o tanque atravessa na metade da velocidade; batedor, cavalaria e equipes dão a volta. Grupo misturado mandado à trincheira se divide. A cratera é chão aberto para todos.",
+      "olhar": "Ainda sem botão na tela (a abertura e a apresentação vêm depois); conferido pelos testes. Sem trincheira, as partidas douradas são as mesmas.",
+      "estado": "main local",
+      "refs": [
+        "TC17",
+        "TC31",
+        "TC16 (cratera: chão aberto)",
+        "estado v35",
+        "3 rodadas de code-review",
+        "main 7f02fe4"
+      ]
+    },
+    {
+      "id": "2026-10-17-trincheira-etapa-1c",
+      "data": "2026-10-17",
+      "area": "código",
+      "titulo": "Trincheira, etapa 1C: a abertura (TC17, TC31)",
+      "resumo": "O sapador põe uma abertura no meio da lateral de um trecho (20 madeira, 10 s, uma por trecho); pronta, a infantaria entra e sai por ali, e ela some com o trecho e volta quando ele é reparado. Fecha a etapa 1 da trincheira.",
+      "olhar": "Ainda sem botão na tela (a apresentação vem depois); conferido pelos testes. Sem trincheira, as partidas douradas são as mesmas.",
+      "estado": "main local",
+      "refs": [
+        "TC17",
+        "TC31",
+        "comando 43",
+        "estado v36",
+        "1 rodada de code-review",
+        "main f8f7063"
+      ]
+    },
+    {
+      "id": "2026-10-17-trincheira-etapa-2",
+      "data": "2026-10-17",
+      "area": "código",
+      "titulo": "Trincheira, etapa 2: dano, proteção e passarela (TC16–TC18, TC31)",
+      "resumo": "Artilharia, morteiro e tanque derrubam o trecho. Dentro, a infantaria leva 80% de erro andando e 50% parada contra o tiro direto, pelo parapeito; explosão fora da linha fere 25%. A passarela (15 madeira, 8 s) deixa passar por cima e por baixo.",
+      "olhar": "Ainda sem botão nem clique de ataque no trecho (vêm na etapa 4); conferido pelos testes.",
+      "estado": "main local",
+      "refs": [
+        "TC16",
+        "TC17",
+        "TC18",
+        "TC30",
+        "TC31",
+        "comando 44",
+        "estado v38",
+        "4 rodadas de code-review",
+        "main aa7b912"
+      ]
+    },
+    {
+      "id": "2026-10-18-trincheira-etapa-3-e-4",
+      "data": "2026-10-18",
+      "area": "código",
+      "titulo": "Trincheira, etapas 3 e 4: kit visual, combate na linha e busca (TC15, TC17, TC31)",
+      "resumo": "Kit low poly de trincheira (TR01–TR03) com rebaixo de terreno, botões na barra do sapador, combate ao longo da linha, busca automática de cobertura e comando de ataque ao trecho.",
+      "olhar": "Selecionar sapador e testar botões de cavar trincheira, abertura e passarela; verificar infantaria buscando abrigo.",
+      "estado": "main local",
+      "refs": [
+        "TC15",
+        "TC17",
+        "TC31",
+        "TR01–TR03",
+        "main d4f554d"
+      ]
+    },
+    {
+      "id": "2026-10-18-infantaria-assalto",
+      "data": "2026-10-18",
+      "area": "código",
+      "titulo": "Infantaria de assalto com escopeta e granada (TC19, TC22, TC23, TC30, TC31)",
+      "resumo": "Unidade especializada em limpeza de trincheiras e combate a curta distância, armada com escopeta e granada de mão para quebra de posições defensivas.",
+      "olhar": "Treinar no quartel da Era do Aço e testar ataque direto a posições e trincheiras.",
+      "estado": "main local",
+      "refs": [
+        "TC19",
+        "TC22",
+        "TC23",
+        "TC30",
+        "TC31",
+        "main ac933e1"
+      ]
+    },
+    {
+      "id": "2026-10-19-ui-acervo-icones-e-audio",
+      "data": "2026-10-19",
+      "area": "arte",
+      "titulo": "Novo acervo de UI (105 ícones), badges 3D/2D, minimapa circular e áudio de sabre",
+      "resumo": "105 ícones de comandos e tecnologias no HUD; status badges flutuantes em 3D (shader IconeMundo) e nos cards; minimapa circular com moldura dourada e máscara radial euclidiana; áudio sintetizado de sabre para batedor e cavalaria.",
+      "olhar": "Verificar novo minimapa circular, ícones do grid de comandos e badges visuais sobre unidades no combate.",
+      "estado": "main local",
+      "refs": [
+        "notas 156, 158, 163",
+        "IconeMundo",
+        "SoundSynth",
+        "hud.uss"
+      ]
+    },
+    {
+      "id": "2026-10-19-playtest-w14-fechado",
+      "data": "2026-10-19",
+      "area": "playtest",
+      "titulo": "Playtest final W14: 33 achados encerrados (notas 152–184) e iteração arquivada",
+      "resumo": "Todas as 33 notas do playtest final do protótipo foram solucionadas e validadas: 8 bugs corrigidos (checklist na tela, pesquisas sumindo, artilharia na névoa, etc.), IA balanceada e M6 conferidos, F10/F11 integrados e 546 testes verdes.",
+      "olhar": "Conferido pela suíte de testes (GE.View.Tests, 546/546 aprovados) e iteração w14 arquivada no Workspace.",
+      "estado": "main local",
+      "refs": [
+        "W14",
+        "notas 152–184",
+        "546 testes verdes",
+        "playtest.json"
+      ]
+    },
+    {
+      "id": "2026-10-19-aviacao-construcao-grades",
+      "data": "2026-10-19",
+      "area": "código",
+      "titulo": "Aviação: telas civil e militar no trabalhador, aeródromo na grade e trincheira exclusiva do sapador",
+      "resumo": "Divisão da construção do trabalhador em Civil (B) e Militar (V), incluindo Aeródromo (E). Obras de trincheira (trecho, abertura e passarela) agora exclusivas do Sapador. Adição de botões de recrutamento e pesquisa de Assalto no Quartel.",
+      "olhar": "Selecionar trabalhador e testar teclas B (civil) e V (militar); verificar Aeródromo no menu militar; selecionar sapador para obras de trincheira.",
+      "estado": "branch local",
+      "refs": [
+        "AV1",
+        "AV2",
+        "AV7",
+        "TC15",
+        "TC17",
+        "95729cc",
+        "551 testes verdes"
+      ]
+    },
+    {
+      "id": "2026-10-21-editor-estudo-wc3-sc2",
+      "data": "2026-10-21",
+      "area": "ferramentas",
+      "titulo": "Editor GE: estudo WC3/SC2 e acesso local sem computer use",
+      "resumo": "Estudo do World Editor e ponte SC2 de leitura validados. No SC2: 55 arquivos de mapa, 174 originais e 1.912 arquivos CASC conferidos por hash. As dependências padrão e a composição final do motor continuam com limites documentados.",
+      "olhar": "Aba Editor: fontes estudadas, acesso disponível e limites. Prova de leitura de dados; não equivale a comportamento runtime ou editor GE implementado.",
+      "estado": "entrega local",
+      "refs": [
+        "wc3-study",
+        "sc2-study",
+        "leitura estruturada",
+        "sem alteração do GE"
+      ]
+    },
+    {
+      "id": "2026-10-21-editor-proposta-conceitos-v01",
+      "data": "2026-10-21",
+      "area": "design",
+      "titulo": "Editor GE: proposta integrada e quatro artes de layout e menus",
+      "resumo": "Proposta com Mapa, Objetos, Lógica visual/C#, IA e Campanha. Quatro conceitos mostram paletas, variantes e referências, depuração e progressão de missões. Artes em avaliação; sem implementação ou aprovação de balanceamento.",
+      "olhar": "Aba Editor: ampliar as quatro artes e comparar melhorias de usabilidade. A mesma família está no Acervo, marcada em avaliação.",
+      "estado": "proposta",
+      "refs": [
+        "conceitos v01",
+        "4 artes",
+        "image_gen integrada"
+      ],
+      "miniaturas": [
+        {
+          "arquivo": "media/2026-10/editor-ge-mapa-v01.webp",
+          "legenda": "Editor GE: mapa e paletas — conceito"
+        },
+        {
+          "arquivo": "media/2026-10/editor-ge-objetos-v01.webp",
+          "legenda": "Editor GE: objetos e variantes — conceito"
+        },
+        {
+          "arquivo": "media/2026-10/editor-ge-logica-v01.webp",
+          "legenda": "Editor GE: lógica visual e C# — conceito"
+        },
+        {
+          "arquivo": "media/2026-10/editor-ge-campanha-v01.webp",
+          "legenda": "Editor GE: campanha e menus — conceito"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-21-playtest-sapador-ia-hud",
+      "data": "2026-10-21",
+      "area": "código",
+      "titulo": "Playtest: HUD/F10, Sapador equipado e IA integrada",
+      "resumo": "39 observações implementadas; fila A, cartões/retratos compactos e F10 visual. Sapador com especializações/modelos próprios, IA usando as capacidades e recuo da carga corrigido. Integração local em conferência.",
+      "olhar": "F11: 77 itens. F10 prepara os cenários. Conferir tanque móvel após plantar, equipamentos, fila global e ritmo da IA sem atalhos. Aceite humano e balanceamento continuam abertos.",
+      "estado": "branch local",
+      "refs": [
+        "AV1–AV12",
+        "TC19–TC31",
+        "PT1–PT4",
+        "v45",
+        "411c125"
+      ]
+    }
+  ]
+}

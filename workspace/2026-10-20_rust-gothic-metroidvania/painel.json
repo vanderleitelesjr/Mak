@@ -1,0 +1,45 @@
+{
+  "estado": "First rendering/runtime proof implemented · human review pending",
+  "numeros": [
+    {
+      "rotulo": "Runtime milestone",
+      "valor": "@roteiro.progresso",
+      "icone": "arte"
+    },
+    {
+      "rotulo": "Confirmed decisions",
+      "valor": "@decisoes.confirmadas",
+      "icone": "check"
+    },
+    {
+      "rotulo": "Direction choices pending",
+      "valor": "@decisoes.pendentes",
+      "icone": "livro"
+    },
+    {
+      "rotulo": "Concept images",
+      "valor": "39",
+      "icone": "imagem"
+    }
+  ],
+  "agora": [
+    {
+      "titulo": "One room runs in the custom Rust runtime",
+      "texto": "Real Blender-generated animated sprites, linear normals and dynamic light, 3D room geometry, planar collision, side-following camera and a bounded executable movement graph. Six focused tests and native startup passed."
+    },
+    {
+      "titulo": "Technical proxy ready for review",
+      "texto": "Keyboard/mouse/controller mappings are implemented; physical input playtest and human visual review remain pending. The simple armor and blockout room do not replace the approved references. See Documentation for the eight-second GPU replay and lighting comparison."
+    },
+    {
+      "titulo": "Next: visual room and graph authoring",
+      "texto": "Use the same runtime for validated map/graph save/reload and playtest instances that preserve authored data. Full gameplay, progression and the complete level remain future work."
+    }
+  ],
+  "comVoce": [
+    {
+      "titulo": "Physical controls and visual review",
+      "texto": "Run the first native proof and review the technical proxy. Device behavior and final art quality have not been owner-accepted."
+    }
+  ]
+}

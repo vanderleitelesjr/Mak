@@ -1,0 +1,66 @@
+{
+  "generator": "image_gen integrada",
+  "status": "conceito visual; não implementado",
+  "records": [
+    {
+      "id": "01_Mapa_e_paletas",
+      "title": "Mapa e paletas",
+      "version": 1,
+      "source": "C:\\Users\\vande\\.codex\\generated_images\\01a15c5b-859a-78e1-b7c5-eee61ccd3c0c\\exec-5f13deea-9bd0-407b-a098-e90066939ae0.png",
+      "file": "Artes/01_Mapa_e_paletas_v01.png",
+      "selected": true
+    },
+    {
+      "id": "02_Objetos_e_heranca",
+      "title": "Objetos, variantes e referências",
+      "version": 1,
+      "source": "C:\\Users\\vande\\.codex\\generated_images\\01a15c5b-859a-78e1-b7c5-eee61ccd3c0c\\exec-07df0d54-14bc-4ce0-982a-f103293381e9.png",
+      "file": "Artes/02_Objetos_e_heranca_v01.png",
+      "selected": false
+    },
+    {
+      "id": "02_Objetos_e_heranca",
+      "title": "Objetos, variantes e referências",
+      "version": 2,
+      "source": "C:\\Users\\vande\\.codex\\generated_images\\01a15c5b-859a-78e1-b7c5-eee61ccd3c0c\\exec-ae131c3a-274f-48c4-bf2a-d34b790bbcbe.png",
+      "file": "Artes/02_Objetos_e_heranca_v02.png",
+      "selected": true
+    },
+    {
+      "id": "03_Logica_visual_e_CSharp",
+      "title": "Lógica visual, C# e depuração",
+      "version": 1,
+      "source": "C:\\Users\\vande\\.codex\\generated_images\\01a15c5b-859a-78e1-b7c5-eee61ccd3c0c\\exec-52d51fd1-22d8-4f01-8249-4f94208e6cd2.png",
+      "file": "Artes/03_Logica_visual_e_CSharp_v01.png",
+      "selected": false
+    },
+    {
+      "id": "03_Logica_visual_e_CSharp",
+      "title": "Lógica visual, C# e depuração",
+      "version": 2,
+      "source": "C:\\Users\\vande\\.codex\\generated_images\\01a15c5b-859a-78e1-b7c5-eee61ccd3c0c\\exec-273704c4-c8f4-4b67-b2f3-700a370250e9.png",
+      "file": "Artes/03_Logica_visual_e_CSharp_v02.png",
+      "selected": true
+    },
+    {
+      "id": "04_Campanha_e_menus",
+      "title": "Campanha, missões e configuração",
+      "version": 1,
+      "source": "C:\\Users\\vande\\.codex\\generated_images\\01a15c5b-859a-78e1-b7c5-eee61ccd3c0c\\exec-80a9f6eb-0af7-4cc1-b37d-07ab4fb60746.png",
+      "file": "Artes/04_Campanha_e_menus_v01.png",
+      "selected": true
+    }
+  ],
+  "edits": [
+    {
+      "id": "02_Objetos_e_heranca",
+      "source": "C:\\Users\\vande\\.codex\\generated_images\\01a15c5b-859a-78e1-b7c5-eee61ccd3c0c\\exec-07df0d54-14bc-4ce0-982a-f103293381e9.png",
+      "prompt": "Use case: text-localization / ui-mockup precision edit. Edit this existing Global Empires object-editor concept screenshot with ONLY these text corrections to make the scope consistent: replace the model preview dropdown text 'Variante de cenário' with 'Variante de campanha'; replace the property-table column header 'Neste cenário' with 'Na campanha'; replace the small sentence under 'Usado por' with 'Esta variante é usada pelas missões abaixo.' Preserve the image dimensions, exact layout, typography, every other word and number, soldier model, all controls, all colors, reference tree, menus, and footer. No other redesign or composition change. The object is now a reusable campaign variant used by the two shown missions; the breadcrumb still correctly shows the broader Base do jogo → Campanha → Cenário hierarchy."
+    },
+    {
+      "id": "03_Logica_visual_e_CSharp",
+      "source": "C:\\Users\\vande\\.codex\\generated_images\\01a15c5b-859a-78e1-b7c5-eee61ccd3c0c\\exec-52d51fd1-22d8-4f01-8249-4f94208e6cd2.png",
+      "prompt": "Use case: precise-object-edit / ui-mockup. Edit this existing Global Empires visual scripting concept screenshot by adding ONLY one short horizontal light-gray data wire connecting the gray 'Unidade' output pin on the right side of the leftmost gold event node 'Unidade entrou na região' to the gray 'Unidade' input pin on the left side of the adjacent teal condition node 'Dono = Jogador 1'. This horizontal connection should sit below the existing gold execution wire and not cross it. Preserve absolutely everything else: all existing execution and blue data connections, all UI panels and text, C# code, model layout, menu bar, debugger, positions, image dimensions and colors. Do not move nodes or add any other graphical elements."
+    }
+  ]
+}

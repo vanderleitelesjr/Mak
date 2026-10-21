@@ -1,0 +1,376 @@
+{
+  "sobre": "Uma entrada por entrega; entregas locais identificam a branch e não representam merge. O PR #10 foi um teste descartável do CI, fechado sem merge; por isso não consta.",
+  "entregas": [
+    {
+      "id": "pr-1-base",
+      "data": "2026-10-16",
+      "area": "editor",
+      "titulo": "PR #1 · Base: editor copiado, renomeado e rodando",
+      "resumo": "Editor copiado do EditorModelos do Lightkeeper e renomeado para Blended: servidor no Blender, página em three.js, pasta de modelos configurável, `abrir_blended.bat` e o CI com pytest, Blender, node e Playwright.",
+      "olhar": "1 rodada de revisão.",
+      "estado": "main",
+      "refs": [
+        "PR #1",
+        "T1"
+      ],
+      "miniaturas": [
+        {
+          "arquivo": "media/interface/editor/editor-modos-v01.webp",
+          "legenda": "Modo Simples: o editor aberto com o personagem de exemplo."
+        },
+        {
+          "arquivo": "media/interface/editor/editor-modos-v01-completo.webp",
+          "legenda": "Modo Completo: os mesmos painéis, com mais ferramentas."
+        }
+      ]
+    },
+    {
+      "id": "pr-3-corpo-base",
+      "data": "2026-10-16",
+      "area": "editor",
+      "titulo": "PR #3 · Corpo-base e sliders",
+      "resumo": "Corpo-base neutro feito por script (600 triângulos, 23 ossos) e 7 controles: tipo de corpo, idade, altura, peso, músculos, cabeça e proporção de chibi a realista. As peças grudadas acompanham a pele.",
+      "olhar": "1 rodada de revisão.",
+      "estado": "main",
+      "refs": [
+        "PR #3",
+        "T5"
+      ],
+      "miniaturas": [
+        {
+          "arquivo": "media/interface/corpo/corpo-controles-v01.webp",
+          "legenda": "Simples: os 7 controles do corpo."
+        },
+        {
+          "arquivo": "media/interface/corpo/corpo-base-v01.webp",
+          "legenda": "Corpo-base neutro, de frente."
+        }
+      ]
+    },
+    {
+      "id": "pr-2-salvar",
+      "data": "2026-10-16",
+      "area": "editor",
+      "titulo": "PR #2 · Salvar: versões, cópia de emergência e git invisível",
+      "resumo": "Cada Salvar guarda uma versão com miniatura; voltar ou copiar com Desfazer; lembrete aos 5 minutos; cópia de emergência a cada 30 s; \"Enviar\" sem GitHub explicado em linguagem simples.",
+      "olhar": "2 rodadas de revisão.",
+      "estado": "main",
+      "refs": [
+        "PR #2",
+        "T3"
+      ],
+      "miniaturas": [
+        {
+          "arquivo": "media/interface/versoes/versoes-v01.webp",
+          "legenda": "Versões no Simples: voltar a uma versão ou fazer uma cópia."
+        },
+        {
+          "arquivo": "media/interface/versoes/recuperar-v01.webp",
+          "legenda": "Recuperar o trabalho depois de uma queda (cópia de emergência)."
+        }
+      ]
+    },
+    {
+      "id": "pr-4-tela",
+      "data": "2026-10-16",
+      "area": "editor",
+      "titulo": "PR #4 · Tela: painéis modulares, Simples e Completo, idiomas e temas",
+      "resumo": "Painéis para as 4 bordas, abas e janelas, layouts salvos com nome, modos Simples e Completo, pt e en, tema claro e escuro, letra em 3 tamanhos e 1366×768 sem rolagem horizontal.",
+      "olhar": "2 rodadas de revisão.",
+      "estado": "main",
+      "refs": [
+        "PR #4",
+        "T4"
+      ],
+      "miniaturas": [
+        {
+          "arquivo": "media/interface/editor/editor-temas-v01.webp",
+          "legenda": "Completo, tema escuro."
+        },
+        {
+          "arquivo": "media/interface/editor/editor-temas-v01-simples-claro.webp",
+          "legenda": "Simples, tema claro."
+        }
+      ]
+    },
+    {
+      "id": "pr-5-pecas",
+      "data": "2026-10-16",
+      "area": "editor",
+      "titulo": "PR #5 · Peças: prateleira, encaixe, pacotes grátis e peça própria",
+      "resumo": "Prateleira com 13 peças de personagem e 3 objetos por partes, encaixe no ponto certo (40 de 40 casos), par espelhado, alças, pacotes Kenney e Quaternius com licença e \"Virar peça\" com um clique.",
+      "olhar": "3 rodadas de revisão. A 3ª rodada foi autorizada só para conferir o B3 (a cópia de emergência não levava as peças grudadas).",
+      "estado": "main",
+      "refs": [
+        "PR #5",
+        "T6"
+      ],
+      "miniaturas": [
+        {
+          "arquivo": "media/interface/pecas/pecas-editor-v01.webp",
+          "legenda": "Simples: peça grudada com as alças."
+        },
+        {
+          "arquivo": "media/interface/pecas/pecas-vestidas-v01.webp",
+          "legenda": "Personagens vestidos com as peças prontas, de frente."
+        }
+      ]
+    },
+    {
+      "id": "pr-6-eol",
+      "data": "2026-10-16",
+      "area": "ci",
+      "titulo": "PR #6 · Fim de linha padronizado em LF",
+      "resumo": "Padroniza o fim de linha em LF com `.gitattributes` (`.bat`, `.cmd` e `.ps1` em CRLF), renormaliza o repositório e lista o commit em `.git-blame-ignore-revs`.",
+      "olhar": "Mudança mecânica do Coordenador, sem rodada de revisão.",
+      "estado": "main",
+      "refs": [
+        "PR #6"
+      ]
+    },
+    {
+      "id": "pr-7-provedores",
+      "data": "2026-10-16",
+      "area": "editor",
+      "titulo": "PR #7 · Provedores de IA: camada única, contas e custo",
+      "resumo": "Camada única com 8 provedores, tela Contas com as chaves no Gerenciador de Credenciais, escolha por geração com custo e qualidade, verificação de custo e 55 fixtures: o CI nunca chama a rede.",
+      "olhar": "2 rodadas de revisão.",
+      "estado": "main",
+      "refs": [
+        "PR #7",
+        "T8"
+      ],
+      "miniaturas": [
+        {
+          "arquivo": "media/interface/provedores/escolha-provedor-v01.webp",
+          "legenda": "Escolha do provedor, com custo e recomendação (Simples)."
+        },
+        {
+          "arquivo": "media/interface/provedores/contas-v01.webp",
+          "legenda": "Contas no Simples."
+        }
+      ]
+    },
+    {
+      "id": "pr-9-ci-proprio",
+      "data": "2026-10-16",
+      "area": "ci",
+      "titulo": "PR #9 · CI: build-e-testes no executor próprio do PC",
+      "resumo": "O `build-e-testes` passa a rodar num executor próprio do PC porque a conta do GitHub ficou sem minutos. Os riscos e como ligar e desligar ficaram documentados.",
+      "olhar": "1 rodada de revisão.",
+      "estado": "main",
+      "refs": [
+        "PR #9"
+      ]
+    },
+    {
+      "id": "pr-8-estilos",
+      "data": "2026-10-16",
+      "area": "editor",
+      "titulo": "PR #8 · Estilos e materiais",
+      "resumo": "Quatro estilos (PS1, low-poly, estilizado e realista) com barra de limites, troca de estilo numa cópia, otimizar sozinho com Desfazer, estilo próprio, vista do estilo e 24 materiais feitos por script.",
+      "olhar": "2 rodadas de revisão.",
+      "estado": "main",
+      "refs": [
+        "PR #8",
+        "T10"
+      ],
+      "miniaturas": [
+        {
+          "arquivo": "media/interface/estilos/estilos-painel-v01.webp",
+          "legenda": "Painel Estilo e barra de limites (Simples)."
+        },
+        {
+          "arquivo": "media/interface/estilos/estilos-vistas-v01.webp",
+          "legenda": "A vista do estilo PS1."
+        }
+      ]
+    },
+    {
+      "id": "pr-11-executor-isolado",
+      "data": "2026-10-17",
+      "area": "ci",
+      "titulo": "PR #11 · CI: executor isolado num usuário próprio do Windows",
+      "resumo": "O executor do CI passa a rodar no usuário `blended-ci`, sem administrador e sem acesso às chaves do dono. Traz o instalador, a escrita negada nos discos por SID e a guarda no primeiro passo do job.",
+      "olhar": "3 rodadas de revisão. A 3ª rodada foi autorizada pelo usuário.",
+      "estado": "main",
+      "refs": [
+        "PR #11"
+      ]
+    },
+    {
+      "id": "pr-12-pintura",
+      "data": "2026-10-17",
+      "area": "editor",
+      "titulo": "PR #12 · Pintura: peça toda, espelhar, efeitos, adesivos e pintar descrevendo",
+      "resumo": "Peça toda, espelhar ligado, borracha, efeitos no modelo todo ou na peça, 10 carimbos e qualquer imagem como adesivo, pintar descrevendo com custo e provedor e a paleta do estilo. Sem UV no Simples.",
+      "olhar": "2 rodadas de revisão.",
+      "estado": "main",
+      "refs": [
+        "PR #12",
+        "T9"
+      ],
+      "miniaturas": [
+        {
+          "arquivo": "media/interface/pintura/pintura-editor-v01.webp",
+          "legenda": "Pintura no Simples."
+        },
+        {
+          "arquivo": "media/interface/pintura/pintura-efeitos-v01.webp",
+          "legenda": "Efeito ferrugem no modelo todo, com intensidade de 60%."
+        }
+      ]
+    },
+    {
+      "id": "pr-13-descrever",
+      "data": "2026-10-17",
+      "area": "editor",
+      "titulo": "PR #13 · Descrever: criar descrevendo com o Claude Code, ao vivo, com chat e comandos",
+      "resumo": "Caixa de texto e imagem, 3 ou 4 variações montadas ao vivo, chat com 26 comandos e caminhos guiados. Aprovado na rodada 2: a tarefa sempre termina e criar não edita o modelo errado.",
+      "olhar": "2 rodadas de revisão. Merge d311ca6. Não provado: a chamada real ao Claude Code (formato da resposta e os 60 s); só o uso confirma.",
+      "estado": "main",
+      "refs": [
+        "PR #13",
+        "T7"
+      ],
+      "miniaturas": [
+        {
+          "arquivo": "media/interface/descrever/descrever-ideias-v01.webp",
+          "legenda": "3 ideias montadas ao vivo, uma frase por passo; escolher salva a ideia (Simples)."
+        },
+        {
+          "arquivo": "media/interface/descrever/descrever-chat-v01.webp",
+          "legenda": "O chat do Assistente, com o \"O que fazer?\" (Simples)."
+        }
+      ]
+    },
+    {
+      "id": "pr-15-automacoes",
+      "data": "2026-10-17",
+      "area": "editor",
+      "titulo": "PR #15 · Automações e desfazer: arrumações sozinhas, Ctrl+Z sem limite, linha do tempo e conferir modelo",
+      "resumo": "Arrumações depois de cada Salvar com aviso e Desfazer, Ctrl+Z sem limite, painel Histórico e Conferir modelo (acha 4 problemas, conserta 3). Aprovado na rodada 3, autorizada só para a escala automática.",
+      "olhar": "3 rodadas de revisão (a 3ª autorizada pelo usuário, só para a escala). Merge 84490f0. Modelo pequeno feito em centímetros não é mais corrigido sozinho; Conferir modelo corrige quando pedido.",
+      "estado": "main",
+      "refs": [
+        "PR #15",
+        "T11"
+      ]
+    },
+    {
+      "id": "pr-16-galeria",
+      "data": "2026-10-17",
+      "area": "editor",
+      "titulo": "PR #16 · Galeria e arquivos: pastas, busca, etiquetas, variação, importar GLB/FBX/OBJ e o pacote .blended",
+      "resumo": "Pastas com Desfazer, lixeira, etiquetas sem provedor, Fazer variação, importar GLB/FBX/OBJ com escala corrigida e o .blended que volta idêntico em outra pasta. Liga o Abrir no editor da prévia paga do Descrever.",
+      "olhar": "Integrado em 2026-10-19 após revisão e validação. Commits anteriores preservados.",
+      "estado": "main",
+      "refs": [
+        "PR #16",
+        "T13"
+      ]
+    },
+    {
+      "id": "pr-17-ideia-kimodo",
+      "data": "2026-10-17",
+      "area": "documentos",
+      "titulo": "PR #17 · Pendências: ideia do Kimodo para o M3 e executor isolado concluído",
+      "resumo": "Registra a avaliação do Kimodo (NVIDIA) para animar descrevendo no M3, com licença, prós, contras e prova de conceito; marca como feito o item do executor isolado do CI.",
+      "olhar": "Só documento; sem revisão do Revisor.",
+      "estado": "main",
+      "refs": [
+        "PR #17"
+      ]
+    },
+    {
+      "id": "pr-19-exportar",
+      "data": "2026-10-17",
+      "area": "editor",
+      "titulo": "PR #19 · Exportar para a pasta do jogo (Unity, Unreal e Godot)",
+      "resumo": "Reconhece o projeto do jogo, sai FBX para Unity e Unreal e GLB para Godot nos nomes de cada engine, com LOD e colisão; exportar ao salvar e vários destinos. Aberto de verdade nas três engines, com captura.",
+      "olhar": "Integrado em 2026-10-19 após revisão e validação. Mantida a prova nas três engines registrada pelo Claude. Commits anteriores preservados.",
+      "estado": "main",
+      "refs": [
+        "PR #19",
+        "T12"
+      ]
+    },
+    {
+      "id": "pr-14-erro-rede",
+      "data": "2026-10-17",
+      "area": "editor",
+      "titulo": "PR #14 · Mensagem clara quando o servidor não responde",
+      "resumo": "O erro de conexão vira uma frase em português ou inglês. Os erros enviados pelo servidor e o cancelamento continuam distintos.",
+      "olhar": "Integrado em 2026-10-19 após revisão e validação. Commits anteriores preservados.",
+      "refs": [
+        "PR #14"
+      ],
+      "estado": "main"
+    },
+    {
+      "id": "pr-18-corrida-provedores",
+      "data": "2026-10-17",
+      "area": "editor",
+      "titulo": "PR #18 · Resultado só aparece depois da conferência do custo",
+      "resumo": "A geração só termina depois do registro e da conferência da cobrança. As imagens do Descrever são removidas antes do resultado final.",
+      "olhar": "Integrado em 2026-10-19 após revisão e validação. Commits anteriores preservados.",
+      "refs": [
+        "PR #18",
+        "T8"
+      ],
+      "estado": "main"
+    },
+    {
+      "id": "pr-20-estabilidade",
+      "data": "2026-10-19",
+      "area": "ci",
+      "titulo": "PR #20 · Estabilidade ao abrir a página",
+      "resumo": "As leituras reutilizam conexões HTTP em vez de abrir uma por arquivo. Evita o acúmulo de conexões encerradas no Windows.",
+      "olhar": "Integrado em 2026-10-19 após revisão e validação. 400 aberturas sem falha; POST conserva o fechamento anterior. Commits anteriores preservados.",
+      "refs": [
+        "PR #20",
+        "T1"
+      ],
+      "estado": "main"
+    },
+    {
+      "id": "local-m3-movimentos",
+      "data": "2026-10-20",
+      "area": "editor",
+      "titulo": "M3 · Movimentos e rigs importados compatíveis",
+      "resumo": "Andar, correr e atacar no corpo-base e em rigs importados compatíveis. Estrutura e pesos conferidos; dados e animações anteriores preservados. Botões/chat, prévia, Desfazer/Refazer e salvamento existentes. Em revisão local, sem integração.",
+      "olhar": "31 JS, 64 Python e cinco cenários distintos focados de navegador passaram, em rodadas separadas. FBX/GLB e pele reexportada conferidos no Blender. Provas com rigs controlados; não é compatibilidade com qualquer plugin. Rig sem esqueleto, revisão independente, humano e engines pendentes.",
+      "refs": [
+        "M3-E3",
+        "m3/rig-animacoes"
+      ],
+      "miniaturas": [
+        {
+          "arquivo": "media/interface/animar/animar-movimentos-prontos-v02.webp",
+          "legenda": "Humanoide GLB importado, com corrida salva e reaberta. Rig controlado; naturalidade ainda sem aprovação humana."
+        }
+      ],
+      "estado": "branch local"
+    },
+    {
+      "id": "local-m1-cli-ajuda",
+      "data": "2026-10-19",
+      "area": "editor",
+      "titulo": "M1 · Cliente CLI e ajuda",
+      "resumo": "Comandos do chat pela CLI, lotes e receitas, editor ao vivo e execução sem janela. Tutorial de criar/pintar/exportar, dicas e diagnóstico local revisável. Branch m1/cli-ajuda-local em revisão, sem commit ou integração.",
+      "olhar": "20/10: quatro correções rechecadas na fonte atual; 17 Python e 10 cenários de navegador passaram, incluindo receita sem interface. Sem novo bloqueio no escopo focado. Aprovação independente da entrega, instalador, integração e teste humano pendentes. M1 segue 12/16.",
+      "refs": [
+        "T14",
+        "T15",
+        "m1/cli-ajuda-local"
+      ],
+      "estado": "branch local",
+      "miniaturas": [
+        {
+          "arquivo": "media/interface/ajuda/ajuda-tutorial-v01.webp",
+          "legenda": "Tutorial automatizado: personagem criado, pintado, salvo e exportado; não substitui teste humano."
+        }
+      ]
+    }
+  ]
+}

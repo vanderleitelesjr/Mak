@@ -1,0 +1,152 @@
+{
+  "iteracoes": [
+    {
+      "id": "pt-2026-10-19-cli-ajuda",
+      "nome": "M1 · Exploração guiada de CLI e ajuda · 19/10/2026",
+      "aberta": false,
+      "resumo": "19 corrigidos localmente e 2 parciais (15/17). O 15 aguarda teste real pela interface. No 17, Gemini CLI 0.64.0 instalado e encontrado, sem prompt; login humano e chats reais dos três clientes pendentes. Sem aprovação T16 ou integração na main.",
+      "achados": [
+        {
+          "id": "PT-2026-10-19-01",
+          "tipo": "usabilidade · média provisória",
+          "titulo": "Pincel: área de pixels destacada no modelo, com tamanho, peça, espelhamento e Shift + clique.",
+          "estado": "corrigido"
+        },
+        {
+          "id": "PT-2026-10-19-02",
+          "tipo": "usabilidade · média provisória",
+          "titulo": "Balde: região destacada antes de clicar, compartilhada com a aplicação e sem pintar na prévia.",
+          "estado": "corrigido"
+        },
+        {
+          "id": "PT-2026-10-19-03",
+          "tipo": "visual · média provisória",
+          "titulo": "Adesivos: grade compacta, alinhada ao topo e com rolagem interna.",
+          "estado": "corrigido"
+        },
+        {
+          "id": "PT-2026-10-19-04",
+          "tipo": "sugestão · baixa provisória",
+          "titulo": "Adesivos próprios: pastas, renomeação e movimentação persistentes neste navegador.",
+          "estado": "corrigido"
+        },
+        {
+          "id": "PT-2026-10-19-05",
+          "tipo": "sugestão · baixa provisória",
+          "titulo": "Alt + roda ajusta tamanho nas ferramentas compatíveis, acompanhando controles e prévia.",
+          "estado": "corrigido"
+        },
+        {
+          "id": "PT-2026-10-19-06",
+          "tipo": "sugestão · baixa provisória",
+          "titulo": "Shift + roda ajusta giro do adesivo; ferramentas sem giro preservam a roda.",
+          "estado": "corrigido"
+        },
+        {
+          "id": "PT-2026-10-19-07",
+          "tipo": "usabilidade · média provisória",
+          "titulo": "Cor e material aparecem conforme o uso; Desgaste e Madeira mantêm seus materiais.",
+          "estado": "corrigido"
+        },
+        {
+          "id": "PT-2026-10-19-08",
+          "tipo": "sugestão · baixa provisória",
+          "titulo": "Tingimento opcional de efeitos e imagens próprias; carimbos preservam o tingimento existente.",
+          "estado": "corrigido"
+        },
+        {
+          "id": "PT-2026-10-19-09",
+          "tipo": "sugestão · baixa provisória",
+          "titulo": "Cores originais / Sem tingimento separado de Opacidade nos adesivos.",
+          "estado": "corrigido"
+        },
+        {
+          "id": "PT-2026-10-19-10",
+          "tipo": "usabilidade · média provisória",
+          "titulo": "Dica animada próxima do controle, por mouse/foco e contida na janela.",
+          "estado": "corrigido"
+        },
+        {
+          "id": "PT-2026-10-19-11",
+          "tipo": "visual · média provisória",
+          "titulo": "Pintar descrevendo: espaçamento e etapas visuais separados.",
+          "estado": "corrigido"
+        },
+        {
+          "id": "PT-2026-10-19-12",
+          "tipo": "usabilidade · média provisória",
+          "titulo": "Pintar descrevendo: instruções de descrever, gerar, conferir e aplicar.",
+          "estado": "corrigido"
+        },
+        {
+          "id": "PT-2026-10-19-13",
+          "tipo": "bug suspeito · alta provisória",
+          "titulo": "Digitação reproduzida e corrigida em input, textarea, select e contenteditable; edição nativa preservada.",
+          "estado": "corrigido"
+        },
+        {
+          "id": "PT-2026-10-19-14",
+          "tipo": "sugestão · baixa provisória",
+          "titulo": "Opção renomeada para Usar minha própria IA manualmente, em português e inglês.",
+          "estado": "corrigido"
+        },
+        {
+          "id": "PT-2026-10-19-15",
+          "tipo": "sugestão · baixa provisória",
+          "titulo": "Parcial: geração e retorno automáticos pelo Codex implementados e testados com fixtures; falta o teste final pela conta real na interface.",
+          "estado": "em-correcao"
+        },
+        {
+          "id": "PT-2026-10-19-16",
+          "tipo": "sugestão · baixa provisória",
+          "titulo": "Escolhas independentes para chat e imagens/texturas; escolha manual não chama o provedor pago.",
+          "estado": "corrigido"
+        },
+        {
+          "id": "PT-2026-10-19-17",
+          "tipo": "sugestão · baixa provisória",
+          "titulo": "Parcial: Gemini CLI 0.64.0 instalado e encontrado; falta login Google e chat real dos três clientes. Status oficial de Claude/Codex já conferido.",
+          "estado": "em-correcao"
+        },
+        {
+          "id": "PT-2026-10-19-18",
+          "tipo": "sugestão · baixa provisória",
+          "titulo": "Conferir modelo na mesma linha das ferramentas; rótulo traduzido e adaptação de largura.",
+          "estado": "corrigido"
+        },
+        {
+          "id": "PT-2026-10-19-19",
+          "tipo": "usabilidade · média provisória",
+          "titulo": "Importar peça em Minhas: nome e prévia antes de guardar, preservando a edição não salva.",
+          "estado": "corrigido"
+        },
+        {
+          "id": "PT-2026-10-19-20",
+          "tipo": "sugestão · baixa provisória",
+          "titulo": "Galeria no topo junto de Simples/Completo, reutilizando a proteção da edição atual.",
+          "estado": "corrigido"
+        },
+        {
+          "id": "PT-2026-10-19-21",
+          "tipo": "sugestão · baixa provisória",
+          "titulo": "Tela renomeado para Opções, em português e inglês; barra cabe com a letra maior.",
+          "estado": "corrigido"
+        }
+      ]
+    },
+    {
+      "id": "pt-2026-10-20-fluxo-manual-m3",
+      "nome": "M3 · Fluxo manual e animação · 20/10/2026",
+      "aberta": false,
+      "resumo": "Sessão encerrada pelo usuário com um único problema a corrigir: PT-2026-10-20-01, renderização da geometria difere ao trocar de modo. Dois vídeos preservados. Achado continua aberto, causa sem diagnóstico e nenhuma correção iniciada. Nenhum outro problema relatado nesta rodada.",
+      "achados": [
+        {
+          "id": "PT-2026-10-20-01",
+          "tipo": "visual · média provisória",
+          "titulo": "Corre??o local na consolida??o: efeitos de pixel/tremor PS1 somente em Ver como no jogo. Reprodu??o vermelha/verde e preserva??o do modelo conferidas; testes combinados e reteste humano pendentes.",
+          "estado": "em-correcao"
+        }
+      ]
+    }
+  ]
+}

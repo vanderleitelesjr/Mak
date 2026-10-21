@@ -1,0 +1,45 @@
+{
+  "revision": "v2",
+  "artifact": "complete ornament",
+  "stl": "Headband_58cm_PLA_fit_v2.stl",
+  "editable": "Headband_58cm_v2_editable.blend",
+  "sha256": "7825016fcc05c1fd71cdde8b399497dedcea73c90ff69c03e8221d45e157d55d",
+  "source_sha256": "cdc12fc0549c670fb5e60be00b22c5c74fc27a1135c72a41c1a3ec94e635e80b",
+  "input_repaired_blend_sha256": "39dc8065092fdeaecfd9e96b94e32076b077f6fc9bfb3b0a12cbda5d562e39c1",
+  "nominal_profile_sha256": "3eb4d486fd6031081a1b55132f7348c678d23c1ac90c2f43ac2d5dbeaf9217a9",
+  "gauge_sha256": "a299198d8922407eb9391fea18fac7dd0464ef07b1553a6ff424cca622cda8f9",
+  "gauge_fit_record": "../fit_trial_v2.json",
+  "gauge_physical_fit_validated": true,
+  "full_ornament_physical_fit_validated": false,
+  "transfer": "Monotone arc correspondence between the known v1 contact curve and the approved v2 profile; existing radial relief and y coordinates retained, no remeshing or overall scaling.",
+  "nominal_inner_arch_mm": 323.140397833135,
+  "nominal_inner_max_width_mm": 172.0,
+  "nominal_crown_height_mm": 104.58631689398979,
+  "nominal_free_tip_gap_mm": 138.0,
+  "vertices": 336834,
+  "triangles": 673716,
+  "topology_preserved": true,
+  "front_back_coordinates_unchanged": true,
+  "minimum_radial_relief_mm": 0.003853092760294885,
+  "maximum_coordinate_rounding_mm": 7.6292040489533974e-06,
+  "bounds_mm": [
+    [
+      -130.90821838378906,
+      -35.94108581542969,
+      0.0
+    ],
+    [
+      130.82626342773438,
+      36.07978820800781,
+      182.102783203125
+    ]
+  ],
+  "print_dimensions_mm": [
+    261.7344970703125,
+    182.102783203125,
+    72.0208740234375
+  ],
+  "volume_mm3": 464211.9299390208,
+  "printing": "Millimetres, 100% scale, no fit-to-plate scaling. Supplied arch lies in XY. Review supports for ornament and horns; dimensions exclude brim and supports.",
+  "limitation": "The complete ornament has different stiffness, weight and front-to-back sweep; its physical comfort is still untested."
+}

@@ -1,0 +1,104 @@
+{
+  "date": "2026-10-18T06:00:00.000Z",
+  "status": "M1 completed as local delivery; formal PR/review deferred until GE baseline publication by user approval",
+  "application": "E:/MrMak/GameUIEditor",
+  "integration": "E:/ClaudeTemp/ge-ui-editor-m1",
+  "geBase": "aa7b912",
+  "branch": "codex/ui-editor-m1",
+  "coreTests": {
+    "passed": 17,
+    "failed": 0
+  },
+  "geTests": {
+    "Total": 670,
+    "Passed": 670,
+    "Failed": 0,
+    "Skipped": 0,
+    "Inconclusive": 0
+  },
+  "proofs": {
+    "native-ui-proof": {
+      "checks": [
+        "Real native HUD imported with stable identities and original bar artwork",
+        "Editor layout applied to the actual Unity HUD",
+        "A changed PNG is imported and used by the real native texture slot",
+        "Native live food label typography is authored separately from its value",
+        "Unity-side authoring changes return to the editor",
+        "Real two-sided conflict requires an explicit choice and applies that choice",
+        "Real native edits invalidate an older comparison without losing the local document",
+        "Interactive mock preview uses explicit simulated data and pause state",
+        "PT-BR/English switch keeps stable IDs and authored game labels",
+        "Native screen capture includes the real HUD and preserved minimap block",
+        "No browser runtime errors"
+      ],
+      "source": "real GE Unity + browser application",
+      "project": "E:\\MrMak\\GameUIEditor\\projects\\ge-m1"
+    },
+    "native-proof": {
+      "checks": [
+        "Unity authoring Undo restores only the current edit and preserves earlier synchronized properties",
+        "Authoring asset and IDs survive exiting Play Mode, reopening the scene and playing again",
+        "Food text tracks an actual stock change issued through the existing queued Train command",
+        "Synthetic press/release on the real pause button pauses MatchFlow and does not click through or clear selection",
+        "Controlled native before/after captures keep scene, camera and frozen game state unchanged"
+      ],
+      "source": "Unity production HUD, actual input system and existing game commands",
+      "food": {
+        "before": {
+          "stock": "400",
+          "hud": "400"
+        },
+        "after": {
+          "stock": "350",
+          "hud": "350"
+        }
+      },
+      "authoredRevision": "bedcdeeb4aa0046bbfd28bee75de54d0a9ab468fb41fd2f3cf733c3b94df0c25"
+    },
+    "recovery-native-proof": {
+      "source": "real Unity acknowledgement plus Windows FileShare.Read write failure",
+      "checks": [
+        "native asset accepted the reviewed change",
+        "locked desktop state rejected the atomic replace without losing the previous valid state",
+        "reopening completed the acknowledged transaction from the durable journal",
+        "baseline and document agree; temporary test change restored"
+      ],
+      "recoveredNativeRevision": "e7b282915ba4068ace44b3523f424c2c9cbc786f6a909cb9deebd511365edb54"
+    },
+    "readonly-native-proof": {
+      "checks": [
+        "read-only Unity authoring asset rejects synchronization before mutation",
+        "the native document and previous common baseline stay intact while the local draft is preserved"
+      ],
+      "revision": "bedcdeeb4aa0046bbfd28bee75de54d0a9ab468fb41fd2f3cf733c3b94df0c25"
+    },
+    "target-native-proof": {
+      "checks": [
+        "native bridge rejects a request addressed to another Unity project without changing its asset",
+        "a folder already bound to another Unity target cannot be silently rebound"
+      ]
+    },
+    "protocol-native-proof": {
+      "checks": [
+        "TypeScript and C# agree on the canonical document and retain Unicode and offset timestamp metadata",
+        "native parser rejects future schema, foreign bindings, fractional measures, duplicate identities, control labels and trailing JSON"
+      ],
+      "rejectedCases": 6
+    },
+    "windows-proof": {
+      "checks": [
+        "Packaged Tauri/WebView2 application launched with its bundled Node host and real portable project",
+        "Real Windows controls saved and synchronized a layout edit with Unity",
+        "Closing released the host lock; relaunch restored the saved authored project"
+      ],
+      "executable": "E:\\MrMak\\GameUIEditor\\src-tauri\\target\\release\\game-ui-editor.exe",
+      "source": "actual packaged Windows WebView2 window controlled through its test-only CDP endpoint"
+    }
+  },
+  "sha256": {
+    "executable": "dae01a17aed27579e38e22da2dba57a3f7e09be804a4aefe36c4e0c4d516d5a7",
+    "projectCore": "45e53c744f079027c80428a6182cfb095ff7ea8975c7e94cb8c585a1789eca80",
+    "nativeDocument": "d779e189429ec2a654455c8bd5dcee9c1a2c7212b2a593d0fff67530e65878bf",
+    "nativeBridge": "d53fc966a4789f40ba76e5df9ad250f8cb62caa99ce3eed76160a3664d198c3a"
+  }
+}

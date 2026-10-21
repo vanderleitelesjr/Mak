@@ -1,0 +1,103 @@
+<section class="mk-bloco" id="editor-estado-atual"><h2 class="mk-t">Editor Global Empires · card dedicado</h2><p><strong>86 decisões confirmadas; implementação local e build técnico disponíveis.</strong> O card <strong>Editor Global Empires</strong>, na categoria Ferramentas do Workspace, reúne decisões ED1–ED86, implementação por módulo, roteiro, artes e evidências.</p><p>O protótipo completo, a migração integral ED50 e o aceite humano ED86 ainda estão pendentes. Campanhas encadeadas e C# autoral executável ficam para a entrega seguinte.</p><p>O estudo abaixo precede o fechamento da entrevista. Suas propostas e frases sobre implementação não iniciada são históricas; o estado atual está no card dedicado.</p></section>
+<details><summary>Estudo e conceitos anteriores ao fechamento do escopo · histórico</summary>
+<style>
+  #ge-editor{min-width:0}
+  #ge-editor .ge-editor-galeria{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+  #ge-editor figure{min-width:0;margin:0}
+  #ge-editor figure img{display:block;width:100%;height:auto;border-radius:6px;cursor:zoom-in}
+  #ge-editor figcaption{margin-top:10px;font-size:14px;line-height:1.6}
+  #ge-editor figcaption strong{display:block}
+  #ge-editor .ge-editor-pipeline{font-weight:600;line-height:1.9}
+  #ge-editor code{overflow-wrap:anywhere;white-space:normal}
+  #ge-editor .ge-editor-fonte{font-size:13px;overflow-wrap:anywhere}
+  @media(max-width:780px){#ge-editor .ge-editor-galeria{grid-template-columns:1fr}}
+</style>
+<div id="ge-editor">
+  <div class="mk-numeros">
+    <div class="mk-numero"><span class="mk-ico mk-i-livro" aria-hidden="true"></span><div><small>Referências estudadas</small><b>Warcraft III + SC2</b></div></div>
+    <div class="mk-numero"><span class="mk-ico mk-i-imagem" aria-hidden="true"></span><div><small>Artes conceituais</small><b>4 em avaliação</b></div></div>
+    <div class="mk-numero"><span class="mk-ico mk-i-relogio" aria-hidden="true"></span><div><small>Produto</small><b>Proposta de editor</b></div></div>
+  </div>
+
+  <section class="mk-bloco">
+    <h2 class="mk-t"><span class="mk-ico mk-i-tecnologias" aria-hidden="true"></span>Uma janela, cinco áreas conectadas</h2>
+    <p><strong>Mapa, Objetos, Lógica, IA e Campanha.</strong> Painéis ajustáveis, busca global e seleção compartilhada. O cenário reúne terreno, participantes, instâncias, regiões, câmeras, objetivos e programas.</p>
+    <p>A proposta usa C#/Unity e UI Toolkit, reaproveita a apresentação e a simulação do GE e mantém cenários e catálogos em documentos versionados com IDs estáveis.</p>
+    <p class="ge-editor-pipeline">Projeto editável → validar/compilar → pacote do cenário → simulação GE</p>
+    <p class="mk-nota">Salvar o projeto, testar e gerar um pacote são operações distintas. UI e automação/MCP usariam as mesmas operações com undo e validação. Grafo e C# autoral compartilhariam a mesma API determinística.</p>
+  </section>
+
+  <div class="mk-duas">
+    <section class="mk-bloco">
+      <h2 class="mk-t"><span class="mk-ico mk-i-check" aria-hidden="true"></span>Disponível e validado</h2>
+      <ul class="mk-lista">
+        <li><b>Estudo Warcraft III</b>Dados reais de paletas, terreno, instâncias, regiões, câmeras, jogadores, objetos, triggers, scripts de IA e campanha, com limites documentados.</li>
+        <li><b>Acesso SC2 sem computer use</b>Ponte local de leitura com 31 ferramentas; prova MCP real sobre um mapa e fontes locais/CASC.</li>
+        <li><b>Evidências SC2 de 21/10</b>55 arquivos do mapa, 174 originais locais e 1.912 arquivos CASC conferidos por hash. Leitura de terreno, jogadores/times, regiões, câmeras, triggers e Galaxy.</li>
+      </ul>
+    </section>
+    <section class="mk-bloco">
+      <h2 class="mk-t"><span class="mk-ico mk-i-objetivos" aria-hidden="true"></span>Em proposta / ainda aberto</h2>
+      <ul class="mk-lista">
+        <li><b>Editor GE</b>Arquitetura e quatro conceitos visuais para avaliação. As imagens não comprovam implementação ou integração.</li>
+        <li><b>Lógica e conteúdo</b>Runtime de scripting, precedência de jogo/campanha/cenário/mod e política de distribuição do C# ainda precisam de especificação.</li>
+        <li><b>Limites da referência SC2</b>Fechamento das dependências padrão e composição dos valores finais pelo motor não comprovados. XML original preservado; não tratar leitura como validação runtime.</li>
+      </ul>
+    </section>
+  </div>
+
+  <section class="mk-bloco">
+    <h2 class="mk-t"><span class="mk-ico mk-i-imagem" aria-hidden="true"></span>Conceitos de layout e menus</h2>
+    <p class="mk-nota">Clique ou toque para ampliar e baixar. Propostas em avaliação; valores e código ilustrativos. Miniaturas locais de até 900 px, preservando os PNGs originais fora do card.</p>
+    <div class="ge-editor-galeria">
+      <figure><img src="media/interface/editor-ge/editor-ge-mapa-v01.webp" alt="Editor GE: mapa central, paletas à esquerda, inspetor de terreno à direita e menu contextual" width="900" height="506" loading="lazy" decoding="async"><figcaption><strong>01 · Mapa e paletas</strong>Camadas, biblioteca visual, pincéis, captura de câmera e overlays de navegação, visão, cobertura e logística.</figcaption></figure>
+      <figure><img src="media/interface/editor-ge/editor-ge-objetos-v01.webp" alt="Editor GE: catálogo de objetos com variante de campanha, tabela de valores base e final, modelo 3D e referências" width="900" height="506" loading="lazy" decoding="async"><figcaption><strong>02 · Objetos e variantes</strong>Origem de propriedades, comparação com a base, restauração por campo e navegação entre unidade, arma, efeito e usos.</figcaption></figure>
+      <figure><img src="media/interface/editor-ge/editor-ge-logica-v01.webp" alt="Editor GE: grafo visual ligado a função C#, editor de código editável, inspeção por tick e log de eventos" width="900" height="506" loading="lazy" decoding="async"><figcaption><strong>03 · Lógica visual + C#</strong>Portas tipadas, funções reutilizáveis e depuração. Código escrito à mão e código gerado identificados separadamente.</figcaption></figure>
+      <figure><img src="media/interface/editor-ge/editor-ge-campanha-v01.webp" alt="Editor GE: missões conectadas, campos persistentes, jogadores e times, perfil de IA e menu Cenário" width="900" height="506" loading="lazy" decoding="async"><figcaption><strong>04 · Campanha e configuração</strong>Condições de desbloqueio, dados entre missões, matriz de relações e acesso ao perfil de IA da missão.</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="mk-bloco">
+    <h2 class="mk-t"><span class="mk-ico mk-i-livro" aria-hidden="true"></span>Melhorias de usabilidade sobre o Warcraft III</h2>
+    <div class="mk-rolagem"><table class="mk-tabela">
+      <thead><tr><th scope="col">Área</th><th scope="col">Proposta para o GE</th></tr></thead>
+      <tbody>
+        <tr><td>Ambiente</td><td>Abas conectadas, painéis ajustáveis, atalhos, busca global e seleção preservada entre áreas.</td></tr>
+        <tr><td>Paletas e cenário</td><td>Favoritos, tags, seleção múltipla e camadas; distinguir decoração de efeito no jogo. Regiões desenhadas e câmera capturada da vista atual.</td></tr>
+        <tr><td>Objetos</td><td>Propriedades agrupadas, base/alteração/final/origem, variantes e impacto da mudança visível em “usado por”.</td></tr>
+        <tr><td>Triggers</td><td>Grafo visual e C# editável com referências tipadas; breakpoints, valores e histórico ligando nó, linha e evento.</td></tr>
+        <tr><td>IA</td><td>Objetivos e prioridades de economia, expansão, logística e exército. Explicar por que uma ação foi escolhida ou não pôde ocorrer.</td></tr>
+        <tr><td>Jogadores e times</td><td>Matriz de relações, posições iniciais e perfis de IA no mesmo painel de configuração.</td></tr>
+        <tr><td>Campanha</td><td>Missões conectadas visualmente, desbloqueios e campos persistentes tipados, com teste no contexto da campanha.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <div class="mk-duas">
+    <section class="mk-bloco">
+      <h2 class="mk-t"><span class="mk-ico mk-i-marco" aria-hidden="true"></span>Primeira fatia sugerida</h2>
+      <ol>
+        <li>Editar um mapa com unidades, variante, região, câmera e jogadores.</li>
+        <li>Criar um objetivo com grafo e uma função C#, salvar, reabrir e testar em sessão isolada.</li>
+        <li>Conferir continuação/save e replay; depois conectar duas missões com um campo persistente.</li>
+      </ol>
+      <p class="mk-nota">Recorte proposto para desenvolvimento; ainda não é uma decisão Confirmada ou uma entrega implementada.</p>
+    </section>
+    <section class="mk-bloco">
+      <h2 class="mk-t"><span class="mk-ico mk-i-tecnologias" aria-hidden="true"></span>Menus propostos</h2>
+      <ul class="mk-lista">
+        <li><b>Arquivo / Editar</b>Projetos, importação e pacote; undo, histórico e duplicação.</li>
+        <li><b>Exibir / Cenário</b>Painéis, camadas e overlays; propriedades, jogadores, objetivos e câmeras.</li>
+        <li><b>Ferramentas / Ajuda</b>Validação, referências e automação; documentação contextual, exemplos e atalhos.</li>
+      </ul>
+    </section>
+  </div>
+
+  <section class="mk-bloco ge-editor-fonte">
+    <h2 class="mk-t"><span class="mk-ico mk-i-livro" aria-hidden="true"></span>Fontes e originais locais</h2>
+    <p>Raiz: <code>E:\Claude Projects\GlobalEmpires</code>. Estudo: <code>reports\Arquitetura do editor Global Empires.md</code>. Ponte SC2: <code>Entregas_Codex\StarCraft_II_Acesso_v01_2026-10-21</code>. Artes, prompts e manifesto: <code>Entregas_Codex\Editor_GE_Conceitos_v01_2026-10-21</code>.</p>
+    <p class="mk-nota">Artes geradas com image_gen integrada e mantidas como entrega local, fora do repositório do jogo. Nenhuma nova decisão de gameplay, alteração de código GE ou aprovação de arte é inferida desta aba.</p>
+  </section>
+</div>
+
+</details>

@@ -1,0 +1,77 @@
+{
+  "checkedAt": "2026-10-20T14:21:14.955Z",
+  "themePreviews": 56,
+  "workspaceViews": 12,
+  "widths": [
+    1024,
+    768,
+    390,
+    320
+  ],
+  "contrast": [
+    {
+      "name": "Obsidiana",
+      "body": 15.117460560788622,
+      "muted": 7.561522030171654,
+      "field": 16.464337653545265,
+      "primary": 12.250816525602508
+    },
+    {
+      "name": "Aurora",
+      "body": 13.155352901304788,
+      "muted": 7.8091099900406284,
+      "field": 14.257445477705609,
+      "primary": 8.023323880767999
+    },
+    {
+      "name": "Papel",
+      "body": 12.345766003496374,
+      "muted": 5.70120121125605,
+      "field": 12.995452745284206,
+      "primary": 6.095007489191343
+    },
+    {
+      "name": "Terminal",
+      "body": 14.20516085280828,
+      "muted": 8.159966255097089,
+      "field": 15.594123518096874,
+      "primary": 12.088796923142025
+    },
+    {
+      "name": "Blueprint",
+      "body": 12.080983368199508,
+      "muted": 7.6882509319568335,
+      "field": 14.201305874680932,
+      "primary": 9.724980086122166
+    },
+    {
+      "name": "Lavanda",
+      "body": 13.101929048971359,
+      "muted": 5.721074656120974,
+      "field": 11.8990470856313,
+      "primary": 6.639960306313844
+    },
+    {
+      "name": "Cobre",
+      "body": 12.827491632886277,
+      "muted": 7.315443056723678,
+      "field": 13.930057204667293,
+      "primary": 7.732578096541417
+    }
+  ],
+  "keyboard": true,
+  "draftRetained": true,
+  "applicationChanged": false,
+  "errors": [],
+  "status": "Seven theme concepts proposed for owner evaluation; no editor theme implementation",
+  "concepts": [
+    "Obsidiana",
+    "Aurora",
+    "Papel",
+    "Terminal",
+    "Blueprint",
+    "Lavanda",
+    "Cobre"
+  ],
+  "inlinePreview": ".local/visualizations/seven-editor-themes.html"
+}

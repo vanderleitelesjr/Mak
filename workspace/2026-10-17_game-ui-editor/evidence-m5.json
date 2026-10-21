@@ -1,0 +1,215 @@
+{
+  "date": "2026-10-19T03:19:17.479Z",
+  "status": "M5 completed as a local delivery; M1-M3 and M5 complete (4/6); M4 and M6 pending",
+  "application": "E:/MrMak/GameUIEditor",
+  "schemaVersion": 4,
+  "launcher": "E:/MrMak/GameUIEditor/Open-GE-HUD.cmd",
+  "portableProject": "E:/MrMak/GameUIEditor/projects/ge-m5",
+  "verification": {
+    "core": {
+      "passed": 58,
+      "failed": 0,
+      "command": "npm.cmd run test:verify"
+    },
+    "ui": {
+      "passed": 26,
+      "browser": 13,
+      "windowsWebView2": 13,
+      "failed": 0,
+      "skipped": 0,
+      "flaky": 0,
+      "startTime": "2026-10-19T03:00:28.874Z",
+      "durationMs": 47460.051
+    },
+    "parity": {
+      "behavior": 20,
+      "nativeVisualValidation": 18,
+      "failed": 0,
+      "execution": ".NET C# and TypeScript"
+    },
+    "unityFixtures": {
+      "Total": 20,
+      "Passed": 20,
+      "Failed": 0,
+      "Skipped": 0,
+      "Inconclusive": 0
+    },
+    "presentationRegression": {
+      "summary": {
+        "Total": 690,
+        "Passed": 690,
+        "Failed": 0,
+        "Skipped": 0,
+        "Inconclusive": 0
+      },
+      "filter": "assembly: GE.View.Tests"
+    },
+    "build": "TypeScript/Vite and prepared runtime passed"
+  },
+  "native": {
+    "date": "2026-10-19T03:16:10.544Z",
+    "source": "Actual isolated GE UI Toolkit HUD, persistent visual asset, validated portable project owner and existing native data/command systems",
+    "checkout": "E:/ClaudeTemp/ge-ui-editor-m1",
+    "branch": "codex/ui-editor-m1",
+    "baseCommit": "aa7b912c066cdd780bcd6708f9f9d05d018f31e9",
+    "unity": "6000.6.5f1",
+    "passedChecks": 20,
+    "checks": [
+      "Native and desktop revision encoding agree for integral/fractional numbers, shortest round trips and extreme finite values.",
+      "Native PNG crop/nine-slice and original TTF font are decoded from portable content-addressed originals.",
+      "Real HUD imported as eight identified native blocks; editor additions, minimap frame and reparented command grid applied through a reviewed transaction.",
+      "Native none/unit/group/mixed/building selection updates survive the authored layout; shared live food binding and explicit instance behavior remain distinct.",
+      "Native Q shortcut still trains through the moved command grid.",
+      "Repeated component subtrees inherit live item labels/progress; a real click on the repeated container dispatches queue cancellation.",
+      "The preserved native command tooltip follows real hover after command panel reparenting.",
+      "Moved/resized minimap shares one rectangle for native image, frame, hit testing and projection; an actual synthetic click centers the camera at its projected world point.",
+      "Synthetic press/release on the authored button evaluates its rule and pauses the real match without clearing selection or issuing a world click.",
+      "Global Escape remains available during authored focus; it pauses and releases focus.",
+      "Focused authored button handles Space; gameplay shortcuts are suppressed while it has keyboard focus.",
+      "A Unity-authored live binding change reverse-imports and renders the real wood value.",
+      "Persistent Unity property edits reverse-import and merge with an independent editor edit.",
+      "A real Unity/editor property conflict prevents writes until the reviewed editor choice is applied.",
+      "An actual Unity edit after comparison invalidates apply before any request is written.",
+      "Deletion is shown before apply; the native view disappears while native block metadata remains intact.",
+      "The existing end screen remains functional after authored HUD changes and real resign.",
+      "Saved visual asset and portable baseline survive leaving Play, reopening the scene and starting again.",
+      "Native preflight rejects a bounded state/event cycle before persistence and preserves the last valid Unity asset and portable baseline.",
+      "A new portable design identity applies through explicit review even with identical content; reconnecting and reapplying the original preserves both projects."
+    ],
+    "documentRevision": "346fa361f25c351b369d9837286777dbe997ce48d0f353b007f4dd5a3a2ca848",
+    "newRuntimeErrors": 0,
+    "inputMethod": "Synthetic Input System mouse/keyboard, original devices/settings restored in finally",
+    "viewport": {
+      "date": "2026-10-19T03:11:16.317Z",
+      "source": "Actual Unity fixed Game view resolution, not an image resize or browser emulation",
+      "screen": [
+        2520,
+        1080
+      ],
+      "authoredMinimapFrame": [
+        2140,
+        660,
+        320,
+        350
+      ],
+      "sharedMinimapImageAndInputRect": [
+        2166.01636,
+        720.5263,
+        265.365845,
+        257.894745
+      ],
+      "checks": [
+        "Native 2520x1080 Game view confirmed from the runtime frame",
+        "Right anchor follows the wider native viewport",
+        "Minimap frame, image and input remain inside the viewport"
+      ],
+      "originalGameViewSizeRestoredInFinally": true
+    },
+    "playModeStopped": true,
+    "simSourceModified": false
+  },
+  "runtimeDeployment": {
+    "target": "E:/MrMak/GameUIEditor/src-tauri/target/release/runtime",
+    "hashVerifiedAppAndDistFiles": 33,
+    "nodeHashMatched": true,
+    "available": "Next normal application launch",
+    "existingApplicationRestarted": false,
+    "shellTitle": "Inherited Game UI Editor · M1; visual interface identifies M5"
+  },
+  "captures": [
+    {
+      "path": "media/m5-tests/native-m5-start.png",
+      "sha256": "fc88205f69b3a61b31813e276d3bf0836bb93fb6b656b7971ea3e24120291bee",
+      "source": "Native isolated GE Unity Game view"
+    },
+    {
+      "path": "media/m5-tests/native-m5-mixed-selection.png",
+      "sha256": "cf9dfbbaf68f99c657cf94cdbc4e0484adfd3b0f608119038d7780f5da026469",
+      "source": "Native isolated GE Unity Game view"
+    },
+    {
+      "path": "media/m5-tests/native-m5-queue-full.png",
+      "sha256": "fcc7e60929c78d423b24eac3dcb028c50c3dfe6834d67f79f937efd65d3eea67",
+      "source": "Native isolated GE Unity Game view"
+    },
+    {
+      "path": "media/m5-tests/native-m5-production-tooltip.png",
+      "sha256": "7e1079e0b8fe1b8100bde09d249618a601cc06ef451447bdf347d6f41e5c0d8a",
+      "source": "Native isolated GE Unity Game view"
+    },
+    {
+      "path": "media/m5-tests/native-m5-paused.png",
+      "sha256": "466a559ba4c043aacd8798f7e0782c6cac1076669009f484bb53236dfc555219",
+      "source": "Native isolated GE Unity Game view"
+    },
+    {
+      "path": "media/m5-tests/native-m5-authored-hud.png",
+      "sha256": "eeae9ba834e46dd86684a45119dfa7b6fb74cafa1ff869f3e160d2cbafe7c737",
+      "source": "Native isolated GE Unity Game view"
+    },
+    {
+      "path": "media/m5-tests/native-m5-ended.png",
+      "sha256": "e95832e719aae88961f0d293add7cdf9ad23253b30105f830d6d536c71187f92",
+      "source": "Native isolated GE Unity Game view"
+    },
+    {
+      "path": "media/m5-tests/native-m5-ultrawide.png",
+      "sha256": "7c0f20743b822938eb79ec74c0a2b8f4ca59a77ccb521f7a66aff14a5917fc7f",
+      "source": "Native isolated GE Unity Game view"
+    }
+  ],
+  "sourceSha256": {
+    "app/visual-document.ts": "f48a7ed8838cf9c0323698fe74038c7a351f28e7bf1c141eb7d7f5707b505ab5",
+    "app/sync-document.ts": "fd4d7e1dae12f1936e76e16950632644b87de8abca796826388586443a93f473",
+    "app/project.ts": "69441b7454dd6d75bfa87c5c5371d5f1c2ccd330e1def80e065a27324ff0db5c",
+    "app/server.ts": "8c1d7c4dc438351caad861b201906a2aea617790982b7a102166ed351137e505",
+    "src/visual.tsx": "d289cf21c7016a5b4dad895b190bb3588826b8eccaf3b4c01823b37a51826fae",
+    "src/synchronization.tsx": "1c4d46adc08346300d9bc35842d51a402a75d27dae7dbeef265d10ed6185db95",
+    "native/unity/GameHud.Visual.cs": "c6af9f9508ad4c2cce5a08eb35dbc0d3e25b7817ec7ffc4f23120daefbc1e945",
+    "native/unity/HudVisualDocument.cs": "2e561426f9f29f546cbcbf40f3cf7cd91f5bf6958f10ac96e3eb86cac2434e81",
+    "native/unity/HudVisualAsset.cs": "905124df84b197ca66de39e515df3b6e33b0c222ab6961cac017b4c9fd7f4656",
+    "native/unity/HudAuthoringBridge.Visual.cs": "28c11ece3b137a910317af030f875238ad9b57975a791ac2d640e724c6e07b6c",
+    "native/unity/HudAuthoringAsset.cs": "1bf3e9409e9ef925b8b197f308d4c89c0822b4a6219d7b0ecc39bf0330c98fe2",
+    "native/unity/HudAuthoringBridge.cs": "0b061588a66de1578eedb8eff0f982eafe220bba7162bd8b7df6f7816966585d",
+    "test/visual-native.mjs": "b9ed3a965fe3f4d160b4298ea59975988a7eb0eb72df73fba83196e6c204f9fb",
+    "test/visual-sync.test.ts": "855ae4ba1f436217ac079e4fdfa69cd09d2869b187e32092e45449377f849a13",
+    "test/e2e/visual-sync.spec.ts": "c407920a1bfa121fdbb7c38cfbedc2eb7fc570d1e00300edaffdce0c33bcd831",
+    "isolated-GE/Runtime/GameHud.cs": "d1a641806516ca482d67e47944b2b1e784c2908b9edbed09a87dd65959199d24",
+    "isolated-GE/Runtime/GameHud.Panels.cs": "2f16861358cb368d50cfe19a08fe8b979ef0e8647e92569fc9786352dea55ffe",
+    "isolated-GE/Runtime/GameHud.Minimap.cs": "4521167e64edae476f5856f192d612e44a6929034e0e4ae37d7e4899eeff87a2",
+    "isolated-GE/Runtime/MinimapView.cs": "7acacabc73c1c1b13e9f9359e016d610b78d56f055e3c551eba4f859e92b3baf",
+    "isolated-GE/Runtime/PlayerInput.cs": "15e9f1b2c2052a2664e91571f53d6cb1b891863c10c7bccc53a474af1ce2201c"
+  },
+  "limits": [
+    "Native block internals remain owned by GE; authored frames/styles/conditions and custom visual compositions are supported",
+    "Native import supports PNG/JPEG and TTF/OTF; WebP/WOFF/WOFF2 remain preserved desktop sources and require conversion",
+    "Validation overlay is a functional example, not human approval of a replacement GE HUD",
+    "M4 contextual assistant and external MCP authoring access are pending",
+    "M6 installer/update, physical OS window/file-dialog/input and release acceptance are pending",
+    "No commit, push, PR, merge or main GE deployment"
+  ],
+  "workspacePreview": {
+    "status": "Passed",
+    "date": "2026-10-19T03:20:53.450Z",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "combinationsPassed": 6,
+    "imagesVerified": 18,
+    "runtimeErrors": 0,
+    "checks": [
+      "Implementation plan and M5 Markdown rendered in actual Workspace themes with collapsed navigation",
+      "No Markdown or standalone report horizontal document overflow",
+      "All 18 current/historical images loaded, opened at full size and exposed correct download and close controls",
+      "All report links resolved",
+      "Selected wide/narrow report screenshots and all eight native M5 captures were visually inspected"
+    ],
+    "scope": "Browser preview of shared Workspace documents, not an installed Mak restart"
+  }
+}

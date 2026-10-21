@@ -1,0 +1,145 @@
+<!-- Gerado — não edite à mão. Fonte: decisoes.json. Para mudar, edite o JSON e rode: node workspace/_shared/engine/gerar.mjs <pasta-do-card> -->
+<!doctype html>
+<html lang="pt-BR" data-mak-report="document" style="--mk-destaque:#5f9e4f">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Decisões · Mashup</title>
+  <link rel="stylesheet" href="../_shared/report.css">
+  <link rel="stylesheet" href="../_shared/examples.css">
+  <link rel="stylesheet" href="../_shared/engine/tema-base.css">
+  <script defer src="../_shared/report.js"></script>
+</head>
+<body><main class="container mk-pag">
+<p class="mk-gerado">Gerado — não edite à mão · fonte: decisoes.json · 17 de outubro de 2026</p>
+<div class="mk-capa"><div class="mk-capa-img" style="background-image:url('media/capa/f1-4-mundo-seed1.webp')" aria-hidden="true"></div>
+  <header class="mk-capa-texto">
+    <p class="mk-eyebrow">Mashup</p>
+    <h1>Decisões</h1>
+    <p class="mk-sub">9 decisões pendentes de 51 · atualizado em 17 de outubro de 2026.</p>
+  </header>
+</div>
+<section class="mk-bloco">
+<div class="mk-contadores"><span><b>9</b> pendentes</span> <span class="mk-chip mk-ok">42 confirmadas</span> <span class="mk-chip mk-neutro">7 temas</span></div>
+<p class="mk-nota">Fonte: DECISOES.md (63 linhas) e PENDENCIAS.md do repositório Mashup, em 2026-10-17. Ficam de fora as linhas substituídas e as que só valiam para a fase 0, como o primeiro commit direto na <code>main</code>.</p>
+</section>
+<section class="mk-bloco">
+<h2 class="mk-t"><span class="mk-ico mk-i-check" aria-hidden="true"></span>Espera aprovação</h2>
+<ul class="mk-lista">
+<li><b>Configurações do jogador (F1-7)</b>O Coder decidiu: teclas, sensibilidade, eixo vertical e idioma por máquina, em <code>GameUserSettings.ini</code>, fora do save do mundo; Esc fixo abre o menu; remapear para uma tecla em uso troca as duas ações. Está registrado para você revisar (JG10).</li>
+</ul>
+</section>
+<section class="mk-bloco">
+<h2 class="mk-t"><span class="mk-ico mk-i-livro" aria-hidden="true"></span>Por tema</h2>
+<details>
+<summary>Projeto e ferramentas · 6 decisões</summary>
+<div class="mk-rolagem"><table class="mk-tabela ">
+<thead><tr><th scope="col">Id</th><th scope="col">Decisão</th><th scope="col">Estado</th><th scope="col">Data</th></tr></thead>
+<tbody>
+<tr><td><span class="mk-id">PJ1</span></td><td>Nome de trabalho Mashup, provisório até haver nome comercial; projeto de jogo com bots (template jogos-bots-v1)</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">PJ2</span></td><td>Só Windows PC no início</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">PJ3</span></td><td>Unreal Engine 5.8.3 com Visual Studio 2026 18.10, MSVC 14.51 e Windows SDK 10.0.26100<br><small class="mk-nota">Já instalada; toolchain dentro das faixas suportadas pela engine.</small></td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">PJ4</span></td><td>Projeto C++ com módulo principal &quot;Mashup&quot;, igual ao template em branco da UE 5.8; plugin AndroidFileServer desligado</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">PJ5</span></td><td>Ferramentas na ordem padrão do template, sem exceções</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">PJ6</span></td><td>Arte do primeiro marco com placeholders (blocos coloridos e cápsula); arte final depois do <code>ESTILO.md</code><br><small class="mk-nota">Poupa créditos.</small></td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+</tbody>
+</table></div>
+</details>
+<details>
+<summary>Processo · 7 decisões</summary>
+<div class="mk-rolagem"><table class="mk-tabela ">
+<thead><tr><th scope="col">Id</th><th scope="col">Decisão</th><th scope="col">Estado</th><th scope="col">Data</th></tr></thead>
+<tbody>
+<tr><td><span class="mk-id">PR1</span></td><td>Git local, sem remoto, com Git LFS para binários; playtests em <code>docs/playtests/</code><br><small class="mk-nota">Sem remoto, não há issues no GitHub.</small></td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">PR2</span></td><td>Uma branch por tarefa, revisada pelo Revisor; quando ele aprova, o Claude faz o merge na <code>main</code> e segue; o usuário só é chamado para decisões ou testes<br><small class="mk-nota">Pedido do usuário; substitui o merge feito pelo usuário.</small></td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">PR3</span></td><td>Revisão com 2 rodadas por entrega; terceira só com autorização do usuário</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">PR4</span></td><td>Critérios de aceite das fases 0 e 1 em <code>docs/criterios/criterio-otimo.md</code></td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">PR5</span></td><td>Testes automatizados só para invariantes críticos (geração, itens, borda de chunk, save e load), com Automation Spec pela linha de comando; o resto por demonstração manual</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">PR6</span></td><td><code>AGENTS.md</code> fora do Git<br><small class="mk-nota">É gerado por sincronização externa.</small></td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">PR7</span></td><td>Pastas e commits por papel: <code>docs/tecnico/</code> do Coder, <code>docs/pesquisa/</code> do Pesquisador, revisões do Revisor, <code>PLANO.md</code>, <code>DECISOES.md</code> e <code>PENDENCIAS.md</code> do Coordenador</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+</tbody>
+</table></div>
+</details>
+<details>
+<summary>Motor voxel e dados · 11 decisões</summary>
+<div class="mk-rolagem"><table class="mk-tabela ">
+<thead><tr><th scope="col">Id</th><th scope="col">Decisão</th><th scope="col">Estado</th><th scope="col">Data</th></tr></thead>
+<tbody>
+<tr><td><span class="mk-id">MV1</span></td><td>Motor voxel próprio em C++, sem plugin pronto</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">MV2</span></td><td>1 bloco = 1 m; personagem com ~1,8 m; mundo infinito na horizontal, com altura fixa de 384 blocos</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">MV3</span></td><td>Chunk de 16 × 16 blocos; coluna de 384 em 24 seções de 16; seção vazia não custa nada</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">MV4</span></td><td>Bloco com 2 bytes na memória (até 65 mil tipos); seção uniforme guardada como um valor só<br><small class="mk-nota">Paleta por seção só se a F1-9 pedir.</small></td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">MV5</span></td><td>Cada combinação de estado de bloco tem número interno próprio; o save grava o nome legível</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">MV6</span></td><td>Um asset de dados por tipo de bloco, com nome namespace:nome (ex.: <code>mashup:pedra</code>); blocos e itens são dados desde a fase 1<br><small class="mk-nota">Base para mods: eles só acrescentam assets.</small></td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">MV7</span></td><td>Número interno atribuído ao carregar; o save de cada mundo guarda a tabela nome → número</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">MV8</span></td><td>Blocos iniciais: ar, pedra, terra, grama, areia, madeira e folhas; água só com fluidos</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">MV9</span></td><td>Gerador da fase 1: relevo por ruído, camadas, árvores simples e cavernas; biomas na fase 2. Mundo criado com nome e seed</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">MV10</span></td><td>Malha com <code>ProceduralMeshComponent</code>, montada por seção e enviada como uma peça por coluna; sem greedy meshing na fase 1<br><small class="mk-nota">Troca só se a medição apontar gargalo nele.</small></td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">MV11</span></td><td>Código do ensaio (<code>Source/Mashup/Ensaio</code>) apagado quando o motor da fase 1 cobriu o que ele fazia<br><small class="mk-nota">Feito na F1-9.</small></td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+</tbody>
+</table></div>
+</details>
+<details open>
+<summary>Rede · 5 decisões · <span class="mk-chip mk-atencao">1 pendente</span></summary>
+<div class="mk-rolagem"><table class="mk-tabela ">
+<thead><tr><th scope="col">Id</th><th scope="col">Decisão</th><th scope="col">Estado</th><th scope="col">Data</th></tr></thead>
+<tbody>
+<tr><td><span class="mk-id">RD1</span></td><td>Host autoritativo, não determinístico; código autoritativo no servidor desde a fase 1, mesmo solo</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">RD2</span></td><td>O servidor envia os chunks compactados aos clientes quando eles entram no alcance</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">RD3</span></td><td>LAN e IP direto primeiro</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">RD4</span></td><td>Testes com 2 jogadores até a fase 3; alvo de 4</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">RD5</span></td><td>EOS ou Steam<br><small class="mk-nota">Coordenador · fase 3.</small></td><td><span class="mk-chip mk-atencao">Pendente</span></td><td>—</td></tr>
+</tbody>
+</table></div>
+</details>
+<details open>
+<summary>Visual e desempenho · 5 decisões · <span class="mk-chip mk-atencao">1 pendente</span></summary>
+<div class="mk-rolagem"><table class="mk-tabela ">
+<thead><tr><th scope="col">Id</th><th scope="col">Decisão</th><th scope="col">Estado</th><th scope="col">Data</th></tr></thead>
+<tbody>
+<tr><td><span class="mk-id">VD1</span></td><td>Iluminação em três perfis: alto = Lumen com ray tracing de hardware; médio = Lumen por software com caixas ocultas de campo de distância; baixo = sem Lumen. Níveis de luz próprios para as regras de jogo<br><small class="mk-nota">Escolha 1A, depois do ensaio F0-5.</small></td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">VD2</span></td><td>Texturas estilizadas de 16–32 px</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">VD3</span></td><td>Metas como hipótese a medir: alto 1440p a 60 FPS com 16 chunks; baixo 1080p a 60 FPS com 8 chunks</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">VD4</span></td><td>Hardware de referência: esta máquina (RTX 5080, Ryzen 7 9800X3D, 31 GB) como perfil alto; perfil baixo simulado por configuração</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">VD5</span></td><td>Física opcional<br><small class="mk-nota">Designer · fase 11.</small></td><td><span class="mk-chip mk-atencao">Pendente</span></td><td>—</td></tr>
+</tbody>
+</table></div>
+</details>
+<details open>
+<summary>Jogabilidade · 14 decisões · <span class="mk-chip mk-atencao">5 pendentes</span></summary>
+<div class="mk-rolagem"><table class="mk-tabela ">
+<thead><tr><th scope="col">Id</th><th scope="col">Decisão</th><th scope="col">Estado</th><th scope="col">Data</th></tr></thead>
+<tbody>
+<tr><td><span class="mk-id">JG1</span></td><td>Câmera em 1ª pessoa, com 3ª pessoa alternável; teclado e mouse primeiro, com remapeamento desde a fase 1</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">JG2</span></td><td>Modos sobrevivência e criativo desde o início</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">JG3</span></td><td>Crafting por lista de receitas com busca; inventário com hotbar de 9 + 27 espaços</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">JG4</span></td><td>A quebra depende da ferramenta; sem a certa, alguns blocos não dão drop</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">JG5</span></td><td>Fome simples que cai devagar; regenerar exige estar alimentado; dano de queda a partir de ~4 blocos</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">JG6</span></td><td>Morte: o host escolhe por mundo; por padrão, os itens caem no local por tempo limitado</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">JG7</span></td><td>Ciclo de dia e noite no primeiro marco; mobs hostis só na fase 4</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">JG8</span></td><td>Salvamento automático periódico e ao sair, com 3 backups em rodízio; inventário e posição do personagem no save do host</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">JG9</span></td><td>Textos em PT-BR e inglês numa tabela de dados (<code>Dados/textos.csv</code>), com o idioma escolhido nas configurações</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">JG10</span></td><td>Configurações do jogador por máquina, fora do save do mundo; Esc fixo abre o menu; remapear para tecla em uso troca as duas ações<br><small class="mk-nota">Decidido pelo Coder na F1-7; espera a sua revisão.</small></td><td><span class="mk-chip mk-atencao">Pendente</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">JG11</span></td><td>Materiais e tabela de dependências<br><small class="mk-nota">Designer · fase 2.</small></td><td><span class="mk-chip mk-atencao">Pendente</span></td><td>—</td></tr>
+<tr><td><span class="mk-id">JG12</span></td><td>Classes e progressão: pertencem ao personagem ou ao mundo<br><small class="mk-nota">Designer · fase 4.</small></td><td><span class="mk-chip mk-atencao">Pendente</span></td><td>—</td></tr>
+<tr><td><span class="mk-id">JG13</span></td><td>Slots de equipamento<br><small class="mk-nota">Designer · fase 4.</small></td><td><span class="mk-chip mk-atencao">Pendente</span></td><td>—</td></tr>
+<tr><td><span class="mk-id">JG14</span></td><td>Regras de aldeões<br><small class="mk-nota">Designer · fase 7.</small></td><td><span class="mk-chip mk-atencao">Pendente</span></td><td>—</td></tr>
+</tbody>
+</table></div>
+</details>
+<details open>
+<summary>Mundo e extensões · 3 decisões · <span class="mk-chip mk-atencao">2 pendentes</span></summary>
+<div class="mk-rolagem"><table class="mk-tabela ">
+<thead><tr><th scope="col">Id</th><th scope="col">Decisão</th><th scope="col">Estado</th><th scope="col">Data</th></tr></thead>
+<tbody>
+<tr><td><span class="mk-id">MX1</span></td><td>Estrutura móvel e interior do titã viram ensaios entre as fases 1 e 3</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>17 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">MX2</span></td><td>Regras de dimensões e do titã<br><small class="mk-nota">Designer · fases 9 e 12.</small></td><td><span class="mk-chip mk-atencao">Pendente</span></td><td>—</td></tr>
+<tr><td><span class="mk-id">MX3</span></td><td>Política de mods: confiança, distribuição e comparação no multiplayer<br><small class="mk-nota">Designer · fase 10.</small></td><td><span class="mk-chip mk-atencao">Pendente</span></td><td>—</td></tr>
+</tbody>
+</table></div>
+</details>
+</section>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!-- Gerado — não edite à mão. Fonte: decisoes.json. Para mudar, edite o JSON e rode: node workspace/_shared/engine/gerar.mjs <pasta-do-card> -->
+<!doctype html>
+<html lang="pt-BR" data-mak-report="document" style="--mk-destaque:#bd8051">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Decisions · Rust Gothic Metroidvania</title>
+  <link rel="stylesheet" href="../_shared/report.css">
+  <link rel="stylesheet" href="../_shared/examples.css">
+  <link rel="stylesheet" href="../_shared/engine/tema-base.css">
+  <script defer src="../_shared/report.js"></script>
+</head>
+<body><main class="container mk-pag">
+<p class="mk-gerado">Gerado — não edite à mão · fonte: decisoes.json · 20 de outubro de 2026</p>
+<div class="mk-capa"><div class="mk-capa-img" style="background-image:url('media/cenario/combined-scenes/scene-d-lower-gatehouse-v02-l02-cold-skylight.webp')" aria-hidden="true"></div>
+  <header class="mk-capa-texto">
+    <p class="mk-eyebrow">Rust Gothic Metroidvania</p>
+    <h1>Decisions</h1>
+    <p class="mk-sub">0 decisões pendentes de 41 · atualizado em 20 de outubro de 2026.</p>
+  </header>
+</div>
+<section class="mk-bloco">
+<div class="mk-contadores"><span><b>0</b> pendentes</span> <span class="mk-chip mk-ok">41 confirmadas</span> <span class="mk-chip mk-neutro">6 temas</span></div>
+<p class="mk-nota">Fonte: Confirmed interview and owner visual selections on 2026-10-20; canonical specification: projects/rust-gothic-metroidvania/README.md.</p>
+</section>
+<section class="mk-bloco mk-decisoes-resumo">
+<h2 class="mk-t"><span class="mk-ico mk-i-livro" aria-hidden="true"></span>Resumo por tema</h2>
+<div class="mk-rolagem"><table class="mk-tabela ">
+<thead><tr><th scope="col">Tema</th><th scope="col">O que vale hoje</th><th scope="col">Códigos</th></tr></thead>
+<tbody>
+<tr><td><b>Engine and visual pipeline</b></td><td>Rust, Windows, hybrid 3D/sprite presentation and Blender production.</td><td><small>D01–D08</small></td></tr>
+<tr><td><b>World, protagonist and corrosion</b></td><td>Empty armor, fortress/cathedral, protective forge and permanent equipment destruction.</td><td><small>D09–D15</small></td></tr>
+<tr><td><b>Combat, recovery and session state</b></td><td>Sword/shield, unarmed recovery, purchased reserves, paused inventory and session-only progress.</td><td><small>D16–D22</small></td></tr>
+<tr><td><b>Playable scope and authoring</b></td><td>8-12 rooms, enemies, ordered traversal and a visual editor for game behavior.</td><td><small>D23–D29</small></td></tr>
+<tr><td><b>Visual selections</b></td><td>Owner selected environment B, protagonist P03 and lighting/visibility treatment L02 on 20 October 2026.</td><td><small>VIS01–VIS03</small></td></tr>
+<tr><td><b>Additional art foundation selections</b></td><td>All nine visual choices were confirmed by the owner on 20 October 2026. Alternatives remain available for comparison.</td><td><small>VIS04–VIS12</small></td></tr>
+</tbody>
+</table></div>
+</section>
+<section class="mk-bloco">
+<h2 class="mk-t"><span class="mk-ico mk-i-documento" aria-hidden="true"></span>Anotações fora do registro</h2>
+<ul class="mk-lista">
+<li>The cover and current gatehouse thumbnail show the selected L02 — Cold Skylight image. Environment B — Corroded Bastion and protagonist P03 — Penitent Harness remain selected.</li>
+<li>L01/L03/L04/L05 and the original gatehouse are comparison alternatives. Room layout and the lift remain proposals, not added gameplay scope.</li>
+<li>Approved PNG concepts are visual references. Blender sources, sprite exports and engine lighting still require production and native validation.</li>
+<li>HUD/inventory/shop B, swordsman B, archer B, boss C, materials B, forge C and exploration B are the approved concept directions. Gameplay rules, exact numeric tuning and input assignments remain governed by their own confirmed decisions.</li>
+</ul>
+</section>
+<section class="mk-bloco">
+<h2 class="mk-t"><span class="mk-ico mk-i-livro" aria-hidden="true"></span>Todas as decisões, por tema</h2>
+<details>
+<summary>Engine and visual pipeline · 8 decisões</summary>
+<div class="mk-rolagem"><table class="mk-tabela ">
+<thead><tr><th scope="col">Id</th><th scope="col">Decisão</th><th scope="col">Estado</th><th scope="col">Data</th></tr></thead>
+<tbody>
+<tr><td><span class="mk-id">D01</span></td><td>The primary objective is a functioning custom engine. Rust is mandatory; the first target is Windows.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">D02</span></td><td>Build our own renderer and game systems, reusing libraries for windowing, GPU access, physics and audio.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">D03</span></td><td>The game is a gothic medieval fantasy metroidvania, with rust as its central theme.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">D04</span></td><td>Use Bloodstained: Ritual of the Night as a reference for composition: 3D environments, side-on movement, and sprites for characters and selected scenery details.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">D05</span></td><td>Use a side-following camera with mild perspective.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">D06</span></td><td>Generate character sprites and animations from 3D models in Blender. The engine imports the resulting assets; sprite generation belongs to the external production pipeline.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">D07</span></td><td>The first delivery uses simple models while exercising the real model-to-sprite pipeline.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">D08</span></td><td>Dynamic lights, including torches, affect both environments and character sprites.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+</tbody>
+</table></div>
+</details>
+<details>
+<summary>World, protagonist and corrosion · 7 decisões</summary>
+<div class="mk-rolagem"><table class="mk-tabela ">
+<thead><tr><th scope="col">Id</th><th scope="col">Decisão</th><th scope="col">Estado</th><th scope="col">Data</th></tr></thead>
+<tbody>
+<tr><td><span class="mk-id">D09</span></td><td>The protagonist is an empty suit of armor animated by an unknown presence.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">D10</span></td><td>The playable area is a fortress and cathedral overtaken by rust.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">D11</span></td><td>The objective is to reignite a protective forge during exploration. Doing so transforms routes and opens access to the boss.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">D12</span></td><td>Rust contributes to atmosphere and story, and also deteriorates equipment and environments. It is not a player rust-power mechanic.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">D13</span></td><td>Equipment corrosion comes from contact with corrosive enemies and environments, rather than ordinary weapon use.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">D14</span></td><td>Corrosion can permanently destroy weapons and shields within the current play session. Traversal abilities remain available.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">D15</span></td><td>Environmental changes occur at defined story events, rather than through continuously simulated corrosion.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+</tbody>
+</table></div>
+</details>
+<details>
+<summary>Combat, recovery and session state · 7 decisões</summary>
+<div class="mk-rolagem"><table class="mk-tabela ">
+<thead><tr><th scope="col">Id</th><th scope="col">Decisão</th><th scope="col">Estado</th><th scope="col">Data</th></tr></thead>
+<tbody>
+<tr><td><span class="mk-id">D16</span></td><td>Start with a sword and shield. The initial combat set is one sword attack, blocking, parrying and dodging.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">D17</span></td><td>Combat has no stamina meter; animation timing provides the commitment to actions.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">D18</span></td><td>Unarmed combat remains available after equipment loss. Replacement equipment is purchased at safe points with resources earned in combat.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">D19</span></td><td>Common enemies respawn when resting and can be defeated unarmed to regain purchasing resources.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">D20</span></td><td>Purchased equipment goes into an inventory, allowing reserves and manual equipment changes. Opening the inventory pauses gameplay.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">D21</span></td><td>Death returns the player to the last safe point while retaining traversal abilities, equipment state and currency. Destruction is not undone by death.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">D22</span></td><td>Player progression exists only during the running session. Closing the game does not preserve that run. Authored maps and graphs are saved separately as project assets.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+</tbody>
+</table></div>
+</details>
+<details>
+<summary>Playable scope and authoring · 7 decisões</summary>
+<div class="mk-rolagem"><table class="mk-tabela ">
+<thead><tr><th scope="col">Id</th><th scope="col">Decisão</th><th scope="col">Estado</th><th scope="col">Data</th></tr></thead>
+<tbody>
+<tr><td><span class="mk-id">D23</span></td><td>The playable prototype contains 8-12 rooms, two common enemy types and one boss.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">D24</span></td><td>The common enemies are a corroded swordsman and an archer.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">D25</span></td><td>Unlock all three traversal abilities in this order: double jump, horizontal dash, then grappling hook.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">D26</span></td><td>The grappling hook pulls the player toward fixed anchor points, rather than supporting rope swinging.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">D27</span></td><td>Support keyboard, mouse and game controller in the prototype.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">D28</span></td><td>Include a custom visual editor for rooms, objects, simple events, map saving/loading and playtesting.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">D29</span></td><td>The editor includes visual programming blocks for room events, enemy behavior, and protagonist movement and combat.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+</tbody>
+</table></div>
+</details>
+<details>
+<summary>Visual selections · 3 decisões</summary>
+<div class="mk-rolagem"><table class="mk-tabela ">
+<thead><tr><th scope="col">Id</th><th scope="col">Decisão</th><th scope="col">Estado</th><th scope="col">Data</th></tr></thead>
+<tbody>
+<tr><td><span class="mk-id">VIS01</span></td><td>Use B — Corroded Bastion as the environment direction.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">VIS02</span></td><td>Use P03 — Penitent Harness as the protagonist direction.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">VIS03</span></td><td>Use L02 — Cold Skylight as the final lighting and visibility reference for the combined scene.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+</tbody>
+</table></div>
+</details>
+<details>
+<summary>Additional art foundation selections · 9 decisões</summary>
+<div class="mk-rolagem"><table class="mk-tabela ">
+<thead><tr><th scope="col">Id</th><th scope="col">Decisão</th><th scope="col">Estado</th><th scope="col">Data</th></tr></thead>
+<tbody>
+<tr><td><span class="mk-id">VIS04</span></td><td>Use B — Pitted cavities as the visual direction for rust and material language.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">VIS05</span></td><td>Use C — Circular anvil and passage as the visual direction for forge before and after.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">VIS06</span></td><td>Use B — Hunched Mail Veteran as the visual direction for corroded swordsman.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">VIS07</span></td><td>Use B — Mantled Wall Hunter as the visual direction for corroded archer.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">VIS08</span></td><td>Use C — Ashbound Colossus as the visual direction for fortress boss proposals.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">VIS09</span></td><td>Use B — Gothic stone insets as the visual direction for exploration and safety signals.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">VIS10</span></td><td>Use B — Cathedral Tracery as the visual direction for essential gameplay hud.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">VIS11</span></td><td>Use B — Cathedral Tracery as the visual direction for paused reserve inventory.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">VIS12</span></td><td>Use B — Cathedral Tracery as the visual direction for replacement equipment shop.</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>20 de outubro de 2026</td></tr>
+</tbody>
+</table></div>
+</details>
+</section>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,232 @@
+{
+  "sobre": "Gerado por coletores/lightkeeper.mjs. Fases = os 11 níveis da tabela do README; o nível 0 é a fatia jogável, com as etapas do README e as trilhas dos editores (uma tarefa por PR). O que falta na fatia não está escrito no repositório.",
+  "unidade": "tarefas",
+  "fases": [
+    {
+      "id": "N0",
+      "nome": "Nível 0 · Pátio Arruinado",
+      "estado": "atual",
+      "descricao": "Fatia jogável: o ciclo completo no Pátio (explorar, coletar, administrar luz, fabricar, montar abrigo, descansar e voltar a explorar), com ratos e zumbis comuns, pira, save, morte e renascimento.",
+      "itens": [
+        {
+          "id": "S1",
+          "titulo": "Etapa 1 · base (marco 1)",
+          "estado": "feito",
+          "resumo": "PR #9. Projeto C++ com o módulo de runtime `Lightkeeper` e o mapa `L_Patio`. Protagonista com modelo low-poly e 35 animações aprovadas, camada do braço da tocha e vela na mão. Câmera alta com giro no botão do meio e zoom na roda; paredes entre a câmera e o personagem ficam translúcidas."
+        },
+        {
+          "id": "S2",
+          "titulo": "Etapa 2 · interação e sobrevivência",
+          "estado": "feito",
+          "resumo": "PR #10. Mochila física: nas costas, posta no chão com a tampa abrindo e um bolso por pilha (tecido 6, couro 10), fechado quando guarda algo e com o ícone na etiqueta; peso e diário; baús com saque físico; bancada simples ativa. Coleta contextual com escolha automática de ferramenta, desgaste, quebra e som: árvores, rochas, plantas, pedras e gravetos. Machado e picareta de pedra feitos à mão…",
+          "depende": [
+            "S1"
+          ]
+        },
+        {
+          "id": "S3",
+          "titulo": "Etapa 3 · abrigo",
+          "estado": "feito",
+          "resumo": "PR #11. Modo construção (B) na grade de 1 m com prévia que mostra se o lugar serve: leito improvisado, fogueira, bancada simples, armazenamento simples, barricada e pira básica. Planejar compromete o material (da mochila ou de baús construídos por perto) e a obra só avança com E segurado e o martelo, que entra na mão sozinho e se desgasta. Mover estruturas (planejar o destino e levar com…",
+          "depende": [
+            "S2"
+          ]
+        },
+        {
+          "id": "S4",
+          "titulo": "Etapa 4 · ameaças",
+          "estado": "feito",
+          "resumo": "PR #12. Ratos gigantes e zumbis comuns com percepção por visão, luz e som, investigação, perseguição, busca e desistência. Combate na direção do cursor com fôlego, golpe forte, bloqueio e fuga. Descoberta da base pelo rato que vê a pira e ataques organizados: risco no escuro, aviso por gemidos, marcha em grupo e ataque às estruturas.",
+          "depende": [
+            "S3"
+          ]
+        },
+        {
+          "id": "S5",
+          "titulo": "Etapa 5 · integração",
+          "estado": "feito",
+          "resumo": "PR #13. Pátio gerado por seed com módulos sorteados e validação de rotas, recursos e áreas protegidas (portão, passagem do começo e poço). Modelos do kit do nível 0 no pátio: poço, bancada, baús, leito, fogueira, pira, barricada, árvores, o portão do castelo e os prédios em volta dos muros (torre, capela, quartel, estábulo, ruína e coreto), com a disposição variando pela seed. Salvamento do…",
+          "depende": [
+            "S4"
+          ]
+        },
+        {
+          "id": "MP1",
+          "titulo": "Editor de mapas · formato JSON dos mapas e leitura no jogo",
+          "estado": "feito",
+          "resumo": "PR #16."
+        },
+        {
+          "id": "MP2",
+          "titulo": "Editor de mapas · a aba do editor dentro do Unreal",
+          "estado": "feito",
+          "resumo": "PR #17.",
+          "depende": [
+            "MP1"
+          ]
+        },
+        {
+          "id": "MP3",
+          "titulo": "Editor de mapas · gatilhos, saídas e respawns no jogo",
+          "estado": "feito",
+          "resumo": "PR #19.",
+          "depende": [
+            "MP2"
+          ]
+        },
+        {
+          "id": "MP4",
+          "titulo": "Editor de mapas · blocos, validação e gerador por seed",
+          "estado": "feito",
+          "resumo": "PR #20.",
+          "depende": [
+            "MP3"
+          ]
+        },
+        {
+          "id": "EM1",
+          "titulo": "Editor de modelos · formato .lkmodel.json, protagonista convertido e a página local",
+          "estado": "feito",
+          "resumo": "PR #52."
+        },
+        {
+          "id": "EM2",
+          "titulo": "Editor de modelos · pintar a textura, projetar o turnaround, Enviar e Unreal",
+          "estado": "feito",
+          "resumo": "PR #53.",
+          "depende": [
+            "EM1"
+          ]
+        },
+        {
+          "id": "EM3",
+          "titulo": "Editor de modelos · editar faces e peças modulares",
+          "estado": "feito",
+          "resumo": "PR #54.",
+          "depende": [
+            "EM2"
+          ]
+        },
+        {
+          "id": "EM4",
+          "titulo": "Editor de modelos · animar",
+          "estado": "feito",
+          "resumo": "PR #55.",
+          "depende": [
+            "EM3"
+          ]
+        },
+        {
+          "id": "EM5",
+          "titulo": "Editor de modelos · modelos novos",
+          "estado": "feito",
+          "resumo": "PR #56.",
+          "depende": [
+            "EM4"
+          ]
+        },
+        {
+          "id": "MF1",
+          "titulo": "Modo fácil · modo simples, assistente e dicas",
+          "estado": "feito",
+          "resumo": "PR #57."
+        },
+        {
+          "id": "MF2",
+          "titulo": "Modo fácil · galeria de modelos e busca",
+          "estado": "feito",
+          "resumo": "PR #58.",
+          "depende": [
+            "MF1"
+          ]
+        },
+        {
+          "id": "MF3",
+          "titulo": "Modo fácil · cubo de vistas e Ver no jogo",
+          "estado": "feito",
+          "resumo": "PR #59.",
+          "depende": [
+            "MF2"
+          ]
+        },
+        {
+          "id": "MF4",
+          "titulo": "Modo fácil · pintar textura",
+          "estado": "feito",
+          "resumo": "PR #60.",
+          "depende": [
+            "MF3"
+          ]
+        },
+        {
+          "id": "MF5",
+          "titulo": "Modo fácil · esculpir e proteção da forma",
+          "estado": "feito",
+          "resumo": "PR #61.",
+          "depende": [
+            "MF4"
+          ]
+        },
+        {
+          "id": "MF6",
+          "titulo": "Modo fácil · proporções e peças de grudar",
+          "estado": "feito",
+          "resumo": "PR #62.",
+          "depende": [
+            "MF5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "N1",
+      "nome": "Nível 1 · Alojamentos dos Servos",
+      "estado": "futura"
+    },
+    {
+      "id": "N2",
+      "nome": "Nível 2 · Antigo Sistema de Água",
+      "estado": "futura"
+    },
+    {
+      "id": "N3",
+      "nome": "Nível 3 · Fundações Alagadas",
+      "estado": "futura"
+    },
+    {
+      "id": "N4",
+      "nome": "Nível 4 · Reservatório Subterrâneo",
+      "estado": "futura"
+    },
+    {
+      "id": "N5",
+      "nome": "Nível 5 · Castelo Inferior Esquecido",
+      "estado": "futura"
+    },
+    {
+      "id": "N6",
+      "nome": "Nível 6 · Criptas Soterradas",
+      "estado": "futura"
+    },
+    {
+      "id": "N7",
+      "nome": "Nível 7 · Catacumbas Profundas",
+      "estado": "futura"
+    },
+    {
+      "id": "N8",
+      "nome": "Nível 8 · Cavernas Profundas",
+      "estado": "futura"
+    },
+    {
+      "id": "N9",
+      "nome": "Nível 9 · Profundezas Corrompidas",
+      "estado": "futura"
+    },
+    {
+      "id": "N10",
+      "nome": "Nível 10 · Níveis Abissais",
+      "estado": "futura"
+    }
+  ]
+}

@@ -1,0 +1,610 @@
+{
+  "sobre": "Montado à mão (DECISOES.md é um log sem códigos nem estado; o coletor decisoes-md.mjs não se aplica). Só o que vale hoje, por tema; os códigos são do card.",
+  "fonte": "DECISOES.md e consolidação local em local/consolidacao-pendencias, base b4e12e1, em 2026-10-21. Decisão, implementação, prova técnica e aceite humano permanecem distintos.",
+  "espera": [],
+  "temas": [
+    {
+      "nome": "Produto e escopo",
+      "decisoes": [
+        {
+          "id": "PE1",
+          "titulo": "Produto separado e independente do Lightkeeper: página web local (three.js) com o Blender por trás; o ponto de partida é o EditorModelos copiado e adaptado.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "PE2",
+          "titulo": "Público: o usuário e pessoas próximas. Os modelos servem a jogos em qualquer engine (Unity, Unreal e Godot). O M1 é só para Windows.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "PE3",
+          "titulo": "M1: criar (descrever e montar com peças e sliders), pintar e exportar, para personagens e objetos. M2 ajuste fino da forma, M3 rig e animações, M4 cenários.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "PE4",
+          "titulo": "Meta do M1: quem nunca usou 3D cria, pinta e exporta um personagem em até 10 minutos, sem ajuda. O teste é com 1 pessoa.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "PE5",
+          "titulo": "Os passos técnicos (UV, otimizar, consertar, rig, colisão, limites) são automáticos, com aviso e opção de desfazer.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "PE6",
+          "titulo": "Projeto com bots (template jogos-bots-v1), não determinístico. Bots ativos: Coordenador, Designer, Coder, Modelador, UI, Revisor e Caderno.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "PE7",
+          "titulo": "Código no repositório privado Blended; modelos no Blended-modelos (Git LFS). Interface em português e inglês.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "PE8",
+          "titulo": "Consolidar e corrigir em sequência as pendências locais, incluindo olhar, Shift, Kimodo e Puppet Studio. M1 continua aberta; preservar as fontes anteriores e usar somente Git local.",
+          "estado": "Confirmada",
+          "data": "2026-10-20",
+          "nota": "Pedido explícito após o playtest. Fontes reunidas e testadas localmente; inventário separado de PENDENCIAS.md distingue 160 registros históricos. Sem commit, push, merge, publicação ou chamadas pagas. M1 continua aberta."
+        },
+        {
+          "id": "PE9",
+          "titulo": "Avaliar e integrar localmente o Puppet Studio 0.9.13 fornecido em disco, sem alterar o addon ou instalar no perfil do Blender.",
+          "estado": "Confirmada",
+          "data": "2026-10-20",
+          "nota": "Addon externo preservado. Ajuste de 18 pontos e cópia com 71 ossos/andar/correr/parado em Blender isolado; validação nativa e exportação disponíveis. O encaixe e a naturalidade exigem aceite humano. Fora da worktree, configurar o caminho do addon."
+        },
+        {
+          "id": "PE10",
+          "titulo": "Criação de animações por cartões de poses, com IK habilitado por padrão ao mover mãos e pés; controles técnicos no Completo.",
+          "estado": "Confirmada",
+          "data": "2026-10-20",
+          "nota": "Cartões persistidos no modelo e na recuperação; acesso por Editar por poses. Dobras, altura da pelve, alvo de olhar e Shift conferidos. Rig compatível de 23 ossos; Puppet usa editor técnico. A interpolação não garante contato contínuo, colisões ou limites anatômicos completos."
+        },
+        {
+          "id": "PE11",
+          "titulo": "Esquemas de cores com claro/escuro, incluindo Preto, Antigravity e três com contraste maior.",
+          "estado": "Confirmada",
+          "data": "2026-10-20",
+          "nota": "16 esquemas/32 combinações aprovados visualmente pelo usuário em 20/10. Fontes reunidas localmente e contraste automatizado conferido. Preferência persistida; revisão independente e integração na main permanecem pendentes."
+        }
+      ]
+    },
+    {
+      "nome": "Criar descrevendo",
+      "decisoes": [
+        {
+          "id": "DS1",
+          "titulo": "Primeira tela: a caixa \"O que você quer criar?\" (texto e imagem solta) com exemplos clicáveis. Aceita qualquer imagem; com frente, lado e costas, usa as três.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "DS2",
+          "titulo": "Depois de descrever, aparecem 3 ou 4 variações para escolher. Durante a geração, a montagem aparece ao vivo, com uma frase do que está fazendo.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "DS3",
+          "titulo": "Quem entende a descrição é o Claude Code local, que monta com peças e Blender. Só chama um provedor pago quando não dá: mostra o custo, pergunta e oferece montar de graça com peças.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "DS4",
+          "titulo": "Provedor 3D (Meshy ou Tripo): saem 4 prévias baratas sem textura e só a escolhida é terminada.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "DS5",
+          "titulo": "O chat lateral está sempre aberto e faz tudo o que os botões fazem; cada pedido é um passo que se desfaz. O \"O que fazer?\" fica junto, com caminhos guiados.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "DS6",
+          "titulo": "Personagens nascem do corpo-base com sliders; forma livre para o que não for humanoide. Sem o Claude Code, o editor funciona sem a parte de descrever.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        }
+      ]
+    },
+    {
+      "nome": "Peças e sliders",
+      "decisoes": [
+        {
+          "id": "PC1",
+          "titulo": "Arrastar a peça até o modelo: ela gruda no lugar certo e se ajusta ao tamanho. Peça em par: colocar uma já põe a outra, e dá para desligar.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "PC2",
+          "titulo": "Peça colocada ganha alças para mover, girar e mudar o tamanho, mais \"voltar ao lugar\". Objetos também são montados por partes trocáveis.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "PC3",
+          "titulo": "Prateleira com busca, categorias e miniaturas. Os pacotes grátis são baixados e catalogados com etiquetas, licença e créditos. Qualquer modelo, ou parte dele, vira peça com um clique.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "PC4",
+          "titulo": "Pacotes do M1: Kenney (Mini Dungeon e Survival Kit, CC0) e Quaternius (Medieval Weapons). As peças do Quaternius ficam só no cache de cada computador e só vão ao repositório dentro de um modelo finalizado, nunca como peça avulsa (substitui a linha que deixava isso Pendente).",
+          "estado": "Confirmada",
+          "data": "2026-10-16",
+          "nota": "Decidido por: coordenador."
+        },
+        {
+          "id": "PC5",
+          "titulo": "Sliders: poucos e simples no Simples (7 controles do corpo, no máximo 8), todos no Completo. A proporção de chibi a realista é um slider.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "PC6",
+          "titulo": "Corpo-base feito do zero por script (600 triângulos, 23 ossos, braços em A), sem MakeHuman. As peças grudadas acompanham os controles pela pele (até 1 mm).",
+          "estado": "Confirmada",
+          "data": "2026-10-16",
+          "nota": "Decidido por: modelador e coder."
+        },
+        {
+          "id": "PC7",
+          "titulo": "As 13 peças de personagem e os 3 objetos por partes (19 partes) são feitos por script no Blender. A peça grudada vai para o arquivo do modelo e volta com alças ao reabrir.",
+          "estado": "Confirmada",
+          "data": "2026-10-16",
+          "nota": "Decidido por: modelador e coder."
+        }
+      ]
+    },
+    {
+      "nome": "Pintura",
+      "decisoes": [
+        {
+          "id": "PT1",
+          "titulo": "Clicar na peça e escolher cor ou material pinta a peça toda; o pincel fica para os detalhes. Todas as ferramentas ficam à vista também no Simples, no mesmo nível.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "PT2",
+          "titulo": "Espelhar ao pintar começa ligado toda vez que a página abre (o desligar não fica lembrado).",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "PT3",
+          "titulo": "Efeitos (sujeira, ferrugem, desgaste, sangue seco e costura) valem como pincel e como \"modelo todo\" ou \"na peça\", com intensidade de 10% a 100%. A borracha devolve a cor de antes da pintura.",
+          "estado": "Confirmada",
+          "data": "2026-10-17",
+          "nota": "Decidido por: coder."
+        },
+        {
+          "id": "PT4",
+          "titulo": "Adesivo: 10 carimbos prontos e qualquer imagem (PNG, JPG, WebP ou GIF de até 8 MB), com tamanho, giro e par espelhado.",
+          "estado": "Confirmada",
+          "data": "2026-10-17",
+          "nota": "Decidido por: coder."
+        },
+        {
+          "id": "PT5",
+          "titulo": "Pintar descrevendo vale no modelo inteiro ou só na peça escolhida, e sempre pergunta qual provedor usar, com custo e confirmação. Com a peça escolhida, o corte de cores do estilo vale só dentro dela.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "PT6",
+          "titulo": "A paleta é sugerida pelo estilo, com cor livre. O tamanho da textura é automático pelo estilo, ajustável no Completo. As peças prontas vêm pintadas e se adaptam ao estilo.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "PT7",
+          "titulo": "Sem \"UV\" visível no Simples: o quadro plano, o tamanho da textura e a projeção de imagem ficam só no Completo.",
+          "estado": "Confirmada",
+          "data": "2026-10-17",
+          "nota": "Decidido por: coder."
+        },
+        {
+          "id": "PT8",
+          "titulo": "Cores originais / Sem tingimento preserva a imagem sem influência da paleta; Opacidade do adesivo fica em um controle separado.",
+          "estado": "Confirmada",
+          "data": "2026-10-19",
+          "nota": "Implementação da proposta 09 autorizada junto da lista do playtest."
+        }
+      ]
+    },
+    {
+      "nome": "Estilos e materiais",
+      "decisoes": [
+        {
+          "id": "ES1",
+          "titulo": "Quatro estilos já no M1: PS1, low-poly, estilizado e realista. O estilo é escolhido no começo, com prévias, e pode ser trocado depois.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "ES2",
+          "titulo": "Trocar o estilo converte numa cópia e preserva o original (o hash de cada arquivo fica igual).",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "ES3",
+          "titulo": "Limites do personagem: PS1 1000 triângulos e 256 cores; low-poly 2500 e 32 cores; estilizado 8000; realista 30000, sem limite de cores.",
+          "estado": "Confirmada",
+          "data": "2026-10-16",
+          "nota": "Decidido por: modelador."
+        },
+        {
+          "id": "ES4",
+          "titulo": "A barra de limites do estilo está sempre visível. Passou do limite, o editor otimiza sozinho depois do Salvar, guardando a versão \"antes\" com Desfazer.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "ES5",
+          "titulo": "Dá para criar e salvar um estilo próprio; ele vale só no computador onde foi criado. A vista mostra como o estilo fica, e o botão se chama \"Ver como no jogo\".",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "ES6",
+          "titulo": "24 materiais feitos por script, nos 4 estilos e sem arquivo de terceiros (substitui \"cerca de 20, do ambientCG e do Poly Haven\"). A licença é \"todos os direitos reservados\" por enquanto (substitui a CC0 1.0).",
+          "estado": "Confirmada",
+          "data": "2026-10-17"
+        },
+        {
+          "id": "ES7",
+          "titulo": "No realista, materiais prontos mais a textura da IA. Material: sliders simples no Simples, valores técnicos no Completo.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "ES8",
+          "titulo": "\"Aplicar material\" não grava no disco: fica na textura e só vai ao arquivo no Salvar, com Desfazer e Refazer. O nome de textura vindo do arquivo só vale se for um `.png` dentro da pasta do modelo.",
+          "estado": "Confirmada",
+          "data": "2026-10-17",
+          "nota": "Decidido por: coder."
+        }
+      ]
+    },
+    {
+      "nome": "Automação e desfazer",
+      "decisoes": [
+        {
+          "id": "AU1",
+          "titulo": "Ctrl+Z sem limite, mais uma linha do tempo com miniaturas.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "AU2",
+          "titulo": "No M1, todas as automações: UV, otimizar, consertar a malha, centralizar, chão e escala, colisão e LOD. Cada uma pode ser desligada no Completo.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "AU3",
+          "titulo": "Aviso discreto no canto com \"Desfazer\", e um histórico dos avisos. Ação que estragaria a malha conserta sozinha e avisa.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "AU4",
+          "titulo": "Conferência automática antes de exportar, explicada em linguagem simples, e sugestões discretas do próximo passo.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "AU5",
+          "titulo": "Desfazer uma IA paga não devolve o custo, e o aviso de custo diz isso.",
+          "estado": "Confirmada",
+          "data": "2026-10-16",
+          "nota": "Decidido por: fato do provedor."
+        }
+      ]
+    },
+    {
+      "nome": "Tela e ajuda",
+      "decisoes": [
+        {
+          "id": "TA1",
+          "titulo": "Dois modos, Simples e Completo. A tela abre no último modo usado, e o Completo só acrescenta: nada muda de lugar.",
+          "estado": "Confirmada",
+          "data": "2026-10-16",
+          "nota": "Implementação do PR #19: Exportar e Meus jogos aparecem nos dois modos; o Completo acrescenta a escolha do formato."
+        },
+        {
+          "id": "TA2",
+          "titulo": "Layout inicial: modelo no centro, peças à esquerda, ferramentas à direita, chat recolhível e linha do tempo embaixo. Painéis vão para qualquer borda, viram abas ou janelas flutuantes; há \"restaurar layout\" e layouts salvos com nome.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "TA3",
+          "titulo": "Funciona a partir de 1366×768. Letra em 3 tamanhos (14, 16 e 18 px), tema escuro por padrão e um claro com contraste de pelo menos 4,5:1. Idioma pt e en trocado na hora.",
+          "estado": "Confirmada",
+          "data": "2026-10-16",
+          "nota": "Decidido por: usuário e coder."
+        },
+        {
+          "id": "TA4",
+          "titulo": "As preferências da tela (modo, idioma, tema, letra e layouts) ficam na pasta de configuração (`tela.json`), não no navegador.",
+          "estado": "Confirmada",
+          "data": "2026-10-16",
+          "nota": "Decidido por: coder."
+        },
+        {
+          "id": "TA5",
+          "titulo": "Navegação: arrastar gira, a roda aproxima, o botão direito move; cubo de vista e \"centralizar\". Atalhos simples ao passar o mouse; os do Blender são opcionais no Completo.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "TA6",
+          "titulo": "Tutorial prático curto na primeira vez, que dá para pular. Dicas com uma frase e uma animação curta.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        }
+      ]
+    },
+    {
+      "nome": "Salvar e galeria",
+      "decisoes": [
+        {
+          "id": "SG1",
+          "titulo": "Salvar é manual, com lembrete depois de 5 minutos e pergunta ao fechar com mudança. A cópia de emergência sai sozinha a cada 30 s, fora do git, e é oferecida ao abrir.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "SG2",
+          "titulo": "Git invisível: cada Salvar vira uma versão com miniatura, que pode ser restaurada ou duplicada; \"Enviar\" manda para o GitHub em branch com PR. Sem repositório, o editor cria um local.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "SG3",
+          "titulo": "Voltar a uma versão primeiro guarda o que está no disco, com Desfazer. Fazer cópia cria `<nome>-copia`.",
+          "estado": "Confirmada",
+          "data": "2026-10-16",
+          "nota": "Decidido por: coder."
+        },
+        {
+          "id": "SG4",
+          "titulo": "Galeria com miniaturas, busca, etiquetas automáticas e pastas, e o botão \"fazer variação\" (aleatória ou pela IA).",
+          "estado": "Confirmada",
+          "data": "2026-10-16",
+          "nota": "PR #16: pastas e etiquetas não mudam o id nem as versões do modelo. Excluir usa uma lixeira restaurável. A variação do botão é reproduzível; a opção de IA continua no Descrever e no chat."
+        },
+        {
+          "id": "SG5",
+          "titulo": "Importa e edita GLB, FBX e OBJ de fora. O arquivo único `.blended` leva modelo, texturas e peças para passar a outras pessoas.",
+          "estado": "Confirmada",
+          "data": "2026-10-16",
+          "nota": "PR #16: FBX binário, GLB e OBJ são importados com conferência dos arquivos. O .blended também leva versões leves, colisão e as arrumações recusadas; uma variação de forma refaz esses dados."
+        }
+      ]
+    },
+    {
+      "nome": "Exportar",
+      "decisoes": [
+        {
+          "id": "EX1",
+          "titulo": "Reconhece Unity, Unreal ou Godot pela pasta e só pergunta se não reconhecer. FBX para Unity e Unreal, GLB para Godot, e dá para mudar. Os nomes seguem a convenção de cada engine.",
+          "estado": "Confirmada",
+          "data": "2026-10-16",
+          "nota": "PR #19 integrado. FBX e GLB implementados; exportar OBJ continua pendente. Arquivos feitos pela pessoa ou alterados depois da exportação são protegidos."
+        },
+        {
+          "id": "EX2",
+          "titulo": "Exporta de novo no mesmo caminho e nome, com a opção \"exportar ao salvar\" e vários destinos salvos.",
+          "estado": "Confirmada",
+          "data": "2026-10-16",
+          "nota": "Na exportação ao salvar, a conferência só olha. Havendo problema, o editor avisa e oferece Conferir e exportar; qualquer arrumação manual continua com aviso e Desfazer."
+        },
+        {
+          "id": "EX3",
+          "titulo": "M1: o arquivo no lugar certo, com os materiais configurados. Prefab e reimportação ficam para depois.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "EX4",
+          "titulo": "A exportação é conferida no Unity, no Unreal e no Godot, com captura, a cada mudança nela.",
+          "estado": "Confirmada",
+          "data": "2026-10-16",
+          "nota": "Prova nas três engines registrada pelo Claude em docs/exportar/engines.md. Nesta sessão, o fluxo automatizado criou, pintou, salvou e exportou um GLB real para um projeto Godot temporário. O teste com leigo continua pendente."
+        }
+      ]
+    },
+    {
+      "nome": "Comandos para bots",
+      "decisoes": [
+        {
+          "id": "CB1",
+          "titulo": "Os bots usam só a linha de comando (`blended ...`). Com o editor aberto, o comando avisa a tela e a mudança aparece ao vivo; o chat lateral usa os mesmos comandos. Lotes rodam sem abrir a página.",
+          "estado": "Confirmada",
+          "data": "2026-10-16",
+          "nota": "Implementação local em revisão: sem página aberta pela pessoa, Edge/Chrome executa a mesma página internamente sem janela. Comandos que abrem diálogos precisam de interface."
+        },
+        {
+          "id": "CB2",
+          "titulo": "O que um bot faz fica pendente, com selo, até o usuário aprovar, e entra no histórico com o nome do bot.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "CB3",
+          "titulo": "Bots pedem autorização antes de qualquer geração paga: a origem `bot:<nome>` só consegue estimar, e nunca há limite pré-autorizado.",
+          "estado": "Confirmada",
+          "data": "2026-10-16",
+          "nota": "Decidido por: usuário e coder."
+        },
+        {
+          "id": "CB4",
+          "titulo": "Receitas: gravar uma sequência de passos e repetir com um clique.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "CB5",
+          "titulo": "CLI e chat compartilham catálogo/executor; sem interface o alvo é explícito. Lotes salvam passos já feitos mesmo se falharem; pedidos humanos vinculam modelo e pasta, com código único de 30 minutos.",
+          "estado": "Confirmada",
+          "data": "2026-10-19",
+          "nota": "Decisão técnica do coder, implementação em revisão local. Aprovar um pedido não dispensa a confirmação normal de custo. Não isola programas maliciosos sob o mesmo usuário Windows."
+        }
+      ]
+    },
+    {
+      "nome": "Instalação e contas",
+      "decisoes": [
+        {
+          "id": "IC1",
+          "titulo": "Instalador de um arquivo só: baixa o Blender portátil, cria o atalho e abre o editor. Exige placa de vídeo dedicada (confere e avisa). O editor avisa da versão nova e atualiza com um clique.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "IC2",
+          "titulo": "Pessoas próximas entram como colaboradoras no GitHub, e o instalador usa o login delas.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "IC3",
+          "titulo": "Tela \"Contas\" com link e teste da chave. A chave fica no Gerenciador de Credenciais do Windows (nome `Blended/<provedor>`), nunca no repositório.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "IC4",
+          "titulo": "Botão \"relatar problema\" que junta log e print, sem envio automático e passando pelo filtro de segredos.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "IC5",
+          "titulo": "Escolhas independentes de chat e imagens: clientes locais de Claude, Codex e Gemini usam seu login oficial. A presença do cliente não comprova login ou geração de imagens.",
+          "estado": "Confirmada",
+          "data": "2026-10-19",
+          "nota": "Codex: retorno à prévia implementado localmente; teste real pela interface pendente. Gemini CLI 0.64.0 instalado, sem prompt; falta login Google. Chat real dos três clientes e limites seguem sem validação. Claude/Gemini mantêm imagens manuais."
+        }
+      ]
+    },
+    {
+      "nome": "Provedores de IA",
+      "decisoes": [
+        {
+          "id": "PV1",
+          "titulo": "Oito provedores já no M1: Higgsfield, ElevenLabs, Fal, Kie.ai, Tripo e Meshy (imagem e 3D), mais OpenAI e Gemini para textura. Substitui toda menção a \"só Meshy\". Dentro do editor vale a escolha do Blended, não a ordem de ferramentas do template.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "PV2",
+          "titulo": "Cada pessoa usa as próprias contas e chaves, no Gerenciador de Credenciais; a tela \"Contas\" lista todos.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "PV3",
+          "titulo": "Em cada geração o editor lista só quem tem chave e sabe fazer, com custo, tempo, qualidade e saldo, recomenda um (o mais barato entre os de qualidade boa) e a pessoa escolhe. A autorização vale uma geração e vence em 15 minutos.",
+          "estado": "Confirmada",
+          "data": "2026-10-16",
+          "nota": "Decidido por: usuário e coder."
+        },
+        {
+          "id": "PV4",
+          "titulo": "Verificação de custo: passou do teto, ou cobrou mais de 10% do teto sem entregar, e as novas gerações ficam bloqueadas até a pessoa confirmar.",
+          "estado": "Confirmada",
+          "data": "2026-10-16",
+          "nota": "Decidido por: coder."
+        },
+        {
+          "id": "PV5",
+          "titulo": "Falha passageira depois de pago não perde a geração: \"Tentar pegar o resultado\", sem cobrar de novo.",
+          "estado": "Confirmada",
+          "data": "2026-10-16",
+          "nota": "Decidido por: coder."
+        },
+        {
+          "id": "PV6",
+          "titulo": "Toda chamada de rede passa por `provedores/rede.py`: só HTTPS, hosts fixos por provedor, e a chave só vai para os hosts da API. Provedor sem preço publicado (ElevenLabs) testa a chave, mas fica desativado na escolha.",
+          "estado": "Confirmada",
+          "data": "2026-10-16",
+          "nota": "Decidido por: coder."
+        },
+        {
+          "id": "PV7",
+          "titulo": "O CI e os testes nunca chamam a rede (fixtures, 5 cenários por provedor). A primeira chamada real de cada provedor só acontece no uso, com confirmação de custo.",
+          "estado": "Confirmada",
+          "data": "2026-10-16",
+          "nota": "Decidido por: usuário e coder."
+        }
+      ]
+    },
+    {
+      "nome": "Revisão e CI",
+      "decisoes": [
+        {
+          "id": "RC1",
+          "titulo": "Testes de navegador com Playwright, obrigatórios no CI. Até 2 rodadas de revisão por PR; uma extra só com autorização do usuário.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "RC2",
+          "titulo": "O Coordenador faz o merge depois de o Revisor aprovar e com o CI verde. O instalador é testado no Windows Sandbox a cada mudança nele.",
+          "estado": "Confirmada",
+          "data": "2026-10-16"
+        },
+        {
+          "id": "RC3",
+          "titulo": "Fim de linha: LF em todo texto, pelo `.gitattributes`; `.bat`, `.cmd` e `.ps1` em CRLF.",
+          "estado": "Confirmada",
+          "data": "2026-10-16",
+          "nota": "Decidido por: coordenador."
+        },
+        {
+          "id": "RC4",
+          "titulo": "O CI roda num executor próprio do PC (rótulo `blended`), porque a conta do GitHub ficou sem minutos.",
+          "estado": "Confirmada",
+          "data": "2026-10-17"
+        },
+        {
+          "id": "RC5",
+          "titulo": "O executor roda num usuário próprio do Windows (`blended-ci`), sem administrador e sem acesso às chaves do dono (substitui o executor que rodava como o dono). Fica ligado só nas sessões; o Coordenador desliga no fim.",
+          "estado": "Confirmada",
+          "data": "2026-10-17"
+        },
+        {
+          "id": "RC6",
+          "titulo": "Bloqueio de disco: negar só a escrita ao `blended-ci`, por SID, nos discos fora do C: e nas pastas de primeiro nível do C:\\ que não são do sistema. A leitura de E:, D: e F: continua aberta: nada de chave em texto puro nesses discos.",
+          "estado": "Confirmada",
+          "data": "2026-10-17"
+        },
+        {
+          "id": "RC7",
+          "titulo": "Os testes do CI usam chaves em memória e a configuração do job; só o `TestWindows` usa o Gerenciador de Credenciais, com nomes `BlendedTeste-<uuid>`.",
+          "estado": "Confirmada",
+          "data": "2026-10-17",
+          "nota": "Decidido por: coder."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "data": "2026-10-21",
+  "status": "aprovado",
+  "larguras": [
+    390,
+    768,
+    1280
+  ],
+  "temas": [
+    "dark",
+    "light"
+  ],
+  "paginas": 9,
+  "combinacoes": 54,
+  "imagens": 6,
+  "previasVerificadas": 12,
+  "desktop": [
+    {
+      "tab": "Painel",
+      "path": "painel.html",
+      "h1": "Editor Global Empires"
+    },
+    {
+      "tab": "Roteiro",
+      "path": "roteiro.html",
+      "h1": "Roteiro"
+    },
+    {
+      "tab": "Entregas",
+      "path": "entregas.html",
+      "h1": "Entregas"
+    },
+    {
+      "tab": "Decisões",
+      "path": "decisoes.html",
+      "h1": "Decisões"
+    },
+    {
+      "tab": "Implementação",
+      "path": "implementacao.html",
+      "h1": "Implementação e arquitetura"
+    },
+    {
+      "tab": "Acervo",
+      "path": "acervo.html",
+      "h1": "Acervo"
+    },
+    {
+      "tab": "Validação",
+      "path": "validacao.html",
+      "h1": "Validação e aceite"
+    },
+    {
+      "tab": "Arquivo",
+      "path": "arquivo.html",
+      "h1": "Arquivo"
+    }
+  ],
+  "mobile": [
+    {
+      "tab": "Painel",
+      "path": "painel.html",
+      "h1": "Editor Global Empires"
+    },
+    {
+      "tab": "Roteiro",
+      "path": "roteiro.html",
+      "h1": "Roteiro"
+    },
+    {
+      "tab": "Entregas",
+      "path": "entregas.html",
+      "h1": "Entregas"
+    },
+    {
+      "tab": "Decisões",
+      "path": "decisoes.html",
+      "h1": "Decisões"
+    },
+    {
+      "tab": "Implementação",
+      "path": "implementacao.html",
+      "h1": "Implementação e arquitetura"
+    },
+    {
+      "tab": "Acervo",
+      "path": "acervo.html",
+      "h1": "Acervo"
+    },
+    {
+      "tab": "Validação",
+      "path": "validacao.html",
+      "h1": "Validação e aceite"
+    },
+    {
+      "tab": "Arquivo",
+      "path": "arquivo.html",
+      "h1": "Arquivo"
+    }
+  ],
+  "registro": {
+    "abas": [
+      {
+        "name": "Painel",
+        "path": "painel.html"
+      },
+      {
+        "name": "Roteiro",
+        "path": "roteiro.html"
+      },
+      {
+        "name": "Entregas",
+        "path": "entregas.html"
+      },
+      {
+        "name": "Decisões",
+        "path": "decisoes.html"
+      },
+      {
+        "name": "Implementação",
+        "path": "implementacao.html"
+      },
+      {
+        "name": "Acervo",
+        "path": "acervo.html"
+      },
+      {
+        "name": "Validação",
+        "path": "validacao.html"
+      },
+      {
+        "name": "Arquivo",
+        "path": "arquivo.html"
+      }
+    ],
+    "idsUnicos": true,
+    "arquivoUnico": true,
+    "criacaoPreservouOutrasEntidades": true,
+    "alteracoesConcorrentesObservadas": [
+      "global-empires"
+    ]
+  },
+  "ambiente": "MS Edge headless; documentos reais e UI compilada do Mr. Mak em serviço/armazenamento isolados. Aplicativo instalado não foi reiniciado; não foi verificada a sessão real do telefone.",
+  "evidencias": "E:\\MrMak\\Mak\\.local\\ge-editor-workspace\\evidence"
+}

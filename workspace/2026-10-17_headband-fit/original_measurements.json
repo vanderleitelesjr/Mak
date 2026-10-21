@@ -1,0 +1,31 @@
+{
+  "source": "C:\\Users\\vande\\Downloads\\Meshy_AI_gothic_horn_headband_easy_pla_20261017_generate.stl",
+  "units": "STL has no units; raw coordinate units reported below",
+  "vertices": 336864,
+  "triangles": 673779,
+  "extents": [
+    62.142066955566406,
+    18.709455490112305,
+    50.0
+  ],
+  "boundary_edges": 7,
+  "nonmanifold_edges": 16,
+  "signed_volume": 9331.700817385317,
+  "components": [
+    {
+      "vertices": 336864,
+      "bounds": [
+        [
+          -31.086427688598633,
+          -9.336711883544922,
+          0.0
+        ],
+        [
+          31.055639266967773,
+          9.372743606567383,
+          50.0
+        ]
+      ]
+    }
+  ]
+}

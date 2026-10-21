@@ -1,0 +1,37 @@
+{
+  "stl": "Headband_58cm_PLA_fit_v2.stl",
+  "sha256": "7825016fcc05c1fd71cdde8b399497dedcea73c90ff69c03e8221d45e157d55d",
+  "method": "Convex hull of actual STL XY vertices; planar rotation grid from 0 to 90 degrees in 0.01 degree steps.",
+  "suppliedDimensionsMM": [
+    261.7344970703125,
+    182.102783203125,
+    72.0208740234375
+  ],
+  "bestPlanarRotation": {
+    "rotationAroundZDegrees": 45.01,
+    "dimensionsMM": [
+      231.6679209978227,
+      231.6666482487794,
+      72.0208740234375
+    ],
+    "requiredSquareMM": 231.6679209978227
+  },
+  "excludes": "Brim, supports, purge lines and printer exclusion zones. No tilt or scale changes assessed.",
+  "squareBeds": [
+    {
+      "sizeMM": 220,
+      "geometryFitsAfterRotation": false,
+      "minimumTotalMarginMM": -11.667920997822705
+    },
+    {
+      "sizeMM": 256,
+      "geometryFitsAfterRotation": true,
+      "minimumTotalMarginMM": 24.332079002177295
+    },
+    {
+      "sizeMM": 300,
+      "geometryFitsAfterRotation": true,
+      "minimumTotalMarginMM": 68.3320790021773
+    }
+  ]
+}

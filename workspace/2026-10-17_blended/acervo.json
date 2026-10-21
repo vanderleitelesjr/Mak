@@ -1,0 +1,706 @@
+{
+  "sobre": "Capturas dos testes de navegador (1366×768). Cada item identifica a entrega e se está integrado ou em revisão local; as capturas históricas não acompanham a tela de hoje. WebP de 480 px. Família = tela do editor; modos e temas são vistas do mesmo item.",
+  "familias": {
+    "interface/editor": "Editor (tarefas 1 e 4)",
+    "interface/versoes": "Salvar e versões (tarefa 3)",
+    "interface/corpo": "Corpo-base e sliders (tarefa 5)",
+    "interface/pecas": "Peças (tarefa 6)",
+    "interface/descrever": "Descrever (tarefa 7)",
+    "interface/provedores": "Provedores de IA (tarefa 8)",
+    "interface/pintura": "Pintura (tarefa 9)",
+    "interface/estilos": "Estilos e materiais (tarefa 10)",
+    "interface/animar": "M3 · Animações e protótipo por poses (revisão local)",
+    "interface/ajuda": "M1 · Ajuda e suporte (em revisão local)",
+    "interface/correcoes": "Playtest · Correções locais",
+    "interface/temas": "Interface · Esquemas de cores (revisão local)"
+  },
+  "itens": [
+    {
+      "id": "interface-contrastes",
+      "nome": "Cinco esquemas · Preto, Antigravity e contrastes",
+      "categoria": "interface",
+      "familia": "temas",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/temas/interface-contrastes-v01-preto.webp",
+      "miniaturaRotulo": "Preto puro",
+      "vistas": [
+        {
+          "rotulo": "Antigravity claro",
+          "arquivo": "media/interface/temas/interface-contrastes-v01-antigravity.webp"
+        },
+        {
+          "rotulo": "Neon",
+          "arquivo": "media/interface/temas/interface-contrastes-v01-neon.webp"
+        },
+        {
+          "rotulo": "Violeta solar",
+          "arquivo": "media/interface/temas/interface-contrastes-v01-violeta.webp"
+        },
+        {
+          "rotulo": "Coral elétrico",
+          "arquivo": "media/interface/temas/interface-contrastes-v01-coral.webp"
+        }
+      ],
+      "original": "E:/MrMak/Blended-playtests/2026-10-20-temas-contraste/preto-escuro.png, E:/MrMak/Blended-playtests/2026-10-20-temas-contraste/antigravity-claro.png, E:/MrMak/Blended-playtests/2026-10-20-temas-contraste/neon-escuro.png, E:/MrMak/Blended-playtests/2026-10-20-temas-contraste/violeta-solar-escuro.png, E:/MrMak/Blended-playtests/2026-10-20-temas-contraste/coral-eletrico-escuro.png",
+      "nota": "20/10/2026 · Capturas anteriores ao refinamento multicolor e à correção do Preto. Os 16 esquemas atuais têm seis testes JS, quatro cenários Playwright e 32 combinações conferidas. Esquemas aprovados visualmente pelo usuário após o refinamento; revisão técnica e integração pendentes."
+    },
+    {
+      "id": "interface-temas",
+      "nome": "Interface · Onze esquemas claro/escuro",
+      "categoria": "interface",
+      "familia": "temas",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/temas/interface-temas-v01-escuro.webp",
+      "miniaturaRotulo": "Oceano escuro e seletor de onze esquemas",
+      "vistas": [
+        {
+          "rotulo": "Orquídea claro",
+          "arquivo": "media/interface/temas/interface-temas-v01-claro.webp"
+        }
+      ],
+      "original": "E:/MrMak/Blended-playtests/2026-10-20-temas/oceano-escuro.png, E:/MrMak/Blended-playtests/2026-10-20-temas/orquidea-claro.png",
+      "nota": "20/10/2026 · Captura da coleção inicial de onze esquemas, com 22 combinações conferidas. A coleção atual tem 16 esquemas e foi aprovada visualmente pelo usuário após os refinamentos. Branch local interface/temas; revisão técnica e integração pendentes."
+    },
+    {
+      "id": "animar-poses-ik",
+      "nome": "M3 · Protótipo por poses com IK",
+      "categoria": "interface",
+      "familia": "animar",
+      "status": "vigente",
+      "versao": 3,
+      "miniatura": "media/interface/animar/animar-poses-ik-v03.webp",
+      "miniaturaRotulo": "Pelve com pés ancorados e referências de cotovelos/joelhos",
+      "original": "E:/MrMak/Blended-playtests/2026-10-20-m3-polos-pelve/pelve-agachada.png",
+      "nota": "20/10/2026 · Pontos de dobra preservam alvos; pelve vertical ancora pés durante o ajuste. Treze testes JS, onze verificações integradas e regressão anterior passaram. Protótipo local, cartões temporários; sem contato garantido entre quadros ou aceite humano de naturalidade.",
+      "historico": [
+        {
+          "versao": 2,
+          "miniatura": "media/interface/animar/animar-poses-ik-v02.webp",
+          "nota": "20/10/2026 · Controles diretos de cabeça/torso e aros junto das setas, antes das referências de dobra e altura da pelve."
+        },
+        {
+          "versao": 1,
+          "miniatura": "media/interface/animar/animar-poses-ik-v01.webp",
+          "nota": "20/10/2026 · Aceno de quatro poses, antes dos controles diretos de cabeça/torso e aros simultâneos."
+        }
+      ]
+    },
+    {
+      "id": "codex-imagem-experimental",
+      "nome": "Codex · Geração e retorno automático à prévia",
+      "categoria": "interface",
+      "familia": "correcoes",
+      "status": "vigente",
+      "versao": 2,
+      "miniatura": "media/interface/correcoes/codex-imagem-experimental-v02.webp",
+      "miniaturaRotulo": "Retorno automático com cliente falso",
+      "original": "E:/MrMak/Blended-playtests/2026-10-20-p15-integracao-0033/browser-validacao-0057/imagem_codex-PT15-um-pedid-cbe8d-er-usam-a-pintura-existente-edge/codex-retorno-automatico.png",
+      "nota": "20/10/2026 · Interface local após retorno automático de um cliente falso. Modelo e pixels preservados antes de Aplicar; Aplicar e Desfazer testados. A geração real pela nova interface ainda depende do teste humano. Sem integração na main.",
+      "historico": [
+        {
+          "versao": 1,
+          "miniatura": "media/interface/correcoes/codex-imagem-experimental-v01.webp",
+          "nota": "Experimento anterior com imagem real pelo Codex, importada manualmente. Original preservado nas provas de 19/10 às 23:59."
+        }
+      ]
+    },
+    {
+      "id": "correcoes-playtest",
+      "nome": "Playtest · Pintura e importação corrigidas",
+      "categoria": "interface",
+      "familia": "correcoes",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/correcoes/correcoes-playtest-v01.webp",
+      "miniaturaRotulo": "Pintar descrevendo",
+      "vistas": [
+        {
+          "rotulo": "Balde: prévia sobre o modelo",
+          "arquivo": "media/interface/correcoes/correcoes-playtest-v01-balde.webp"
+        },
+        {
+          "rotulo": "Importar peça sem trocar o modelo",
+          "arquivo": "media/interface/correcoes/correcoes-playtest-v01-importar.webp"
+        }
+      ],
+      "original": "E:/MrMak/Blended-playtests/2026-10-19-correcoes-225002/browser-resolvidas/playtest_correcoes-PT10-11-79f0c-alinhadas-e-fluxo-explicado-edge/pintar-descrevendo.png, E:/MrMak/Blended-playtests/2026-10-19-correcoes-225002/browser-resolvidas/playtest_correcoes-PT01-02-9f196-o-e-giro-sem-mover-a-câmera-edge/balde-previa.png, E:/MrMak/Blended-playtests/2026-10-19-correcoes-225002/browser-resolvidas/playtest_correcoes-PT19-im-1f8b2-a-e-preserva-a-edição-atual-edge/importar-peca-previa.png",
+      "nota": "Capturas reais da fonte local em m1/cli-ajuda-local. Sem integração na main ou aprovação humana T16. Agentes testados com fixtures; imagens com retorno manual."
+    },
+    {
+      "id": "ajuda-tutorial",
+      "nome": "M1 · Tutorial e ajuda",
+      "categoria": "interface",
+      "familia": "ajuda",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/ajuda/ajuda-tutorial-v01.webp",
+      "miniaturaRotulo": "Tutorial concluído",
+      "vistas": [
+        {
+          "rotulo": "Ajuda em inglês e tema claro",
+          "arquivo": "media/interface/ajuda/ajuda-tutorial-v01-ingles-claro.webp"
+        }
+      ],
+      "original": "E:/ClaudeTemp/codex-blended-cli-ajuda-20261019/tutorial-concluido.png, E:/ClaudeTemp/codex-blended-cli-ajuda-20261019/ajuda-ingles-claro.png",
+      "nota": "T15 em revisão local. Capturas reais dos testes automatizados: criar, pintar/salvar e exportar; ajuda acessível em português e inglês. Não representam aprovação humana ou integração na main."
+    },
+    {
+      "id": "animar-movimentos-prontos",
+      "nome": "M3 · Andar, correr e atacar",
+      "categoria": "interface",
+      "familia": "animar",
+      "status": "vigente",
+      "versao": 2,
+      "miniatura": "media/interface/animar/animar-movimentos-prontos-v02.webp",
+      "original": "E:/MrMak/Blended-playtests/2026-10-20-m3-rigs-importados-112225/rodada-importados/navegador/anim_prontas-movimentos-ri-9716e-brir-sem-alterar-o-original-edge/rig-importado-glb.png",
+      "nota": "20/10/2026 · Humanoide controlado reimportado de GLB, sem marcador do corpo-base. Corrida salva e reaberta, com animação anterior preservada. M3 local em revisão; sem aprovação humana ou integração.",
+      "historico": [
+        {
+          "versao": 1,
+          "miniatura": "media/interface/animar/animar-movimentos-prontos-v01.webp",
+          "nota": "19/10/2026 · branch local m3/rig-animacoes, em revisão; sem integração. Caminhada no corpo-base em quadro intermediário, com os movimentos no painel e a edição não salva visível."
+        }
+      ]
+    },
+    {
+      "id": "editor-modos",
+      "nome": "Editor nos modos Simples e Completo",
+      "categoria": "interface",
+      "familia": "editor",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/editor/editor-modos-v01.webp",
+      "original": "testes/capturas/base-simples.png, testes/capturas/base-completo.png",
+      "nota": "Tarefa 1 · PR #1. Simples: o editor aberto com o personagem de exemplo. Completo: os mesmos painéis, com mais ferramentas.",
+      "miniaturaRotulo": "Simples",
+      "vistas": [
+        {
+          "rotulo": "Completo",
+          "arquivo": "media/interface/editor/editor-modos-v01-completo.webp"
+        }
+      ]
+    },
+    {
+      "id": "editor-temas",
+      "nome": "Editor nos temas escuro e claro",
+      "categoria": "interface",
+      "familia": "editor",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/editor/editor-temas-v01.webp",
+      "original": "testes/capturas/tela-completo-escuro.png, testes/capturas/tela-completo-claro.png, testes/capturas/tela-simples-escuro.png, testes/capturas/tela-simples-claro.png",
+      "nota": "Tarefa 4 · PR #4. Completo escuro: tema escuro. Completo claro: tema claro. Simples escuro: tema escuro. Simples claro: tema claro.",
+      "miniaturaRotulo": "Completo escuro",
+      "vistas": [
+        {
+          "rotulo": "Completo claro",
+          "arquivo": "media/interface/editor/editor-temas-v01-completo-claro.webp"
+        },
+        {
+          "rotulo": "Simples escuro",
+          "arquivo": "media/interface/editor/editor-temas-v01-simples-escuro.webp"
+        },
+        {
+          "rotulo": "Simples claro",
+          "arquivo": "media/interface/editor/editor-temas-v01-simples-claro.webp"
+        }
+      ]
+    },
+    {
+      "id": "editor-letra-maior",
+      "nome": "Letra maior",
+      "categoria": "interface",
+      "familia": "editor",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/editor/editor-letra-maior-v01.webp",
+      "original": "testes/capturas/tela-letra-maior.png",
+      "nota": "Tarefa 4 · PR #4. Letra no tamanho maior (18 px)."
+    },
+    {
+      "id": "editor-paineis-arrumados",
+      "nome": "Painéis arrumados",
+      "categoria": "interface",
+      "familia": "editor",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/editor/editor-paineis-arrumados-v01.webp",
+      "original": "testes/capturas/tela-paineis-arrumados.png",
+      "nota": "Tarefa 4 · PR #4. Painéis arrumados: Detalhes como janela flutuante."
+    },
+    {
+      "id": "versoes",
+      "nome": "Versões",
+      "categoria": "interface",
+      "familia": "versoes",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/versoes/versoes-v01.webp",
+      "original": "testes/capturas/salvar-versoes-simples.png, testes/capturas/salvar-versoes-completo.png",
+      "nota": "Tarefa 3 · PR #2. Simples: Versões no Simples: voltar a uma versão ou fazer uma cópia. Completo: Versões no Completo.",
+      "miniaturaRotulo": "Simples",
+      "vistas": [
+        {
+          "rotulo": "Completo",
+          "arquivo": "media/interface/versoes/versoes-v01-completo.webp"
+        }
+      ]
+    },
+    {
+      "id": "recuperar",
+      "nome": "Recuperar depois de uma queda",
+      "categoria": "interface",
+      "familia": "versoes",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/versoes/recuperar-v01.webp",
+      "original": "testes/capturas/salvar-recuperar.png",
+      "nota": "Tarefa 3 · PR #2. Recuperar o trabalho depois de uma queda (cópia de emergência)."
+    },
+    {
+      "id": "corpo-controles",
+      "nome": "Controles do corpo",
+      "categoria": "interface",
+      "familia": "corpo",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/corpo/corpo-controles-v01.webp",
+      "original": "testes/capturas/corpo-simples.png, testes/capturas/corpo-completo.png",
+      "nota": "Tarefa 5 · PR #3. Simples: os 7 controles do corpo. Completo: os mesmos controles, mais os detalhes do modelo.",
+      "miniaturaRotulo": "Simples",
+      "vistas": [
+        {
+          "rotulo": "Completo",
+          "arquivo": "media/interface/corpo/corpo-controles-v01-completo.webp"
+        }
+      ]
+    },
+    {
+      "id": "corpo-base",
+      "nome": "Corpo-base neutro",
+      "categoria": "interface",
+      "familia": "corpo",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/corpo/corpo-base-v01.webp",
+      "original": "testes/capturas/corpo-base-frente.png, testes/capturas/corpo-base-lado.png, testes/capturas/corpo-base-costas.png",
+      "nota": "Tarefa 5 · PR #3. Frente: Corpo-base neutro, de frente. Lado: Corpo-base neutro, de lado. Costas: Corpo-base neutro, de costas.",
+      "miniaturaRotulo": "Frente",
+      "vistas": [
+        {
+          "rotulo": "Lado",
+          "arquivo": "media/interface/corpo/corpo-base-v01-lado.webp"
+        },
+        {
+          "rotulo": "Costas",
+          "arquivo": "media/interface/corpo/corpo-base-v01-costas.webp"
+        }
+      ]
+    },
+    {
+      "id": "corpo-alvos",
+      "nome": "Extremos dos controles",
+      "categoria": "interface",
+      "familia": "corpo",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/corpo/corpo-alvos-v01.webp",
+      "original": "testes/capturas/corpo-base-alvos.png",
+      "nota": "Tarefa 5 · PR #3. O corpo neutro e os extremos dos controles."
+    },
+    {
+      "id": "corpo-poses",
+      "nome": "Poses de teste do esqueleto",
+      "categoria": "interface",
+      "familia": "corpo",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/corpo/corpo-poses-v01.webp",
+      "original": "testes/capturas/corpo-base-poses-1.png, testes/capturas/corpo-base-poses-2.png",
+      "nota": "Tarefa 5 · PR #3. Poses 1: Poses de teste do esqueleto, 1. Poses 2: Poses de teste do esqueleto, 2.",
+      "miniaturaRotulo": "Poses 1",
+      "vistas": [
+        {
+          "rotulo": "Poses 2",
+          "arquivo": "media/interface/corpo/corpo-poses-v01-poses-2.webp"
+        }
+      ]
+    },
+    {
+      "id": "pecas-editor",
+      "nome": "Peças no editor",
+      "categoria": "interface",
+      "familia": "pecas",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/pecas/pecas-editor-v01.webp",
+      "original": "testes/capturas/pecas-simples.png, testes/capturas/pecas-completo.png",
+      "nota": "Tarefa 6 · PR #5. Simples: peça grudada com as alças. Completo: prateleira, controles e alças.",
+      "miniaturaRotulo": "Simples",
+      "vistas": [
+        {
+          "rotulo": "Completo",
+          "arquivo": "media/interface/pecas/pecas-editor-v01-completo.webp"
+        }
+      ]
+    },
+    {
+      "id": "pecas-prateleira",
+      "nome": "Prateleira em janela flutuante",
+      "categoria": "interface",
+      "familia": "pecas",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/pecas/pecas-prateleira-v01.webp",
+      "original": "testes/capturas/pecas-janela.png",
+      "nota": "Tarefa 6 · PR #5. A prateleira como janela flutuante, com busca."
+    },
+    {
+      "id": "pecas-pacotes",
+      "nome": "Pacotes grátis",
+      "categoria": "interface",
+      "familia": "pecas",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/pecas/pecas-pacotes-v01.webp",
+      "original": "testes/capturas/pecas-pacotes.png, testes/capturas/pecas-pacotes-reais.png",
+      "nota": "Tarefa 6 · PR #5. Pacote de teste: Pacotes grátis: o mini-pacote de teste entra na prateleira. Kenney: Pacote real da Kenney, com licença e créditos.",
+      "miniaturaRotulo": "Pacote de teste",
+      "vistas": [
+        {
+          "rotulo": "Kenney",
+          "arquivo": "media/interface/pecas/pecas-pacotes-v01-kenney.webp"
+        }
+      ]
+    },
+    {
+      "id": "pecas-objetos",
+      "nome": "Objetos por partes",
+      "categoria": "interface",
+      "familia": "pecas",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/pecas/pecas-objetos-v01.webp",
+      "original": "testes/capturas/pecas-objeto-bau.png, testes/capturas/pecas-objeto-espada.png, testes/capturas/pecas-objeto-lanterna.png",
+      "nota": "Tarefa 6 · PR #5. Baú: Objeto por partes: o baú. Espada: Objeto por partes: a espada. Lanterna: Objeto por partes: a lanterna.",
+      "miniaturaRotulo": "Baú",
+      "vistas": [
+        {
+          "rotulo": "Espada",
+          "arquivo": "media/interface/pecas/pecas-objetos-v01-espada.webp"
+        },
+        {
+          "rotulo": "Lanterna",
+          "arquivo": "media/interface/pecas/pecas-objetos-v01-lanterna.webp"
+        }
+      ]
+    },
+    {
+      "id": "pecas-vestidas",
+      "nome": "Personagens vestidos",
+      "categoria": "interface",
+      "familia": "pecas",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/pecas/pecas-vestidas-v01.webp",
+      "original": "testes/capturas/pecas-vestidas-frente.png, testes/capturas/pecas-vestidas-costas.png, testes/capturas/pecas-vestidas-tres-quartos.png",
+      "nota": "Tarefa 6 · PR #5. Frente: Personagens vestidos com as peças prontas, de frente. Costas: Os mesmos personagens, de costas. Três quartos: Os mesmos personagens, em três quartos.",
+      "miniaturaRotulo": "Frente",
+      "vistas": [
+        {
+          "rotulo": "Costas",
+          "arquivo": "media/interface/pecas/pecas-vestidas-v01-costas.webp"
+        },
+        {
+          "rotulo": "Três quartos",
+          "arquivo": "media/interface/pecas/pecas-vestidas-v01-tres-quartos.webp"
+        }
+      ]
+    },
+    {
+      "id": "descrever-painel",
+      "nome": "Painel Descrever",
+      "categoria": "interface",
+      "familia": "descrever",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/descrever/descrever-painel-v01.webp",
+      "original": "testes/capturas/descrever-painel-simples.png, testes/capturas/descrever-painel-completo.png",
+      "nota": "Tarefa 7 · PR #13. Simples: O painel Descrever no Simples, sem jargão. Completo: O painel Descrever no Completo.",
+      "miniaturaRotulo": "Simples",
+      "vistas": [
+        {
+          "rotulo": "Completo",
+          "arquivo": "media/interface/descrever/descrever-painel-v01-completo.webp"
+        }
+      ]
+    },
+    {
+      "id": "descrever-caixa",
+      "nome": "Caixa de descrição",
+      "categoria": "interface",
+      "familia": "descrever",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/descrever/descrever-caixa-v01.webp",
+      "original": "testes/capturas/descrever-caixa-simples.png",
+      "nota": "Tarefa 7 · PR #13. A caixa Descrever: texto, imagens de referência (viram frente, lado e costas) e exemplos."
+    },
+    {
+      "id": "descrever-ideias",
+      "nome": "Ideias ao vivo",
+      "categoria": "interface",
+      "familia": "descrever",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/descrever/descrever-ideias-v01.webp",
+      "original": "testes/capturas/descrever-ideias-simples.png, testes/capturas/descrever-ideias-completo.png",
+      "nota": "Tarefa 7 · PR #13. Simples: 3 ideias montadas ao vivo, uma frase por passo; escolher salva a ideia (Simples). Completo: 4 ideias diferentes entre si no Completo.",
+      "miniaturaRotulo": "Simples",
+      "vistas": [
+        {
+          "rotulo": "Completo",
+          "arquivo": "media/interface/descrever/descrever-ideias-v01-completo.webp"
+        }
+      ]
+    },
+    {
+      "id": "descrever-chat",
+      "nome": "Chat do Assistente",
+      "categoria": "interface",
+      "familia": "descrever",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/descrever/descrever-chat-v01.webp",
+      "original": "testes/capturas/descrever-chat-simples.png, testes/capturas/descrever-chat-completo.png",
+      "nota": "Tarefa 7 · PR #13. Simples: O chat do Assistente, com o \"O que fazer?\" (Simples). Completo: O chat do Assistente no Completo.",
+      "miniaturaRotulo": "Simples",
+      "vistas": [
+        {
+          "rotulo": "Completo",
+          "arquivo": "media/interface/descrever/descrever-chat-v01-completo.webp"
+        }
+      ]
+    },
+    {
+      "id": "descrever-pago",
+      "nome": "IA paga",
+      "categoria": "interface",
+      "familia": "descrever",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/descrever/descrever-pago-v01.webp",
+      "original": "testes/capturas/descrever-pago-simples.png",
+      "nota": "Tarefa 7 · PR #13. IA paga: o custo e a opção grátis aparecem antes; nada é gasto sem confirmar."
+    },
+    {
+      "id": "descrever-sem-claude",
+      "nome": "Sem o Claude Code",
+      "categoria": "interface",
+      "familia": "descrever",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/descrever/descrever-sem-claude-v01.webp",
+      "original": "testes/capturas/descrever-sem-claude-simples.png",
+      "nota": "Tarefa 7 · PR #13. Sem o Claude Code: a caixa explica e o resto do editor funciona."
+    },
+    {
+      "id": "contas",
+      "nome": "Contas",
+      "categoria": "interface",
+      "familia": "provedores",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/provedores/contas-v01.webp",
+      "original": "testes/capturas/contas-simples.png, testes/capturas/contas-completo.png",
+      "nota": "Tarefa 8 · PR #7. Simples: Contas no Simples. Completo: Contas no Completo.",
+      "miniaturaRotulo": "Simples",
+      "vistas": [
+        {
+          "rotulo": "Completo",
+          "arquivo": "media/interface/provedores/contas-v01-completo.webp"
+        }
+      ]
+    },
+    {
+      "id": "escolha-provedor",
+      "nome": "Escolha do provedor",
+      "categoria": "interface",
+      "familia": "provedores",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/provedores/escolha-provedor-v01.webp",
+      "original": "testes/capturas/escolha-simples.png, testes/capturas/escolha-completo.png",
+      "nota": "Tarefa 8 · PR #7. Simples: Escolha do provedor, com custo e recomendação (Simples). Completo: Escolha do provedor, com custo e recomendação (Completo).",
+      "miniaturaRotulo": "Simples",
+      "vistas": [
+        {
+          "rotulo": "Completo",
+          "arquivo": "media/interface/provedores/escolha-provedor-v01-completo.webp"
+        }
+      ]
+    },
+    {
+      "id": "pintura-editor",
+      "nome": "Pintura no editor",
+      "categoria": "interface",
+      "familia": "pintura",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/pintura/pintura-editor-v01.webp",
+      "original": "testes/capturas/pintura-simples.png, testes/capturas/pintura-completo.png",
+      "nota": "Tarefa 9 · PR #12. Simples: Pintura no Simples. Completo: Pintura no Completo: materiais e quadro plano da textura.",
+      "miniaturaRotulo": "Simples",
+      "vistas": [
+        {
+          "rotulo": "Completo",
+          "arquivo": "media/interface/pintura/pintura-editor-v01-completo.webp"
+        }
+      ]
+    },
+    {
+      "id": "pintura-peca-material",
+      "nome": "Peça toda com um material",
+      "categoria": "interface",
+      "familia": "pintura",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/pintura/pintura-peca-material-v01.webp",
+      "original": "testes/capturas/pintura-peca-material.png",
+      "nota": "Tarefa 9 · PR #12. Peça toda com um material."
+    },
+    {
+      "id": "pintura-efeitos",
+      "nome": "Efeitos",
+      "categoria": "interface",
+      "familia": "pintura",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/pintura/pintura-efeitos-v01.webp",
+      "original": "testes/capturas/pintura-efeitos.png",
+      "nota": "Tarefa 9 · PR #12. Efeito ferrugem no modelo todo, com intensidade de 60%."
+    },
+    {
+      "id": "pintura-adesivo",
+      "nome": "Adesivo espelhado",
+      "categoria": "interface",
+      "familia": "pintura",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/pintura/pintura-adesivo-v01.webp",
+      "original": "testes/capturas/pintura-adesivo.png",
+      "nota": "Tarefa 9 · PR #12. Adesivo colado, com o par do outro lado."
+    },
+    {
+      "id": "pintura-descrevendo",
+      "nome": "Pintar descrevendo",
+      "categoria": "interface",
+      "familia": "pintura",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/pintura/pintura-descrevendo-v01.webp",
+      "original": "testes/capturas/pintura-descrevendo.png",
+      "nota": "Tarefa 9 · PR #12. Pintar descrevendo, no modelo todo (resposta de teste)."
+    },
+    {
+      "id": "estilos-escolha",
+      "nome": "Escolher o estilo",
+      "categoria": "interface",
+      "familia": "estilos",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/estilos/estilos-escolha-v01.webp",
+      "original": "testes/capturas/estilos-escolha-simples.png, testes/capturas/estilos-escolha-completo.png",
+      "nota": "Tarefa 10 · PR #8. Personagem (Simples): Escolher o estilo ao criar um personagem. Objeto (Completo): Um objeto novo no estilo Estilizado (Completo).",
+      "miniaturaRotulo": "Personagem (Simples)",
+      "vistas": [
+        {
+          "rotulo": "Objeto (Completo)",
+          "arquivo": "media/interface/estilos/estilos-escolha-v01-objeto-completo.webp"
+        }
+      ]
+    },
+    {
+      "id": "estilos-painel",
+      "nome": "Painel Estilo e barra de limites",
+      "categoria": "interface",
+      "familia": "estilos",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/estilos/estilos-painel-v01.webp",
+      "original": "testes/capturas/estilos-painel-simples.png, testes/capturas/estilos-painel-completo.png",
+      "nota": "Tarefa 10 · PR #8. Simples: Painel Estilo e barra de limites (Simples). Completo: Painel Estilo e barra de limites (Completo).",
+      "miniaturaRotulo": "Simples",
+      "vistas": [
+        {
+          "rotulo": "Completo",
+          "arquivo": "media/interface/estilos/estilos-painel-v01-completo.webp"
+        }
+      ]
+    },
+    {
+      "id": "estilos-proprio",
+      "nome": "Estilo próprio",
+      "categoria": "interface",
+      "familia": "estilos",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/estilos/estilos-proprio-v01.webp",
+      "original": "testes/capturas/estilos-proprio-simples.png",
+      "nota": "Tarefa 10 · PR #8. Criar um estilo próprio."
+    },
+    {
+      "id": "estilos-vistas",
+      "nome": "Vistas dos estilos",
+      "categoria": "interface",
+      "familia": "estilos",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/estilos/estilos-vistas-v01.webp",
+      "original": "testes/capturas/estilos-vista-ps1.png, testes/capturas/estilos-vista-estilizado.png, testes/capturas/estilos-vista-realista.png",
+      "nota": "Tarefa 10 · PR #8. PS1: A vista do estilo PS1. Estilizado: A vista do estilo Estilizado. Realista: A vista do estilo Realista.",
+      "miniaturaRotulo": "PS1",
+      "vistas": [
+        {
+          "rotulo": "Estilizado",
+          "arquivo": "media/interface/estilos/estilos-vistas-v01-estilizado.webp"
+        },
+        {
+          "rotulo": "Realista",
+          "arquivo": "media/interface/estilos/estilos-vistas-v01-realista.webp"
+        }
+      ]
+    },
+    {
+      "id": "estilos-como-no-jogo",
+      "nome": "Ver como no jogo",
+      "categoria": "interface",
+      "familia": "estilos",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/estilos/estilos-como-no-jogo-v01.webp",
+      "original": "testes/capturas/estilos-como-no-jogo-realista.png",
+      "nota": "Tarefa 10 · PR #8. Ver como no jogo, no estilo Realista."
+    },
+    {
+      "id": "materiais",
+      "nome": "Materiais",
+      "categoria": "interface",
+      "familia": "estilos",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/estilos/materiais-v01.webp",
+      "original": "testes/capturas/estilos-materiais-simples.png, testes/capturas/estilos-materiais-completo.png",
+      "nota": "Tarefa 10 · PR #8. Simples: Materiais no Simples. Completo: Materiais no Completo.",
+      "miniaturaRotulo": "Simples",
+      "vistas": [
+        {
+          "rotulo": "Completo",
+          "arquivo": "media/interface/estilos/materiais-v01-completo.webp"
+        }
+      ]
+    }
+  ]
+}

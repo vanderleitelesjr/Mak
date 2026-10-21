@@ -1,0 +1,75 @@
+{
+  "sobre": "Espelha a seção Riscos de PENDENCIAS.md (mais os encerrados). \"fase\" é a primeira fase em que o risco é tratado; o detalhe fica na descrição. PENDENCIAS.md não tem severidade: a dela foi atribuída pelo agente que montou o card, a confirmar.",
+  "riscos": [
+    {
+      "id": "R1", "titulo": "Terreno mutável e iluminação", "severidade": "alta", "fase": "Fase 1", "dono": "Coder", "estado": "aberto",
+      "descricao": "O ensaio provou que é viável na RTX 5080. Faltam: (a) gerar e atualizar as caixas ocultas do perfil médio a partir dos dados do chunk a cada edição; (b) a luz rebatida nas caixas sai cinza; (c) a cena está superexposta e o céu escuro; (d) sem Lumen, a sombra fica mais escura (50 contra 65), e a legibilidade no escuro é requisito. O achado PT-2026-10-17-01 (luz em caverna fechada) cai aqui. Tratado na fase 1 (perfis no motor) e na 2 (legibilidade e exposição).",
+      "fechaCom": "Os três perfis rodando no pacote com o motor da fase 1: caixas atualizadas na edição sem luz errada em poço ou caverna, cor rebatida correta e capturas de caverna e de interior nos três perfis."
+    },
+    {
+      "id": "R2", "titulo": "Perfil baixo só simulado", "severidade": "media", "fase": "Fase 1", "dono": "Revisor", "estado": "aberto",
+      "descricao": "O perfil sem Lumen foi medido apenas na RTX 5080, com configuração reduzida. Não diz nada sobre uma GPU modesta nem sem ray tracing. Fase 1 (F1-9) ou quando houver hardware.",
+      "fechaCom": "Medição numa GPU real sem ray tracing ou de entrada, ou registro de que não há esse hardware, com a meta mantida como hipótese."
+    },
+    {
+      "id": "R3", "titulo": "Gargalo de CPU", "severidade": "media", "fase": "Fase 1", "dono": "Coder", "estado": "aberto",
+      "descricao": "Medido na F1-9: parado, o thread do jogo gasta 0,7–1,2 ms e o do render domina o quadro (2,7 ms no baixo, 6,1 ms no alto, com a GPU em 2,3 e 5,0 ms). Passar de 289 para 1.089 colunas custou só +0,4 ms no render: as chamadas de desenho não são a causa principal. Sem Insights, não se separa CPU de espera pela GPU.",
+      "fechaCom": "Perfil (Unreal Insights ou `stat`) no pacote que separe o render thread da GPU, antes de qualquer otimização (greedy meshing, menos componentes)."
+    },
+    {
+      "id": "R10", "titulo": "Custo de editar o terreno", "severidade": "media", "fase": "Fase 1", "dono": "Coder", "estado": "aberto",
+      "descricao": "Medido na F1-9: uma edição de um bloco custa 7–9 ms (p95 12–15 ms), e 100 blocos por quadro em 4 colunas levam o jogo a 34–40 FPS. Cozinhar a colisão na hora (cerca de 2,2 ms por coluna) é mais de 90 % do custo de criar a seção e também pesa na exploração rápida (p95 de 12–20 ms no raio 16). Tratar antes do primeiro sistema que edite em massa.",
+      "fechaCom": "Quando existir algo que edite em massa (explosões, máquinas): cozinhar a colisão de forma assíncrona ou separar a malha por seção, e medir de novo com `Scripts\\medir_desempenho.ps1`."
+    },
+    {
+      "id": "R12", "titulo": "Save: custo e arquivo hostil", "severidade": "media", "fase": "Fase 1", "dono": "Coder", "estado": "aberto",
+      "descricao": "Cada save (a cada 120 s e ao sair) serializa e comprime todas as colunas modificadas na thread do jogo, mesmo sem mudança: 109 ms para 400 colunas (F1-9). O rodízio copia o principal inteiro para o backup, sem flush. Um save montado de propósito pode esgotar a memória ao abrir. Custo antes de mundos grandes; arquivo hostil antes de compartilhar mundos.",
+      "fechaCom": "Se pesar, marca de mudança em vez de comparar bytes, e `ReplaceFileW` no lugar da cópia. Teto de memória na leitura antes de aceitar mundos de terceiros."
+    },
+    {
+      "id": "R13", "titulo": "Pico de memória na exploração rápida", "severidade": "media", "fase": "Fase 1", "dono": "Coder", "estado": "aberto",
+      "descricao": "A 30 m/s a memória do processo sobe até 1,2 GB acima do estável (4,47 contra 3,31 GB no alto), com as colunas carregadas estáveis; a coleta de lixo forçada devolve tudo. Suspeita: os componentes de malha destruídos esperam a coleta. Tratar antes de aumentar o raio.",
+      "fechaCom": "Medir reaproveitar os componentes de malha ou pedir a coleta quando muitas colunas saem de uma vez, e repetir a exploração rápida comparando o pico."
+    },
+    {
+      "id": "R5", "titulo": "Rede e NAT", "severidade": "media", "fase": "Fase 1", "dono": "Pesquisador (opções) e Coder (ensaio)", "estado": "aberto",
+      "descricao": "LAN e IP direto não alcançam jogadores atrás de qualquer rede, e o escopo proíbe prometer conectividade universal. Fase 1 (servidor local, F1-6) e 3 (internet; EOS ou Steam).",
+      "fechaCom": "Ensaio com 2 jogadores em LAN e por IP direto (entrada tardia, desconexão, mensagens de erro) e comparação de EOS, Steam e travessia de NAT, com custo e licença, levada a você."
+    },
+    {
+      "id": "R6", "titulo": "Estruturas móveis", "severidade": "alta", "fase": "Fase 3", "dono": "Coder", "estado": "aberto",
+      "descricao": "Converter blocos estáticos em estrutura móvel e de volta sem apagar, duplicar nem deixar bloco em dois estados; levar jogadores sobre a estrutura em movimento, replicado. Ensaio até a fase 3; produção na 6.",
+      "fechaCom": "Ensaio com uma estrutura de poucos blocos convertida e de volta, 2 jogadores sobre ela em movimento sem escorregar nem dessincronizar, e teste de conservação de blocos."
+    },
+    {
+      "id": "R7", "titulo": "Interior do titã", "severidade": "media", "fase": "Fase 3", "dono": "Coder e Designer", "estado": "aberto",
+      "descricao": "Espaços internos de uma entidade gigante: colisão, iluminação, navegação e talvez o movimento do titã. Ensaio até a fase 3; produção na 12.",
+      "fechaCom": "Ensaio com espaço interno percorrível por 2 jogadores, iluminação legível e custo medido."
+    },
+    {
+      "id": "R11", "titulo": "Defesas de rede não exercitadas", "severidade": "baixa", "fase": "Fase 3", "dono": "Coder", "estado": "aberto",
+      "descricao": "A desconexão por abuso de pedidos e por coluna recusada, e os limites do cliente contra um servidor hostil, estão no código e na revisão da F1-6, mas nenhum roteiro os provoca.",
+      "fechaCom": "Roteiro de rede que provoque cada defesa (rajada acima de 100 por segundo, coluna corrompida, servidor que manda colunas demais) e mostre a desconexão ou o descarte."
+    },
+    {
+      "id": "R8", "titulo": "IA em mundo destrutível", "severidade": "media", "fase": "Fase 4", "dono": "Coder", "estado": "aberto",
+      "descricao": "A navegação precisa acompanhar o terreno editado em runtime sem custo excessivo.",
+      "fechaCom": "Ensaio com mobs navegando enquanto blocos são quebrados e colocados, com o custo de atualizar a navegação medido."
+    },
+    {
+      "id": "R9", "titulo": "Nanite fora do terreno", "severidade": "baixa", "fase": "Quando surgir a necessidade", "dono": "Coder", "estado": "aberto",
+      "descricao": "O código da UE 5.8.3 confirma que Nanite não se aplica ao `ProceduralMeshComponent`. Não se sabe se outro caminho de malha em runtime aceitaria Nanite.",
+      "fechaCom": "Consulta ao código ou à documentação da UE 5.8, antes de qualquer plano que dependa de Nanite no terreno."
+    },
+    {
+      "id": "R4", "titulo": "Memória por chunk", "severidade": "media", "fase": "Fase 1", "dono": "Coder", "estado": "fechado",
+      "descricao": "Encerrado em 17/10/2026. Medida no pacote com 8 e 16 chunks de visão (F1-9): de 0,9 a 1,1 MB por coluna exibida, quase tudo na malha procedural e na colisão (dados e faces são cerca de 50 KB); de 2,06 a 3,13 GB no total do processo.",
+      "fechaCom": "Medição no pacote com 8 e 16 chunks de visão (feita na F1-9)."
+    },
+    {
+      "id": "P1", "titulo": "Primeiro commit", "severidade": "baixa", "fase": "Fase 0", "dono": "Coordenador", "estado": "fechado",
+      "descricao": "Encerrado em 17/10/2026. Plugin AndroidFileServer desligado e bloco com `SecurityToken` removido; commit inicial na `main`, e o `git lfs ls-files` lista 9 binários.",
+      "fechaCom": "Commit inicial na `main` com os binários no Git LFS (feito)."
+    }
+  ]
+}

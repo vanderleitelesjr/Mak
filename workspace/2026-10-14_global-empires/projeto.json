@@ -1,0 +1,94 @@
+{
+  "id": "global-empires",
+  "titulo": "Global Empires",
+  "sobre": "RTS sucessor espiritual do AoE3: Brasil, eras Industrial e Aço, no mapa Travessia do Interior, contra a IA.",
+  "tema": "custom",
+  "temaCss": "tema.css",
+  "destaque": "#c9a24a",
+  "capa": "media/arte-chave/menu-primeira-guerra/menu-fundo-tanques-v01.webp",
+  "janelaDias": 30,
+  "areas": [
+    {
+      "id": "código",
+      "cor": "#7fb3e6",
+      "icone": "tecnologias"
+    },
+    {
+      "id": "arte",
+      "cor": "#e39ac8",
+      "icone": "guarnecer"
+    },
+    {
+      "id": "áudio",
+      "cor": "#6fd0a8",
+      "icone": "chat"
+    },
+    {
+      "id": "design",
+      "cor": "#e3bd5c",
+      "icone": "objetivos"
+    },
+    {
+      "id": "playtest",
+      "cor": "#ee8c6c",
+      "icone": "atacar"
+    },
+    {
+      "id": "ferramentas",
+      "cor": "#aea4ea",
+      "icone": "trabalhador"
+    }
+  ],
+  "categoriasExtras": [
+    "Civilizações"
+  ],
+  "repositorio": "E:/Claude Projects/GlobalEmpires/GE-game",
+  "abas": [
+    {
+      "modulo": "painel",
+      "nome": "Painel"
+    },
+    {
+      "modulo": "roteiro",
+      "nome": "Roteiro"
+    },
+    {
+      "modulo": "livre",
+      "base": "editor",
+      "nome": "Editor"
+    },
+    {
+      "modulo": "entregas",
+      "nome": "Entregas"
+    },
+    {
+      "modulo": "playtest",
+      "nome": "Playtest"
+    },
+    {
+      "modulo": "livre",
+      "base": "mapa",
+      "nome": "Mapa"
+    },
+    {
+      "modulo": "decisoes",
+      "nome": "Decisões"
+    },
+    {
+      "modulo": "acervo",
+      "nome": "Acervo"
+    },
+    {
+      "modulo": "arquivo",
+      "nome": "Arquivo"
+    }
+  ],
+  "estadosEntrega": [
+    "main",
+    "main local",
+    "branch local",
+    "PR aberto",
+    "entrega local",
+    "proposta"
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "checkedAt": "2026-10-21T00:05:23.426Z",
+  "finding": "PT-2026-10-20-03",
+  "implemented": true,
+  "editorVersion": "0.3.2",
+  "exporterVersion": "0.1.1",
+  "desktopBinaryChanged": false,
+  "native": {
+    "checkedAt": "2026-10-20T23:59:51.869Z",
+    "hidden": {
+      "panel": {
+        "x": 903,
+        "y": 759.75,
+        "width": 642.75,
+        "height": 317.25
+      },
+      "rows": 3,
+      "cells": 15,
+      "keys": "QWERTASDFGZXCVB",
+      "nodes": 234
+    },
+    "visible": {
+      "panel": {
+        "x": 903,
+        "y": 759.75,
+        "width": 642.75,
+        "height": 317.25
+      },
+      "rows": 3,
+      "cells": 15,
+      "keys": "QWERTASDFGZXCVB",
+      "nodes": 234
+    },
+    "restorationAfterSuccessAndFailure": true,
+    "previousExportPreservedOnFailure": true,
+    "worldAndSelectionUnchangedByExport": true,
+    "preparedNodes": 430,
+    "preparedAssets": 28,
+    "staticCommandsOnly": true
+  },
+  "editor": {
+    "checkedAt": "2026-10-21T00:02:20.658Z",
+    "editorVersion": "0.3.2",
+    "exporterVersion": "0.1.1",
+    "proof": "E:\\MrMak\\GameUIEditor\\.local\\ge-command-import\\editor-proof",
+    "checks": [
+      {
+        "mode": "Inspect",
+        "width": 1440,
+        "theme": "light",
+        "panel": true,
+        "slots": 15
+      },
+      {
+        "mode": "Inspect",
+        "width": 1440,
+        "theme": "dark",
+        "panel": true,
+        "slots": 15
+      },
+      {
+        "mode": "Inspect",
+        "width": 768,
+        "theme": "light",
+        "panel": true,
+        "slots": 15
+      },
+      {
+        "mode": "Inspect",
+        "width": 768,
+        "theme": "dark",
+        "panel": true,
+        "slots": 15
+      },
+      {
+        "mode": "Inspect",
+        "width": 390,
+        "theme": "light",
+        "panel": true,
+        "slots": 15
+      },
+      {
+        "mode": "Inspect",
+        "width": 390,
+        "theme": "dark",
+        "panel": true,
+        "slots": 15
+      },
+      {
+        "mode": "Interact",
+        "scenario": "none",
+        "staticSnapshot": true
+      },
+      {
+        "mode": "Interact",
+        "scenario": "unit",
+        "staticSnapshot": true
+      },
+      {
+        "mode": "Interact",
+        "scenario": "group",
+        "staticSnapshot": true
+      },
+      {
+        "mode": "Interact",
+        "scenario": "building",
+        "staticSnapshot": true
+      }
+    ],
+    "queueSimulation": "3 -> 2",
+    "sixScreensPreserved": true,
+    "reloadPreserved": true,
+    "errors": [],
+    "inference": false,
+    "gameDispatch": false
+  },
+  "focusedCoreTests": {
+    "passed": 10,
+    "failed": 0,
+    "fullSuiteRepeated": false
+  },
+  "ownerTest": {
+    "backupCreated": true,
+    "reviewedOwnerReimport": true,
+    "conflicts": 0,
+    "nodes": 430,
+    "assets": 28,
+    "unchangedOtherNodes": 290,
+    "beforeProjectSha256": "fd16b77283de298fcfeed6714fd31bbe85e152321a0fdf96552823aba72e112d",
+    "projectSha256": "af7aacaffcfd0ae61f56d60c6e8ebc9ee4354a98f699d6e727f6738219837ded",
+    "manifestSha256": "ba6668a9319d7ef50fbd9b8b5c0b9a0b3d1c2f0251c5ae8b8cf98e977e19bafd"
+  },
+  "package": {
+    "version": "0.1.1",
+    "file": "files/unity-import-0.1.1.zip",
+    "sha256": "c6ba26f75e9d9be52ec8f88898e3552e9aee501eb0a11b0c9005e09700e6790f",
+    "published": false,
+    "filesVerified": 11
+  },
+  "staticCommandsOnly": true,
+  "inference": false,
+  "humanAcceptance": false,
+  "workspace": {
+    "checkedAt": "2026-10-21T00:07:08.850Z",
+    "tabs": 4,
+    "markdownChecks": 6,
+    "viewports": [
+      1440,
+      768,
+      390
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "checks": 18,
+    "media": "loaded, previewed, zoomed, download URLs and close verified",
+    "links": true,
+    "reportTheme": "actual isolated service and report-theme.mjs",
+    "errors": [],
+    "scratch": "E:\\MrMak\\Mak\\.local\\commands-011-workspace-preview-DGR3EQ"
+  }
+}

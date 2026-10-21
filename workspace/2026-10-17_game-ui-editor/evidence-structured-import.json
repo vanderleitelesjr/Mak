@@ -1,0 +1,173 @@
+{
+  "version": "0.3.0",
+  "date": "2026-10-20T16:11:07.525Z",
+  "core": {
+    "passed": 123,
+    "failed": 0
+  },
+  "interface": {
+    "browser": 39,
+    "windows": 39,
+    "passed": 78,
+    "failed": 0,
+    "peer": "Deterministic test peer; no real inference"
+  },
+  "parity": {
+    "behavior": 20,
+    "visual": 23
+  },
+  "unityBehavior": {
+    "passed": 20,
+    "failed": 0,
+    "source": "Current isolated GE Unity session; context/action checks, not full imported-HUD runtime integration"
+  },
+  "structuredNative": {
+    "date": "2026-10-20T16:07:27.620Z",
+    "independent": {
+      "screens": 3,
+      "systems": [
+        "uitoolkit",
+        "ugui"
+      ],
+      "prefab": true,
+      "originalImageHash": "92debfa79d9433149b7caa4ec201dff55a84ef0f5f32a9b75ab4f56ab51a3ddb",
+      "originalAssetBytesPreserved": true,
+      "sourceIdentitySurvivedReorder": true,
+      "callbacksInvoked": 0,
+      "writeback": {
+        "changes": 4,
+        "callbacksPreserved": true,
+        "staleRefused": true,
+        "reopened": true
+      },
+      "localOverlaySurvivedReimport": true,
+      "importReviewAndSaveMilliseconds": 62
+    },
+    "ge": {
+      "screens": 6,
+      "nodes": 430,
+      "assets": 22,
+      "referenceScreenshot": false,
+      "preparedMilliseconds": 49,
+      "queueAction": "ge.queue.cancel",
+      "coverage": [
+        {
+          "name": "GE - HUD and selection templates",
+          "partial": 217,
+          "unmapped": 16,
+          "native": 1
+        },
+        {
+          "name": "GE - Main menu",
+          "partial": 26,
+          "unmapped": 3
+        },
+        {
+          "name": "GE - Menu options",
+          "partial": 48,
+          "unmapped": 7
+        },
+        {
+          "name": "GE - Pause",
+          "partial": 15,
+          "unmapped": 2
+        },
+        {
+          "name": "GE - Pause options",
+          "partial": 42,
+          "unmapped": 7
+        },
+        {
+          "name": "GE - End summary (current match)",
+          "partial": 37,
+          "unmapped": 2
+        }
+      ]
+    },
+    "limits": [
+      "GE custom minimap renderer stays native.",
+      "GE command grid is an observed snapshot, not a full imported command template.",
+      "Procedural GE writeback requires its native adapter and reviewed mappings.",
+      "This independent Unity fixture is not a second shipped game."
+    ]
+  },
+  "canvas": {
+    "states": [
+      "GE - HUD and selection templates",
+      "GE - Main menu",
+      "GE - Menu options",
+      "GE - Pause",
+      "GE - Pause options",
+      "GE - End summary (current match)"
+    ],
+    "nodes": 430,
+    "assets": 22,
+    "errors": [],
+    "queueCancel": "3 -> 2 via canvas click"
+  },
+  "release": {
+    "folder": "E:\\MrMak\\GameUIEditor\\.local\\releases\\game-ui-editor-0.3.0-20261020T161005573Z",
+    "files": 260,
+    "archives": 4,
+    "version": "0.3.0",
+    "release": {
+      "version": "0.3.0",
+      "createdAt": "2026-10-20T16:10:10.501Z",
+      "published": false,
+      "signed": false,
+      "archives": [
+        {
+          "file": "portable-windows.zip",
+          "sha256": "75d6f1bb51de8df0e7821d4cc2be55640090dc9688590e4e1ae61c1e745b93c5",
+          "bytes": 37362027
+        },
+        {
+          "file": "editable-sources.zip",
+          "sha256": "c8147be4ba3209850314ffb6e1b1ce52d51b4567a236f6bbeeda8ba658608b86",
+          "bytes": 498731
+        },
+        {
+          "file": "unity-integration.zip",
+          "sha256": "5f68dfcbd12aa0a24d751c70b463b1ce17fb0b456daaf830f968b1d6a78e36eb",
+          "bytes": 76405
+        },
+        {
+          "file": "portable-ge-pilot.zip",
+          "sha256": "8e8984c3e6e2bb9c0296a96a81969301418ba6f3ad3d8d3560f9402bfddbdba5",
+          "bytes": 433004
+        }
+      ],
+      "installer": {
+        "file": "Game UI Editor_0.3.0_x64-setup.exe",
+        "sha256": "92aea47f52bd7a048a362d82adeedf632394b44b9defc4e343085cba44423e27",
+        "bytes": 25341466
+      }
+    }
+  },
+  "installed": {
+    "version": "0.2.0",
+    "modified": false,
+    "restarted": false
+  },
+  "humanAcceptance": false,
+  "workspace": {
+    "checkedAt": "2026-10-20T16:09:17.224Z",
+    "tabs": 4,
+    "markdownChecks": 6,
+    "viewports": [
+      1440,
+      768,
+      390
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "checks": 24,
+    "media": "loaded, previewed, zoomed, download URLs and close verified",
+    "links": true,
+    "reportTheme": "actual isolated service and report-theme.mjs",
+    "errors": [],
+    "scratch": "E:\\MrMak\\Mak\\.local\\structured-import-workspace-preview-urbqv7"
+  }
+}

@@ -1,0 +1,121 @@
+/* Tema do card Global Empires: o painel de comando do HUD do Codex (verde-escuro, ouro e pergaminho).
+   Tema próprio (data-mak-theme="custom"): não segue o claro/escuro do app.
+   Vem depois de _shared/engine/tema-base.css e só retoca as classes mk-* que o motor gera
+   (e as ac-* do Acervo). A capa vem de projeto.json ("capa"): o motor a põe em .mk-capa-img. */
+html[data-mak-theme=custom]{
+  --mak-bg:#07110e;--mak-surface:#0f211b;--mak-border:#c9a24a33;--mak-text:#e9e1c8;--mak-muted:#aaa48b;--mak-accent:#e3bd5c;
+  --ge-painel:#0f211b;--ge-painel-2:#14302a;--ge-barra:#0d1d18;--ge-ouro:#c9a24a;--ge-ouro-vivo:#f2cd6a;--ge-pergaminho:#f3e7c4;
+  --ge-serif:'Palatino Linotype','Book Antiqua',Palatino,Georgia,serif;
+  --mk-linha:#c9a24a40;--mk-linha-forte:#c9a24a66;--mk-fundo-1:#0f211b;--mk-fundo-2:#14302a;
+  --mk-acento:var(--ge-ouro);--mk-acento-texto:var(--ge-ouro-vivo);--mk-acento-fundo:#c9a24a1f;
+  --mk-ok:#6fbf7f;--mk-atencao:#e0a83e;--mk-erro:#e0675a;--mk-info:#7fb3e6;
+  background:#07110e;
+}
+html[data-mak-theme=custom] body{background:radial-gradient(1100px 600px at 50% -200px,#1b3a2f 0,transparent 70%),#07110e;color:var(--mak-text)}
+html[data-mak-theme=custom][data-mak-report=document] :is(h1,h2,h3){font-family:var(--ge-serif);color:var(--ge-pergaminho);letter-spacing:0}
+html[data-mak-theme=custom][data-mak-report=document] strong{color:var(--ge-pergaminho)}
+html[data-mak-theme=custom][data-mak-report=document] th{color:var(--ge-ouro-vivo);background:#c9a24a14;font-family:var(--ge-serif);font-size:14px}
+html[data-mak-theme=custom][data-mak-report=document] :is(th,td){border-bottom:1px solid #c9a24a26;overflow-wrap:break-word}
+html[data-mak-theme=custom][data-mak-report=document] code{color:#e8d49a;background:#00000040;padding:1px 5px;border-radius:4px}
+html[data-mak-theme=custom] a{color:var(--ge-ouro-vivo)}
+html[data-mak-theme=custom] .mk-gerado{color:var(--mak-muted)}
+
+/* Faixa do topo: a capa do projeto atrás do título, escurecida à esquerda, com fio dourado. */
+html[data-mak-theme=custom] .mk-capa{min-height:140px;margin:0 0 26px;border:1px solid #c9a24a66;border-radius:10px;background:#07110e;box-shadow:inset 0 0 0 3px #07110e,inset 0 0 0 4px #c9a24a40}
+html[data-mak-theme=custom] .mk-capa.mk-alto{min-height:clamp(220px,32vw,330px)}
+html[data-mak-theme=custom] .mk-capa-img{background-position:center 35%;background-size:cover}
+html[data-mak-theme=custom] .mk-capa-img::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#07110ef2 0,#07110ecc 45%,#07110e33 100%),linear-gradient(0deg,#07110ee6 0,transparent 60%)}
+html[data-mak-theme=custom] .mk-capa::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 3px #07110e,inset 0 0 0 4px #c9a24a40;pointer-events:none}
+html[data-mak-theme=custom] .mk-capa-texto{position:static;margin:0;padding:clamp(22px,4vw,40px) clamp(18px,3vw,32px);max-width:none;background:none;border:0;backdrop-filter:none;-webkit-backdrop-filter:none}
+html[data-mak-theme=custom] .mk-capa-texto>*{position:relative;z-index:1}
+html[data-mak-theme=custom] .mk-eyebrow{margin:0 0 6px;font:600 12px/1.4 var(--mak-font);letter-spacing:.22em;color:var(--ge-ouro)}
+html[data-mak-theme=custom] .mk-pag .mk-capa-texto h1{font-size:clamp(30px,4vw,44px);margin:0 0 6px}
+html[data-mak-theme=custom] .mk-pag .mk-sub{margin:4px 0 0;max-width:70ch;font-size:14px;color:#d6ceb3}
+html[data-mak-theme=custom] .mk-capa-texto>.mk-selo{position:absolute;top:14px;right:16px;margin:0;z-index:2}
+html[data-mak-theme=custom] .mk-selo .mk-chip{font:600 12px var(--mak-font);color:var(--ge-pergaminho);background:#0f211bd9;border:1px solid #c9a24a80;border-radius:6px;padding:4px 10px}
+
+/* Moldura dourada recortada da folha de molduras do Codex: todo bloco do motor. */
+html[data-mak-theme=custom] .mk-bloco{border:20px solid transparent;border-image:url(media/tema/moldura.webp) 34 fill / 20px stretch;border-radius:0;padding:4px 8px;margin:14px 0;background:none}
+html[data-mak-theme=custom] .mk-pag .mk-t{font:600 clamp(20px,2.2vw,24px)/1.3 var(--ge-serif);color:var(--ge-ouro-vivo);margin:0 0 14px}
+html[data-mak-theme=custom] .mk-pag h2.mk-t:not(:first-child){margin-top:30px}
+html[data-mak-theme=custom] .mk-duas{gap:0 18px}
+
+/* Barra de números, como a barra de recursos do HUD. */
+html[data-mak-theme=custom] .mk-numeros{gap:2px;margin:0 0 22px;border:1px solid #c9a24a66;border-radius:8px;background:#c9a24a33}
+html[data-mak-theme=custom] .mk-numero{gap:10px;padding:10px 14px;background:var(--ge-barra)}
+html[data-mak-theme=custom] .mk-numero .mk-ico{width:30px;height:30px}
+html[data-mak-theme=custom] .mk-numero small{font-size:11px;color:var(--mak-muted)}
+html[data-mak-theme=custom] .mk-numero b{font:600 18px/1.25 var(--ge-serif);color:var(--ge-pergaminho)}
+
+/* Ícones da folha do Codex: fundo de CSS, não <img>, para o visualizador não abri-los.
+   Os nomes do jogo (era, objetivos...) e os do motor que têm par no HUD trocam o traço pela arte;
+   os demais ícones do motor continuam como traço, em ouro. */
+html[data-mak-theme=custom] :is(.mk-i-era,.mk-i-marco,.mk-i-objetivos,.mk-i-pessoa,.mk-i-check,.mk-i-tecnologias,.mk-i-livro,.mk-i-atacar,.mk-i-guarnecer,.mk-i-imagem,.mk-i-trabalhador,.mk-i-agora,.mk-i-chat,.mk-i-suprimento,.mk-i-entrega,.mk-i-relogio,.mk-i-mira,.mk-i-playtest,.mk-i-manter-posicao,.mk-i-populacao){background:center/contain no-repeat;-webkit-mask:none;mask:none}
+html[data-mak-theme=custom] :is(.mk-i-era,.mk-i-marco){background-image:url(media/tema/icone-era.webp)}
+html[data-mak-theme=custom] :is(.mk-i-objetivos,.mk-i-pessoa,.mk-i-check){background-image:url(media/tema/icone-objetivos.webp)}
+html[data-mak-theme=custom] :is(.mk-i-tecnologias,.mk-i-livro){background-image:url(media/tema/icone-tecnologias.webp)}
+html[data-mak-theme=custom] .mk-i-atacar{background-image:url(media/tema/icone-atacar.webp)}
+html[data-mak-theme=custom] :is(.mk-i-guarnecer,.mk-i-imagem){background-image:url(media/tema/icone-guarnecer.webp)}
+html[data-mak-theme=custom] :is(.mk-i-trabalhador,.mk-i-agora){background-image:url(media/tema/icone-trabalhador.webp)}
+html[data-mak-theme=custom] .mk-i-chat{background-image:url(media/tema/icone-chat.webp)}
+html[data-mak-theme=custom] :is(.mk-i-suprimento,.mk-i-entrega){background-image:url(media/tema/icone-suprimento.webp)}
+html[data-mak-theme=custom] .mk-i-relogio{background-image:url(media/tema/icone-relogio.webp)}
+html[data-mak-theme=custom] :is(.mk-i-mira,.mk-i-playtest){background-image:url(media/tema/icone-mira.webp)}
+html[data-mak-theme=custom] .mk-i-manter-posicao{background-image:url(media/tema/icone-manter-posicao.webp)}
+html[data-mak-theme=custom] .mk-i-populacao{background-image:url(media/tema/icone-populacao.webp)}
+html[data-mak-theme=custom] .mk-pag h2.mk-t>.mk-ico{width:30px;height:30px}
+
+/* Listas e chips. */
+html[data-mak-theme=custom] .mk-lista li{border-top-color:#c9a24a26}
+html[data-mak-theme=custom] .mk-lista li b{color:var(--ge-pergaminho);font-weight:600}
+html[data-mak-theme=custom] .mk-id{border-color:#c9a24a40;background:#00000033;color:#d6ceb3}
+html[data-mak-theme=custom] .mk-tabela .mk-id{white-space:normal}
+html[data-mak-theme=custom] .mk-links{font-size:13px;gap:4px 14px}
+
+/* Filtros como os botões de ordem do HUD. */
+html[data-mak-theme=custom] .mk-filtro{border:1px solid #c9a24a59;border-radius:6px;background:var(--ge-painel);color:var(--mak-text)}
+html[data-mak-theme=custom] .mk-filtro .mk-ico{width:18px;height:18px}
+html[data-mak-theme=custom] .mk-filtro[aria-pressed=true]{border-color:var(--ge-ouro-vivo);color:var(--ge-ouro-vivo);background:#1a3a2f;box-shadow:inset 0 0 0 1px #f2cd6a55}
+
+/* Feed de entregas: a borda da esquerda e a etiqueta seguem a cor da área (projeto.json). */
+html[data-mak-theme=custom] .mk-pag h2.mk-dia{font-size:20px;color:var(--ge-ouro-vivo)}
+html[data-mak-theme=custom] .mk-entrega{border:1px solid #c9a24a40;border-left:3px solid var(--mk-cor,var(--ge-ouro));background:linear-gradient(180deg,#132a23,#0e1f1a)}
+html[data-mak-theme=custom] .mk-pag .mk-entrega h3{font-size:18px;line-height:1.35}
+html[data-mak-theme=custom] .mk-tag{padding:1px 9px 1px 4px;border:1px solid var(--mk-cor,#c9a24a66);color:var(--mk-cor,var(--mak-text));background:#00000033}
+html[data-mak-theme=custom] .mk-tag .mk-ico{width:16px;height:16px}
+html[data-mak-theme=custom] .mk-estado{border-color:#c9a24a40}
+html[data-mak-theme=custom] .mk-estado.mk-pendente{border-color:#e0a83e;color:#f0bd57}
+html[data-mak-theme=custom] .mk-olhar{border-left-color:var(--ge-ouro);background:#c9a24a0f}
+html[data-mak-theme=custom] :is(.mk-miniaturas,.mk-tira) img{border-color:#c9a24a59}
+
+/* Roteiro e progresso. */
+html[data-mak-theme=custom] .mk-fase{border-color:#c9a24a40;background:linear-gradient(180deg,#132a23,#0e1f1a)}
+html[data-mak-theme=custom] .mk-fase.mk-atual{border-color:var(--ge-ouro-vivo);box-shadow:0 0 0 3px #c9a24a26}
+html[data-mak-theme=custom] .mk-fase-nome{font:600 17px/1.35 var(--ge-serif);color:var(--ge-pergaminho)}
+html[data-mak-theme=custom] .mk-progresso-topo b{font-family:var(--ge-serif);color:var(--ge-pergaminho)}
+html[data-mak-theme=custom] .mk-barra{background:#00000055;box-shadow:inset 0 0 0 1px #c9a24a33}
+html[data-mak-theme=custom] .mk-barra>i{background:linear-gradient(90deg,#8a6a2a,var(--ge-ouro-vivo))}
+html[data-mak-theme=custom] .mk-pag details>summary{font-family:var(--ge-serif);color:var(--ge-ouro-vivo)}
+html[data-mak-theme=custom] .mk-pag .mk-fase>summary{color:var(--mak-text)}
+
+/* Acervo (classes ac-* do módulo). */
+html[data-mak-theme=custom] :is(.ac-barra,.ac-cat){border-color:#c9a24a40;background:var(--ge-painel)}
+html[data-mak-theme=custom] .ac-cat>summary h2{color:var(--ge-ouro-vivo)}
+html[data-mak-theme=custom] .ac-fam{border-color:#c9a24a33;background:#0b1915}
+html[data-mak-theme=custom] .ac-fam>summary .ac-nome-fam{font-family:var(--ge-serif);font-size:16px;color:var(--ge-pergaminho)}
+html[data-mak-theme=custom] .ac-item{border-color:#c9a24a40;background:linear-gradient(180deg,#132a23,#0e1f1a)}
+html[data-mak-theme=custom] .ac-item h3{font-family:var(--ge-serif);font-size:16px}
+
+@media(max-width:600px){
+  html[data-mak-theme=custom] .mk-bloco{border-width:14px;border-image-width:14px;padding:2px}
+  html[data-mak-theme=custom] .mk-capa-texto>.mk-selo{position:static;display:inline-flex;margin:0 0 10px;order:-1}
+  html[data-mak-theme=custom] .mk-capa-texto{display:flex;flex-direction:column}
+  html[data-mak-theme=custom] .mk-capa.mk-alto{min-height:300px}
+  /* No celular, cada linha de tabela vira um bloco: a primeira célula é o título. */
+  html[data-mak-theme=custom][data-mak-report=document] .mk-pag .mk-rolagem>table.mk-tabela{display:block}
+  html[data-mak-theme=custom] .mk-tabela thead{display:none}
+  html[data-mak-theme=custom] .mk-tabela :is(tbody,tr,td){display:block}
+  html[data-mak-theme=custom] .mk-tabela tr{padding:10px 0;border-bottom:1px solid #c9a24a26}
+  html[data-mak-theme=custom][data-mak-report=document] .mk-tabela td{padding:2px 0;border:0}
+  html[data-mak-theme=custom] .mk-tabela td:first-child{font:600 15px var(--ge-serif);color:var(--ge-ouro-vivo)}
+}

@@ -1,0 +1,96 @@
+{
+  "date": "2026-10-16",
+  "sections": 17,
+  "imageCount": 174,
+  "contentAndCountsPreserved": true,
+  "originalDownloadVerified": true,
+  "nativeKeyboardAndTouch": true,
+  "noScriptContentVisible": true,
+  "customThemePreservedInLightAndDark": true,
+  "checks": [
+    {
+      "width": 390,
+      "beforeHeight": 57571,
+      "collapsedHeight": 2263,
+      "reductionPercent": 96,
+      "keyboard": true,
+      "touch": true,
+      "filters": true,
+      "bulkControls": true,
+      "mediaPreview": true,
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "beforeHeight": 80019,
+      "collapsedHeight": 2372,
+      "reductionPercent": 97,
+      "keyboard": true,
+      "touch": true,
+      "filters": true,
+      "bulkControls": true,
+      "mediaPreview": true,
+      "overflow": false
+    },
+    {
+      "width": 1280,
+      "beforeHeight": 29198,
+      "collapsedHeight": 2387,
+      "reductionPercent": 92,
+      "keyboard": true,
+      "touch": true,
+      "filters": true,
+      "bulkControls": true,
+      "mediaPreview": true,
+      "overflow": false
+    }
+  ],
+  "tabs": [
+    {
+      "file": "entregas.html",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "file": "painel.html",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "file": "arquivo.html",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "file": "entregas.html",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "file": "painel.html",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "file": "arquivo.html",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "file": "entregas.html",
+      "width": 1280,
+      "overflow": false
+    },
+    {
+      "file": "painel.html",
+      "width": 1280,
+      "overflow": false
+    },
+    {
+      "file": "arquivo.html",
+      "width": 1280,
+      "overflow": false
+    }
+  ],
+  "pageErrors": []
+}

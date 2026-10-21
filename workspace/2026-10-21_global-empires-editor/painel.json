@@ -1,0 +1,49 @@
+{
+  "estado": "Build local · aceite pendente",
+  "numeros": [
+    {
+      "rotulo": "Decisões confirmadas",
+      "valor": "86",
+      "icone": "livro"
+    },
+    {
+      "rotulo": "Tipos oficiais importados",
+      "valor": "38",
+      "icone": "caixa"
+    },
+    {
+      "rotulo": "Capacidades inventariadas",
+      "valor": "48",
+      "icone": "codigo"
+    },
+    {
+      "rotulo": "Ferramentas MCP",
+      "valor": "19",
+      "icone": "ferramentas"
+    }
+  ],
+  "agora": [
+    {
+      "titulo": "Modelo modular e autoria já têm implementação local",
+      "texto": "Catálogo por capacidades, variantes, mapa, participantes, escolta, grafos, câmeras, histórico, recuperação, exportação e automação. A aba Implementação detalha o alcance e os limites de cada módulo."
+    },
+    {
+      "titulo": "Build Windows e provas técnicas disponíveis",
+      "texto": "Build 9, suítes amplas de 1.222 Sim e 588 View, verificações seletivas posteriores e prova nativa de exportação/retomada/reprodução. Esses resultados não equivalem ao aceite completo."
+    },
+    {
+      "titulo": "Próximo fechamento",
+      "texto": "Validar a janela completa e autoria sem C#, concluir inventário da migração, caminhos de UI, medição de desempenho, CI e revisões obrigatórias."
+    }
+  ],
+  "comVoce": [
+    {
+      "titulo": "Aceite ED86 ainda aberto",
+      "texto": "Criar e editar, salvar, reabrir, testar e jogar a missão exportada sem escrever C#. O protótipo só fecha após esse ciclo humano."
+    },
+    {
+      "titulo": "Escopo seguinte já delimitado",
+      "texto": "Campanhas encadeadas e execução de C# autoral ficam para a próxima entrega. As artes mostram também essa direção futura."
+    }
+  ]
+}

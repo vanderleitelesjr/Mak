@@ -1,0 +1,458 @@
+{
+  "checkedAt": "2026-10-19T22:33:05.607Z",
+  "status": "M6 packaging and guidance validated locally; final acceptance open",
+  "milestones": {
+    "done": 4,
+    "total": 6,
+    "m4": "real A/B/C technical checks passed; human acceptance pending",
+    "m6": "installer and guidance slice validated; final native/release acceptance open"
+  },
+  "validation": {
+    "coreTestsPassed": 99,
+    "typeScriptCSharpFixturesPassed": 38,
+    "browserExecutionsPassed": 22,
+    "desktopExecutionsPassed": 22,
+    "focusedBrowserGuidanceRepeatPassed": true,
+    "uiFailures": 0,
+    "installer": {
+      "checkedAt": "2026-10-19T22:28:38.570Z",
+      "checks": [
+        "Real current-user NSIS installation includes the standalone Node/MCP runtime.",
+        "Installed WebView2 starts without --project and saves artwork, nodes and private local history outside installation/app data.",
+        "Silent update and uninstall refuse a running editor with exit 2; process, executable, project and version remain intact.",
+        "Closed 0.1.0 → 0.1.1 update preserves every stable project/asset/history byte and application options; installed UI reopens them.",
+        "Existing application-data default opens in place, with no forced project migration.",
+        "Older installer refuses a 0.1.1 → 0.1.0 downgrade.",
+        "Real silent uninstall removes application files and preserves both new and legacy project locations."
+      ],
+      "errors": [],
+      "inference": false,
+      "productionInstallationTouched": false
+    },
+    "archiveVerification": {
+      "checkedAt": "2026-10-19T22:32:36.113Z",
+      "archives": 4,
+      "verifiedFiles": 184,
+      "portableNativeReopen": true,
+      "opaqueNativeBlocks": 8,
+      "languages": [
+        "en",
+        "pt-BR"
+      ],
+      "savedPilotUnchanged": true,
+      "inference": false,
+      "newUnityRuntimeProof": false,
+      "errors": []
+    },
+    "runtime": {
+      "checkedAt": "2026-10-19T22:30:32.358Z",
+      "matchingFiles": 34,
+      "restarted": false,
+      "previousRuntimeRetained": true
+    },
+    "nativeSource": {
+      "checkedAt": "2026-10-19T22:27:30.510Z",
+      "matchingFiles": 20,
+      "catalogMatches": true,
+      "newUnityRuntimeProof": false
+    },
+    "nativeSourceRoundTrip033": {
+      "checkedAt": "2026-10-21T02:06:43.463Z",
+      "report": "unity-roundtrip-0.3.3.md",
+      "evidence": "evidence-unity-roundtrip-0.3.3.json",
+      "supportedPropertiesApplied": 4,
+      "sourceKinds": [
+        "uxml",
+        "scene",
+        "prefab"
+      ],
+      "reopened": true,
+      "reimported": true,
+      "staleRefused": true,
+      "callbacksPreserved": true,
+      "focusedConflictTestsPassed": 3,
+      "applicationImplementationChanged": false,
+      "humanAcceptance": false
+    }
+  },
+  "artifacts": {
+    "folder": "E:/MrMak/GameUIEditor/.local/releases/game-ui-editor-0.1.0-20261019T223212236Z",
+    "version": "0.1.0",
+    "createdAt": "2026-10-19T22:32:17.144Z",
+    "published": false,
+    "signed": false,
+    "archives": [
+      {
+        "file": "portable-windows.zip",
+        "sha256": "ad2a89aa352997ddf3f810044033645c536b23d4a8637303ca1533b0718f73fc",
+        "bytes": 37284726
+      },
+      {
+        "file": "editable-sources.zip",
+        "sha256": "e2cd82a2be4ea08d0fce57d98227df544183f1ed50421e5eaaf220f95ed83a83",
+        "bytes": 379231
+      },
+      {
+        "file": "unity-integration.zip",
+        "sha256": "415644ef2724e3046a04879eca76996f73845a13ea3470c787652078e3adf383",
+        "bytes": 50569
+      },
+      {
+        "file": "portable-ge-pilot.zip",
+        "sha256": "1b39b3221378490f85d63675a4b1f6ee9ab5675e1bd48a43f6c0419d2fb07509",
+        "bytes": 428452
+      }
+    ],
+    "installer": {
+      "file": "Game UI Editor_0.1.0_x64-setup.exe",
+      "sha256": "0ca325a31af64117a7d89d9e92a10894cb73d3b6e49486d64abbbd7ae030ca23",
+      "bytes": 25281572
+    }
+  },
+  "boundaries": {
+    "realInference": false,
+    "unityStartedOrRestarted": false,
+    "productionInstallationReplaced": false,
+    "activeApplicationRestarted": false,
+    "geSourceChanged": false,
+    "committed": false,
+    "published": false,
+    "signed": false
+  },
+  "limitations": [
+    "WebView2 was already installed; missing-runtime bootstrapper flow was not exercised.",
+    "Default uninstall preserves legacy projects; explicitly deleting application data can remove legacy projects still stored there.",
+    "Unity archive is the existing GE-specific integration source/catalog snapshot, not an independently installable UPM package.",
+    "No fresh Unity runtime or clean integration import proof. Prior M3/M5 native evidence remains historical.",
+    "Human acceptance of M4 and final M6 release/native acceptance remain open."
+  ],
+  "workspacePreview": {
+    "status": "passed",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "markdownTabs": [
+      "Implementation plan",
+      "M4 agent access",
+      "M6 packaging & guide"
+    ],
+    "mediaImages": 31,
+    "previewDownloadClose": true,
+    "links": true,
+    "overflow": false,
+    "errors": [],
+    "finalMarkdownRechecked": true,
+    "latestManualCheckMarkdown": "passed at 1440/768/390 px in light/dark",
+    "latestFeedbackNote": "Feedback-only update; no further preview run after the stop instruction."
+  },
+  "ownerChecks": [
+    {
+      "recordedAt": "2026-10-19T22:52:39.109Z",
+      "test": "save and reopen",
+      "status": "passed",
+      "source": "owner report in this conversation",
+      "reportedResult": "Everything remained the same after reopening.",
+      "scope": "Basic project persistence after the guided button text/position save-reopen check.",
+      "milestoneAcceptance": false
+    },
+    {
+      "recordedAt": "2026-10-19T23:10:05.592Z",
+      "test": "reference help, contextual help and language switching",
+      "status": "passed",
+      "source": "owner report in this conversation",
+      "reportedResult": "Tested and confirmed; current help can stay, but the initial tour should be more interactive.",
+      "milestoneAcceptance": false
+    },
+    {
+      "recordedAt": "2026-10-20T01:40:41.501Z",
+      "test": "owner testing concluded; correction review requested",
+      "status": "completed by owner report",
+      "source": "owner report in this conversation",
+      "reportedResult": "Testing has concluded. Review every recorded correction and propose a solution for evaluation before implementation.",
+      "scope": "General testing completion report; no new item-by-item result or M4/M6 acceptance inferred.",
+      "milestoneAcceptance": false
+    }
+  ],
+  "feedback": {
+    "interactiveOnboarding": "requested improvement; current help stays",
+    "handlingRule": "Record feedback only during owner testing; implement only after an explicit request.",
+    "implementationStatus": "Premature local prototype stopped; uncommitted and unapproved. No owner installation change or restart.",
+    "nextAction": "Owner reviews correction-proposals.md and adjusts proposed solutions before any explicit implementation request.",
+    "canvasEditing": {
+      "recordedAt": "2026-10-20T00:16:30.305Z",
+      "source": "owner feedback during testing",
+      "requests": [
+        "Resize elements directly on the canvas",
+        "Optional grid",
+        "Snapping support",
+        "Automatic alignment with other elements"
+      ],
+      "status": "recorded; implementation requires an explicit request",
+      "implemented": false
+    },
+    "toolbarAfterCanvasSelection": {
+      "recordedAt": "2026-10-20T00:18:01.895Z",
+      "source": "owner report during testing",
+      "trigger": "Click any element on the canvas",
+      "observed": "Compare, Reload, New project and Open project become dimmed",
+      "status": "recorded; not independently reproduced or diagnosed",
+      "cause": null,
+      "implemented": false
+    },
+    "hierarchyAndLayers": {
+      "recordedAt": "2026-10-20T00:23:28.142Z",
+      "source": "owner feedback during testing",
+      "requests": [
+        "Parents one indentation column before children, according to nesting depth",
+        "Automatically order parent then children, with descendants grouped beneath each parent",
+        "Reduce hierarchy column/indentation spacing",
+        "Dashed parent-child connectors",
+        "Screen defines the background of the layers",
+        "Hierarchy order maps bottom-to-top: near Screen is lower, later items above earlier items, last item topmost",
+        "Reposition hierarchy elements to update parenting and layer order while preserving parent-before-children order"
+      ],
+      "status": "recorded; implementation requires an explicit request",
+      "implemented": false
+    },
+    "positionableGuides": {
+      "recordedAt": "2026-10-20T00:25:37.034Z",
+      "source": "owner feedback/question during testing",
+      "requested": [
+        "Multiple guides with independent positions",
+        "Reposition existing X/Y guides"
+      ],
+      "currentBehavior": {
+        "verification": "static inspection of installed frontend bundle; no owner application control",
+        "creation": "Each click appends a guide at one third of the canvas width or height; repeated guides overlap",
+        "guideClick": "Removes that guide",
+        "repositioning": "No exposed interaction"
+      },
+      "status": "Earlier multiple-guide request superseded by guideGridConfiguration; installed behavior remains historical evidence",
+      "implemented": false,
+      "supersededBy": "guideGridConfiguration"
+    },
+    "guideGridConfiguration": {
+      "recordedAt": "2026-10-20T00:27:59.432Z",
+      "source": "owner revised feedback during testing",
+      "requests": [
+        "At most one X guide and one Y guide",
+        "Retain the earlier guide-repositioning request",
+        "A third option displaying a grid with snapping support",
+        "Editable grid-cell spacing beside the grid button"
+      ],
+      "supersedes": "Multiple independently positioned guides per axis",
+      "unspecified": [
+        "Default spacing",
+        "Spacing units",
+        "Guide repositioning interaction"
+      ],
+      "status": "recorded; implementation requires an explicit request",
+      "implemented": false
+    },
+    "quickContentEditing": {
+      "recordedAt": "2026-10-20T00:28:49.390Z",
+      "source": "owner feedback during testing",
+      "requests": [
+        "Double-click an element to edit its text content",
+        "Select an element and press F2 to edit its text content",
+        "Exclude containers"
+      ],
+      "contentKind": "Authored content text; not hierarchy name or stable ID",
+      "unspecified": [
+        "Editing surface",
+        "Confirmation and cancellation controls"
+      ],
+      "status": "recorded; implementation requires an explicit request",
+      "implemented": false
+    },
+    "colorPicker": {
+      "recordedAt": "2026-10-20T00:29:44.951Z",
+      "source": "owner feedback during testing",
+      "requests": [
+        "Visual color picker for every colorable element/property",
+        "Keep the existing hexadecimal input as an additional editing option"
+      ],
+      "status": "recorded; implementation requires an explicit request",
+      "implemented": false
+    },
+    "collapsibleBehaviorSubitems": {
+      "recordedAt": "2026-10-20T00:36:00.915Z",
+      "source": "owner feedback during testing",
+      "sections": [
+        "Visible when",
+        "Enabled when",
+        "Event connections"
+      ],
+      "requested": "Allow their subitems to collapse and expand",
+      "unspecified": [
+        "Default expansion state",
+        "Expansion-state persistence"
+      ],
+      "status": "recorded; implementation requires an explicit request",
+      "implemented": false
+    },
+    "assistantConversationUX": {
+      "recordedAt": "2026-10-20T00:43:10.472Z",
+      "source": "owner feedback and questions during testing",
+      "requested": [
+        "Conversation composer at bottom of editor",
+        "Connected AI: write and explicitly send messages there",
+        "No AI connected: bottom area opens Assistant & agents",
+        "Remove top-toolbar Assistant & agents button after providing its replacement",
+        "Expandable/collapsible full assistant controls"
+      ],
+      "possibleAdditions": [
+        "Image attachment button for additional context",
+        "Other AI providers in the future"
+      ],
+      "clarityIssues": [
+        "Project and saved revision",
+        "Selection and parent container",
+        "Note for local selection explanation",
+        "Explain selection",
+        "Reload history",
+        "Export agent package",
+        "Refresh context",
+        "Import package"
+      ],
+      "contextQuestion": "Does selecting Screen provide whole-project context?",
+      "verifiedCurrentBehavior": {
+        "method": "code inspection; no model call",
+        "modelContext": "Project metadata, full compact hierarchy, selected-element details and visible draft; targeted inspection and full document available on demand; image bytes on demand only",
+        "screenSelection": "Changes focus to root; not required for project-wide context",
+        "localExplanation": "Deterministic local help, not a model request or a prerequisite for context",
+        "historyReload": "Rereads this project conversation",
+        "contextRefresh": "Explicit republish; automatic publication also exists",
+        "packages": "External-agent export and revisioned proposal-import/review workflow"
+      },
+      "status": "recorded; implementation requires an explicit request",
+      "implemented": false
+    },
+    "firstUseAuthenticationAndGameIndependence": {
+      "recordedAt": "2026-10-20T00:56:14.435Z",
+      "source": "owner feedback and questions during testing",
+      "requested": [
+        "Clear first-use sign-in for users without a preauthenticated local agent",
+        "Support any game rather than a permanent Global Empires catalog",
+        "Adapt available data/conditions/actions to the linked game architecture",
+        "Link a specific game-project root for integration/discovery and asset/font picker starting folders",
+        "Dark/light modes plus additional color schemes in Options"
+      ],
+      "verifiedCurrent": {
+        "authentication": "Installed Codex CLI and existing ChatGPT session only; no embedded browser login initiation; API-key fallback refused",
+        "providers": "Codex only",
+        "catalog": "Global behavior-catalog.json is Global Empires-specific; GE validation/preview/native adapter remain coupled",
+        "genericFeatures": "Visual authoring, typed UI variables/states/events and unmapped semantic intent exist",
+        "projectFolder": "No automatic function discovery merely by selecting a game root"
+      },
+      "recommendation": {
+        "status": "proposal for discussion, not implementation approval",
+        "approach": [
+          "Generic authoring core",
+          "Typed per-project game data/action catalog",
+          "Engine/game runtime adapter",
+          "Source analysis/AI-assisted mapping suggestions requiring validation"
+        ],
+        "qualification": "Folder discovery or symbol names are not runtime integration proof"
+      },
+      "officialAuthSources": [
+        "https://learn.chatgpt.com/docs/auth",
+        "https://learn.chatgpt.com/docs/app-server"
+      ],
+      "status": "recorded; implementation requires an explicit request",
+      "implemented": false
+    },
+    "reviewPlan": "correction-proposals.md",
+    "reviewStatus": "Review and authorization completed. P01-P18 implemented in 0.2.0; P19 deferred. See latestDelivery; earlier feedback retained historically.",
+    "structuredImport030": {
+      "recordedAt": "2026-10-20T22:12:23.249Z",
+      "version": "0.3.0",
+      "session": "E:/MrMak/GameUIEditor/docs/playtests/2026-10-20-0.3.0.md",
+      "status": "Implemented and technically verified; included in general owner retest accepted in 0.3.3",
+      "implemented": true,
+      "humanAcceptance": true,
+      "findings": [
+        {
+          "id": "PT-2026-10-20-01",
+          "severity": "medium",
+          "summary": "Excessive conversation space even at the draggable minimum",
+          "evidence": "owner report; not independently reproduced",
+          "status": "Fixed in 0.3.1; included in general owner retest accepted in 0.3.3",
+          "cause": "Fixed 280 px dock minimum"
+        },
+        {
+          "id": "PT-2026-10-20-02",
+          "severity": "high",
+          "summary": "Internal-looking element names overlap real HUD text and artwork",
+          "evidence": "media/test-0.3.0/element-names-overlap.png",
+          "screenshotSha256": "0a31360bb8475882f31528286d6e1d9bf12d9535f5b10a7c97a25a0c07e73f0a",
+          "cause": "Canvas name fallback and omitted visibility conditions in imported Inspect",
+          "status": "Fixed in 0.3.1; included in general owner retest accepted in 0.3.3"
+        }
+      ],
+      "issues": "none; application repository has no Git remote",
+      "correctionVersion": "0.3.1",
+      "correctionReport": "fixes-0.3.1.md",
+      "acceptanceScope": "General acceptance of the delivered usability/visual adjustments; no individual checklist results supplied."
+    },
+    "hierarchyCollapse032": {
+      "recordedAt": "2026-10-20T23:35:50.125Z",
+      "source": "explicit owner implementation request",
+      "implemented": true,
+      "version": "0.3.2",
+      "report": "hierarchy-0.3.2.md",
+      "humanAcceptance": true,
+      "status": "Implemented and technically verified; included in general owner retest accepted in 0.3.3",
+      "acceptanceScope": "General acceptance of the delivered usability/visual adjustments; no individual checklist results supplied."
+    },
+    "commandPanel011": {
+      "recordedAt": "2026-10-21T00:05:23.434Z",
+      "source": "explicit owner correction request",
+      "finding": "PT-2026-10-20-03",
+      "implemented": true,
+      "editorVersion": "0.3.2",
+      "exporterVersion": "0.1.1",
+      "report": "commands-0.1.1.md",
+      "status": "Implemented and technically verified; included in general owner retest accepted in 0.3.3",
+      "humanAcceptance": true,
+      "acceptanceScope": "General acceptance of the delivered usability/visual adjustments; no individual checklist results supplied."
+    },
+    "canvasFit033": {
+      "recordedAt": "2026-10-21T01:03:53.086Z",
+      "finding": "PT-2026-10-20-04",
+      "source": "owner implementation request",
+      "implemented": true,
+      "version": "0.3.3",
+      "report": "canvas-0.3.3.md",
+      "status": "Technically verified; general owner retest accepted in 0.3.3",
+      "humanAcceptance": true
+    },
+    "ownerRetest033": {
+      "recordedAt": "2026-10-21T01:52:37.948Z",
+      "version": "0.3.3",
+      "source": "owner",
+      "original": "testado e funcionando",
+      "scope": "General acceptance of the delivered usability/visual adjustments; no individual checklist results supplied.",
+      "report": "canvas-0.3.3.md",
+      "humanAcceptance": true,
+      "unitySourceRoundTripAccepted": false,
+      "fullMilestoneAcceptance": false,
+      "applicationChanged": false,
+      "runtimeValidationPerformed": false
+    }
+  },
+  "latestDelivery": {
+    "checkedAt": "2026-10-20T03:52:17.273Z",
+    "version": "0.2.1",
+    "report": "followup-0.2.1.md",
+    "evidence": "evidence-followup-0.2.1.json",
+    "status": "F01-F04 implemented, verified and packaged locally; chat redesign remains a visual proposal",
+    "workspaceChecks": 48
+  }
+}

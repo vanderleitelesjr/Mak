@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-17",
+  "revision": "v1",
+  "test_file": "Headband_58cm_fit_test_v1.stl",
+  "result": "failed",
+  "wearer_feedback": "The upper arch is too small and does not follow the head shape.",
+  "photo_observations": [
+    "A visible gap remains between the middle of the band and the crown of the head.",
+    "The band appears supported by the sides while the upper arch remains suspended.",
+    "The photographs support a broader, flatter crown profile; they do not establish an accurate millimetre scale or lateral pressure."
+  ],
+  "rejected_assumption": "The three tape arcs were treated as perpendicular ellipses with shared baselines. Their endpoints do not establish that anatomical model reliably.",
+  "v1_nominal_inner_width_mm": 141.79309143964358,
+  "v1_nominal_inner_height_mm": 130.36013390039977,
+  "v1_crown_radius_of_curvature_mm": 38.557188034518944,
+  "next_revision": {
+    "direction": "Broaden and flatten the crown rather than uniformly enlarge the existing ellipse.",
+    "needed_measurement": "Straight left-to-right head width, using two parallel books and measuring the gap between them.",
+    "needed_feedback": "Whether the test band's sides were tight, comfortable, or loose.",
+    "received_straight_width_mm": 170,
+    "received_side_feedback": "Slightly loose",
+    "status": "v2 gauge generated; physical trial pending",
+    "release": "v2/Headband_58cm_fit_test_v2.stl"
+  },
+  "original_and_v1_files_preserved": true,
+  "personal_photos_copied_into_repository": false
+}

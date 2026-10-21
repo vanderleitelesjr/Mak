@@ -1,0 +1,188 @@
+{
+  "sobre": "Gerado por coletores/ritualistic.mjs pela existência de arquivos: conceito (vistas ou referências), Meshy (job ou GLB), Blender (.blend de ajuste ou rig) e Unreal (.uasset no Content). Feito aqui quer dizer \"o arquivo existe\", não \"aprovado\".",
+  "etapas": [
+    {
+      "id": "conceito",
+      "nome": "Conceito"
+    },
+    {
+      "id": "meshy",
+      "nome": "Meshy"
+    },
+    {
+      "id": "blender",
+      "nome": "Blender"
+    },
+    {
+      "id": "unreal",
+      "nome": "Unreal"
+    }
+  ],
+  "assets": [
+    {
+      "id": "pilot-t1-fibra",
+      "nome": "T1 Fibra",
+      "grupo": "Armaduras",
+      "etapas": {
+        "conceito": "feito",
+        "meshy": "feito",
+        "blender": "feito",
+        "unreal": "feito"
+      }
+    },
+    {
+      "id": "pilot-t2-couro",
+      "nome": "T2 Couro",
+      "grupo": "Armaduras",
+      "etapas": {
+        "conceito": "feito",
+        "meshy": "feito",
+        "blender": "feito",
+        "unreal": "feito"
+      }
+    },
+    {
+      "id": "pilot-t3-bronze",
+      "nome": "T3 Bronze",
+      "grupo": "Armaduras",
+      "etapas": {
+        "conceito": "feito",
+        "meshy": "feito",
+        "blender": "feito",
+        "unreal": "feito"
+      }
+    },
+    {
+      "id": "pilot-t4-ferro",
+      "nome": "T4 Ferro",
+      "grupo": "Armaduras",
+      "etapas": {
+        "conceito": "feito",
+        "meshy": "feito",
+        "blender": "feito",
+        "unreal": "feito"
+      }
+    },
+    {
+      "id": "pilot-t5-aco-v2",
+      "nome": "T5 Aço v2",
+      "grupo": "Armaduras",
+      "etapas": {
+        "conceito": "feito",
+        "meshy": "feito",
+        "blender": "feito",
+        "unreal": "feito"
+      }
+    },
+    {
+      "id": "rig-bear",
+      "nome": "Urso",
+      "grupo": "Animais",
+      "etapas": {
+        "conceito": "feito",
+        "meshy": "feito",
+        "blender": "feito",
+        "unreal": "feito"
+      }
+    },
+    {
+      "id": "rig-boar",
+      "nome": "Javali",
+      "grupo": "Animais",
+      "etapas": {
+        "conceito": "feito",
+        "meshy": "feito",
+        "blender": "feito",
+        "unreal": "feito"
+      }
+    },
+    {
+      "id": "rig-deer",
+      "nome": "Cervo",
+      "grupo": "Animais",
+      "etapas": {
+        "conceito": "feito",
+        "meshy": "feito",
+        "blender": "feito",
+        "unreal": "feito"
+      }
+    },
+    {
+      "id": "rig-draugr",
+      "nome": "Draugr",
+      "grupo": "Criaturas sobrenaturais",
+      "etapas": {
+        "conceito": "feito",
+        "meshy": "feito",
+        "blender": "feito",
+        "unreal": "feito"
+      }
+    },
+    {
+      "id": "rig-fox",
+      "nome": "Raposa",
+      "grupo": "Animais",
+      "etapas": {
+        "conceito": "feito",
+        "meshy": "feito",
+        "blender": "feito",
+        "unreal": "feito"
+      }
+    },
+    {
+      "id": "rig-nokken",
+      "nome": "Nøkken",
+      "grupo": "Criaturas sobrenaturais",
+      "etapas": {
+        "conceito": "feito",
+        "meshy": "feito",
+        "blender": "feito",
+        "unreal": "feito"
+      }
+    },
+    {
+      "id": "rig-ram",
+      "nome": "Carneiro",
+      "grupo": "Animais",
+      "etapas": {
+        "conceito": "feito",
+        "meshy": "feito",
+        "blender": "feito",
+        "unreal": "feito"
+      }
+    },
+    {
+      "id": "rig-sluaghcrow",
+      "nome": "Corvo do Sluagh",
+      "grupo": "Criaturas sobrenaturais",
+      "etapas": {
+        "conceito": "feito",
+        "meshy": "feito",
+        "blender": "feito",
+        "unreal": "feito"
+      }
+    },
+    {
+      "id": "rig-wolf",
+      "nome": "Lobo",
+      "grupo": "Animais",
+      "etapas": {
+        "conceito": "feito",
+        "meshy": "feito",
+        "blender": "feito",
+        "unreal": "feito"
+      }
+    },
+    {
+      "id": "jogador",
+      "nome": "Jogador (exilado)",
+      "grupo": "Jogador",
+      "etapas": {
+        "conceito": "feito",
+        "meshy": "na",
+        "blender": "feito",
+        "unreal": "feito"
+      }
+    }
+  ]
+}

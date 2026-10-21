@@ -1,0 +1,94 @@
+{
+  "asset_pipeline": "Actual Blender source -> unlit RGBA and linear world-normal atlases -> same wgpu shader as native window",
+  "backend": "Dx12",
+  "captured_frames": 160,
+  "character_region_changed_pixels": 3711,
+  "driver": "",
+  "elapsed_replay_and_capture_seconds": 0.7997903,
+  "fixed_step_hz": 120,
+  "gpu": "NVIDIA GeForce RTX 5080",
+  "matched_lighting_changed_pixels": 467757,
+  "max_jump_height": 1.3320825099945068,
+  "performance_limit": "Includes GPU readback and PNG encoding; not a frame-rate benchmark",
+  "physical_input": "Not exercised. Keyboard/mouse/controller mappings implemented; device playtest remains pending.",
+  "replay_seconds": 8,
+  "resolution": [
+    1280,
+    720
+  ],
+  "samples": [
+    {
+      "clip": "walk",
+      "frame": 0,
+      "grounded": true,
+      "position": [
+        -4.830000877380371,
+        0.0
+      ]
+    },
+    {
+      "clip": "walk",
+      "frame": 20,
+      "grounded": true,
+      "position": [
+        -1.4299992322921753,
+        0.0
+      ]
+    },
+    {
+      "clip": "walk",
+      "frame": 40,
+      "grounded": false,
+      "position": [
+        0.9499995708465576,
+        1.2674994468688965
+      ]
+    },
+    {
+      "clip": "walk",
+      "frame": 60,
+      "grounded": true,
+      "position": [
+        3.7699999809265137,
+        0.0
+      ]
+    },
+    {
+      "clip": "walk",
+      "frame": 80,
+      "grounded": false,
+      "position": [
+        4.02500057220459,
+        1.2674994468688965
+      ]
+    },
+    {
+      "clip": "walk",
+      "frame": 100,
+      "grounded": true,
+      "position": [
+        7.424983024597168,
+        0.0
+      ]
+    },
+    {
+      "clip": "walk",
+      "frame": 120,
+      "grounded": true,
+      "position": [
+        7.084985256195068,
+        0.0
+      ]
+    },
+    {
+      "clip": "walk",
+      "frame": 140,
+      "grounded": true,
+      "position": [
+        6.230000019073486,
+        0.0
+      ]
+    }
+  ],
+  "scope": "First rendering/runtime proof; agent verification, not owner visual acceptance"
+}

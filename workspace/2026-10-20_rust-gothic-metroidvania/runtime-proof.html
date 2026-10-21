@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" data-mak-report="document">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rusted — first rendering/runtime proof</title>
+  <link rel="stylesheet" href="../_shared/report.css">
+  <link rel="stylesheet" href="../_shared/examples.css">
+  <script defer src="../_shared/report.js"></script>
+  <style>
+    .proof-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:1rem}
+    figure{margin:0 0 1.2rem}figure img,video{display:block;width:100%;height:auto;border-radius:8px}
+    figcaption{margin:.5rem 0}video{max-height:75vh}pre{overflow:auto}table{width:100%}
+    .proof-table{overflow:auto}a{overflow-wrap:anywhere}
+  </style>
+</head>
+<body><main class="container">
+  <p><a href="painel.html">Project overview</a> · <a href="documentacao.html">Documentation and approved concepts</a></p>
+  <h1>First rendering/runtime proof</h1>
+  <p>20 October 2026 · Implemented and agent-verified. A native Rust renderer now runs one 3D room with a genuinely Blender-generated animated sprite, dynamic lighting, collision and an executable movement graph. Human visual review and physical input playtesting remain pending.</p>
+  <p><strong>Technical proxies:</strong> the simple armor and room blockout test the pipeline. They do not replace the approved Penitent Harness / Corroded Bastion / L02 references. The full game and visual editor are future work.</p>
+
+  <h2>Eight seconds through the actual runtime</h2>
+  <video controls loop muted playsinline preload="metadata" poster="media/runtime/proof-v01/light-on.png" aria-label="Eight-second scripted native GPU replay with walking, jumping and camera movement"><source src="media/runtime/proof-v01/runtime-loop.mp4" type="video/mp4"></video>
+  <p>Original PNG frames were rendered by the same Rust/wgpu code and shader used by the native window, then encoded once to MP4. Actions are scripted; this is GPU readback evidence rather than desktop screen recording. Playback is 20 captured frames per second; simulation runs at 120 Hz.</p>
+  <p><a href="media/runtime/proof-v01/runtime-loop.mp4" download>Download MP4</a> · <a href="media/runtime/proof-v01/verification.json" download>Replay verification JSON</a> · <a href="media/runtime/proof-v01/native-window.json" download>Native-window result</a></p>
+
+  <h2>Matched torch comparison</h2>
+  <p>Pose, animation frame, camera and time are identical. Only the contribution of the two torch lights changes. A sprite-only diagnostic mask excludes background pixels: <strong>3,711 character pixels</strong> change, along with 467,757 scene pixels.</p>
+  <div class="proof-grid">
+    <figure><img src="media/runtime/proof-v01/light-off.png" alt="Actual Rust GPU capture with torch lighting disabled; cold skylight remains" loading="lazy"><figcaption>Torch contribution OFF · cold skylight remains</figcaption><a href="media/runtime/proof-v01/light-off.png" download>Download original PNG</a></figure>
+    <figure><img src="media/runtime/proof-v01/light-on.png" alt="Matched actual Rust GPU capture with warm torch lighting on the armor and masonry" loading="lazy"><figcaption>Torch contribution ON · same pose and camera</figcaption><a href="media/runtime/proof-v01/light-on.png" download>Download original PNG</a></figure>
+    <figure><img src="media/runtime/proof-v01/normals.png" alt="Diagnostic world-normal output from the shared Rust scene and sprite shader" loading="lazy"><figcaption>World-normal diagnostic · linear data atlas, mirrored X when facing left</figcaption><a href="media/runtime/proof-v01/normals.png" download>Download original PNG</a></figure>
+  </div>
+
+  <h2>Native Windows startup</h2>
+  <figure><img src="media/runtime/proof-v01/native-window.png" alt="GPU readback of the render pass used by the native Windows proof window" loading="lazy"><figcaption>The winit/DX12 window presented 120 frames and closed normally. This image reads back its renderer; it is not a desktop screenshot or proof of human input.</figcaption><a href="media/runtime/proof-v01/native-window.png" download>Download original PNG</a></figure>
+
+  <h2>Editable source → sprite data → engine</h2>
+  <div class="proof-grid">
+    <figure><img src="media/runtime/proof-v01/albedo.png" alt="Twenty unlit RGBA armor frames exported from the editable Blender source" loading="lazy"><figcaption>Unlit color/alpha atlas · 8 Idle and 12 Walk frames</figcaption><a href="media/runtime/proof-v01/albedo.png" download>Download albedo atlas</a></figure>
+    <figure><img src="media/runtime/proof-v01/normal.png" alt="Matching linear world-normal atlas exported from Blender for runtime dynamic lighting" loading="lazy"><figcaption>Linear world-normal atlas · same frame grid and silhouette</figcaption><a href="media/runtime/proof-v01/normal.png" download>Download normal atlas</a></figure>
+  </div>
+  <p><a href="media/runtime/proof-v01/penitent-proof-v01.blend" download>Download editable Blender source</a> · <a href="media/runtime/proof-v01/sprite.json" download>Sprite manifest</a> · <a href="../../projects/rust-gothic-metroidvania/runtime/README.md">Sources, build/run commands and controls</a></p>
+  <p>The saved source was reopened in a fresh Blender 5.2.2 LTS process. Twenty sampled poses passed support-contact checks; both loop seams and the stationary global root passed. Maximum sole error was below 0.000001 m. This verifies geometry and export data, while gait aesthetics still require human review. Cycles denoising is disabled for the normal data pass.</p>
+
+  <h2>What the graph actually owns</h2>
+  <p>The JSON graph branches on jump input and grounded state, applies movement operations, selects a clip and halts. Reconnecting its grounded branch from the jump operation to animation removes jumping without recompilation. F5 validates and reloads the graph. Invalid reloads preserve the previous graph; a runtime cycle reports its node within a 128-operation budget and does not commit a partially executed tick.</p>
+  <p><a href="../../projects/rust-gothic-metroidvania/runtime/assets/movement.json">Executable movement graph</a> · <a href="../../projects/rust-gothic-metroidvania/runtime/assets/room.json">Authored room/collision data</a></p>
+
+  <h2>Verification and limits</h2>
+  <div class="proof-table"><table><thead><tr><th>Check</th><th>Result</th></tr></thead><tbody>
+    <tr><td>Machine/build</td><td>Windows 11 Pro · NVIDIA RTX 5080 · DX12 · release · 1280×720</td></tr>
+    <tr><td>Focused tests</td><td>6 passed: graph topology/validation/budget, collision, source-room preservation and actual exported frame/normal data</td></tr>
+    <tr><td>Native startup</td><td>120 frames presented; bounded synthetic-input run; normal close</td></tr>
+    <tr><td>Pipeline and lighting</td><td>Editable Blender source → real atlases → animated normal-lit sprite in Rust</td></tr>
+    <tr><td>Physical inputs</td><td>Keyboard/mouse/controller mappings implemented; human device playtest pending</td></tr>
+    <tr><td>Visual acceptance</td><td>Pending. Technical armor, gait and room blockout; no shadow maps or sprite per-pixel depth</td></tr>
+    <tr><td>Performance</td><td>No FPS guarantee. Capture timing includes GPU readback and PNG encoding</td></tr>
+    <tr><td>Remaining prototype</td><td>Visual editor, full level, combat, corrosion/recovery, inventory/shop, traversal progression, forge and boss</td></tr>
+  </tbody></table></div>
+  <p>Next technical milestone: author rooms and graphs visually through this same runtime, with validated save/reload and playtest instances that preserve the authored sources.</p>
+</main></body></html>

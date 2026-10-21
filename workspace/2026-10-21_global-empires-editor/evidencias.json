@@ -1,0 +1,183 @@
+{
+  "data": "2026-10-21",
+  "branch": "codex/editor-ge",
+  "base": "970b43b",
+  "estado": "implementação local, sem commit/PR/merge; aceite humano pendente",
+  "origem": "E:/ClaudeTemp/ge-editor-evidence",
+  "checks": [
+    {
+      "name": "sim-current-full",
+      "results": "E:\\ClaudeTemp\\ge-editor-evidence\\sim-current-full\\vande_VANDE_DESKTOP_2026-10-21_17_01_32_net8.0.trx",
+      "counts": {
+        "total": "1222",
+        "executed": "1222",
+        "passed": "1222",
+        "failed": "0",
+        "error": "0",
+        "timeout": "0",
+        "aborted": "0",
+        "inconclusive": "0",
+        "passedButRunAborted": "0",
+        "notRunnable": "0",
+        "notExecuted": "0",
+        "disconnected": "0",
+        "warning": "0",
+        "completed": "0",
+        "inProgress": "0",
+        "pending": "0"
+      },
+      "sha256": "7e48df8d59398981f3a0663eec2b9293fdbcf350538e6e21c52c157ffdda20e2"
+    },
+    {
+      "name": "view-current",
+      "results": "E:\\ClaudeTemp\\ge-editor-evidence\\view-current\\vande_VANDE_DESKTOP_2026-10-21_16_58_00_net8.0.trx",
+      "counts": {
+        "total": "588",
+        "executed": "588",
+        "passed": "588",
+        "failed": "0",
+        "error": "0",
+        "timeout": "0",
+        "aborted": "0",
+        "inconclusive": "0",
+        "passedButRunAborted": "0",
+        "notRunnable": "0",
+        "notExecuted": "0",
+        "disconnected": "0",
+        "warning": "0",
+        "completed": "0",
+        "inProgress": "0",
+        "pending": "0"
+      },
+      "sha256": "68435f7110e34393f292b7d15e967a83066b9d435e522af823b420f1169c7de3"
+    },
+    {
+      "name": "mission-frozen-command",
+      "results": "E:\\ClaudeTemp\\ge-editor-evidence\\mission-frozen-command\\vande_VANDE_DESKTOP_2026-10-21_17_34_06_net8.0.trx",
+      "counts": {
+        "total": "41",
+        "executed": "41",
+        "passed": "41",
+        "failed": "0",
+        "error": "0",
+        "timeout": "0",
+        "aborted": "0",
+        "inconclusive": "0",
+        "passedButRunAborted": "0",
+        "notRunnable": "0",
+        "notExecuted": "0",
+        "disconnected": "0",
+        "warning": "0",
+        "completed": "0",
+        "inProgress": "0",
+        "pending": "0"
+      },
+      "sha256": "51eb6619c3e17c4dafaf19e45569629cfe3ea341801785d076eb104fda598095"
+    },
+    {
+      "name": "authoring-search",
+      "results": "E:\\ClaudeTemp\\ge-editor-evidence\\authoring-search\\vande_VANDE_DESKTOP_2026-10-21_17_34_01_net8.0.trx",
+      "counts": {
+        "total": "35",
+        "executed": "35",
+        "passed": "35",
+        "failed": "0",
+        "error": "0",
+        "timeout": "0",
+        "aborted": "0",
+        "inconclusive": "0",
+        "passedButRunAborted": "0",
+        "notRunnable": "0",
+        "notExecuted": "0",
+        "disconnected": "0",
+        "warning": "0",
+        "completed": "0",
+        "inProgress": "0",
+        "pending": "0"
+      },
+      "sha256": "4a612fb56ef30689baa5e067f7fee5e543ca7c2aea1b41e00bb42b41108f1fd8"
+    },
+    {
+      "name": "authored-boundary",
+      "results": "E:\\ClaudeTemp\\ge-editor-evidence\\authored-boundary\\vande_VANDE_DESKTOP_2026-10-21_17_22_51_net8.0.trx",
+      "counts": {
+        "total": "48",
+        "executed": "48",
+        "passed": "48",
+        "failed": "0",
+        "error": "0",
+        "timeout": "0",
+        "aborted": "0",
+        "inconclusive": "0",
+        "passedButRunAborted": "0",
+        "notRunnable": "0",
+        "notExecuted": "0",
+        "disconnected": "0",
+        "warning": "0",
+        "completed": "0",
+        "inProgress": "0",
+        "pending": "0"
+      },
+      "sha256": "24a5683804266b6ef7c0ef6fe65734fca3fbca402e9b3166c40598be1110a058"
+    },
+    {
+      "name": "native",
+      "results": {
+        "unity": "6000.6.5f1",
+        "platform": "WindowsPlayer",
+        "mode": "headless-native",
+        "projectHash": "71B6B91C5804F67D",
+        "worldHash": "25E30262C1CBDA98",
+        "controllerHash": "0EAE122C4917FC58",
+        "problem": "",
+        "stateVersion": 44,
+        "worldTick": 155,
+        "sequenceTick": 215,
+        "definitions": 39,
+        "sessionBytes": 18820,
+        "averageStepMs": 0.08821375
+      }
+    },
+    {
+      "name": "mcp",
+      "responses": 13,
+      "tools": 19,
+      "results": "E:\\ClaudeTemp\\ge-editor-evidence\\mcp-proof-current.json"
+    },
+    {
+      "name": "interface",
+      "status": "awaiting_visible_window_permission",
+      "details": "Hidden window: zero repaint. Direct viewport render verified; whole UI unverified."
+    }
+  ],
+  "build": {
+    "executavel": "E:\\ClaudeTemp\\ge-editor-evidence\\windows\\GlobalEmpiresEditor.exe",
+    "bytes": 667136,
+    "log": "E:\\ClaudeTemp\\ge-editor-evidence\\unity\\build-9.log",
+    "sha256": "8c5a9620d9d91fb52ada82c2e60960413eddfba8cab1ff2bbd481a0ef53715a8"
+  },
+  "limites": [
+    "Suítes amplas anteriores aos últimos ajustes; verificações posteriores seletivas e sobrepostas.",
+    "Não somar testes sobrepostos.",
+    "Prévia renderizada não prova interface completa.",
+    "Migração integral, desempenho, CI, revisões e ED86 ainda abertos."
+  ],
+  "fontes": [
+    {
+      "arquivo": "E:\\ClaudeTemp\\ge-editor\\docs\\specs\\decisoes.md",
+      "sha256": "f9a607dfd0d967d97c21043edf43c769832a509129d9060973bc7dfb0acd58da"
+    },
+    {
+      "arquivo": "E:\\ClaudeTemp\\ge-editor\\docs\\specs\\editor-ge.md",
+      "sha256": "89e48875b6f44dd356832fcd8024c285e4b421d510fd603a2b0cdff8dffaa3af"
+    },
+    {
+      "arquivo": "E:\\ClaudeTemp\\ge-editor\\docs\\editor\\implementacao.md",
+      "sha256": "3a6e646b48de3f0436b6b3343df5de1e880af938cb1486ce8c49191fade61390"
+    },
+    {
+      "arquivo": "E:\\ClaudeTemp\\ge-editor\\docs\\editor\\capacidades.md",
+      "sha256": "804d4234706e9f558ce331a03a5cfb48347937d7ec1bbe5bdff43c322a641c89"
+    }
+  ]
+}

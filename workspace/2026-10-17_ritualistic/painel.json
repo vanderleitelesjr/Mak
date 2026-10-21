@@ -1,0 +1,18 @@
+{
+  "sobre": "Estado de agora, escrito à mão. Os números com @ são calculados dos outros JSON; a main vem do git do repositório.",
+  "estado": "Fatia vertical · fase 12 (assets)",
+  "numeros": [
+    { "rotulo": "Fases", "valor": "@roteiro.progresso", "icone": "marco" },
+    { "rotulo": "Main", "valor": "5b1758d3", "icone": "codigo" },
+    { "rotulo": "Achados (iteração aberta)", "valor": "@playtest.achados", "icone": "playtest" },
+    { "rotulo": "Decisões", "valor": "@decisoes.total", "icone": "livro" }
+  ],
+  "agora": [
+    { "titulo": "Fatia jogável do começo ao Bronze", "texto": "As fases 0 a 11 e a 13 têm tag `slice-f*`. A fase 12 (assets, áudio e atmosfera) segue em paralelo: armaduras, ícones estilo B, água e a cena do círculo de pedras." },
+    { "titulo": "Armaduras T1 a T5 no exilado", "texto": "Tecido, couro e bronze com saia em Chaos Cloth; ferro e aço ainda em ajuste. A aba Pipeline mostra o que já existe em cada etapa." },
+    { "titulo": "Último playtest: 11/10", "texto": "Achados de HUD, bronze e clima (PT-106 a PT-122), todos corrigidos nos commits. A árvore de trabalho do repositório tem mudanças sem commit." }
+  ],
+  "comVoce": [
+    { "titulo": "Próximo playtest", "texto": "Os achados novos vão para `docs/playtests/` no repositório (a pasta ainda não existe); o coletor passa a lê-los de lá." }
+  ]
+}

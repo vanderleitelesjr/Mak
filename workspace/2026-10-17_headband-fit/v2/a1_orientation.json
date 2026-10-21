@@ -1,0 +1,25 @@
+{
+  "printer": "Bambu Lab A1",
+  "buildVolumeMM": [
+    256,
+    256,
+    256
+  ],
+  "stl": "Headband_58cm_PLA_fit_v2_Bambu_A1.stl",
+  "sha256": "4e115cc4ff7f0c11c20567105ce728e0eb2e14279c81d308622aa4013129d62d",
+  "sourceSTL": "Headband_58cm_PLA_fit_v2.stl",
+  "sourceSHA256": "7825016fcc05c1fd71cdde8b399497dedcea73c90ff69c03e8221d45e157d55d",
+  "rotationAroundZDegrees": 45.01,
+  "scale": 1,
+  "triangles": 673716,
+  "printDimensionsMM": [
+    231.66792678833008,
+    231.6666488647461,
+    72.0208740234375
+  ],
+  "maxTransformRoundingMM": 0.000007629357440919193,
+  "minimumTotalXYMarginMM": 24.332073211669922,
+  "orientation": "Same flat layer orientation; rotate in XY only. Let the slicer center the part on the plate.",
+  "instructions": "Bambu Studio: select the actual A1/nozzle and calibrated PLA profile; import in mm at 100%; center the model; review support and brim coverage and the sliced layers. No printer-specific G-code or support settings supplied.",
+  "limits": "Geometry fits the nominal build volume. Brim, supports, exclusion zones and actual adhesion require slicer review. Complete ornament physical comfort remains untested."
+}

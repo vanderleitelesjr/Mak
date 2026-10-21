@@ -1,0 +1,120 @@
+{
+  "checkedAt": "2026-10-20T23:35:50.123Z",
+  "version": "0.3.2",
+  "implemented": true,
+  "focusedInterface": {
+    "browser": 8,
+    "windows": 8,
+    "passed": 16,
+    "failed": 0,
+    "fullSuiteRepeated": false
+  },
+  "nativeEditor": {
+    "checkedAt": "2026-10-20T23:31:03.101Z",
+    "version": "0.3.2",
+    "proof": "E:\\MrMak\\GameUIEditor\\.local\\hierarchy-collapse-native-lQCV9g",
+    "updatedApplication": "E:\\MrMak\\GameUIEditor\\.local\\manual-test-0.3.0-MndmD0\\application-0.3.2",
+    "ownerProject": "E:\\MrMak\\GameUIEditor\\.local\\manual-test-0.3.0-MndmD0\\projects\\ge-importada",
+    "ownerProjectSha256": "fd16b77283de298fcfeed6714fd31bbe85e152321a0fdf96552823aba72e112d",
+    "initialRows": 430,
+    "collapsedRows": 7,
+    "rootCollapsedRows": 1,
+    "nestedStatesPreserved": true,
+    "projectByteIdentical": true,
+    "ownerProjectUnchanged": true,
+    "errors": [],
+    "inference": false,
+    "humanAcceptance": false
+  },
+  "release": {
+    "checkedAt": "2026-10-20T23:34:17.960Z",
+    "version": "0.3.2",
+    "release": "E:\\MrMak\\GameUIEditor\\.local\\releases\\game-ui-editor-0.3.2-20261020T233407504Z",
+    "checkedFiles": 264,
+    "archives": 4,
+    "installerHashChecked": true,
+    "currentSourcesMatchArchive": true,
+    "testPortableMatchesRelease": true,
+    "ownerProjectUnchanged": true,
+    "previousPortablePreserved": true,
+    "record": {
+      "version": "0.3.2",
+      "createdAt": "2026-10-20T23:34:12.692Z",
+      "published": false,
+      "signed": false,
+      "archives": [
+        {
+          "file": "portable-windows.zip",
+          "sha256": "25e9031198ca6e1ffc36e3c21fbc85c13f5448d8a63c9e94999f04fcda9a3dd6",
+          "bytes": 37363129
+        },
+        {
+          "file": "editable-sources.zip",
+          "sha256": "0821b43406af02f7289b18a03139e264fe85fdc7ac0a4e930c85c9142aec5d96",
+          "bytes": 505091
+        },
+        {
+          "file": "unity-integration.zip",
+          "sha256": "73887b9577f7aa76047c848e192acb406ec4478bc3428a35736fadbed4a85ff2",
+          "bytes": 76404
+        },
+        {
+          "file": "portable-ge-pilot.zip",
+          "sha256": "3ca2b9e9023c08dd53e34474da84373262eb58172df15ff1aa8b11eaf28e0640",
+          "bytes": 433006
+        }
+      ],
+      "installer": {
+        "file": "Game UI Editor_0.3.2_x64-setup.exe",
+        "sha256": "78673dd5d5d8f43abcf616e0621041db01446eb31b8fccf942990b8649e58ff7",
+        "bytes": 25361901
+      }
+    },
+    "native": {
+      "checkedAt": "2026-10-20T23:31:03.101Z",
+      "version": "0.3.2",
+      "proof": "E:\\MrMak\\GameUIEditor\\.local\\hierarchy-collapse-native-lQCV9g",
+      "updatedApplication": "E:\\MrMak\\GameUIEditor\\.local\\manual-test-0.3.0-MndmD0\\application-0.3.2",
+      "ownerProject": "E:\\MrMak\\GameUIEditor\\.local\\manual-test-0.3.0-MndmD0\\projects\\ge-importada",
+      "ownerProjectSha256": "fd16b77283de298fcfeed6714fd31bbe85e152321a0fdf96552823aba72e112d",
+      "initialRows": 430,
+      "collapsedRows": 7,
+      "rootCollapsedRows": 1,
+      "nestedStatesPreserved": true,
+      "projectByteIdentical": true,
+      "ownerProjectUnchanged": true,
+      "errors": [],
+      "inference": false,
+      "humanAcceptance": false
+    }
+  },
+  "projectDataChanged": false,
+  "inference": false,
+  "humanAcceptance": false,
+  "validationNote": "An initial Windows import-test execution entered Local pausea. The test now leaves the field and verifies both its exact value and the saved value before reimport; focused and final checks passed. The source of that extra input was not isolated. No application import code changed.",
+  "workspace": {
+    "checkedAt": "2026-10-20T23:36:59.131Z",
+    "tabs": 4,
+    "markdownChecks": 6,
+    "viewports": [
+      1440,
+      768,
+      390
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "checks": 24,
+    "media": "loaded, previewed, zoomed, download URLs and close verified",
+    "links": true,
+    "reportTheme": "actual isolated service and report-theme.mjs",
+    "errors": [],
+    "scratch": "E:\\MrMak\\Mak\\.local\\hierarchy-032-workspace-preview-7JX9OG"
+  },
+  "testWindow": {
+    "opened": true,
+    "version": "0.3.2",
+    "responding": true
+  }
+}

@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en" data-mak-report="document">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gothic headband · complete v2 for Bambu A1</title>
+  <link rel="stylesheet" href="../_shared/report.css">
+  <script defer src="../_shared/report.js"></script>
+  <style>
+    *{box-sizing:border-box} .downloads{display:flex;flex-wrap:wrap;gap:12px;margin:22px 0}
+    .downloads a{display:inline-flex;align-items:center;min-height:44px;padding:10px 16px;border:1px solid var(--mak-border);border-radius:9px;background:var(--mak-surface);text-decoration:none}
+    .gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    figure{margin:0;padding:12px;border:1px solid var(--mak-border)} figure img{display:block;width:100%;border-radius:7px}
+    figcaption{padding:10px 0 0;font-size:13px;color:var(--mak-muted)} figcaption a{display:inline-block;min-height:36px;padding-top:5px}
+    .notice{padding:16px 20px;border-left:3px solid var(--mak-accent);background:var(--mak-surface)}
+    .muted{color:var(--mak-muted)} details{margin:24px 0} summary{cursor:pointer;min-height:44px;padding:10px 0}
+    li{margin:9px 0} td:first-child{min-width:130px}
+    @media(max-width:680px){.gallery{grid-template-columns:1fr}.downloads{flex-direction:column}.downloads a{justify-content:center}}
+  </style>
+</head>
+<body><main class="container">
+  <h1>Gothic headband · complete v2</h1>
+  <p><strong>The confirmed v2 contour is now applied to the complete ornament.</strong> The wearer reports that the gauge sits correctly, its tips hold without squeezing, and no gap remains. Horn ribs and crown detail are retained.</p>
+  <div class="downloads" aria-label="Complete v2 downloads">
+    <a href="v2/Headband_58cm_PLA_fit_v2_Bambu_A1.stl" download>Download complete v2 STL · Bambu A1</a>
+    <a href="v2/Headband_58cm_v2_editable.blend" download>Editable complete v2 Blender file</a>
+  </div>
+  <p class="notice"><strong>Bambu Lab A1 · millimetres · 100% scale.</strong> The A1 STL is already rotated 45.01° on the plate and measures <strong>231.67 × 231.67 × 72.02 mm</strong>. Its geometry fits the A1's nominal 256 × 256 × 256 mm build volume. Keep the fitted scale and center the part in Bambu Studio.</p>
+  <div class="gallery">
+    <figure><img src="v2/full_front.png" alt="Complete v2 horned headband from the front, with a broad crown and gently converging arms" loading="lazy"><figcaption>Complete v2 · front view.<br><a href="v2/full_front.png" download>Download image</a></figcaption></figure>
+    <figure><img src="v2/full_perspective.png" alt="Three-quarter view of complete v2 showing preserved horn ribs and gothic crown detail" loading="lazy"><figcaption>Complete v2 · three-quarter view.<br><a href="v2/full_perspective.png" download>Download image</a></figcaption></figure>
+  </div>
+  <h2>Print in Bambu Studio</h2>
+  <ol>
+    <li>Select your A1, installed nozzle and calibrated PLA profile. Import the A1 STL in millimetres at 100% scale; do not use automatic fit-to-plate scaling.</li>
+    <li>Keep its supplied flat orientation and center the model. The geometry leaves approximately 12.16 mm per side on a nominal 256 mm square plate.</li>
+    <li>Review support under the horns and crown, brim, printer exclusion zones and the sliced layers. Supports and brim are not included in the measured footprint. No printer-specific G-code or verified slicing settings are supplied.</li>
+    <li>Check the complete piece's comfort after printing. The plain gauge passed, while the ornament has different stiffness, weight and front-to-back sweep.</li>
+  </ol>
+  <h2>Confirmed fit and geometry</h2>
+  <p><strong>Gauge fit confirmed on 17 October 2026:</strong> crown seated, tips hold without pressure, no remaining gap. <a href="fit_trial_v2.json" download>Physical trial record</a>.</p>
+  <p>The accepted nominal contour retains 172 mm maximum inner width, 104.59 mm crown height and 138 mm between tips. The complete STL was independently reimported: one closed component, consistent winding, no degenerate faces or non-adjacent surface contacts detected.</p>
+  <details><summary>Complete v2 sources and verification</summary>
+    <p>A monotone transfer follows arc position, retaining all 673,716 triangles and their connectivity. Radial ornament relief and front-to-back coordinates retain their existing fitted millimetre scale. The rejected v1 ellipse is used only to invert the prior deformation. The original and previous STL revisions remain unchanged.</p>
+    <p>The standard STL measures 261.73 × 182.10 × 72.02 mm. The A1 file applies only a rigid rotation around Z, preserving scale and layer orientation. Both exports were checked independently. The complete ornament's physical comfort remains untested.</p>
+    <p><a href="v2/Headband_58cm_PLA_fit_v2.stl" download>Standard v2 STL</a> · <a href="v2/full_delivery_measurements.json" download>Complete v2 measurements</a> · <a href="v2/full_export_verification.json" download>Export verification</a> · <a href="v2/a1_orientation.json" download>A1 orientation</a> · <a href="v2/print_footprint.json" download>Bed footprint checks</a> · <a href="build_full_v2.py" download>Build script</a></p>
+  </details>
+  <details><summary>Approved v2 gauge · measurements and comparison</summary>
+  <p>The wider, flatter crown uses the measured 170 mm straight head width. The tips converge gently to address the slightly loose sides reported in v1. The plain v2 gauge passed its physical test.</p>
+  <div class="downloads" aria-label="Current v2 downloads">
+    <a href="v2/Headband_58cm_fit_test_v2.stl" download>Download v2 fit test STL</a>
+    <a href="v2/Headband_fit_test_v2_editable.blend" download>Editable v2 Blender file</a>
+  </div>
+  <p class="notice"><strong>Import in millimetres at 100% scale.</strong> The test should measure <strong>178.00 × 110.39 × 12.00 mm</strong> in its supplied print orientation. Disable automatic “fit to plate” scaling.</p>
+  <h2>What changed</h2>
+  <figure><img src="v2/profile_comparison.png" alt="Same-scale comparison showing the failed tall narrow v1 arch in red and the broader lower v2 arch in blue with slightly closer tips" loading="lazy"><figcaption>The new crown is broader and approximately 25.8 mm lower. Both profiles share the same ear baseline. Diagram prepared before the physical trial; the v2 gauge is now confirmed.<br><a href="v2/profile_comparison.png" download>Download comparison</a></figcaption></figure>
+  <table><thead><tr><th>Nominal inner profile</th><th>V1 · failed fit</th><th>V2 · gauge fit confirmed</th></tr></thead><tbody>
+    <tr><td>Maximum inner width</td><td>141.79 mm</td><td>172.00 mm, allowing 1 mm per side around the measured 170 mm width</td></tr>
+    <tr><td>Crown height from tip baseline</td><td>130.36 mm</td><td>104.59 mm</td></tr>
+    <tr><td>Radius at the crown</td><td>38.56 mm</td><td>86.00 mm, for a flatter upper curve</td></tr>
+    <tr><td>Free gap between tips</td><td>141.79 mm</td><td>138.00 mm</td></tr>
+    <tr><td>Nominal over-head arc</td><td>323.07 mm</td><td>323.14 mm</td></tr>
+  </tbody></table>
+  <p>The widest part and the free ends now have different widths. The 138 mm tip gap is a modest trial adjustment from the loose-side feedback; it is not a measured lower-head width or a prediction of holding force.</p>
+  <h2>V2 gauge print reference</h2>
+  <ol>
+    <li>Use the same calibrated PLA profile as the first test, keeping the supplied flat orientation and 100% scale. A 0.2 mm layer height and at least four walls remain a reasonable starting point.</li>
+    <li>Check whether the upper arch sits close to the crown, without the large central gap seen in v1.</li>
+    <li>Check whether the tips support the sides lightly without slipping or pressing painfully. Do not force the PLA arms apart if the new fit is tight.</li>
+    <li>The wearer confirmed that this gauge sits correctly, holds without squeezing, and leaves no gap.</li>
+  </ol>
+  <div class="gallery">
+    <figure><img src="v2/fit_test_front.png" alt="Front view of the v2 plain fit gauge with a broad rounded crown and gently converging lower arms" loading="lazy"><figcaption>V2 gauge, front view.<br><a href="v2/fit_test_front.png" download>Download image</a></figcaption></figure>
+    <figure><img src="v2/fit_test_perspective.png" alt="Three-quarter view of the v2 gauge showing its unchanged 12 mm band width and rounded edges" loading="lazy"><figcaption>V2 gauge, three-quarter view.<br><a href="v2/fit_test_perspective.png" download>Download image</a></figcaption></figure>
+  </div>
+  <p><strong>Scope:</strong> the gauge's physical fit is confirmed. Its contour is applied to the complete v2 ornament above; the complete v1 remains failed-fit history.</p>
+  <details><summary>V2 dimensions and editable sources</summary>
+    <p>A circular crown joins tangent-continuous cubic arms. The 320 mm ear-to-ear tape arc remains the length reference, with approximately 3.14 mm added by the initial crown clearance. The 580 mm circumference and 380 mm forehead-to-nape arc remain reference measurements; the rejected shared-axis ellipsoid does not determine v2.</p>
+    <p>The gauge retains nominal 3 mm thickness, 12 mm band width and 0.5 mm softened edges so that the shape change can be assessed against the first test.</p>
+    <p><a href="v2/delivery_measurements.json" download>V2 measurements</a> · <a href="v2/export_verification.json" download>V2 export verification</a> · <a href="build_fit_v2.py" download>V2 build script</a></p>
+  </details>
+  </details>
+  <details><summary>V1 physical trial · failed</summary>
+  <p>The printed v1 gauge remained suspended above the crown and its sides felt slightly loose. The photos identified the shape mismatch; the subsequent book measurement supplied the 170 mm straight width. <a href="fit_trial_v1.json" download>Physical trial record</a>.</p>
+  <details><summary>Historical v1 downloads · failed fit</summary>
+  <div class="downloads" aria-label="Download files">
+    <a href="Headband_58cm_fit_test_v1.stl" download>Historical v1 test STL</a>
+    <a href="Headband_58cm_PLA_fit_v1.stl" download>Historical v1 full STL · failed fit</a>
+    <a href="Headband_58cm_editable.blend" download>Historical v1 Blender file</a>
+  </div>
+  </details>
+  <p class="notice"><strong>Printing reference for future revisions:</strong> import in millimetres at 100% scale. Automatic “fit to plate” scaling changes the intended fit.</p>
+
+  <h2>Historical v1 shape · failed physical test</h2>
+  <div class="gallery">
+    <figure><img src="fitted_front.png" alt="Adjusted headband from the front with opened arms, gothic crown and ribbed horns" loading="lazy"><figcaption>Front view · the inward-turning original tips are opened.<br><a href="fitted_front.png" download>Download image</a></figcaption></figure>
+    <figure><img src="fitted_perspective.png" alt="Three-quarter view of the adjusted headband showing the original ornament detail" loading="lazy"><figcaption>Three-quarter view · original surface detail retained and deformed with the new arch.<br><a href="fitted_perspective.png" download>Download image</a></figcaption></figure>
+  </div>
+
+  <details><summary>Historical v1 gauge and printing reference</summary>
+  <h2>V1 test settings</h2>
+  <ol>
+    <li>Load <a href="Headband_58cm_fit_test_v1.stl" download>the fit test STL</a> in millimetres at 100%. Its bounding box should be <strong>147.79 × 133.36 × 12.00 mm</strong>.</li>
+    <li>Keep its supplied flat orientation, with the arch in the XY plane. Use the calibrated profile for your PLA; a 0.2 mm layer height and at least four walls are a reasonable starting point.</li>
+    <li>Try it in the intended position. Check for pressure at the temples, a gap at the crown, and whether the ends reach the intended position near the ears. It should sit without having to pry the arms apart.</li>
+    <li>If the contour feels wrong, record where and by approximately how many millimetres before printing the complete model. A gauge checks size and position; the full ornament has different stiffness and weight.</li>
+  </ol>
+  <figure><img src="fit_test_preview.png" alt="Plain open arch used as a low-material fit test" loading="lazy" style="max-height:480px;object-fit:contain"><figcaption>Fit gauge · nominal 3 mm thickness, 12 mm width, softened edges.<br><a href="fit_test_preview.png" download>Download image</a></figcaption></figure>
+  </details>
+
+  <h2>Dimensions and printing</h2>
+  <table><thead><tr><th>Item</th><th>Dimension / result</th></tr></thead><tbody>
+    <tr><td>Supplied tape measurements</td><td>580 mm circumference; 380 mm forehead to nape; 320 mm ear to ear over the crown.</td></tr>
+    <tr><td>Nominal contact arch</td><td>323.07 mm, including a 1 mm increase in the estimated horizontal and vertical semi-axes for initial clearance.</td></tr>
+    <tr><td>Nominal inner opening</td><td>141.79 mm wide × 130.36 mm high.</td></tr>
+    <tr><td>Complete STL</td><td>217.59 × 207.88 × 72.02 mm in its supplied print orientation.</td></tr>
+    <tr><td>Fit test STL</td><td>147.79 × 133.36 × 12.00 mm in its supplied print orientation.</td></tr>
+    <tr><td>Mesh checks</td><td>Both exported STLs independently reimported: single closed manifold, no boundary edges or degenerate faces; positive volume; original file unchanged.</td></tr>
+  </tbody></table>
+  <p>The complete model needs support review for the horns and crown. Its footprint excludes supports and brim: a 220 × 220 mm bed leaves very little margin. Check the usable build area in the slicer and keep the fitted scale.</p>
+
+  <details><summary>Rejected v1 estimate · preserved for reference</summary>
+    <p>The tape measurements were treated as three perpendicular elliptical sections sharing semi-axes. The 580 mm circumference defines the horizontal section; twice the 380 mm and 320 mm over-head arcs define the other two sections. This gives an initial transverse head section approximately 139.79 mm wide and 129.36 mm high above the assumed ear baseline.</p>
+    <p>The model assumes the tape endpoints share a baseline. Real head shape, hair and measuring position can differ, so the result is an estimate rather than a scan. The nominal contact ellipse has 1 mm added to each semi-axis. The source’s slightly asymmetric inner surface remains outside that envelope.</p>
+    <p>The original U-shaped band was mapped onto the new open arch with a monotone polar deformation. Ornament detail was retained. Microscopic malformed edge clusters in the source were collapsed locally, without remeshing the decorative surface. The test reproduces the nominal arch; it does not reproduce the full model’s front-to-back sweep, mass or stiffness.</p>
+    <p>The gauge was physically printed and tested: its crown shape failed to fit. No printer-specific G-code is included.</p>
+    <p><a href="delivery_measurements.json" download>Dimensions and source hash</a> · <a href="export_verification.json" download>Export verification</a> · <a href="build_fit.py" download>Editable build script</a></p>
+  </details>
+  <details><summary>Original model reference</summary>
+    <p>The source STL is unchanged. Its raw bounding box was 62.14 × 18.71 × 50.00 coordinate units; STL does not encode units. The original had minor topology faults and an arch that closed inward at its tips.</p>
+    <div class="gallery">
+      <figure><img src="original_front.png" alt="Original source headband with tips curving inward" loading="lazy"><figcaption>Original front view.<br><a href="original_front.png" download>Download image</a></figcaption></figure>
+      <figure><img src="original_perspective.png" alt="Original source headband shown at a three-quarter angle" loading="lazy"><figcaption>Original three-quarter view.<br><a href="original_perspective.png" download>Download image</a></figcaption></figure>
+    </div>
+  </details>
+  </details>
+  <p class="muted">Updated 17 October 2026 · v2 gauge physical fit confirmed · complete v2 delivered for Bambu A1 · complete-piece comfort and slicer review pending · v1 retained as failed-fit history.</p>
+</main></body>
+</html>

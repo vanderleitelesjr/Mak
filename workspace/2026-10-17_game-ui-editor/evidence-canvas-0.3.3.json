@@ -1,0 +1,386 @@
+{
+  "checkedAt": "2026-10-21T01:03:53.078Z",
+  "version": "0.3.3",
+  "implemented": true,
+  "focusedInterface": {
+    "browser": 15,
+    "windows": 15,
+    "passed": 30,
+    "failed": 0
+  },
+  "nativeEditor": {
+    "checkedAt": "2026-10-21T01:02:19.069Z",
+    "version": "0.3.3",
+    "proof": "E:\\MrMak\\GameUIEditor\\.local\\canvas-fit-native-2qqLxz",
+    "application": "E:\\MrMak\\GameUIEditor\\.local\\manual-test-0.3.0-MndmD0\\application-0.3.3",
+    "ownerProject": "E:\\MrMak\\GameUIEditor\\.local\\manual-test-0.3.0-MndmD0\\projects\\ge-importada",
+    "projectSha256": "af7aacaffcfd0ae61f56d60c6e8ebc9ee4354a98f699d6e727f6738219837ded",
+    "checks": [
+      {
+        "width": 1440,
+        "height": 960,
+        "theme": "light",
+        "conversation": "minimum",
+        "wholeCanvas": true,
+        "scroll": false
+      },
+      {
+        "width": 1440,
+        "height": 960,
+        "theme": "light",
+        "conversation": "maximum",
+        "wholeCanvas": true,
+        "scroll": false
+      },
+      {
+        "width": 1440,
+        "height": 960,
+        "theme": "dark",
+        "conversation": "minimum",
+        "wholeCanvas": true,
+        "scroll": false
+      },
+      {
+        "width": 1440,
+        "height": 960,
+        "theme": "dark",
+        "conversation": "maximum",
+        "wholeCanvas": true,
+        "scroll": false
+      },
+      {
+        "width": 1280,
+        "height": 720,
+        "theme": "light",
+        "conversation": "minimum",
+        "wholeCanvas": true,
+        "scroll": false
+      },
+      {
+        "width": 1280,
+        "height": 720,
+        "theme": "light",
+        "conversation": "maximum",
+        "wholeCanvas": true,
+        "scroll": false
+      },
+      {
+        "width": 1280,
+        "height": 720,
+        "theme": "dark",
+        "conversation": "minimum",
+        "wholeCanvas": true,
+        "scroll": false
+      },
+      {
+        "width": 1280,
+        "height": 720,
+        "theme": "dark",
+        "conversation": "maximum",
+        "wholeCanvas": true,
+        "scroll": false
+      },
+      {
+        "width": 850,
+        "height": 650,
+        "theme": "light",
+        "conversation": "minimum",
+        "wholeCanvas": true,
+        "scroll": false
+      },
+      {
+        "width": 850,
+        "height": 650,
+        "theme": "light",
+        "conversation": "maximum",
+        "wholeCanvas": true,
+        "scroll": false
+      },
+      {
+        "width": 850,
+        "height": 650,
+        "theme": "dark",
+        "conversation": "minimum",
+        "wholeCanvas": true,
+        "scroll": false
+      },
+      {
+        "width": 850,
+        "height": 650,
+        "theme": "dark",
+        "conversation": "maximum",
+        "wholeCanvas": true,
+        "scroll": false
+      },
+      {
+        "width": 2560,
+        "height": 1440,
+        "theme": "light",
+        "conversation": "minimum",
+        "wholeCanvas": true,
+        "scroll": false
+      },
+      {
+        "width": 2560,
+        "height": 1440,
+        "theme": "light",
+        "conversation": "maximum",
+        "wholeCanvas": true,
+        "scroll": false
+      },
+      {
+        "width": 2560,
+        "height": 1440,
+        "theme": "dark",
+        "conversation": "minimum",
+        "wholeCanvas": true,
+        "scroll": false
+      },
+      {
+        "width": 2560,
+        "height": 1440,
+        "theme": "dark",
+        "conversation": "maximum",
+        "wholeCanvas": true,
+        "scroll": false
+      }
+    ],
+    "inspectAndInteract": true,
+    "savedProjectUnchanged": true,
+    "commandsRetained": true,
+    "errors": [],
+    "inference": false,
+    "humanAcceptance": false
+  },
+  "release": {
+    "verifiedAt": "2026-10-21T01:02:47.907Z",
+    "version": "0.3.3",
+    "release": "E:\\MrMak\\GameUIEditor\\.local\\releases\\game-ui-editor-0.3.3-20261021T010219475Z",
+    "metadata": {
+      "version": "0.3.3",
+      "createdAt": "2026-10-21T01:02:24.878Z",
+      "published": false,
+      "signed": false,
+      "archives": [
+        {
+          "file": "portable-windows.zip",
+          "sha256": "7af27a16998a3a805c3af630d797e6b5c8e348e2d2bfea0f522918b5da04b379",
+          "bytes": 37363529
+        },
+        {
+          "file": "editable-sources.zip",
+          "sha256": "03b700ab33702bf916245c4c80ee6638f0d6b6621a25754042e8ee926aeddd6d",
+          "bytes": 516754
+        },
+        {
+          "file": "unity-integration.zip",
+          "sha256": "4cf9b33554a2903d3ffbab592c0623540cf6891da8250f01bf6c27f1d3f8ad59",
+          "bytes": 78153
+        },
+        {
+          "file": "portable-ge-pilot.zip",
+          "sha256": "1a50ff23fc04f6c32eb203cd837851081541cb23a1172d0c0e43a795d5238abc",
+          "bytes": 433231
+        }
+      ],
+      "installer": {
+        "file": "Game UI Editor_0.3.3_x64-setup.exe",
+        "sha256": "cc6ce9f70a9aacfd69b9a90d7490e169b09341045549b7d921996ac04c88e35c",
+        "bytes": 25343465
+      }
+    },
+    "checkedFiles": 268,
+    "sourceMatches": true,
+    "testApplicationMatches": true,
+    "ui": {
+      "browser": 15,
+      "windows": 15,
+      "passed": 30,
+      "failed": 0
+    },
+    "native": {
+      "checkedAt": "2026-10-21T01:02:19.069Z",
+      "version": "0.3.3",
+      "proof": "E:\\MrMak\\GameUIEditor\\.local\\canvas-fit-native-2qqLxz",
+      "application": "E:\\MrMak\\GameUIEditor\\.local\\manual-test-0.3.0-MndmD0\\application-0.3.3",
+      "ownerProject": "E:\\MrMak\\GameUIEditor\\.local\\manual-test-0.3.0-MndmD0\\projects\\ge-importada",
+      "projectSha256": "af7aacaffcfd0ae61f56d60c6e8ebc9ee4354a98f699d6e727f6738219837ded",
+      "checks": [
+        {
+          "width": 1440,
+          "height": 960,
+          "theme": "light",
+          "conversation": "minimum",
+          "wholeCanvas": true,
+          "scroll": false
+        },
+        {
+          "width": 1440,
+          "height": 960,
+          "theme": "light",
+          "conversation": "maximum",
+          "wholeCanvas": true,
+          "scroll": false
+        },
+        {
+          "width": 1440,
+          "height": 960,
+          "theme": "dark",
+          "conversation": "minimum",
+          "wholeCanvas": true,
+          "scroll": false
+        },
+        {
+          "width": 1440,
+          "height": 960,
+          "theme": "dark",
+          "conversation": "maximum",
+          "wholeCanvas": true,
+          "scroll": false
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "theme": "light",
+          "conversation": "minimum",
+          "wholeCanvas": true,
+          "scroll": false
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "theme": "light",
+          "conversation": "maximum",
+          "wholeCanvas": true,
+          "scroll": false
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "theme": "dark",
+          "conversation": "minimum",
+          "wholeCanvas": true,
+          "scroll": false
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "theme": "dark",
+          "conversation": "maximum",
+          "wholeCanvas": true,
+          "scroll": false
+        },
+        {
+          "width": 850,
+          "height": 650,
+          "theme": "light",
+          "conversation": "minimum",
+          "wholeCanvas": true,
+          "scroll": false
+        },
+        {
+          "width": 850,
+          "height": 650,
+          "theme": "light",
+          "conversation": "maximum",
+          "wholeCanvas": true,
+          "scroll": false
+        },
+        {
+          "width": 850,
+          "height": 650,
+          "theme": "dark",
+          "conversation": "minimum",
+          "wholeCanvas": true,
+          "scroll": false
+        },
+        {
+          "width": 850,
+          "height": 650,
+          "theme": "dark",
+          "conversation": "maximum",
+          "wholeCanvas": true,
+          "scroll": false
+        },
+        {
+          "width": 2560,
+          "height": 1440,
+          "theme": "light",
+          "conversation": "minimum",
+          "wholeCanvas": true,
+          "scroll": false
+        },
+        {
+          "width": 2560,
+          "height": 1440,
+          "theme": "light",
+          "conversation": "maximum",
+          "wholeCanvas": true,
+          "scroll": false
+        },
+        {
+          "width": 2560,
+          "height": 1440,
+          "theme": "dark",
+          "conversation": "minimum",
+          "wholeCanvas": true,
+          "scroll": false
+        },
+        {
+          "width": 2560,
+          "height": 1440,
+          "theme": "dark",
+          "conversation": "maximum",
+          "wholeCanvas": true,
+          "scroll": false
+        }
+      ],
+      "inspectAndInteract": true,
+      "savedProjectUnchanged": true,
+      "commandsRetained": true,
+      "errors": [],
+      "inference": false,
+      "humanAcceptance": false
+    },
+    "launcherUpdated": true,
+    "installedApplicationChanged": false,
+    "humanAcceptance": false
+  },
+  "fullCoreSuiteRepeated": false,
+  "installerCycleRepeated": false,
+  "inference": false,
+  "humanAcceptance": true,
+  "workspace": {
+    "checkedAt": "2026-10-21T01:05:19.648Z",
+    "tabs": 4,
+    "markdownChecks": 6,
+    "viewports": [
+      1440,
+      768,
+      390
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "checks": 18,
+    "media": "loaded, previewed, zoomed, download URLs and close verified",
+    "links": true,
+    "reportTheme": "actual isolated service and report-theme.mjs",
+    "errors": [],
+    "scratch": "E:\\MrMak\\Mak\\.local\\canvas-033-workspace-preview-oaLjrd"
+  },
+  "ownerRetest": {
+    "recordedAt": "2026-10-21T01:52:37.948Z",
+    "version": "0.3.3",
+    "source": "owner",
+    "original": "testado e funcionando",
+    "scope": "General acceptance of the delivered usability/visual adjustments; no individual checklist results supplied.",
+    "report": "canvas-0.3.3.md",
+    "humanAcceptance": true,
+    "unitySourceRoundTripAccepted": false,
+    "fullMilestoneAcceptance": false,
+    "applicationChanged": false,
+    "runtimeValidationPerformed": false
+  }
+}

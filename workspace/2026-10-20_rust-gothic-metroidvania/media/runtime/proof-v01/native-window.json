@@ -1,0 +1,11 @@
+{
+  "backend": "Dx12",
+  "capture": "same render pass as presented window, GPU readback",
+  "gpu": "NVIDIA GeForce RTX 5080",
+  "input": "scripted; physical devices not tested",
+  "presented_frames": 120,
+  "resolution": [
+    1280,
+    720
+  ]
+}

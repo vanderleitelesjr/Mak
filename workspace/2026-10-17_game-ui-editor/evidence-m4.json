@@ -1,0 +1,393 @@
+{
+  "date": "2026-10-19T03:43:33.702117+00:00",
+  "milestone": "M4",
+  "status": "Provider-independent implementation verified; live LLM connection pending",
+  "completedMilestones": 4,
+  "totalMilestones": 6,
+  "command": "npm.cmd run test:verify",
+  "core": {
+    "passed": 68,
+    "m4SpecificPassed": 10
+  },
+  "parity": {
+    "behavior": 20,
+    "nativeDocumentValidation": 18
+  },
+  "interface": {
+    "passed": 32,
+    "browser": 16,
+    "windowsWebView2": 16,
+    "m4SpecificPassed": 6,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0,
+    "m4Proofs": [
+      {
+        "title": "contextual assistant exports an editable package and saves a reviewed proposal through history",
+        "project": "browser",
+        "status": "expected"
+      },
+      {
+        "title": "a desktop draft and agent proposal expose a conflict and preserve the explicitly selected editor value",
+        "project": "browser",
+        "status": "expected"
+      },
+      {
+        "title": "assistant context and close controls remain reachable at narrow widths in both languages",
+        "project": "browser",
+        "status": "expected"
+      },
+      {
+        "title": "contextual assistant exports an editable package and saves a reviewed proposal through history",
+        "project": "desktop",
+        "status": "expected"
+      },
+      {
+        "title": "a desktop draft and agent proposal expose a conflict and preserve the explicitly selected editor value",
+        "project": "desktop",
+        "status": "expected"
+      },
+      {
+        "title": "assistant context and close controls remain reachable at narrow widths in both languages",
+        "project": "desktop",
+        "status": "expected"
+      }
+    ],
+    "finalRunStart": "2026-10-19T03:41:36.529Z",
+    "finalRunDurationMs": 61038.950999999994
+  },
+  "mcp": {
+    "transport": "SDK stdio client",
+    "sourceAdapterVerified": true,
+    "bundledWindowsAdapterVerified": true,
+    "sameDesktopOwner": true,
+    "automaticGlobalClientConfiguration": false
+  },
+  "responsive": {
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "osPreferences": [
+      "light",
+      "dark"
+    ],
+    "languages": [
+      "en",
+      "pt-BR"
+    ],
+    "palette": "Existing editor dark palette"
+  },
+  "pending": [
+    "LLM provider",
+    "Authentication and connection method",
+    "Model",
+    "Usage policy",
+    "Live conversation proof",
+    "Human acceptance",
+    "M6 release checks"
+  ],
+  "native": {
+    "modified": false,
+    "newUnityRun": false,
+    "previousEvidence": "evidence-m5.json"
+  },
+  "runtime": {
+    "verifiedAt": "2026-10-19T03:43:33.691906+00:00",
+    "files": [
+      {
+        "path": "MCP-LICENSES.txt",
+        "sha256": "34027e807f5f9598ea56b17d995cd3b0c606e2f5f97ba18f33b65bd9c694ee1f"
+      },
+      {
+        "path": "mcp.mjs",
+        "sha256": "5b8bc5091a2992da95a71cff7e69737f8b03c1155084d844c417e8b043ed161e"
+      },
+      {
+        "path": "NODE-LICENSE.txt",
+        "sha256": "148eacf7863ef4329224a29398623077200a27194aa075569faf4a0a85566ca5"
+      },
+      {
+        "path": "node.exe",
+        "sha256": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237"
+      },
+      {
+        "path": "package.json",
+        "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae"
+      },
+      {
+        "path": "startup-error.css",
+        "sha256": "1c2b3d8f770d0cd45d5818f5381fb7d2926333d187935192cfbd7441246f2da6"
+      },
+      {
+        "path": "startup-error.html",
+        "sha256": "8a86184b627c946d76c495cad00729fa7e6259b40c5dfc43563c47055c091ead"
+      },
+      {
+        "path": "startup-error.js",
+        "sha256": "4fd0f13deb9f9f1828a97c6ca2ea2d89d132c655273196ed5816b59d7fceb912"
+      },
+      {
+        "path": "app/agent.ts",
+        "sha256": "5c147bab0b4a6dcdf352b4c59793ac3058b3906ff043f72defa4d64370b3d412"
+      },
+      {
+        "path": "app/behavior-catalog.json",
+        "sha256": "f2aaf807ab0299f59b76f40fd935e62b715afdde109e6803b955a97758a14fd8"
+      },
+      {
+        "path": "app/behavior-demo.ts",
+        "sha256": "680264e0573245a409de6a7600f8673a984544e7ea0741de9d777b8cbc85e716"
+      },
+      {
+        "path": "app/behavior.ts",
+        "sha256": "8a2478df5c432a5e93f8e4cfe14a3480650361b7d457aca1b513aa9359a5b3cd"
+      },
+      {
+        "path": "app/document.ts",
+        "sha256": "2114389945f26e66487c3d30a5b317eaf67f8c807965d1e6c0bb29bb17613e86"
+      },
+      {
+        "path": "app/mcp.ts",
+        "sha256": "aca7ddc549cadcad24fe7ef6e8e00e182d1a77872a6693880c065d46f7a7c751"
+      },
+      {
+        "path": "app/preview.ts",
+        "sha256": "32a88e3d3a70be9a69e11c76c7866d55717f3858243acb37554e7412b39f51c1"
+      },
+      {
+        "path": "app/project.ts",
+        "sha256": "69441b7454dd6d75bfa87c5c5371d5f1c2ccd330e1def80e065a27324ff0db5c"
+      },
+      {
+        "path": "app/server.ts",
+        "sha256": "761702a1cf5c4314b86cf9cceb427da79b2d1802279199c02c94b0189b8df9f1"
+      },
+      {
+        "path": "app/sync-document.ts",
+        "sha256": "fd4d7e1dae12f1936e76e16950632644b87de8abca796826388586443a93f473"
+      },
+      {
+        "path": "app/visual-document.ts",
+        "sha256": "f48a7ed8838cf9c0323698fe74038c7a351f28e7bf1c141eb7d7f5707b505ab5"
+      },
+      {
+        "path": "app/visual-layout.ts",
+        "sha256": "1d174405662bb6ac7b78b389302801d76a530e766fcb357ae031f62d477246cf"
+      },
+      {
+        "path": "dist/index.html",
+        "sha256": "85408a77f3998c6b80c1fc0b43f931cb8a1df21885d4bdefc7967a6e643f8034"
+      },
+      {
+        "path": "dist/startup-error.css",
+        "sha256": "1c2b3d8f770d0cd45d5818f5381fb7d2926333d187935192cfbd7441246f2da6"
+      },
+      {
+        "path": "dist/startup-error.html",
+        "sha256": "8a86184b627c946d76c495cad00729fa7e6259b40c5dfc43563c47055c091ead"
+      },
+      {
+        "path": "dist/startup-error.js",
+        "sha256": "4fd0f13deb9f9f1828a97c6ca2ea2d89d132c655273196ed5816b59d7fceb912"
+      },
+      {
+        "path": "dist/assets/index--cDToDu5.css",
+        "sha256": "0eae7873a368ffe26a414f122f82f856a667f4bceb1ba046cb4daa35b43fb2e1"
+      },
+      {
+        "path": "dist/assets/index-BaTW88sH.css",
+        "sha256": "63ecfc6aaddbc7915f8ade4dcea079111336131b64f015376f8ca86a51d8ef91"
+      },
+      {
+        "path": "dist/assets/index-BBb_QFZq.css",
+        "sha256": "e3bcf0f397831c937109daca493f37bd0498d2db31e285bffb7ea450854fa1bf"
+      },
+      {
+        "path": "dist/assets/index-Bbc9j3g_.js",
+        "sha256": "3951e5582fc814b1505e811f4709ac5a0a49999b00d682d0f14299d5eec62cee"
+      },
+      {
+        "path": "dist/assets/index-BnJLJC0Z.js",
+        "sha256": "5aa3ceb129de6ac92b51351f0d1f65b82995828de14163f8576f00bce796bda4"
+      },
+      {
+        "path": "dist/assets/index-BX6Gre1W.js",
+        "sha256": "05de0f30ac794873398dae2171f517131b2030866b4bc38925596180435f2972"
+      },
+      {
+        "path": "dist/assets/index-CbwaODX7.js",
+        "sha256": "7b8b84453dc0588d5904f5192df2078fedb88aaad2753e8269e0ed1a49927d7d"
+      },
+      {
+        "path": "dist/assets/index-CFQCA54y.js",
+        "sha256": "64b072efe5c4f9113d37cff52cfa75f51debae0a818d56e966219abfdbbf6469"
+      },
+      {
+        "path": "dist/assets/index-COXcdeHN.js",
+        "sha256": "9d7be33c9abb302e8806b3f7f9c8be049c412f0e7fea038b082700b630a9ff5d"
+      },
+      {
+        "path": "dist/assets/index-D-lVDZNe.js",
+        "sha256": "bf4314192cf07ee3c841cf6e9eeebd807f75ddd0ccd70648bb82e9ada78f994a"
+      },
+      {
+        "path": "dist/assets/index-D3XHnpfV.css",
+        "sha256": "4ea81f6902c25a4a3807ef88a009d97be873c463c48a5db42aa8364ed9e78b24"
+      },
+      {
+        "path": "dist/assets/index-D6j7CSM6.js",
+        "sha256": "c438b80d20e8162450d9907384aab9a4a4efd7d9f62ec901c0a128dcc0ce9d60"
+      },
+      {
+        "path": "dist/assets/index-D8eLB10M.js",
+        "sha256": "1acd9c75571d377ccf6bb1aa760fd1bf0d406b46649cc9729bec9fcc2b02d1d1"
+      },
+      {
+        "path": "dist/assets/index-DbtPG_96.js",
+        "sha256": "c00dbf3551f82b5cc117a5267d84981a38a4d14d95c4ae081a0ad2aedc049442"
+      },
+      {
+        "path": "dist/assets/index-DFAPJDxN.css",
+        "sha256": "0cebc331c817b543aa4b4e3fab2c0e19508c602def935a14a07225ce40e86fbc"
+      },
+      {
+        "path": "dist/assets/index-DhQz1J8U.js",
+        "sha256": "c09d090f575107a041e888138a24ada91b893b15cbe77f686d724ff0bd48a14d"
+      },
+      {
+        "path": "dist/assets/index-DKElalDm.js",
+        "sha256": "cc39cdefedec143b86790fab8d4184b491b554510262f2ad415f0f053d2c8658"
+      },
+      {
+        "path": "dist/assets/index-Do8TU-N4.js",
+        "sha256": "461c76ff84f82532cd83ae9df54528e1fa5a578bdbb4e381f57834ec2be7f0db"
+      },
+      {
+        "path": "dist/assets/index-GxZ5SSqI.js",
+        "sha256": "e92e58d47cdb350306d4ba88f0727755cd228a2ba76f1d6465cfb0ca1e993c31"
+      },
+      {
+        "path": "dist/assets/index-hHmWvtSX.css",
+        "sha256": "139ef92e7fee5f69606b2076220e68ba95c6168a051640a960a417bc29c09e68"
+      },
+      {
+        "path": "dist/assets/index-jVKHLuGY.js",
+        "sha256": "3456afe1f6c731eea0c4730834b0f223f06b6ad72a15fb044f58ea3808c93a88"
+      },
+      {
+        "path": "dist/assets/index-THZWCql9.js",
+        "sha256": "608d08892d25f6e486e69b495c9457e1754fd59a9228a3edb93d07401afd9e55"
+      },
+      {
+        "path": "dist/assets/index-vqmiVXjm.js",
+        "sha256": "35da7b33c528769a5fbc697599a114e4b01db268f5651848bfdf45839896a497"
+      },
+      {
+        "path": "dist/assets/index-vSRzrtCq.css",
+        "sha256": "52f2e62783969655b48dbddf58fdc789626b6d940149a2a4effb4c2aff8ae7d6"
+      },
+      {
+        "path": "dist/assets/index-_bsOIZWd.js",
+        "sha256": "a06ca26a89d1d9ce12696e86508ef394751f8687a68fbf6e9b862f05bc648288"
+      },
+      {
+        "path": "dist/assets/index-_EKVBoSz.js",
+        "sha256": "54e969a6e220e47f2bd984193023906618c01965b64de1800d55f5a9c38b67cd"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "path": "app/agent.ts",
+      "sha256": "5c147bab0b4a6dcdf352b4c59793ac3058b3906ff043f72defa4d64370b3d412"
+    },
+    {
+      "path": "app/mcp.ts",
+      "sha256": "aca7ddc549cadcad24fe7ef6e8e00e182d1a77872a6693880c065d46f7a7c751"
+    },
+    {
+      "path": "app/visual-layout.ts",
+      "sha256": "1d174405662bb6ac7b78b389302801d76a530e766fcb357ae031f62d477246cf"
+    },
+    {
+      "path": "app/server.ts",
+      "sha256": "761702a1cf5c4314b86cf9cceb427da79b2d1802279199c02c94b0189b8df9f1"
+    },
+    {
+      "path": "src/assistant.tsx",
+      "sha256": "12c8608b4de9c5480517b174919a4f0b9799a00c68082f180f46e995b8c28ed2"
+    },
+    {
+      "path": "src/visual.tsx",
+      "sha256": "5f6af082b45b2a02ad1cd31a78e4062a2a37dbe191e8965376d8e7825cb357a1"
+    },
+    {
+      "path": "src/style.css",
+      "sha256": "9a78f345cc1596a0e58f8f21f8cfb7e0ff481ccc619f1c6da44fb8a60d7febf8"
+    },
+    {
+      "path": "scripts/prepare.mjs",
+      "sha256": "20b1101c59a1c1189c6527f1a23e681f5c16e3369e985d9a3571a67c74cd7a92"
+    },
+    {
+      "path": "test/agent.test.ts",
+      "sha256": "8a1ea1943840a528be9b60947178c4bbdd9178ffa218942c427740581739236b"
+    },
+    {
+      "path": "test/e2e/agent.spec.ts",
+      "sha256": "ee03d2a0b03a0cec8b250ce0615586e64a0a8b1b31144df1b4609bbcd3c1852d"
+    },
+    {
+      "path": "README.md",
+      "sha256": "db3d964adc07852b14312846d1ea16207d8ea8a05a2624c416723e233a8fc6fa"
+    }
+  ],
+  "screenshots": [
+    "media/m4-tests/desktop-package-review.png",
+    "media/m4-tests/desktop-conflict-review.png",
+    "media/m4-tests/desktop-context.png",
+    "media/m4-tests/desktop-context-390-pt.png",
+    "media/m4-tests/ge-project-context.png"
+  ],
+  "workspacePreview": {
+    "status": "Passed",
+    "verifiedAt": "2026-10-19T03:44:40.502078+00:00",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "combinationsPassed": 6,
+    "imagesVerified": 23,
+    "runtimeErrors": 0,
+    "checks": [
+      "Implementation plan and M4 tab opened in actual Workspace themes",
+      "All 23 report images loaded, opened at full size and exposed correct download and close controls",
+      "All report links resolved",
+      "No Markdown or standalone report document overflow",
+      "Selected Windows, GE-authoring and wide/narrow Workspace screenshots visually inspected"
+    ],
+    "scope": "Browser preview of shared Workspace documents; no installed Mak restart"
+  },
+  "applicationsRestarted": 0,
+  "paidCalls": 0,
+  "realProjectProof": {
+    "project": "ge-m5",
+    "nodes": 15,
+    "nativeBlocks": 8,
+    "assets": 2,
+    "packageBytes": 2361142,
+    "reference": "Static SVG with native placeholders",
+    "selectedNativeBlock": "ge.resources",
+    "documentUnchanged": true,
+    "unityRequestsSent": 0,
+    "runtimeErrors": [],
+    "documentHash": "a31986882214b8ef9ea648050a0a3facad27ab332b7770c20d26eb78b1c686d6"
+  }
+}

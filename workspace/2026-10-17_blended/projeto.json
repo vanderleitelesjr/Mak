@@ -1,0 +1,57 @@
+{
+  "id": "blended",
+  "titulo": "Blended",
+  "sobre": "Editor de modelos 3D para leigos. M3, temas, CLI e instalador reunidos e testados localmente; main segue em 12/16 tarefas M1. Aceite humano, contas reais, escopo futuro e distribuição continuam separados.",
+  "tema": "base",
+  "destaque": "#7c6fd8",
+  "capa": "media/capa/tela-completo-escuro.webp",
+  "janelaDias": 30,
+  "areas": [
+    {
+      "id": "editor",
+      "cor": "#6f9fd8",
+      "icone": "codigo"
+    },
+    {
+      "id": "ci",
+      "cor": "#d9a441",
+      "icone": "engrenagem"
+    },
+    {
+      "id": "documentos",
+      "cor": "#9a90d8",
+      "icone": "documento"
+    }
+  ],
+  "repositorio": "E:/MrMak/Blended",
+  "abas": [
+    {
+      "modulo": "painel",
+      "nome": "Painel"
+    },
+    {
+      "modulo": "roteiro",
+      "nome": "Roteiro"
+    },
+    {
+      "modulo": "entregas",
+      "nome": "Entregas"
+    },
+    {
+      "modulo": "playtest",
+      "nome": "Playtest"
+    },
+    {
+      "modulo": "decisoes",
+      "nome": "Decisões"
+    },
+    {
+      "modulo": "acervo",
+      "nome": "Acervo"
+    },
+    {
+      "modulo": "arquivo",
+      "nome": "Arquivo"
+    }
+  ]
+}

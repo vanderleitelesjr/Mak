@@ -1,0 +1,195 @@
+{
+  "date": "2026-10-19T00:20:11.528Z",
+  "status": "M3 completed as a local delivery; 3/6 milestones; M4-M6 not started",
+  "application": "E:/MrMak/GameUIEditor",
+  "projectFormat": 3,
+  "verification": {
+    "command": "npm.cmd run test:verify",
+    "core": {
+      "passed": 46,
+      "failed": 0
+    },
+    "parity": {
+      "passed": 20,
+      "failed": 0,
+      "implementations": [
+        "TypeScript",
+        "C#"
+      ]
+    },
+    "build": "TypeScript and Vite passed",
+    "ui": {
+      "scenariosPerTarget": 12,
+      "browser": 12,
+      "windowsWebView2": 12,
+      "passed": 24,
+      "failed": 0,
+      "skipped": 0,
+      "flaky": 0,
+      "startTime": "2026-10-19T00:14:01.866Z",
+      "durationMs": 48812.053
+    },
+    "localReport": "E:/MrMak/GameUIEditor/.local/e2e-report/index.html"
+  },
+  "native": {
+    "date": "2026-10-19T00:15:07.186Z",
+    "source": "Actual isolated GE Unity session and existing presentation/game command paths",
+    "unityTests": {
+      "Total": 20,
+      "Passed": 20,
+      "Failed": 0,
+      "Skipped": 0,
+      "Inconclusive": 0
+    },
+    "checks": [
+      "Shared behavior fixtures passed in Unity",
+      "Live context matches the typed desktop catalog",
+      "Start uses MatchFlow.StartMatch",
+      "Fresh match intents pause/resume; a stale context is rejected",
+      "Mixed selection reads actual distinct entity types",
+      "None/unit/group contexts and tile selection use the native selection model",
+      "Real production queue/progress reads and cancellation use existing game commands",
+      "Command availability and economy come from live native sources",
+      "Resign reaches the authoritative Ended phase through Session.IssueResign"
+    ],
+    "unity": "6000.6.5f1",
+    "checkout": "E:\\ClaudeTemp\\ge-ui-editor-m1\\unity",
+    "regression": {
+      "command": "node .local/native-view-regression.mjs",
+      "summary": {
+        "Total": 690,
+        "Passed": 690,
+        "Failed": 0,
+        "Skipped": 0,
+        "Inconclusive": 0
+      },
+      "filter": "assembly: GE.View.Tests"
+    },
+    "additionalCaptureChecks": [
+      "Three real Train commands dispatched through the catalog decreased food, populated the production queue and advanced live progress.",
+      "Pause/resume and queue cancellation returned through existing MatchFlow and game command paths."
+    ],
+    "states": [
+      {
+        "name": "native-start",
+        "phase": "Start",
+        "selection": "None",
+        "queue": 0
+      },
+      {
+        "name": "native-mixed-selection",
+        "phase": "Playing",
+        "selection": "Group",
+        "queue": 0
+      },
+      {
+        "name": "native-production-queue",
+        "phase": "Playing",
+        "selection": "Building",
+        "queue": 3
+      },
+      {
+        "name": "native-paused",
+        "phase": "Paused",
+        "selection": "Building",
+        "queue": 3
+      },
+      {
+        "name": "native-ended",
+        "phase": "Ended",
+        "selection": "Building",
+        "queue": 2
+      }
+    ],
+    "interactionMethod": "Project-scoped official Unity MCP invokes the presentation adapter and existing game commands",
+    "scope": "Existing GE HUD and native context/action adapter; full authored M3 visual document rendering/synchronization remains M5",
+    "playModeStopped": true,
+    "simSourceModified": false
+  },
+  "runtimeDeployment": {
+    "target": "E:/MrMak/GameUIEditor/src-tauri/target/release/runtime",
+    "appAndDistFilesHashVerified": 29,
+    "bundledNodeHashMatched": true,
+    "existingApplicationRestarted": false,
+    "available": "Next normal application launch",
+    "nativeShellTitle": "Game UI Editor · M1 (unchanged shell)"
+  },
+  "captures": [
+    {
+      "path": "media/m3-tests/editor-demo-queue.png",
+      "sha256": "593919be256c0c703240e108fb14504c5aa7fb8e3acb93682a950034296e5b29",
+      "source": "Headless Edge, M3 demo document, simulated gameplay"
+    },
+    {
+      "path": "media/m3-tests/editor-demo-paused.png",
+      "sha256": "c79fb07b42ff54b8a7d7cdf8323868961e916e40ce6934bdd915864bf7ed2c53",
+      "source": "Headless Edge, M3 demo document, simulated gameplay"
+    },
+    {
+      "path": "media/m3-tests/native-start.png",
+      "sha256": "db5012e6acaabf43469388f626dc40acc574d18826bd21b24a78b110ee3007e3",
+      "source": "Unity native Game view, existing GE HUD"
+    },
+    {
+      "path": "media/m3-tests/native-mixed-selection.png",
+      "sha256": "57956c69e3d7b5ef0d33abce344b6e8a51f1f0e1ba33a862604136f10dac0159",
+      "source": "Unity native Game view, existing GE HUD"
+    },
+    {
+      "path": "media/m3-tests/native-production-queue.png",
+      "sha256": "e573d96c1bb25836003fd794cb7646ff8bab6f7f24ba694d51cdeae1f77b1b5a",
+      "source": "Unity native Game view, existing GE HUD"
+    },
+    {
+      "path": "media/m3-tests/native-paused.png",
+      "sha256": "6260220f249c864e0a7a4932f892347583d1bada3ae516b743afa22037240cad",
+      "source": "Unity native Game view, existing GE HUD"
+    },
+    {
+      "path": "media/m3-tests/native-ended.png",
+      "sha256": "eda2a3ec2c4a19e4782417b95ecc7d05f936baee0bbdb7ebbcad52c6c5c68b54",
+      "source": "Unity native Game view, existing GE HUD"
+    }
+  ],
+  "sourceSha256": {
+    "app/behavior.ts": "8a2478df5c432a5e93f8e4cfe14a3480650361b7d457aca1b513aa9359a5b3cd",
+    "app/preview.ts": "32a88e3d3a70be9a69e11c76c7866d55717f3858243acb37554e7412b39f51c1",
+    "app/behavior-catalog.json": "f2aaf807ab0299f59b76f40fd935e62b715afdde109e6803b955a97758a14fd8",
+    "src/behavior.tsx": "a97aec7adf74c370935b4b2940aa0eb34426df94f7258623738888bcd5f33cc5",
+    "test/e2e/behavior.spec.ts": "e139e43903195a4a57dd7fc3469a9692180fff472b2490275cfe7ac0f8686f89",
+    "native/unity/HudBehaviorRuntime.cs": "a4cff5354d0768957ca3603c2f6e75048ca2d0a910de0bfa5cddd1e73257cc2d",
+    "native/unity/GameHud.Behavior.cs": "98175c087d1800b7fe5e0d83ed5f23ccb9387d862a4b186adac6b58569493a48"
+  },
+  "notValidated": [
+    "Human M3 visual and interaction acceptance",
+    "M4 contextual LLM assistant and MCP authoring access",
+    "M5 complete authored HUD rendering and synchronization in Unity",
+    "M6 installer/update, physical file-picker/window/input and release acceptance",
+    "Formal GE publication/review; no commit, push, PR or merge"
+  ],
+  "workspacePreview": {
+    "status": "Passed",
+    "date": "2026-10-19T00:24:02.793Z",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "combinationsPassed": 6,
+    "runtimeErrors": 0,
+    "imagesVerified": 10,
+    "checks": [
+      "Implementation and M3 Markdown tabs rendered with actual Workspace light/dark themes and collapsed navigation",
+      "No Markdown content overflow or standalone report document overflow",
+      "All ten current and historical images loaded, opened at full size and exposed correct download and close controls",
+      "All report links resolved",
+      "Selected wide/narrow screenshots and all seven M3 captures were visually inspected"
+    ],
+    "themeMethod": "Workspace system preference on fresh page navigation; standalone HTML includes the same report-theme.mjs CSS used by desktop/mobile readers",
+    "scope": "Browser preview of Workspace documents; no installed Mak application restart or runtime deployment claimed"
+  }
+}

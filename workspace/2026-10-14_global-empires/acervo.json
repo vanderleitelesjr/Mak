@@ -1,0 +1,3362 @@
+{
+  "familias": {
+    "personagens/unidades": "Unidades",
+    "personagens/era-ii-modular": "Era II modular",
+    "personagens/piloto-modular": "Piloto modular",
+    "personagens/corpo-base": "Corpo-base",
+    "construcoes-objetos/construcoes": "Construções",
+    "construcoes-objetos/evolucao-eras": "Evolução entre as Eras I e II",
+    "construcoes-objetos/oficinas-hd-codex": "Oficinas HD (Codex)",
+    "construcoes-objetos/estruturas-mapa": "Estruturas do mapa",
+    "construcoes-objetos/props-mapa": "Props do mapa",
+    "construcoes-objetos/armamentos-era-ii": "Armamentos isolados da Era II",
+    "cenario/terreno": "Terreno e recursos",
+    "cenario/propostas-mapa": "Propostas de mapa",
+    "cenario/travessia-do-interior": "Travessia do Interior (capturas)",
+    "interface/conceito-hud": "Conceito de HUD e menus",
+    "interface/hud-selecao": "HUD de seleção",
+    "interface/menus-codex": "Menu principal (Codex)",
+    "interface/minimapa-simbolos": "Minimapa: símbolos",
+    "interface/minimapa-moldura": "Minimapa: moldura",
+    "interface/cursores": "Cursores e marcadores",
+    "interface/tecnologias": "Tecnologias",
+    "interface/comandos": "Comandos",
+    "interface/menus-identidade": "Menus e identidade",
+    "interface/estados-alertas": "Estados e alertas",
+    "interface/retratos-unidades": "Retratos de unidades",
+    "interface/icones-construcoes": "Ícones das construções",
+    "interface/economia-producao": "Economia e produção",
+    "interface/acabamento": "Acabamento v02",
+    "arte-chave/prototipo": "Protótipo",
+    "arte-chave/menu-primeira-guerra": "Fundos do menu (Primeira Guerra)",
+    "civilizacoes/civilizacoes": "Civilizações",
+    "audio/musica": "Músicas",
+    "audio/efeitos": "Efeitos",
+    "interface/editor-ge": "Editor GE — conceitos de layout e menus",
+    "interface/f10": "F10 — conceitos escolhidos",
+    "interface/fila-global": "Fila global — conceito escolhido"
+  },
+  "itens": [
+    {
+      "id": "trabalhador",
+      "nome": "Trabalhador",
+      "categoria": "personagens",
+      "familia": "unidades",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/unidades/trabalhador-v01.webp",
+      "miniaturaRotulo": "Conceito",
+      "vistas": [
+        {
+          "rotulo": "Leitura na câmera (variação 1)",
+          "arquivo": "media/personagens/unidades/trabalhador-v01-leitura-na-camera-variacao-1.webp"
+        }
+      ],
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Units/U01.png",
+      "nota": "U01"
+    },
+    {
+      "id": "batedor-montado",
+      "nome": "Batedor montado",
+      "categoria": "personagens",
+      "familia": "unidades",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/unidades/batedor-montado-v01.webp",
+      "miniaturaRotulo": "Conceito",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Units/U02.png",
+      "nota": "U02"
+    },
+    {
+      "id": "milicia",
+      "nome": "Milícia",
+      "categoria": "personagens",
+      "familia": "unidades",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/unidades/milicia-v01.webp",
+      "miniaturaRotulo": "Conceito",
+      "vistas": [
+        {
+          "rotulo": "Leitura na câmera (variação 1)",
+          "arquivo": "media/personagens/unidades/milicia-v01-leitura-na-camera-variacao-1.webp"
+        }
+      ],
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Units/U03.png",
+      "nota": "U03"
+    },
+    {
+      "id": "fuzileiro",
+      "nome": "Fuzileiro",
+      "categoria": "personagens",
+      "familia": "unidades",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/unidades/fuzileiro-v01.webp",
+      "miniaturaRotulo": "Conceito",
+      "vistas": [
+        {
+          "rotulo": "Leitura na câmera (variação 2)",
+          "arquivo": "media/personagens/unidades/fuzileiro-v01-leitura-na-camera-variacao-2.webp"
+        },
+        {
+          "rotulo": "Modelo 3D",
+          "arquivo": "media/personagens/unidades/fuzileiro-v01-modelo-3d.webp"
+        }
+      ],
+      "modelo3d": "media/personagens/unidades/fuzileiro-v01.glb",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Units/U04.png",
+      "nota": "U04; 3D: Fuzileiro com rig e 5 animações (#134)"
+    },
+    {
+      "id": "equipe-de-metralhadora",
+      "nome": "Equipe de metralhadora",
+      "categoria": "personagens",
+      "familia": "unidades",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/unidades/equipe-de-metralhadora-v01.webp",
+      "miniaturaRotulo": "Conceito",
+      "vistas": [
+        {
+          "rotulo": "Leitura na câmera (variação 2)",
+          "arquivo": "media/personagens/unidades/equipe-de-metralhadora-v01-leitura-na-camera-variacao-2.webp"
+        }
+      ],
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Units/U05.png",
+      "nota": "U05"
+    },
+    {
+      "id": "equipe-de-artilharia",
+      "nome": "Equipe de artilharia",
+      "categoria": "personagens",
+      "familia": "unidades",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/unidades/equipe-de-artilharia-v01.webp",
+      "miniaturaRotulo": "Conceito",
+      "vistas": [
+        {
+          "rotulo": "Leitura na câmera (variação 2)",
+          "arquivo": "media/personagens/unidades/equipe-de-artilharia-v01-leitura-na-camera-variacao-2.webp"
+        }
+      ],
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Units/U06.png",
+      "nota": "U06"
+    },
+    {
+      "id": "sapador",
+      "nome": "Sapador",
+      "categoria": "personagens",
+      "familia": "unidades",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/unidades/sapador-v01.webp",
+      "miniaturaRotulo": "Conceito",
+      "vistas": [
+        {
+          "rotulo": "Leitura na câmera (variação 1)",
+          "arquivo": "media/personagens/unidades/sapador-v01-leitura-na-camera-variacao-1.webp"
+        },
+        {
+          "rotulo": "Modelo 3D",
+          "arquivo": "media/personagens/unidades/sapador-v01-modelo-3d.webp"
+        }
+      ],
+      "modelo3d": "media/personagens/unidades/sapador-v01.glb",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Units/U07.png",
+      "prompt": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Units/U07.prompt.md",
+      "nota": "U07; 3D: Sapador com rig e 5 animações (#134); conceito U07 ainda em revisão no inventário, mas o modelo 3D está aprovado na main"
+    },
+    {
+      "id": "equipe-de-morteiro",
+      "nome": "Equipe de morteiro",
+      "categoria": "personagens",
+      "familia": "unidades",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/personagens/unidades/equipe-de-morteiro-v01.webp",
+      "miniaturaRotulo": "Conceito",
+      "vistas": [
+        {
+          "rotulo": "Leitura na câmera (variação 2)",
+          "arquivo": "media/personagens/unidades/equipe-de-morteiro-v01-leitura-na-camera-variacao-2.webp"
+        }
+      ],
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Units/U08.png",
+      "prompt": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Units/U08.prompt.md",
+      "nota": "U08"
+    },
+    {
+      "id": "cavalaria",
+      "nome": "Cavalaria",
+      "categoria": "personagens",
+      "familia": "unidades",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/personagens/unidades/cavalaria-v01.webp",
+      "miniaturaRotulo": "Conceito",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Units/U09.png",
+      "prompt": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Units/U09.prompt.md",
+      "nota": "U09"
+    },
+    {
+      "id": "tanque",
+      "nome": "Tanque",
+      "categoria": "personagens",
+      "familia": "unidades",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/personagens/unidades/tanque-v01.webp",
+      "miniaturaRotulo": "Conceito",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Units/U10.png",
+      "prompt": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Units/U10.prompt.md",
+      "nota": "U10"
+    },
+    {
+      "id": "assalto-escopeta",
+      "nome": "Assalto (escopeta)",
+      "categoria": "personagens",
+      "familia": "unidades",
+      "status": "em-avaliacao",
+      "versao": 2,
+      "miniatura": "media/personagens/unidades/assalto-escopeta-v02.webp",
+      "miniaturaRotulo": "Conceito",
+      "vistas": [
+        {
+          "rotulo": "Leitura na câmera (variação 2)",
+          "arquivo": "media/personagens/unidades/assalto-escopeta-v02-leitura-na-camera-variacao-2.webp"
+        }
+      ],
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Units/U11.png",
+      "prompt": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Units/U11.prompt.md",
+      "nota": "U11; leitura: no assalto, o capacete de espigão vira a crista Adrian",
+      "historico": [
+        {
+          "versao": 1,
+          "miniatura": "media/personagens/unidades/assalto-escopeta-v01.webp",
+          "status": "descartada",
+          "nota": "Assalto com carabina, primeira versão (A10), arquivada"
+        }
+      ]
+    },
+    {
+      "id": "aviao-de-assalto",
+      "nome": "Avião de assalto",
+      "categoria": "personagens",
+      "familia": "unidades",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/personagens/unidades/aviao-de-assalto-v01.webp",
+      "miniaturaRotulo": "Conceito",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Units/U12.png",
+      "prompt": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Units/U12.prompt.md",
+      "nota": "U12"
+    },
+    {
+      "id": "dirigivel",
+      "nome": "Dirigível",
+      "categoria": "personagens",
+      "familia": "unidades",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/personagens/unidades/dirigivel-v01.webp",
+      "miniaturaRotulo": "Conceito",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Units/U13.png",
+      "prompt": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Units/U13.prompt.md",
+      "nota": "U13"
+    },
+    {
+      "id": "fuzileiro-era-ii",
+      "nome": "Fuzileiro — Era II modular",
+      "categoria": "personagens",
+      "familia": "era-ii-modular",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/personagens/era-ii-modular/fuzileiro-era-ii-v01.webp",
+      "miniaturaRotulo": "Montagem",
+      "vistas": [
+        {
+          "rotulo": "Peças",
+          "arquivo": "media/personagens/era-ii-modular/fuzileiro-era-ii-v01-pecas.webp"
+        }
+      ],
+      "original": "Entregas_Codex/Unidades_Modulares_Era_II_2026-10-15/Fuzileiro_Montagem_v01.png",
+      "prompt": [
+        {
+          "rotulo": "Montagem",
+          "arquivo": "media/personagens/era-ii-modular/fuzileiro-era-ii-v01-montagem.prompt.md"
+        },
+        {
+          "rotulo": "Peças",
+          "arquivo": "media/personagens/era-ii-modular/fuzileiro-era-ii-v01-pecas.prompt.md"
+        }
+      ],
+      "nota": "Aparência do conjunto sobre a base existente; mochila, correias e materiais compartilhados. Proposta de 15/10/2026 (imagegen integrada)."
+    },
+    {
+      "id": "assalto-era-ii",
+      "nome": "Assalto — Era II modular",
+      "categoria": "personagens",
+      "familia": "era-ii-modular",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/personagens/era-ii-modular/assalto-era-ii-v01.webp",
+      "miniaturaRotulo": "Montagem",
+      "vistas": [
+        {
+          "rotulo": "Correias e bolsas",
+          "arquivo": "media/personagens/era-ii-modular/assalto-era-ii-v01-correias-e-bolsas.webp"
+        }
+      ],
+      "original": "Entregas_Codex/Unidades_Modulares_Era_II_2026-10-15/Assalto_Montagem_v01.png",
+      "prompt": [
+        {
+          "rotulo": "Montagem",
+          "arquivo": "media/personagens/era-ii-modular/assalto-era-ii-v01-montagem.prompt.md"
+        },
+        {
+          "rotulo": "Correias e bolsas",
+          "arquivo": "media/personagens/era-ii-modular/assalto-era-ii-v01-correias-e-bolsas.prompt.md"
+        }
+      ],
+      "nota": "Em pé para produção; postura baixa só no estudo de ação; escopeta e granadas reaproveitam o kit existente. Proposta de 15/10/2026 (imagegen integrada)."
+    },
+    {
+      "id": "sapador-era-ii",
+      "nome": "Sapador — Era II modular",
+      "categoria": "personagens",
+      "familia": "era-ii-modular",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/personagens/era-ii-modular/sapador-era-ii-v01.webp",
+      "miniaturaRotulo": "Montagem",
+      "vistas": [
+        {
+          "rotulo": "Peças",
+          "arquivo": "media/personagens/era-ii-modular/sapador-era-ii-v01-pecas.webp"
+        }
+      ],
+      "original": "Entregas_Codex/Unidades_Modulares_Era_II_2026-10-15/Sapador_Montagem_v01.png",
+      "prompt": [
+        {
+          "rotulo": "Montagem",
+          "arquivo": "media/personagens/era-ii-modular/sapador-era-ii-v01-montagem.prompt.md"
+        },
+        {
+          "rotulo": "Peças",
+          "arquivo": "media/personagens/era-ii-modular/sapador-era-ii-v01-pecas.prompt.md"
+        }
+      ],
+      "nota": "Farda comum; ferramentas e avental destacáveis. Proposta de 15/10/2026 (imagegen integrada)."
+    },
+    {
+      "id": "equipe-de-metralhadora-era-ii",
+      "nome": "Equipe de metralhadora — Era II modular",
+      "categoria": "personagens",
+      "familia": "era-ii-modular",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/personagens/era-ii-modular/equipe-de-metralhadora-era-ii-v01.webp",
+      "original": "Entregas_Codex/Unidades_Modulares_Era_II_2026-10-15/Metralhadora_Equipe_Modular_v01.png",
+      "prompt": "media/personagens/era-ii-modular/equipe-de-metralhadora-era-ii-v01.prompt.md",
+      "nota": "Dois corpos comuns; arma e tripé separados. Proposta de 15/10/2026 (imagegen integrada)."
+    },
+    {
+      "id": "equipe-de-artilharia-era-ii",
+      "nome": "Equipe de artilharia — Era II modular",
+      "categoria": "personagens",
+      "familia": "era-ii-modular",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/personagens/era-ii-modular/equipe-de-artilharia-era-ii-v01.webp",
+      "original": "Entregas_Codex/Unidades_Modulares_Era_II_2026-10-15/Artilharia_Equipe_Modular_v01.png",
+      "prompt": "media/personagens/era-ii-modular/equipe-de-artilharia-era-ii-v01.prompt.md",
+      "nota": "Dois corpos comuns; rodas, escudo e flecha como traços de leitura. Proposta de 15/10/2026 (imagegen integrada)."
+    },
+    {
+      "id": "equipe-de-morteiro-era-ii",
+      "nome": "Equipe de morteiro — Era II modular",
+      "categoria": "personagens",
+      "familia": "era-ii-modular",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/personagens/era-ii-modular/equipe-de-morteiro-era-ii-v01.webp",
+      "original": "Entregas_Codex/Unidades_Modulares_Era_II_2026-10-15/Morteiro_Equipe_Modular_v01.png",
+      "prompt": "media/personagens/era-ii-modular/equipe-de-morteiro-era-ii-v01.prompt.md",
+      "nota": "Três corpos comuns; tubo, bipé e placa separáveis. Proposta de 15/10/2026 (imagegen integrada)."
+    },
+    {
+      "id": "kit-comum-era-ii",
+      "nome": "Kit comum da Era II",
+      "categoria": "personagens",
+      "familia": "era-ii-modular",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/personagens/era-ii-modular/kit-comum-era-ii-v01.webp",
+      "original": "Entregas_Codex/Unidades_Modulares_Era_II_2026-10-15/Era_II_Kit_Comum_v01.png",
+      "prompt": "media/personagens/era-ii-modular/kit-comum-era-ii-v01.prompt.md",
+      "nota": "Mapa de peças; adaptar a farda e os módulos existentes. Proposta de 15/10/2026 (imagegen integrada)."
+    },
+    {
+      "id": "leitura-rts-infantaria-era-ii",
+      "nome": "Leitura RTS da infantaria — Era II",
+      "categoria": "personagens",
+      "familia": "era-ii-modular",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/personagens/era-ii-modular/leitura-rts-infantaria-era-ii-v01.webp",
+      "original": "Entregas_Codex/Unidades_Modulares_Era_II_2026-10-15/Era_II_Leitura_RTS_v01.png",
+      "prompt": "media/personagens/era-ii-modular/leitura-rts-infantaria-era-ii-v01.prompt.md",
+      "nota": "Estudo ilustrativo de fuzileiro, assalto e sapador (frente e costas); validar câmera e 30–70 px no blockout. Proposta de 15/10/2026 (imagegen integrada)."
+    },
+    {
+      "id": "trabalhador-modular",
+      "nome": "Trabalhador modular (piloto)",
+      "categoria": "personagens",
+      "familia": "piloto-modular",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/personagens/piloto-modular/trabalhador-modular-v01.webp",
+      "miniaturaRotulo": "Montagem",
+      "vistas": [
+        {
+          "rotulo": "Peças",
+          "arquivo": "media/personagens/piloto-modular/trabalhador-modular-v01-pecas.webp"
+        }
+      ],
+      "original": "Entregas_Codex/Unidades_Modulares_2026-10-15/Trabalhador_Montagem_v01.png",
+      "prompt": [
+        {
+          "rotulo": "Montagem",
+          "arquivo": "media/personagens/piloto-modular/trabalhador-modular-v01-montagem.prompt.md"
+        },
+        {
+          "rotulo": "Peças",
+          "arquivo": "media/personagens/piloto-modular/trabalhador-modular-v01-pecas.prompt.md"
+        }
+      ],
+      "nota": "Corpo civil comum e referência de conjunto; peças ampliadas para explicar a forma. Proposta de 15/10/2026."
+    },
+    {
+      "id": "milicia-modular",
+      "nome": "Milícia modular (piloto)",
+      "categoria": "personagens",
+      "familia": "piloto-modular",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/personagens/piloto-modular/milicia-modular-v01.webp",
+      "miniaturaRotulo": "Montagem",
+      "vistas": [
+        {
+          "rotulo": "Peças",
+          "arquivo": "media/personagens/piloto-modular/milicia-modular-v01-pecas.webp"
+        }
+      ],
+      "original": "Entregas_Codex/Unidades_Modulares_2026-10-15/Milicia_Montagem_v01.png",
+      "prompt": [
+        {
+          "rotulo": "Montagem",
+          "arquivo": "media/personagens/piloto-modular/milicia-modular-v01-montagem.prompt.md"
+        },
+        {
+          "rotulo": "Peças",
+          "arquivo": "media/personagens/piloto-modular/milicia-modular-v01-pecas.prompt.md"
+        }
+      ],
+      "nota": "Mesma referência corporal do trabalhador, com kit militar; colete e calçado de base reutilizáveis. Proposta de 15/10/2026."
+    },
+    {
+      "id": "base-civil",
+      "nome": "Base civil (roupa em quatro vistas)",
+      "categoria": "personagens",
+      "familia": "piloto-modular",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/personagens/piloto-modular/base-civil-v01.webp",
+      "miniaturaRotulo": "Frente",
+      "vistas": [
+        {
+          "rotulo": "Costas",
+          "arquivo": "media/personagens/piloto-modular/base-civil-v01-costas.webp"
+        },
+        {
+          "rotulo": "Perfil esquerdo",
+          "arquivo": "media/personagens/piloto-modular/base-civil-v01-perfil-esquerdo.webp"
+        },
+        {
+          "rotulo": "Perfil direito",
+          "arquivo": "media/personagens/piloto-modular/base-civil-v01-perfil-direito.webp"
+        }
+      ],
+      "original": "Entregas_Codex/Unidades_Modulares_2026-10-15/Base_Civil_Frente_v01.png",
+      "prompt": [
+        {
+          "rotulo": "Frente",
+          "arquivo": "media/personagens/piloto-modular/base-civil-v01-frente.prompt.md"
+        },
+        {
+          "rotulo": "Costas",
+          "arquivo": "media/personagens/piloto-modular/base-civil-v01-costas.prompt.md"
+        },
+        {
+          "rotulo": "Perfil esquerdo",
+          "arquivo": "media/personagens/piloto-modular/base-civil-v01-perfil-esquerdo.prompt.md"
+        },
+        {
+          "rotulo": "Perfil direito",
+          "arquivo": "media/personagens/piloto-modular/base-civil-v01-perfil-direito.prompt.md"
+        }
+      ],
+      "nota": "Camisa, calça e botas em pose A; referência canônica de proporções e corte. O fluxo reaproveita o corpo-base existente. Proposta de 15/10/2026."
+    },
+    {
+      "id": "leitura-camera-alta-piloto",
+      "nome": "Leitura em câmera alta — trabalhador e milícia",
+      "categoria": "personagens",
+      "familia": "piloto-modular",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/personagens/piloto-modular/leitura-camera-alta-piloto-v01.webp",
+      "original": "Entregas_Codex/Unidades_Modulares_2026-10-15/Leitura_RTS_55_v01.png",
+      "prompt": "media/personagens/piloto-modular/leitura-camera-alta-piloto-v01.prompt.md",
+      "nota": "Estudo ilustrativo, frente e costas; a validação no jogo depende do blockout. Proposta de 15/10/2026."
+    },
+    {
+      "id": "corpo-base-e-pecas",
+      "nome": "Corpo-base e peças (Meshy)",
+      "categoria": "personagens",
+      "familia": "corpo-base",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/corpo-base/corpo-base-e-pecas-v01.webp",
+      "miniaturaRotulo": "Alta fidelidade",
+      "original": "GE-game/view/com.globalempires.view/Runtime/Resources/AltaFidelidade/Unidades/CorpoBase",
+      "nota": "Trabalhador, milícia, fuzileiro e sapador, com seis tons de pele; renderização em alta fidelidade. Na main local (#137 sobe em novembro)."
+    },
+    {
+      "id": "centro-urbano",
+      "nome": "Centro urbano",
+      "categoria": "construcoes-objetos",
+      "familia": "construcoes",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/construcoes/centro-urbano-v01.webp",
+      "miniaturaRotulo": "Conceito",
+      "vistas": [
+        {
+          "rotulo": "Alta fidelidade",
+          "arquivo": "media/construcoes-objetos/construcoes/centro-urbano-v01-alta-fidelidade.webp"
+        }
+      ],
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Buildings/B01.png",
+      "nota": "B01; Alta fidelidade modelada no Blender, com LOD e no lote exato; na main local, desligada por padrão no jogo (A2)"
+    },
+    {
+      "id": "casa",
+      "nome": "Casa",
+      "categoria": "construcoes-objetos",
+      "familia": "construcoes",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/construcoes/casa-v01.webp",
+      "miniaturaRotulo": "Conceito",
+      "vistas": [
+        {
+          "rotulo": "Alta fidelidade (Casa A)",
+          "arquivo": "media/construcoes-objetos/construcoes/casa-v01-alta-fidelidade-casa-a.webp"
+        }
+      ],
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Buildings/B02.png",
+      "nota": "B02; Alta fidelidade: Casa A (prancha B02); existem também as variações B e C. Na main local"
+    },
+    {
+      "id": "deposito",
+      "nome": "Depósito",
+      "categoria": "construcoes-objetos",
+      "familia": "construcoes",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/construcoes/deposito-v01.webp",
+      "miniaturaRotulo": "Conceito",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Buildings/B03.png",
+      "nota": "B03"
+    },
+    {
+      "id": "oficina-industrial",
+      "nome": "Oficina industrial",
+      "categoria": "construcoes-objetos",
+      "familia": "construcoes",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/construcoes/oficina-industrial-v01.webp",
+      "miniaturaRotulo": "Conceito",
+      "vistas": [
+        {
+          "rotulo": "Modelo 3D",
+          "arquivo": "media/construcoes-objetos/construcoes/oficina-industrial-v01-modelo-3d.webp"
+        }
+      ],
+      "modelo3d": "media/construcoes-objetos/construcoes/oficina-industrial-v01.glb",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Buildings/B04.png",
+      "nota": "B04; Modelo 3D da Era I aprovado na main (#133)"
+    },
+    {
+      "id": "oficina-do-aco",
+      "nome": "Oficina do aço",
+      "categoria": "construcoes-objetos",
+      "familia": "construcoes",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/construcoes/oficina-do-aco-v01.webp",
+      "miniaturaRotulo": "Conceito",
+      "vistas": [
+        {
+          "rotulo": "Modelo 3D",
+          "arquivo": "media/construcoes-objetos/construcoes/oficina-do-aco-v01-modelo-3d.webp"
+        }
+      ],
+      "modelo3d": "media/construcoes-objetos/construcoes/oficina-do-aco-v01.glb",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Buildings/B05.png",
+      "nota": "B05; Modelo 3D da Era II aprovado na main (#133)"
+    },
+    {
+      "id": "quartel",
+      "nome": "Quartel",
+      "categoria": "construcoes-objetos",
+      "familia": "construcoes",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/construcoes/quartel-v01.webp",
+      "miniaturaRotulo": "Conceito",
+      "vistas": [
+        {
+          "rotulo": "Alta fidelidade (Era I)",
+          "arquivo": "media/construcoes-objetos/construcoes/quartel-v01-alta-fidelidade-era-i.webp"
+        }
+      ],
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Buildings/B06.png",
+      "nota": "B06; Alta fidelidade da Era I (Industrial), na main local"
+    },
+    {
+      "id": "posicao-defensiva",
+      "nome": "Posição defensiva",
+      "categoria": "construcoes-objetos",
+      "familia": "construcoes",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/construcoes/posicao-defensiva-v01.webp",
+      "miniaturaRotulo": "Conceito",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Buildings/B07.png",
+      "nota": "B07"
+    },
+    {
+      "id": "roca",
+      "nome": "Roça",
+      "categoria": "construcoes-objetos",
+      "familia": "construcoes",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/construcoes/roca-v01.webp",
+      "miniaturaRotulo": "Conceito",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Buildings/B08.png",
+      "nota": "B08"
+    },
+    {
+      "id": "deposito-avancado",
+      "nome": "Depósito avançado",
+      "categoria": "construcoes-objetos",
+      "familia": "construcoes",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/construcoes/deposito-avancado-v01.webp",
+      "miniaturaRotulo": "Conceito",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Buildings/B09.png",
+      "nota": "B09"
+    },
+    {
+      "id": "terminal-ferroviario",
+      "nome": "Terminal ferroviário",
+      "categoria": "construcoes-objetos",
+      "familia": "construcoes",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/construcoes/terminal-ferroviario-v01.webp",
+      "miniaturaRotulo": "Conceito",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Buildings/B13.png",
+      "prompt": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Buildings/B13.prompt.md",
+      "nota": "B13"
+    },
+    {
+      "id": "aerodromo",
+      "nome": "Aeródromo",
+      "categoria": "construcoes-objetos",
+      "familia": "construcoes",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/construcoes/aerodromo-v01.webp",
+      "miniaturaRotulo": "Conceito",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Buildings/B14.png",
+      "prompt": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Buildings/B14.prompt.md",
+      "nota": "B14"
+    },
+    {
+      "id": "fabrica-era-ii",
+      "nome": "Fábrica da Era II",
+      "categoria": "construcoes-objetos",
+      "familia": "construcoes",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/construcoes/fabrica-era-ii-v01.webp",
+      "miniaturaRotulo": "Conceito",
+      "vistas": [
+        {
+          "rotulo": "Alta fidelidade",
+          "arquivo": "media/construcoes-objetos/construcoes/fabrica-era-ii-v01-alta-fidelidade.webp"
+        }
+      ],
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Buildings/B15.png",
+      "prompt": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Buildings/B15.prompt.md",
+      "nota": "B15; Alta fidelidade na main local"
+    },
+    {
+      "id": "quartel-do-aco",
+      "nome": "Quartel do Aço",
+      "categoria": "construcoes-objetos",
+      "familia": "construcoes",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/construcoes/quartel-do-aco-v01.webp",
+      "miniaturaRotulo": "Modelo 3D",
+      "modelo3d": "media/construcoes-objetos/construcoes/quartel-do-aco-v01.glb",
+      "original": "GE-game/view/com.globalempires.view/Runtime/Resources/AltaFidelidade/QuartelAco/QuartelAco.fbx",
+      "nota": "Modelo 3D aprovado na main (#133), lote de 7,8 m. Não tem prancha própria."
+    },
+    {
+      "id": "fabrica-era-ii-nova-proposta",
+      "nome": "Fábrica da Era II — nova proposta",
+      "categoria": "construcoes-objetos",
+      "familia": "construcoes",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/construcoes/fabrica-era-ii-nova-proposta-v01.webp",
+      "original": "Entregas_Codex/Fabrica_2026-10-15/Fabrica_Era_II_v01.png",
+      "prompt": "media/construcoes-objetos/construcoes/fabrica-era-ii-nova-proposta-v01.prompt.md",
+      "nota": "Proposta de 15/10/2026 para a Fábrica da Era II (já existe a B15, aprovada)."
+    },
+    {
+      "id": "oficina-evolucao-eras-i-ii",
+      "nome": "Oficina — evolução entre as Eras I e II",
+      "categoria": "construcoes-objetos",
+      "familia": "evolucao-eras",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/evolucao-eras/oficina-evolucao-eras-i-ii-v01.webp",
+      "original": "GE-game/Art/Concepts/Evolucao_Eras_I_II/Oficina_Eras_I_II_v01.png",
+      "prompt": "GE-game/Art/Concepts/Evolucao_Eras_I_II/Oficina_Eras_I_II_v01.prompt.md",
+      "nota": "B10"
+    },
+    {
+      "id": "quartel-evolucao-eras-i-ii",
+      "nome": "Quartel — evolução entre as Eras I e II",
+      "categoria": "construcoes-objetos",
+      "familia": "evolucao-eras",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/evolucao-eras/quartel-evolucao-eras-i-ii-v01.webp",
+      "original": "GE-game/Art/Concepts/Evolucao_Eras_I_II/Quartel_Eras_I_II_v01.png",
+      "prompt": "GE-game/Art/Concepts/Evolucao_Eras_I_II/Quartel_Eras_I_II_v01.prompt.md",
+      "nota": "B11"
+    },
+    {
+      "id": "deposito-evolucao-eras-i-ii",
+      "nome": "Depósito — evolução entre as Eras I e II",
+      "categoria": "construcoes-objetos",
+      "familia": "evolucao-eras",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/evolucao-eras/deposito-evolucao-eras-i-ii-v01.webp",
+      "original": "GE-game/Art/Concepts/Evolucao_Eras_I_II/Deposito_Eras_I_II_v01.png",
+      "prompt": "GE-game/Art/Concepts/Evolucao_Eras_I_II/Deposito_Eras_I_II_v01.prompt.md",
+      "nota": "B12"
+    },
+    {
+      "id": "oficina-hd-era-1",
+      "nome": "Oficina HD — Era 1",
+      "categoria": "construcoes-objetos",
+      "familia": "oficinas-hd-codex",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/oficinas-hd-codex/oficina-hd-era-1-v01.webp",
+      "miniaturaRotulo": "Hero",
+      "vistas": [
+        {
+          "rotulo": "Leitura RTS",
+          "arquivo": "media/construcoes-objetos/oficinas-hd-codex/oficina-hd-era-1-v01-leitura-rts.webp"
+        }
+      ],
+      "nota": "Estudo do Codex na branch feat/oficinas-alta-fidelidade do GitHub (commit e996d0c); não está na main. Atlas PBR e LODs. Só no GitHub."
+    },
+    {
+      "id": "oficina-hd-era-2",
+      "nome": "Oficina HD — Era 2",
+      "categoria": "construcoes-objetos",
+      "familia": "oficinas-hd-codex",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/oficinas-hd-codex/oficina-hd-era-2-v01.webp",
+      "miniaturaRotulo": "Hero",
+      "vistas": [
+        {
+          "rotulo": "Leitura RTS",
+          "arquivo": "media/construcoes-objetos/oficinas-hd-codex/oficina-hd-era-2-v01-leitura-rts.webp"
+        }
+      ],
+      "nota": "Estudo do Codex na branch feat/oficinas-alta-fidelidade do GitHub (commit e996d0c); não está na main. Atlas PBR e LODs. Só no GitHub."
+    },
+    {
+      "id": "oficinas-hd-comparativos",
+      "nome": "Oficinas HD — comparativos",
+      "categoria": "construcoes-objetos",
+      "familia": "oficinas-hd-codex",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/oficinas-hd-codex/oficinas-hd-comparativos-v01.webp",
+      "miniaturaRotulo": "Oficinas HD",
+      "vistas": [
+        {
+          "rotulo": "Leitura RTS",
+          "arquivo": "media/construcoes-objetos/oficinas-hd-codex/oficinas-hd-comparativos-v01-leitura-rts.webp"
+        }
+      ],
+      "nota": "Estudo do Codex na branch feat/oficinas-alta-fidelidade do GitHub (commit e996d0c); não está na main. Atlas PBR e LODs. Só no GitHub."
+    },
+    {
+      "id": "poco-de-mina",
+      "nome": "Poço de mina",
+      "categoria": "construcoes-objetos",
+      "familia": "estruturas-mapa",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/estruturas-mapa/poco-de-mina-v01.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Map_Structures/EST01.png",
+      "nota": "EST01"
+    },
+    {
+      "id": "vila-neutra",
+      "nome": "Vila neutra",
+      "categoria": "construcoes-objetos",
+      "familia": "estruturas-mapa",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/estruturas-mapa/vila-neutra-v01.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Map_Structures/EST02.png",
+      "nota": "EST02"
+    },
+    {
+      "id": "fazenda-neutra",
+      "nome": "Fazenda neutra",
+      "categoria": "construcoes-objetos",
+      "familia": "estruturas-mapa",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/estruturas-mapa/fazenda-neutra-v01.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Map_Structures/EST03.png",
+      "nota": "EST03"
+    },
+    {
+      "id": "entroncamento-ferroviario",
+      "nome": "Entroncamento ferroviário",
+      "categoria": "construcoes-objetos",
+      "familia": "estruturas-mapa",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/estruturas-mapa/entroncamento-ferroviario-v01.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Map_Structures/EST04.png",
+      "nota": "EST04"
+    },
+    {
+      "id": "ponte-de-madeira",
+      "nome": "Ponte de madeira",
+      "categoria": "construcoes-objetos",
+      "familia": "estruturas-mapa",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/estruturas-mapa/ponte-de-madeira-v01.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Map_Structures/EST05.png",
+      "nota": "EST05"
+    },
+    {
+      "id": "posto-de-telegrafo",
+      "nome": "Posto de telégrafo",
+      "categoria": "construcoes-objetos",
+      "familia": "estruturas-mapa",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/estruturas-mapa/posto-de-telegrafo-v01.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Map_Structures/EST06.png",
+      "nota": "EST06"
+    },
+    {
+      "id": "ponte-central-de-pedra",
+      "nome": "Ponte central de pedra",
+      "categoria": "construcoes-objetos",
+      "familia": "estruturas-mapa",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/estruturas-mapa/ponte-central-de-pedra-v01.webp",
+      "miniaturaRotulo": "Modelo 3D",
+      "modelo3d": "media/construcoes-objetos/estruturas-mapa/ponte-central-de-pedra-v01.glb",
+      "original": "GE-game/view/com.globalempires.view/Runtime/Resources/MapStructures/StoneBridge.fbx",
+      "nota": "Modelo 3D aprovado na main (#132); é a única das estruturas das folhas EST/PR já posta no mapa."
+    },
+    {
+      "id": "mineracao-profunda",
+      "nome": "Mineração profunda",
+      "categoria": "construcoes-objetos",
+      "familia": "props-mapa",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/props-mapa/mineracao-profunda-v01.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Map_Props/PR01.png",
+      "nota": "PR01"
+    },
+    {
+      "id": "props-civis",
+      "nome": "Props civis",
+      "categoria": "construcoes-objetos",
+      "familia": "props-mapa",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/props-mapa/props-civis-v01.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Map_Props/PR02.png",
+      "nota": "PR02"
+    },
+    {
+      "id": "props-ferroviarios",
+      "nome": "Props ferroviários",
+      "categoria": "construcoes-objetos",
+      "familia": "props-mapa",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/props-mapa/props-ferroviarios-v01.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Map_Props/PR03.png",
+      "nota": "PR03"
+    },
+    {
+      "id": "ponte-e-reconstrucao",
+      "nome": "Ponte e reconstrução",
+      "categoria": "construcoes-objetos",
+      "familia": "props-mapa",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/props-mapa/ponte-e-reconstrucao-v01.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Map_Props/PR04.png",
+      "nota": "PR04"
+    },
+    {
+      "id": "linha-de-telegrafo",
+      "nome": "Linha de telégrafo",
+      "categoria": "construcoes-objetos",
+      "familia": "props-mapa",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/props-mapa/linha-de-telegrafo-v01.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Map_Props/PR05.png",
+      "nota": "PR05"
+    },
+    {
+      "id": "props-civis-e-travessias",
+      "nome": "Props civis e travessias",
+      "categoria": "construcoes-objetos",
+      "familia": "props-mapa",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/props-mapa/props-civis-e-travessias-v01.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Resources_Props/C02.png",
+      "nota": "C02"
+    },
+    {
+      "id": "props-militares-e-logistica",
+      "nome": "Props militares e logística",
+      "categoria": "construcoes-objetos",
+      "familia": "props-mapa",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/props-mapa/props-militares-e-logistica-v01.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Resources_Props/C03.png",
+      "nota": "C03"
+    },
+    {
+      "id": "metralhadora-arma-isolada",
+      "nome": "Metralhadora — arma isolada",
+      "categoria": "construcoes-objetos",
+      "familia": "armamentos-era-ii",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/armamentos-era-ii/metralhadora-arma-isolada-v01.webp",
+      "original": "Entregas_Codex/Unidades_Modulares_Era_II_2026-10-15/Metralhadora_Arma_Isolada_v01.png",
+      "prompt": "media/construcoes-objetos/armamentos-era-ii/metralhadora-arma-isolada-v01.prompt.md",
+      "nota": "Entrada do armamento, sem tripulantes, para orientar a geração do objeto. Proposta de 15/10/2026."
+    },
+    {
+      "id": "canhao-isolado",
+      "nome": "Artilharia — canhão isolado",
+      "categoria": "construcoes-objetos",
+      "familia": "armamentos-era-ii",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/armamentos-era-ii/canhao-isolado-v01.webp",
+      "original": "Entregas_Codex/Unidades_Modulares_Era_II_2026-10-15/Artilharia_Canhao_Isolado_v01.png",
+      "prompt": "media/construcoes-objetos/armamentos-era-ii/canhao-isolado-v01.prompt.md",
+      "nota": "Entrada do armamento, sem tripulantes, para orientar a geração do objeto. Proposta de 15/10/2026."
+    },
+    {
+      "id": "morteiro-arma-isolada",
+      "nome": "Morteiro — arma isolada",
+      "categoria": "construcoes-objetos",
+      "familia": "armamentos-era-ii",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/construcoes-objetos/armamentos-era-ii/morteiro-arma-isolada-v01.webp",
+      "original": "Entregas_Codex/Unidades_Modulares_Era_II_2026-10-15/Morteiro_Arma_Isolada_v01.png",
+      "prompt": "media/construcoes-objetos/armamentos-era-ii/morteiro-arma-isolada-v01.prompt.md",
+      "nota": "Entrada do armamento, sem tripulantes, para orientar a geração do objeto. Proposta de 15/10/2026."
+    },
+    {
+      "id": "recursos-e-terreno",
+      "nome": "Recursos e terreno",
+      "categoria": "cenario",
+      "familia": "terreno",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/terreno/recursos-e-terreno-v01.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Resources_Props/C01.png",
+      "nota": "C01"
+    },
+    {
+      "id": "morro-e-cabeceira",
+      "nome": "Morro e cabeceira",
+      "categoria": "cenario",
+      "familia": "terreno",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/terreno/morro-e-cabeceira-v01.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Terrain/TER01.png",
+      "nota": "TER01"
+    },
+    {
+      "id": "proposta-mapa-pocos-de-mina",
+      "nome": "Proposta de mapa: Poços de mina",
+      "categoria": "cenario",
+      "familia": "propostas-mapa",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/cenario/propostas-mapa/proposta-mapa-pocos-de-mina-v01.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Map_Proposals/MAP01.png",
+      "nota": "MAP01"
+    },
+    {
+      "id": "proposta-mapa-animais-de-caca",
+      "nome": "Proposta de mapa: Animais de caça",
+      "categoria": "cenario",
+      "familia": "propostas-mapa",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/cenario/propostas-mapa/proposta-mapa-animais-de-caca-v01.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Map_Proposals/MAP02.png",
+      "nota": "MAP02"
+    },
+    {
+      "id": "proposta-mapa-vila-neutra",
+      "nome": "Proposta de mapa: Vila neutra",
+      "categoria": "cenario",
+      "familia": "propostas-mapa",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/cenario/propostas-mapa/proposta-mapa-vila-neutra-v01.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Map_Proposals/MAP03.png",
+      "nota": "MAP03"
+    },
+    {
+      "id": "proposta-mapa-entroncamento-ferroviario",
+      "nome": "Proposta de mapa: Entroncamento ferroviário",
+      "categoria": "cenario",
+      "familia": "propostas-mapa",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/cenario/propostas-mapa/proposta-mapa-entroncamento-ferroviario-v01.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Map_Proposals/MAP04.png",
+      "nota": "MAP04"
+    },
+    {
+      "id": "proposta-mapa-morros-nas-cabeceiras",
+      "nome": "Proposta de mapa: Morros nas cabeceiras",
+      "categoria": "cenario",
+      "familia": "propostas-mapa",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/cenario/propostas-mapa/proposta-mapa-morros-nas-cabeceiras-v01.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Map_Proposals/MAP05.png",
+      "nota": "MAP05"
+    },
+    {
+      "id": "proposta-mapa-brejo-e-mata",
+      "nome": "Proposta de mapa: Brejo e mata",
+      "categoria": "cenario",
+      "familia": "propostas-mapa",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/cenario/propostas-mapa/proposta-mapa-brejo-e-mata-v01.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Map_Proposals/MAP06.png",
+      "nota": "MAP06"
+    },
+    {
+      "id": "proposta-mapa-ponte-de-madeira-ao-sul",
+      "nome": "Proposta de mapa: Ponte de madeira ao sul",
+      "categoria": "cenario",
+      "familia": "propostas-mapa",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/cenario/propostas-mapa/proposta-mapa-ponte-de-madeira-ao-sul-v01.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Map_Proposals/MAP07.png",
+      "nota": "MAP07"
+    },
+    {
+      "id": "proposta-mapa-linha-de-telegrafo",
+      "nome": "Proposta de mapa: Linha de telégrafo",
+      "categoria": "cenario",
+      "familia": "propostas-mapa",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/cenario/propostas-mapa/proposta-mapa-linha-de-telegrafo-v01.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Map_Proposals/MAP08.png",
+      "nota": "MAP08"
+    },
+    {
+      "id": "proposta-mapa-todas-as-propostas",
+      "nome": "Proposta de mapa: Todas as propostas",
+      "categoria": "cenario",
+      "familia": "propostas-mapa",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/cenario/propostas-mapa/proposta-mapa-todas-as-propostas-v01.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Map_Proposals/MAP09.png",
+      "nota": "MAP09"
+    },
+    {
+      "id": "vista-geral",
+      "nome": "Vista geral",
+      "categoria": "cenario",
+      "familia": "travessia-do-interior",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/travessia-do-interior/vista-geral-v01.webp",
+      "nota": "Captura do jogo (G37/G38), na main local; o mapa e a simulação não mudam."
+    },
+    {
+      "id": "travessia-da-ponte",
+      "nome": "Travessia da ponte",
+      "categoria": "cenario",
+      "familia": "travessia-do-interior",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/travessia-do-interior/travessia-da-ponte-v01.webp",
+      "nota": "Captura do jogo (G37/G38), na main local; o mapa e a simulação não mudam."
+    },
+    {
+      "id": "travessia-do-vau",
+      "nome": "Travessia do vau",
+      "categoria": "cenario",
+      "familia": "travessia-do-interior",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/travessia-do-interior/travessia-do-vau-v01.webp",
+      "nota": "Captura do jogo (G37/G38), na main local; o mapa e a simulação não mudam."
+    },
+    {
+      "id": "caixa-dagua",
+      "nome": "Caixa-d'água",
+      "categoria": "cenario",
+      "familia": "travessia-do-interior",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/travessia-do-interior/caixa-dagua-v01.webp",
+      "nota": "Captura do jogo (G37/G38), na main local; o mapa e a simulação não mudam."
+    },
+    {
+      "id": "casas-caidas",
+      "nome": "Casas caídas",
+      "categoria": "cenario",
+      "familia": "travessia-do-interior",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/travessia-do-interior/casas-caidas-v01.webp",
+      "vistas": [
+        {
+          "rotulo": "Casa caída ao norte",
+          "arquivo": "media/cenario/travessia-do-interior/casas-caidas-v01-casa-caida-ao-norte.webp"
+        }
+      ],
+      "nota": "Captura do jogo (G37/G38), na main local; o mapa e a simulação não mudam."
+    },
+    {
+      "id": "clareira-com-moita",
+      "nome": "Clareira com moita",
+      "categoria": "cenario",
+      "familia": "travessia-do-interior",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/travessia-do-interior/clareira-com-moita-v01.webp",
+      "nota": "Captura do jogo (G37/G38), na main local; o mapa e a simulação não mudam."
+    },
+    {
+      "id": "curral",
+      "nome": "Curral",
+      "categoria": "cenario",
+      "familia": "travessia-do-interior",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/travessia-do-interior/curral-v01.webp",
+      "nota": "Captura do jogo (G37/G38), na main local; o mapa e a simulação não mudam."
+    },
+    {
+      "id": "encostas",
+      "nome": "Encostas",
+      "categoria": "cenario",
+      "familia": "travessia-do-interior",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/travessia-do-interior/encostas-v01.webp",
+      "miniaturaRotulo": "Noroeste",
+      "vistas": [
+        {
+          "rotulo": "Oeste",
+          "arquivo": "media/cenario/travessia-do-interior/encostas-v01-oeste.webp"
+        }
+      ],
+      "nota": "Captura do jogo (G37/G38), na main local; o mapa e a simulação não mudam."
+    },
+    {
+      "id": "entroncamento",
+      "nome": "Entroncamento",
+      "categoria": "cenario",
+      "familia": "travessia-do-interior",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/travessia-do-interior/entroncamento-v01.webp",
+      "nota": "Captura do jogo (G37/G38), na main local; o mapa e a simulação não mudam."
+    },
+    {
+      "id": "fazenda",
+      "nome": "Fazenda",
+      "categoria": "cenario",
+      "familia": "travessia-do-interior",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/travessia-do-interior/fazenda-v01.webp",
+      "nota": "Captura do jogo (G37/G38), na main local; o mapa e a simulação não mudam."
+    },
+    {
+      "id": "ferrovia",
+      "nome": "Ferrovia",
+      "categoria": "cenario",
+      "familia": "travessia-do-interior",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/travessia-do-interior/ferrovia-v01.webp",
+      "nota": "Captura do jogo (G37/G38), na main local; o mapa e a simulação não mudam."
+    },
+    {
+      "id": "fios-do-telegrafo",
+      "nome": "Fios do telégrafo",
+      "categoria": "cenario",
+      "familia": "travessia-do-interior",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/travessia-do-interior/fios-do-telegrafo-v01.webp",
+      "nota": "Captura do jogo (G37/G38), na main local; o mapa e a simulação não mudam."
+    },
+    {
+      "id": "poco-de-mina-captura",
+      "nome": "Poço de mina (captura)",
+      "categoria": "cenario",
+      "familia": "travessia-do-interior",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/travessia-do-interior/poco-de-mina-captura-v01.webp",
+      "nota": "Captura do jogo (G37/G38), na main local; o mapa e a simulação não mudam."
+    },
+    {
+      "id": "posto-de-telegrafo-captura",
+      "nome": "Posto de telégrafo (captura)",
+      "categoria": "cenario",
+      "familia": "travessia-do-interior",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/travessia-do-interior/posto-de-telegrafo-captura-v01.webp",
+      "nota": "Captura do jogo (G37/G38), na main local; o mapa e a simulação não mudam."
+    },
+    {
+      "id": "sinal-do-entroncamento",
+      "nome": "Sinal do entroncamento",
+      "categoria": "cenario",
+      "familia": "travessia-do-interior",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/travessia-do-interior/sinal-do-entroncamento-v01.webp",
+      "nota": "Captura do jogo (G37/G38), na main local; o mapa e a simulação não mudam."
+    },
+    {
+      "id": "veios",
+      "nome": "Veios",
+      "categoria": "cenario",
+      "familia": "travessia-do-interior",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/travessia-do-interior/veios-v01.webp",
+      "miniaturaRotulo": "Base",
+      "vistas": [
+        {
+          "rotulo": "Meio",
+          "arquivo": "media/cenario/travessia-do-interior/veios-v01-meio.webp"
+        },
+        {
+          "rotulo": "Norte",
+          "arquivo": "media/cenario/travessia-do-interior/veios-v01-norte.webp"
+        },
+        {
+          "rotulo": "Sul",
+          "arquivo": "media/cenario/travessia-do-interior/veios-v01-sul.webp"
+        }
+      ],
+      "nota": "Captura do jogo (G37/G38), na main local; o mapa e a simulação não mudam."
+    },
+    {
+      "id": "hud-e-estados-de-interacao",
+      "nome": "HUD e estados de interação",
+      "categoria": "interface",
+      "familia": "conceito-hud",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/conceito-hud/hud-e-estados-de-interacao-v01.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/UI_Menus/C04.png",
+      "nota": "C04"
+    },
+    {
+      "id": "icones-e-linguagem-visual",
+      "nome": "Ícones e linguagem visual",
+      "categoria": "interface",
+      "familia": "conceito-hud",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/conceito-hud/icones-e-linguagem-visual-v01.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/UI_Menus/C05.png",
+      "nota": "C05"
+    },
+    {
+      "id": "menus-do-prototipo",
+      "nome": "Menus do protótipo",
+      "categoria": "interface",
+      "familia": "conceito-hud",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/conceito-hud/menus-do-prototipo-v01.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/UI_Menus/C06.png",
+      "nota": "C06"
+    },
+    {
+      "id": "hud-selecao-por-tipo",
+      "nome": "HUD — Seleção por tipo",
+      "categoria": "interface",
+      "familia": "hud-selecao",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/hud-selecao/hud-selecao-por-tipo-v01.webp",
+      "original": "GE-game/Art/Concepts/HUD_Codex/hud_selecao_por_tipo.png",
+      "nota": "Codex, 14/10; na main local. Ancestral dos layouts da v02."
+    },
+    {
+      "id": "hud-selecao-em-cartoes",
+      "nome": "HUD — Seleção em cartões",
+      "categoria": "interface",
+      "familia": "hud-selecao",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/hud-selecao/hud-selecao-em-cartoes-v01.webp",
+      "original": "GE-game/Art/Concepts/HUD_Codex/hud_selecao_cartoes.png",
+      "nota": "Codex, 14/10; na main local. Ancestral dos layouts da v02."
+    },
+    {
+      "id": "hud-selecao-em-retratos",
+      "nome": "HUD — Seleção em retratos",
+      "categoria": "interface",
+      "familia": "hud-selecao",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/hud-selecao/hud-selecao-em-retratos-v01.webp",
+      "original": "GE-game/Art/Concepts/HUD_Codex/hud_selecao_retratos.png",
+      "nota": "Codex, 14/10; na main local. Ancestral dos layouts da v02."
+    },
+    {
+      "id": "hud-unidade-unica",
+      "nome": "HUD — Unidade única",
+      "categoria": "interface",
+      "familia": "hud-selecao",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/hud-selecao/hud-unidade-unica-v01.webp",
+      "original": "GE-game/Art/Concepts/HUD_Codex/hud_unidade_detalhe.png",
+      "nota": "Codex, 14/10; na main local. Ancestral dos layouts da v02."
+    },
+    {
+      "id": "hud-v02-retratos-individuais",
+      "nome": "HUD v02 — Retratos individuais",
+      "categoria": "interface",
+      "familia": "hud-selecao",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/hud-selecao/hud-v02-retratos-individuais-v01.webp",
+      "original": "E:/ChatGPT Projects/GEgame/Art/Concepts/UI_Menus/HUD_Selecao_v02/A_Retratos_Individuais.png",
+      "nota": "Codex, HUD de seleção v02; só existe na cópia local do Codex (fora do repositório)."
+    },
+    {
+      "id": "hud-v02-selecao-agrupada",
+      "nome": "HUD v02 — Seleção agrupada",
+      "categoria": "interface",
+      "familia": "hud-selecao",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/hud-selecao/hud-v02-selecao-agrupada-v01.webp",
+      "original": "E:/ChatGPT Projects/GEgame/Art/Concepts/UI_Menus/HUD_Selecao_v02/B_Selecao_Agrupada.png",
+      "nota": "Codex, HUD de seleção v02; só existe na cópia local do Codex (fora do repositório)."
+    },
+    {
+      "id": "hud-v02-unidade-detalhada-qwer",
+      "nome": "HUD v02 — Unidade detalhada QWER",
+      "categoria": "interface",
+      "familia": "hud-selecao",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/hud-selecao/hud-v02-unidade-detalhada-qwer-v01.webp",
+      "original": "E:/ChatGPT Projects/GEgame/Art/Concepts/UI_Menus/HUD_Selecao_v02/C_Unidade_Detalhada_QWER.png",
+      "nota": "Codex, HUD de seleção v02; só existe na cópia local do Codex (fora do repositório)."
+    },
+    {
+      "id": "hud-v02-unidade-unica-completa",
+      "nome": "HUD v02 — Unidade única completa",
+      "categoria": "interface",
+      "familia": "hud-selecao",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/hud-selecao/hud-v02-unidade-unica-completa-v01.webp",
+      "original": "E:/ChatGPT Projects/GEgame/Art/Concepts/UI_Menus/HUD_Selecao_v02/D_Unidade_Unica_Completa.png",
+      "nota": "Codex, HUD de seleção v02; só existe na cópia local do Codex (fora do repositório)."
+    },
+    {
+      "id": "hud-v02-multiplas-sem-agrupamento",
+      "nome": "HUD v02 — Múltiplas sem agrupamento",
+      "categoria": "interface",
+      "familia": "hud-selecao",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/hud-selecao/hud-v02-multiplas-sem-agrupamento-v01.webp",
+      "original": "E:/ChatGPT Projects/GEgame/Art/Concepts/UI_Menus/HUD_Selecao_v02/E_Multiplas_Sem_Agrupamento.png",
+      "nota": "Codex, HUD de seleção v02; só existe na cópia local do Codex (fora do repositório)."
+    },
+    {
+      "id": "hud-v02-multiplas-agrupadas",
+      "nome": "HUD v02 — Múltiplas agrupadas",
+      "categoria": "interface",
+      "familia": "hud-selecao",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/hud-selecao/hud-v02-multiplas-agrupadas-v01.webp",
+      "original": "E:/ChatGPT Projects/GEgame/Art/Concepts/UI_Menus/HUD_Selecao_v02/F_Multiplas_Agrupadas.png",
+      "nota": "Codex, HUD de seleção v02; só existe na cópia local do Codex (fora do repositório)."
+    },
+    {
+      "id": "menu-principal-wwi",
+      "nome": "Menu principal (Primeira Guerra)",
+      "categoria": "interface",
+      "familia": "menus-codex",
+      "status": "em-avaliacao",
+      "versao": 2,
+      "miniatura": "media/interface/menus-codex/menu-principal-wwi-v02.webp",
+      "original": "E:/ChatGPT Projects/GEgame/Art/Concepts/UI_Menus/Menu_Principal_WWI_v02.png",
+      "prompt": "E:/ChatGPT Projects/GEgame/Art/Concepts/UI_Menus/Menu_Principal_WWI_v02.prompt.txt",
+      "nota": "Codex, 12/10/2026; só existe na cópia local do Codex (fora do repositório).",
+      "historico": [
+        {
+          "versao": 1,
+          "miniatura": "media/interface/menus-codex/menu-principal-wwi-v01.webp",
+          "status": "descartada",
+          "nota": "Menu principal v01 (substituído pela v02)"
+        }
+      ]
+    },
+    {
+      "id": "minimapa-simbolos-conjunto",
+      "nome": "Minimapa — símbolos e estados (conjunto)",
+      "categoria": "interface",
+      "familia": "minimapa-simbolos",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/minimapa-simbolos/minimapa-simbolos-conjunto-v01.webp",
+      "miniaturaRotulo": "Prévia sobre o minimapa",
+      "vistas": [
+        {
+          "rotulo": "Catálogo dos símbolos",
+          "arquivo": "media/interface/minimapa-simbolos/minimapa-simbolos-conjunto-v01-catalogo-dos-simbolos.webp"
+        },
+        {
+          "rotulo": "Comparar 16, 32 e 64 px",
+          "arquivo": "media/interface/minimapa-simbolos/minimapa-simbolos-conjunto-v01-comparar-16-32-e-64-px.webp"
+        },
+        {
+          "rotulo": "Estados, câmera e alertas",
+          "arquivo": "media/interface/minimapa-simbolos/minimapa-simbolos-conjunto-v01-estados-camera-e-alertas.webp"
+        },
+        {
+          "rotulo": "Atlas 16 px",
+          "arquivo": "media/interface/minimapa-simbolos/minimapa-simbolos-conjunto-v01-atlas-16-px.webp"
+        },
+        {
+          "rotulo": "Atlas 32 px",
+          "arquivo": "media/interface/minimapa-simbolos/minimapa-simbolos-conjunto-v01-atlas-32-px.webp"
+        },
+        {
+          "rotulo": "Atlas 64 px",
+          "arquivo": "media/interface/minimapa-simbolos/minimapa-simbolos-conjunto-v01-atlas-64-px.webp"
+        },
+        {
+          "rotulo": "Atlas do pulso",
+          "arquivo": "media/interface/minimapa-simbolos/minimapa-simbolos-conjunto-v01-atlas-do-pulso.webp"
+        }
+      ],
+      "original": "Entregas_Codex/UI_Minimapa_Simbolos_v01_2026-10-16/Previa_Minimapa_Simbolos_v01.png",
+      "nota": "Proposta de 16/10/2026: oito símbolos, três tamanhos, linha da câmera e pulso de ataque. Pacote de trabalho em Entregas_Codex/UI_Minimapa_Simbolos_v01_2026-10-16."
+    },
+    {
+      "id": "minimapa-unidade-propria",
+      "nome": "Minimapa — Unidade própria",
+      "categoria": "interface",
+      "familia": "minimapa-simbolos",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/minimapa-simbolos/minimapa-unidade-propria-v01.webp",
+      "original": "Entregas_Codex/UI_Minimapa_Simbolos_v01_2026-10-16/Sprites/64/unidade_propria.png",
+      "nota": "PNG transparente de 64 px; também há 16 e 32 px no pacote. Proposta de 16/10/2026."
+    },
+    {
+      "id": "minimapa-unidade-inimiga-visivel",
+      "nome": "Minimapa — Inimigo visível",
+      "categoria": "interface",
+      "familia": "minimapa-simbolos",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/minimapa-simbolos/minimapa-unidade-inimiga-visivel-v01.webp",
+      "original": "Entregas_Codex/UI_Minimapa_Simbolos_v01_2026-10-16/Sprites/64/unidade_inimiga.png",
+      "nota": "PNG transparente de 64 px; também há 16 e 32 px no pacote. Proposta de 16/10/2026."
+    },
+    {
+      "id": "minimapa-estrutura-propria",
+      "nome": "Minimapa — Estrutura própria",
+      "categoria": "interface",
+      "familia": "minimapa-simbolos",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/minimapa-simbolos/minimapa-estrutura-propria-v01.webp",
+      "original": "Entregas_Codex/UI_Minimapa_Simbolos_v01_2026-10-16/Sprites/64/estrutura_propria.png",
+      "nota": "PNG transparente de 64 px; também há 16 e 32 px no pacote. Proposta de 16/10/2026."
+    },
+    {
+      "id": "minimapa-estrutura-inimiga-visivel",
+      "nome": "Minimapa — Estrutura inimiga visível",
+      "categoria": "interface",
+      "familia": "minimapa-simbolos",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/minimapa-simbolos/minimapa-estrutura-inimiga-visivel-v01.webp",
+      "original": "Entregas_Codex/UI_Minimapa_Simbolos_v01_2026-10-16/Sprites/64/estrutura_inimiga.png",
+      "nota": "PNG transparente de 64 px; também há 16 e 32 px no pacote. Proposta de 16/10/2026."
+    },
+    {
+      "id": "minimapa-estrutura-lembrada",
+      "nome": "Minimapa — Estrutura lembrada",
+      "categoria": "interface",
+      "familia": "minimapa-simbolos",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/minimapa-simbolos/minimapa-estrutura-lembrada-v01.webp",
+      "original": "Entregas_Codex/UI_Minimapa_Simbolos_v01_2026-10-16/Sprites/64/estrutura_lembrada.png",
+      "nota": "PNG transparente de 64 px; também há 16 e 32 px no pacote. Proposta de 16/10/2026."
+    },
+    {
+      "id": "minimapa-objetivo-conhecido",
+      "nome": "Minimapa — Objetivo conhecido",
+      "categoria": "interface",
+      "familia": "minimapa-simbolos",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/minimapa-simbolos/minimapa-objetivo-conhecido-v01.webp",
+      "original": "Entregas_Codex/UI_Minimapa_Simbolos_v01_2026-10-16/Sprites/64/objetivo.png",
+      "nota": "PNG transparente de 64 px; também há 16 e 32 px no pacote. Proposta de 16/10/2026."
+    },
+    {
+      "id": "minimapa-norte-do-mapa",
+      "nome": "Minimapa — Norte do mapa",
+      "categoria": "interface",
+      "familia": "minimapa-simbolos",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/minimapa-simbolos/minimapa-norte-do-mapa-v01.webp",
+      "original": "Entregas_Codex/UI_Minimapa_Simbolos_v01_2026-10-16/Sprites/64/norte.png",
+      "nota": "PNG transparente de 64 px; também há 16 e 32 px no pacote. Proposta de 16/10/2026."
+    },
+    {
+      "id": "minimapa-sob-ataque",
+      "nome": "Minimapa — Sob ataque",
+      "categoria": "interface",
+      "familia": "minimapa-simbolos",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/minimapa-simbolos/minimapa-sob-ataque-v01.webp",
+      "original": "Entregas_Codex/UI_Minimapa_Simbolos_v01_2026-10-16/Sprites/64/sob_ataque.png",
+      "nota": "PNG transparente de 64 px; também há 16 e 32 px no pacote. Proposta de 16/10/2026."
+    },
+    {
+      "id": "minimapa-linha-da-camera",
+      "nome": "Minimapa — linha da câmera",
+      "categoria": "interface",
+      "familia": "minimapa-simbolos",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/minimapa-simbolos/minimapa-linha-da-camera-v01.webp",
+      "original": "Entregas_Codex/UI_Minimapa_Simbolos_v01_2026-10-16/Sprites/camera_linha.png",
+      "nota": "Componente de referência; o trapézio continua calculado pelo jogo."
+    },
+    {
+      "id": "minimapa-pulso-de-ataque",
+      "nome": "Minimapa — pulso de ataque",
+      "categoria": "interface",
+      "familia": "minimapa-simbolos",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/minimapa-simbolos/minimapa-pulso-de-ataque-v01.webp",
+      "miniaturaRotulo": "Quadro 1",
+      "vistas": [
+        {
+          "rotulo": "Quadro 2",
+          "arquivo": "media/interface/minimapa-simbolos/minimapa-pulso-de-ataque-v01-quadro-2.webp"
+        },
+        {
+          "rotulo": "Quadro 3",
+          "arquivo": "media/interface/minimapa-simbolos/minimapa-pulso-de-ataque-v01-quadro-3.webp"
+        },
+        {
+          "rotulo": "Quadro 4",
+          "arquivo": "media/interface/minimapa-simbolos/minimapa-pulso-de-ataque-v01-quadro-4.webp"
+        },
+        {
+          "rotulo": "Quadro 5",
+          "arquivo": "media/interface/minimapa-simbolos/minimapa-pulso-de-ataque-v01-quadro-5.webp"
+        },
+        {
+          "rotulo": "Quadro 6",
+          "arquivo": "media/interface/minimapa-simbolos/minimapa-pulso-de-ataque-v01-quadro-6.webp"
+        },
+        {
+          "rotulo": "Quadro 7",
+          "arquivo": "media/interface/minimapa-simbolos/minimapa-pulso-de-ataque-v01-quadro-7.webp"
+        },
+        {
+          "rotulo": "Quadro 8",
+          "arquivo": "media/interface/minimapa-simbolos/minimapa-pulso-de-ataque-v01-quadro-8.webp"
+        }
+      ],
+      "original": "Entregas_Codex/UI_Minimapa_Simbolos_v01_2026-10-16/Pulso/ataque_00.png",
+      "nota": "Oito quadros de referência (fase 0 a 0,875), âncora central; a animação procedural existente pode ser preservada."
+    },
+    {
+      "id": "minimapa-moldura-circular",
+      "nome": "Minimapa — moldura circular",
+      "categoria": "interface",
+      "familia": "minimapa-moldura",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/minimapa-moldura/minimapa-moldura-circular-v01.webp",
+      "miniaturaRotulo": "Prévia com terreno real",
+      "vistas": [
+        {
+          "rotulo": "Encaixe no círculo",
+          "arquivo": "media/interface/minimapa-moldura/minimapa-moldura-circular-v01-encaixe-no-circulo.webp"
+        },
+        {
+          "rotulo": "Camadas",
+          "arquivo": "media/interface/minimapa-moldura/minimapa-moldura-circular-v01-camadas.webp"
+        },
+        {
+          "rotulo": "Escala de 290 px",
+          "arquivo": "media/interface/minimapa-moldura/minimapa-moldura-circular-v01-escala-de-290-px.webp"
+        },
+        {
+          "rotulo": "Moldura 1024",
+          "arquivo": "media/interface/minimapa-moldura/minimapa-moldura-circular-v01-moldura-1024.webp"
+        },
+        {
+          "rotulo": "Moldura 512",
+          "arquivo": "media/interface/minimapa-moldura/minimapa-moldura-circular-v01-moldura-512.webp"
+        },
+        {
+          "rotulo": "Moldura 256",
+          "arquivo": "media/interface/minimapa-moldura/minimapa-moldura-circular-v01-moldura-256.webp"
+        }
+      ],
+      "original": "Entregas_Codex/UI_Minimapa_Moldura_v01_2026-10-16/Previa_Minimapa_Circular_v01.png",
+      "nota": "Proposta de 16/10/2026: a abertura acompanha o círculo jogável; aro dourado para fora da área útil. Pacote em Entregas_Codex/UI_Minimapa_Moldura_v01_2026-10-16."
+    },
+    {
+      "id": "minimapa-fundo-circular",
+      "nome": "Minimapa — fundo circular",
+      "categoria": "interface",
+      "familia": "minimapa-moldura",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/minimapa-moldura/minimapa-fundo-circular-v01.webp",
+      "original": "Entregas_Codex/UI_Minimapa_Moldura_v01_2026-10-16/Sprites/fundo_circular_1024.png",
+      "nota": "PNG transparente 1024; geometria e hashes no manifesto."
+    },
+    {
+      "id": "minimapa-mascara-circular",
+      "nome": "Minimapa — máscara circular",
+      "categoria": "interface",
+      "familia": "minimapa-moldura",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/minimapa-moldura/minimapa-mascara-circular-v01.webp",
+      "original": "Entregas_Codex/UI_Minimapa_Moldura_v01_2026-10-16/Sprites/mascara_circular_1024.png",
+      "nota": "PNG transparente 1024; geometria e hashes no manifesto."
+    },
+    {
+      "id": "cursores-conjunto",
+      "nome": "Cursores e sinais de ordens (conjunto)",
+      "categoria": "interface",
+      "familia": "cursores",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/cursores/cursores-conjunto-v01.webp",
+      "miniaturaRotulo": "Catálogo de cursores",
+      "vistas": [
+        {
+          "rotulo": "Catálogo de marcadores",
+          "arquivo": "media/interface/cursores/cursores-conjunto-v01-catalogo-de-marcadores.webp"
+        },
+        {
+          "rotulo": "Comparar 32, 48 e 64 px",
+          "arquivo": "media/interface/cursores/cursores-conjunto-v01-comparar-32-48-e-64-px.webp"
+        },
+        {
+          "rotulo": "Ordens sobre o protótipo",
+          "arquivo": "media/interface/cursores/cursores-conjunto-v01-ordens-sobre-o-prototipo.webp"
+        },
+        {
+          "rotulo": "Atlas 32 px",
+          "arquivo": "media/interface/cursores/cursores-conjunto-v01-atlas-32-px.webp"
+        },
+        {
+          "rotulo": "Atlas 48 px",
+          "arquivo": "media/interface/cursores/cursores-conjunto-v01-atlas-48-px.webp"
+        },
+        {
+          "rotulo": "Atlas 64 px",
+          "arquivo": "media/interface/cursores/cursores-conjunto-v01-atlas-64-px.webp"
+        },
+        {
+          "rotulo": "Atlas dos marcadores",
+          "arquivo": "media/interface/cursores/cursores-conjunto-v01-atlas-dos-marcadores.webp"
+        }
+      ],
+      "original": "Entregas_Codex/UI_Cursores_Ordens_v01_2026-10-16/Catalogo_Cursores_v01.png",
+      "nota": "Proposta de 16/10/2026: 28 combinações em três tamanhos (84 PNGs), sete marcadores e quatro atlases. Pacote em Entregas_Codex/UI_Cursores_Ordens_v01_2026-10-16."
+    },
+    {
+      "id": "cursor-neutro",
+      "nome": "Cursor — neutro",
+      "categoria": "interface",
+      "familia": "cursores",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/cursores/cursor-neutro-v01.webp",
+      "original": "Entregas_Codex/UI_Cursores_Ordens_v01_2026-10-16/Cursores/64/neutro.png",
+      "nota": "PNG 64 px; versões 32 e 48 no pacote. Ponta fixa."
+    },
+    {
+      "id": "cursor-mover",
+      "nome": "Cursor — Mover",
+      "categoria": "interface",
+      "familia": "cursores",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/cursores/cursor-mover-v01.webp",
+      "miniaturaRotulo": "Válido",
+      "vistas": [
+        {
+          "rotulo": "Inválido",
+          "arquivo": "media/interface/cursores/cursor-mover-v01-invalido.webp"
+        },
+        {
+          "rotulo": "Indisponível",
+          "arquivo": "media/interface/cursores/cursor-mover-v01-indisponivel.webp"
+        }
+      ],
+      "original": "Entregas_Codex/UI_Cursores_Ordens_v01_2026-10-16/Cursores/64/mover_valido.png",
+      "nota": "Visto = alvo válido, X = inválido, cadeado = indisponível. PNG 64 px; 32 e 48 px no pacote."
+    },
+    {
+      "id": "cursor-atacar",
+      "nome": "Cursor — Atacar",
+      "categoria": "interface",
+      "familia": "cursores",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/cursores/cursor-atacar-v01.webp",
+      "miniaturaRotulo": "Válido",
+      "vistas": [
+        {
+          "rotulo": "Inválido",
+          "arquivo": "media/interface/cursores/cursor-atacar-v01-invalido.webp"
+        },
+        {
+          "rotulo": "Indisponível",
+          "arquivo": "media/interface/cursores/cursor-atacar-v01-indisponivel.webp"
+        }
+      ],
+      "original": "Entregas_Codex/UI_Cursores_Ordens_v01_2026-10-16/Cursores/64/atacar_valido.png",
+      "nota": "Visto = alvo válido, X = inválido, cadeado = indisponível. PNG 64 px; 32 e 48 px no pacote."
+    },
+    {
+      "id": "cursor-construir",
+      "nome": "Cursor — Construir",
+      "categoria": "interface",
+      "familia": "cursores",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/cursores/cursor-construir-v01.webp",
+      "miniaturaRotulo": "Válido",
+      "vistas": [
+        {
+          "rotulo": "Inválido",
+          "arquivo": "media/interface/cursores/cursor-construir-v01-invalido.webp"
+        },
+        {
+          "rotulo": "Indisponível",
+          "arquivo": "media/interface/cursores/cursor-construir-v01-indisponivel.webp"
+        }
+      ],
+      "original": "Entregas_Codex/UI_Cursores_Ordens_v01_2026-10-16/Cursores/64/construir_valido.png",
+      "nota": "Visto = alvo válido, X = inválido, cadeado = indisponível. PNG 64 px; 32 e 48 px no pacote."
+    },
+    {
+      "id": "cursor-reparar",
+      "nome": "Cursor — Reparar",
+      "categoria": "interface",
+      "familia": "cursores",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/cursores/cursor-reparar-v01.webp",
+      "miniaturaRotulo": "Válido",
+      "vistas": [
+        {
+          "rotulo": "Inválido",
+          "arquivo": "media/interface/cursores/cursor-reparar-v01-invalido.webp"
+        },
+        {
+          "rotulo": "Indisponível",
+          "arquivo": "media/interface/cursores/cursor-reparar-v01-indisponivel.webp"
+        }
+      ],
+      "original": "Entregas_Codex/UI_Cursores_Ordens_v01_2026-10-16/Cursores/64/reparar_valido.png",
+      "nota": "Visto = alvo válido, X = inválido, cadeado = indisponível. PNG 64 px; 32 e 48 px no pacote."
+    },
+    {
+      "id": "cursor-guarnecer",
+      "nome": "Cursor — Guarnecer",
+      "categoria": "interface",
+      "familia": "cursores",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/cursores/cursor-guarnecer-v01.webp",
+      "miniaturaRotulo": "Válido",
+      "vistas": [
+        {
+          "rotulo": "Inválido",
+          "arquivo": "media/interface/cursores/cursor-guarnecer-v01-invalido.webp"
+        },
+        {
+          "rotulo": "Indisponível",
+          "arquivo": "media/interface/cursores/cursor-guarnecer-v01-indisponivel.webp"
+        }
+      ],
+      "original": "Entregas_Codex/UI_Cursores_Ordens_v01_2026-10-16/Cursores/64/guarnecer_valido.png",
+      "nota": "Visto = alvo válido, X = inválido, cadeado = indisponível. PNG 64 px; 32 e 48 px no pacote."
+    },
+    {
+      "id": "cursor-reabastecer-deposito",
+      "nome": "Cursor — Reabastecer: depósito",
+      "categoria": "interface",
+      "familia": "cursores",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/cursores/cursor-reabastecer-deposito-v01.webp",
+      "miniaturaRotulo": "Válido",
+      "vistas": [
+        {
+          "rotulo": "Inválido",
+          "arquivo": "media/interface/cursores/cursor-reabastecer-deposito-v01-invalido.webp"
+        },
+        {
+          "rotulo": "Indisponível",
+          "arquivo": "media/interface/cursores/cursor-reabastecer-deposito-v01-indisponivel.webp"
+        }
+      ],
+      "original": "Entregas_Codex/UI_Cursores_Ordens_v01_2026-10-16/Cursores/64/reabastecer_valido.png",
+      "nota": "Visto = alvo válido, X = inválido, cadeado = indisponível. PNG 64 px; 32 e 48 px no pacote."
+    },
+    {
+      "id": "cursor-reabastecer-retorno",
+      "nome": "Cursor — Reabastecer: retorno",
+      "categoria": "interface",
+      "familia": "cursores",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/cursores/cursor-reabastecer-retorno-v01.webp",
+      "miniaturaRotulo": "Válido",
+      "vistas": [
+        {
+          "rotulo": "Inválido",
+          "arquivo": "media/interface/cursores/cursor-reabastecer-retorno-v01-invalido.webp"
+        },
+        {
+          "rotulo": "Indisponível",
+          "arquivo": "media/interface/cursores/cursor-reabastecer-retorno-v01-indisponivel.webp"
+        }
+      ],
+      "original": "Entregas_Codex/UI_Cursores_Ordens_v01_2026-10-16/Cursores/64/retorno_valido.png",
+      "nota": "Visto = alvo válido, X = inválido, cadeado = indisponível. PNG 64 px; 32 e 48 px no pacote."
+    },
+    {
+      "id": "cursor-atacar-movendo",
+      "nome": "Cursor — Atacar movendo",
+      "categoria": "interface",
+      "familia": "cursores",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/cursores/cursor-atacar-movendo-v01.webp",
+      "miniaturaRotulo": "Válido",
+      "vistas": [
+        {
+          "rotulo": "Inválido",
+          "arquivo": "media/interface/cursores/cursor-atacar-movendo-v01-invalido.webp"
+        },
+        {
+          "rotulo": "Indisponível",
+          "arquivo": "media/interface/cursores/cursor-atacar-movendo-v01-indisponivel.webp"
+        }
+      ],
+      "original": "Entregas_Codex/UI_Cursores_Ordens_v01_2026-10-16/Cursores/64/ataque_mover_valido.png",
+      "nota": "Visto = alvo válido, X = inválido, cadeado = indisponível. PNG 64 px; 32 e 48 px no pacote."
+    },
+    {
+      "id": "cursor-ponto-de-reuniao",
+      "nome": "Cursor — Ponto de reunião",
+      "categoria": "interface",
+      "familia": "cursores",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/cursores/cursor-ponto-de-reuniao-v01.webp",
+      "miniaturaRotulo": "Válido",
+      "vistas": [
+        {
+          "rotulo": "Inválido",
+          "arquivo": "media/interface/cursores/cursor-ponto-de-reuniao-v01-invalido.webp"
+        },
+        {
+          "rotulo": "Indisponível",
+          "arquivo": "media/interface/cursores/cursor-ponto-de-reuniao-v01-indisponivel.webp"
+        }
+      ],
+      "original": "Entregas_Codex/UI_Cursores_Ordens_v01_2026-10-16/Cursores/64/reuniao_valido.png",
+      "nota": "Visto = alvo válido, X = inválido, cadeado = indisponível. PNG 64 px; 32 e 48 px no pacote."
+    },
+    {
+      "id": "marcador-destino",
+      "nome": "Marcador — Destino",
+      "categoria": "interface",
+      "familia": "cursores",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/cursores/marcador-destino-v01.webp",
+      "original": "Entregas_Codex/UI_Cursores_Ordens_v01_2026-10-16/Marcadores/destino.png",
+      "nota": "PNG transparente; âncora e SVG no pacote."
+    },
+    {
+      "id": "marcador-alvo-de-ataque",
+      "nome": "Marcador — Alvo de ataque",
+      "categoria": "interface",
+      "familia": "cursores",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/cursores/marcador-alvo-de-ataque-v01.webp",
+      "original": "Entregas_Codex/UI_Cursores_Ordens_v01_2026-10-16/Marcadores/alvo.png",
+      "nota": "PNG transparente; âncora e SVG no pacote."
+    },
+    {
+      "id": "marcador-ataque-em-movimento",
+      "nome": "Marcador — Ataque em movimento",
+      "categoria": "interface",
+      "familia": "cursores",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/cursores/marcador-ataque-em-movimento-v01.webp",
+      "original": "Entregas_Codex/UI_Cursores_Ordens_v01_2026-10-16/Marcadores/ataque_mover.png",
+      "nota": "PNG transparente; âncora e SVG no pacote."
+    },
+    {
+      "id": "marcador-coleta-entrega",
+      "nome": "Marcador — Coleta / entrega",
+      "categoria": "interface",
+      "familia": "cursores",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/cursores/marcador-coleta-entrega-v01.webp",
+      "original": "Entregas_Codex/UI_Cursores_Ordens_v01_2026-10-16/Marcadores/coleta.png",
+      "nota": "PNG transparente; âncora e SVG no pacote."
+    },
+    {
+      "id": "marcador-construcao-reparo-guarnicao",
+      "nome": "Marcador — Construção / reparo / guarnição",
+      "categoria": "interface",
+      "familia": "cursores",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/cursores/marcador-construcao-reparo-guarnicao-v01.webp",
+      "original": "Entregas_Codex/UI_Cursores_Ordens_v01_2026-10-16/Marcadores/trabalho.png",
+      "nota": "PNG transparente; âncora e SVG no pacote."
+    },
+    {
+      "id": "marcador-ponto-de-reuniao",
+      "nome": "Marcador — Ponto de reunião",
+      "categoria": "interface",
+      "familia": "cursores",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/cursores/marcador-ponto-de-reuniao-v01.webp",
+      "original": "Entregas_Codex/UI_Cursores_Ordens_v01_2026-10-16/Marcadores/reuniao.png",
+      "nota": "PNG transparente; âncora e SVG no pacote."
+    },
+    {
+      "id": "marcador-direcao-de-chegada",
+      "nome": "Marcador — Direção de chegada",
+      "categoria": "interface",
+      "familia": "cursores",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/cursores/marcador-direcao-de-chegada-v01.webp",
+      "original": "Entregas_Codex/UI_Cursores_Ordens_v01_2026-10-16/Marcadores/direcao.png",
+      "nota": "PNG transparente; âncora e SVG no pacote."
+    },
+    {
+      "id": "tecnologias-conjunto",
+      "nome": "Tecnologias (conjunto)",
+      "categoria": "interface",
+      "familia": "tecnologias",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/tecnologias/tecnologias-conjunto-v01.webp",
+      "miniaturaRotulo": "Catálogo",
+      "vistas": [
+        {
+          "rotulo": "Atlas",
+          "arquivo": "media/interface/tecnologias/tecnologias-conjunto-v01-atlas.webp"
+        },
+        {
+          "rotulo": "Comparar 24, 32, 48 e 64 px",
+          "arquivo": "media/interface/tecnologias/tecnologias-conjunto-v01-comparar-24-32-48-e-64-px.webp"
+        },
+        {
+          "rotulo": "Grade da oficina 5 × 3",
+          "arquivo": "media/interface/tecnologias/tecnologias-conjunto-v01-grade-da-oficina-5-3.webp"
+        }
+      ],
+      "original": "Entregas_Codex/UI_Tecnologias_Comandos_v01_2026-10-16/Catalogo_Tecnologias_v01.png",
+      "nota": "Proposta de 16/10/2026: doze ícones de pesquisa. Pacote em Entregas_Codex/UI_Tecnologias_Comandos_v01_2026-10-16."
+    },
+    {
+      "id": "tec-usinagem-mecanica",
+      "nome": "Tecnologia — Usinagem mecânica",
+      "categoria": "interface",
+      "familia": "tecnologias",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/tecnologias/tec-usinagem-mecanica-v01.webp",
+      "original": "Entregas_Codex/UI_Tecnologias_Comandos_v01_2026-10-16/Sprites/Tecnologias/usinagem_mecanica.png",
+      "nota": "PNG transparente individual."
+    },
+    {
+      "id": "tec-ceifadeira-mecanica",
+      "nome": "Tecnologia — Ceifadeira mecânica",
+      "categoria": "interface",
+      "familia": "tecnologias",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/tecnologias/tec-ceifadeira-mecanica-v01.webp",
+      "original": "Entregas_Codex/UI_Tecnologias_Comandos_v01_2026-10-16/Sprites/Tecnologias/ceifadeira_mecanica.png",
+      "nota": "PNG transparente individual."
+    },
+    {
+      "id": "tec-cimento-portland",
+      "nome": "Tecnologia — Cimento Portland",
+      "categoria": "interface",
+      "familia": "tecnologias",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/tecnologias/tec-cimento-portland-v01.webp",
+      "original": "Entregas_Codex/UI_Tecnologias_Comandos_v01_2026-10-16/Sprites/Tecnologias/cimento_portland.png",
+      "nota": "PNG transparente individual."
+    },
+    {
+      "id": "tec-vagonetes-de-mina",
+      "nome": "Tecnologia — Vagonetes de mina",
+      "categoria": "interface",
+      "familia": "tecnologias",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/tecnologias/tec-vagonetes-de-mina-v01.webp",
+      "original": "Entregas_Codex/UI_Tecnologias_Comandos_v01_2026-10-16/Sprites/Tecnologias/vagonetes_mina.png",
+      "nota": "PNG transparente individual."
+    },
+    {
+      "id": "tec-carrocas-de-molas",
+      "nome": "Tecnologia — Carroças de molas",
+      "categoria": "interface",
+      "familia": "tecnologias",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/tecnologias/tec-carrocas-de-molas-v01.webp",
+      "original": "Entregas_Codex/UI_Tecnologias_Comandos_v01_2026-10-16/Sprites/Tecnologias/carrocas_molas.png",
+      "nota": "PNG transparente individual."
+    },
+    {
+      "id": "tec-bombas-eletricas",
+      "nome": "Tecnologia — Bombas elétricas",
+      "categoria": "interface",
+      "familia": "tecnologias",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/tecnologias/tec-bombas-eletricas-v01.webp",
+      "original": "Entregas_Codex/UI_Tecnologias_Comandos_v01_2026-10-16/Sprites/Tecnologias/bombas_eletricas.png",
+      "nota": "PNG transparente individual."
+    },
+    {
+      "id": "tec-suprimento-motorizado",
+      "nome": "Tecnologia — Suprimento motorizado",
+      "categoria": "interface",
+      "familia": "tecnologias",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/tecnologias/tec-suprimento-motorizado-v01.webp",
+      "original": "Entregas_Codex/UI_Tecnologias_Comandos_v01_2026-10-16/Sprites/Tecnologias/suprimento_motorizado.png",
+      "nota": "PNG transparente individual."
+    },
+    {
+      "id": "tec-treinamento-de-equipes",
+      "nome": "Tecnologia — Treinamento de equipes",
+      "categoria": "interface",
+      "familia": "tecnologias",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/tecnologias/tec-treinamento-de-equipes-v01.webp",
+      "original": "Entregas_Codex/UI_Tecnologias_Comandos_v01_2026-10-16/Sprites/Tecnologias/treinamento_equipes.png",
+      "nota": "PNG transparente individual."
+    },
+    {
+      "id": "tec-desenvolvimento-de-blindados",
+      "nome": "Tecnologia — Desenvolvimento de blindados",
+      "categoria": "interface",
+      "familia": "tecnologias",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/tecnologias/tec-desenvolvimento-de-blindados-v01.webp",
+      "original": "Entregas_Codex/UI_Tecnologias_Comandos_v01_2026-10-16/Sprites/Tecnologias/desenvolvimento_blindados.png",
+      "nota": "PNG transparente individual."
+    },
+    {
+      "id": "tec-cavalaria",
+      "nome": "Tecnologia — Cavalaria",
+      "categoria": "interface",
+      "familia": "tecnologias",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/tecnologias/tec-cavalaria-v01.webp",
+      "original": "Entregas_Codex/UI_Tecnologias_Comandos_v01_2026-10-16/Sprites/Tecnologias/cavalaria.png",
+      "nota": "PNG transparente individual."
+    },
+    {
+      "id": "tec-fuzileiros",
+      "nome": "Tecnologia — Fuzileiros",
+      "categoria": "interface",
+      "familia": "tecnologias",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/tecnologias/tec-fuzileiros-v01.webp",
+      "original": "Entregas_Codex/UI_Tecnologias_Comandos_v01_2026-10-16/Sprites/Tecnologias/fuzileiros.png",
+      "nota": "PNG transparente individual."
+    },
+    {
+      "id": "tec-projeteis-pontiagudos",
+      "nome": "Tecnologia — Projéteis pontiagudos",
+      "categoria": "interface",
+      "familia": "tecnologias",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/tecnologias/tec-projeteis-pontiagudos-v01.webp",
+      "original": "Entregas_Codex/UI_Tecnologias_Comandos_v01_2026-10-16/Sprites/Tecnologias/projeteis_pontiagudos.png",
+      "nota": "PNG transparente individual. Reutilizado do acabamento v02."
+    },
+    {
+      "id": "comandos-conjunto",
+      "nome": "Comandos (conjunto)",
+      "categoria": "interface",
+      "familia": "comandos",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/comandos/comandos-conjunto-v01.webp",
+      "miniaturaRotulo": "Catálogo",
+      "vistas": [
+        {
+          "rotulo": "Atlas",
+          "arquivo": "media/interface/comandos/comandos-conjunto-v01-atlas.webp"
+        },
+        {
+          "rotulo": "Complemento: catálogo",
+          "arquivo": "media/interface/comandos/comandos-conjunto-v01-complemento-catalogo.webp"
+        }
+      ],
+      "original": "Entregas_Codex/UI_Tecnologias_Comandos_v01_2026-10-16/Catalogo_Comandos_v01.png",
+      "nota": "Proposta de 16/10/2026: doze comandos, mais três do complemento v01. Pacote em Entregas_Codex/UI_Tecnologias_Comandos_v01_2026-10-16."
+    },
+    {
+      "id": "cmd-construir",
+      "nome": "Comando — Construir",
+      "categoria": "interface",
+      "familia": "comandos",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/comandos/cmd-construir-v01.webp",
+      "original": "Entregas_Codex/UI_Tecnologias_Comandos_v01_2026-10-16/Sprites/Comandos/construir.png",
+      "nota": "PNG transparente individual."
+    },
+    {
+      "id": "cmd-reparar",
+      "nome": "Comando — Reparar",
+      "categoria": "interface",
+      "familia": "comandos",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/comandos/cmd-reparar-v01.webp",
+      "original": "Entregas_Codex/UI_Tecnologias_Comandos_v01_2026-10-16/Sprites/Comandos/reparar.png",
+      "nota": "PNG transparente individual."
+    },
+    {
+      "id": "cmd-entregar-carga",
+      "nome": "Comando — Entregar carga",
+      "categoria": "interface",
+      "familia": "comandos",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/comandos/cmd-entregar-carga-v01.webp",
+      "original": "Entregas_Codex/UI_Tecnologias_Comandos_v01_2026-10-16/Sprites/Comandos/entregar.png",
+      "nota": "PNG transparente individual."
+    },
+    {
+      "id": "cmd-destruir",
+      "nome": "Comando — Destruir",
+      "categoria": "interface",
+      "familia": "comandos",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/comandos/cmd-destruir-v01.webp",
+      "original": "Entregas_Codex/UI_Tecnologias_Comandos_v01_2026-10-16/Sprites/Comandos/destruir.png",
+      "nota": "PNG transparente individual."
+    },
+    {
+      "id": "cmd-virar-girar",
+      "nome": "Comando — Virar / girar",
+      "categoria": "interface",
+      "familia": "comandos",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/comandos/cmd-virar-girar-v01.webp",
+      "original": "Entregas_Codex/UI_Tecnologias_Comandos_v01_2026-10-16/Sprites/Comandos/girar.png",
+      "nota": "PNG transparente individual."
+    },
+    {
+      "id": "cmd-ponto-de-reuniao",
+      "nome": "Comando — Ponto de reunião",
+      "categoria": "interface",
+      "familia": "comandos",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/comandos/cmd-ponto-de-reuniao-v01.webp",
+      "original": "Entregas_Codex/UI_Tecnologias_Comandos_v01_2026-10-16/Sprites/Comandos/ponto_reuniao.png",
+      "nota": "PNG transparente individual."
+    },
+    {
+      "id": "cmd-soltar-guarnicao",
+      "nome": "Comando — Soltar guarnição",
+      "categoria": "interface",
+      "familia": "comandos",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/comandos/cmd-soltar-guarnicao-v01.webp",
+      "original": "Entregas_Codex/UI_Tecnologias_Comandos_v01_2026-10-16/Sprites/Comandos/soltar_guarnicao.png",
+      "nota": "PNG transparente individual."
+    },
+    {
+      "id": "cmd-renovar-roca",
+      "nome": "Comando — Renovar roça",
+      "categoria": "interface",
+      "familia": "comandos",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/comandos/cmd-renovar-roca-v01.webp",
+      "original": "Entregas_Codex/UI_Tecnologias_Comandos_v01_2026-10-16/Sprites/Comandos/renovar_roca.png",
+      "nota": "PNG transparente individual."
+    },
+    {
+      "id": "cmd-restaurar-ligacao",
+      "nome": "Comando — Restaurar ligação",
+      "categoria": "interface",
+      "familia": "comandos",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/comandos/cmd-restaurar-ligacao-v01.webp",
+      "original": "Entregas_Codex/UI_Tecnologias_Comandos_v01_2026-10-16/Sprites/Comandos/restaurar_ferrovia.png",
+      "nota": "PNG transparente individual."
+    },
+    {
+      "id": "cmd-localizar-terminal",
+      "nome": "Comando — Localizar terminal",
+      "categoria": "interface",
+      "familia": "comandos",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/comandos/cmd-localizar-terminal-v01.webp",
+      "original": "Entregas_Codex/UI_Tecnologias_Comandos_v01_2026-10-16/Sprites/Comandos/localizar_terminal.png",
+      "nota": "PNG transparente individual."
+    },
+    {
+      "id": "cmd-cancelar",
+      "nome": "Comando — Cancelar",
+      "categoria": "interface",
+      "familia": "comandos",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/comandos/cmd-cancelar-v01.webp",
+      "original": "Entregas_Codex/UI_Tecnologias_Comandos_v01_2026-10-16/Sprites/Comandos/cancelar.png",
+      "nota": "PNG transparente individual."
+    },
+    {
+      "id": "cmd-voltar",
+      "nome": "Comando — Voltar",
+      "categoria": "interface",
+      "familia": "comandos",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/comandos/cmd-voltar-v01.webp",
+      "original": "Entregas_Codex/UI_Tecnologias_Comandos_v01_2026-10-16/Sprites/Comandos/voltar.png",
+      "nota": "PNG transparente individual."
+    },
+    {
+      "id": "cmd-guardar",
+      "nome": "Comando — Guardar",
+      "categoria": "interface",
+      "familia": "comandos",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/comandos/cmd-guardar-v01.webp",
+      "original": "Entregas_Codex/UI_Comandos_Complemento_v01_2026-10-16/Sprites/guardar.png",
+      "nota": "Complemento v01. Acabamento dourado tridimensional; não ativa o comando no jogo."
+    },
+    {
+      "id": "cmd-formacao",
+      "nome": "Comando — Formação",
+      "categoria": "interface",
+      "familia": "comandos",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/comandos/cmd-formacao-v01.webp",
+      "original": "Entregas_Codex/UI_Comandos_Complemento_v01_2026-10-16/Sprites/formacao.png",
+      "nota": "Complemento v01. Acabamento dourado tridimensional; não ativa o comando no jogo."
+    },
+    {
+      "id": "cmd-producao-continua",
+      "nome": "Comando — Produção contínua",
+      "categoria": "interface",
+      "familia": "comandos",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/comandos/cmd-producao-continua-v01.webp",
+      "original": "Entregas_Codex/UI_Comandos_Complemento_v01_2026-10-16/Sprites/producao_continua.png",
+      "nota": "Complemento v01. Acabamento dourado tridimensional; não ativa o comando no jogo."
+    },
+    {
+      "id": "identidade-global-empires",
+      "nome": "Identidade Global Empires (logo, símbolo e título)",
+      "categoria": "interface",
+      "familia": "menus-identidade",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/menus-identidade/identidade-global-empires-v01.webp",
+      "miniaturaRotulo": "Comparação em fundos claro e escuro",
+      "vistas": [
+        {
+          "rotulo": "Logo",
+          "arquivo": "media/interface/menus-identidade/identidade-global-empires-v01-logo.webp"
+        },
+        {
+          "rotulo": "Símbolo",
+          "arquivo": "media/interface/menus-identidade/identidade-global-empires-v01-simbolo.webp"
+        },
+        {
+          "rotulo": "Título",
+          "arquivo": "media/interface/menus-identidade/identidade-global-empires-v01-titulo.webp"
+        }
+      ],
+      "original": "Entregas_Codex/UI_Menus_Identidade_v01_2026-10-16/Identidade_Global_Empires_v01.png",
+      "nota": "Proposta de 16/10/2026: globo e bússola, título dourado e símbolo independente. A direção da marca não substitui os conceitos aprovados sem avaliação."
+    },
+    {
+      "id": "botao-de-menu",
+      "nome": "Botão de menu (sem texto)",
+      "categoria": "interface",
+      "familia": "menus-identidade",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/menus-identidade/botao-de-menu-v01.webp",
+      "miniaturaRotulo": "Normal",
+      "vistas": [
+        {
+          "rotulo": "Destaque",
+          "arquivo": "media/interface/menus-identidade/botao-de-menu-v01-destaque.webp"
+        }
+      ],
+      "original": "Entregas_Codex/UI_Menus_Identidade_v01_2026-10-16/Assets/Botao_Menu_Normal_v01.png",
+      "nota": "PNG transparente. Proposta de 16/10/2026."
+    },
+    {
+      "id": "menus-visao-geral",
+      "nome": "Menus — visão geral das oito telas",
+      "categoria": "interface",
+      "familia": "menus-identidade",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/menus-identidade/menus-visao-geral-v01.webp",
+      "original": "Entregas_Codex/UI_Menus_Identidade_v01_2026-10-16/Catalogo_Menus_v01.png",
+      "nota": "Principal, som, pausa, duas confirmações e resultados de vitória, derrota e empate. Proposta de 16/10/2026."
+    },
+    {
+      "id": "tela-menu-principal",
+      "nome": "Tela — Menu principal",
+      "categoria": "interface",
+      "familia": "menus-identidade",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/menus-identidade/tela-menu-principal-v01.webp",
+      "original": "Entregas_Codex/UI_Menus_Identidade_v01_2026-10-16/Telas/Menu_Principal_v01.png",
+      "nota": "PNG completo 1920 × 1080. Proposta de 16/10/2026; números e volumes ilustrativos."
+    },
+    {
+      "id": "tela-opcoes-de-som",
+      "nome": "Tela — Opções de som",
+      "categoria": "interface",
+      "familia": "menus-identidade",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/menus-identidade/tela-opcoes-de-som-v01.webp",
+      "original": "Entregas_Codex/UI_Menus_Identidade_v01_2026-10-16/Telas/Menu_Som_v01.png",
+      "nota": "PNG completo 1920 × 1080. Proposta de 16/10/2026; números e volumes ilustrativos."
+    },
+    {
+      "id": "tela-pausa-e-som",
+      "nome": "Tela — Pausa e som",
+      "categoria": "interface",
+      "familia": "menus-identidade",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/menus-identidade/tela-pausa-e-som-v01.webp",
+      "original": "Entregas_Codex/UI_Menus_Identidade_v01_2026-10-16/Telas/Menu_Pausa_v01.png",
+      "nota": "PNG completo 1920 × 1080. Proposta de 16/10/2026; números e volumes ilustrativos."
+    },
+    {
+      "id": "tela-confirmar-desistencia",
+      "nome": "Tela — Confirmar desistência",
+      "categoria": "interface",
+      "familia": "menus-identidade",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/menus-identidade/tela-confirmar-desistencia-v01.webp",
+      "original": "Entregas_Codex/UI_Menus_Identidade_v01_2026-10-16/Telas/Confirmacao_Desistir_v01.png",
+      "nota": "PNG completo 1920 × 1080. Proposta de 16/10/2026; números e volumes ilustrativos."
+    },
+    {
+      "id": "tela-confirmar-saida",
+      "nome": "Tela — Confirmar saída",
+      "categoria": "interface",
+      "familia": "menus-identidade",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/menus-identidade/tela-confirmar-saida-v01.webp",
+      "original": "Entregas_Codex/UI_Menus_Identidade_v01_2026-10-16/Telas/Confirmacao_Sair_v01.png",
+      "nota": "PNG completo 1920 × 1080. Proposta de 16/10/2026; números e volumes ilustrativos."
+    },
+    {
+      "id": "tela-resultado-vitoria",
+      "nome": "Tela — Resultado: vitória",
+      "categoria": "interface",
+      "familia": "menus-identidade",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/menus-identidade/tela-resultado-vitoria-v01.webp",
+      "original": "Entregas_Codex/UI_Menus_Identidade_v01_2026-10-16/Telas/Resultado_Vitoria_v01.png",
+      "nota": "PNG completo 1920 × 1080. Proposta de 16/10/2026; números e volumes ilustrativos."
+    },
+    {
+      "id": "tela-resultado-derrota",
+      "nome": "Tela — Resultado: derrota",
+      "categoria": "interface",
+      "familia": "menus-identidade",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/menus-identidade/tela-resultado-derrota-v01.webp",
+      "original": "Entregas_Codex/UI_Menus_Identidade_v01_2026-10-16/Telas/Resultado_Derrota_v01.png",
+      "nota": "PNG completo 1920 × 1080. Proposta de 16/10/2026; números e volumes ilustrativos."
+    },
+    {
+      "id": "tela-resultado-empate",
+      "nome": "Tela — Resultado: empate",
+      "categoria": "interface",
+      "familia": "menus-identidade",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/menus-identidade/tela-resultado-empate-v01.webp",
+      "original": "Entregas_Codex/UI_Menus_Identidade_v01_2026-10-16/Telas/Resultado_Empate_v01.png",
+      "nota": "PNG completo 1920 × 1080. Proposta de 16/10/2026; números e volumes ilustrativos."
+    },
+    {
+      "id": "estados-e-alertas",
+      "nome": "Estados e alertas (doze indicadores)",
+      "categoria": "interface",
+      "familia": "estados-alertas",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/estados-alertas/estados-e-alertas-v01.webp",
+      "miniaturaRotulo": "Catálogo",
+      "vistas": [
+        {
+          "rotulo": "Aplicação na interface",
+          "arquivo": "media/interface/estados-alertas/estados-e-alertas-v01-aplicacao-na-interface.webp"
+        },
+        {
+          "rotulo": "Leitura em tamanho pequeno",
+          "arquivo": "media/interface/estados-alertas/estados-e-alertas-v01-leitura-em-tamanho-pequeno.webp"
+        },
+        {
+          "rotulo": "Atlas",
+          "arquivo": "media/interface/estados-alertas/estados-e-alertas-v01-atlas.webp"
+        }
+      ],
+      "original": "Entregas_Codex/UI_Estados_Alertas_v01_2026-10-16/Catalogo_Estados_v01.png",
+      "nota": "Proposta de 16/10/2026: indicadores de abastecimento, rede, recuperação, cobertura, linha de tiro, montagem, guarnição e ataque. Os 12 PNGs individuais estão só no pacote (Entregas_Codex/UI_Estados_Alertas_v01_2026-10-16/Sprites)."
+    },
+    {
+      "id": "retrato-trabalhador",
+      "nome": "Retrato — Trabalhador",
+      "categoria": "interface",
+      "familia": "retratos-unidades",
+      "status": "em-avaliacao",
+      "versao": 5,
+      "miniatura": "media/interface/retratos-unidades/retrato-trabalhador-v05.webp",
+      "original": "view/com.globalempires.view/Runtime/Resources/GameUI/Icones/trabalhador.png",
+      "nota": "Formato do Trabalhador (895:845), moldura ajustada sem distorcer a unidade. Integrado localmente; aceite visual humano pendente.",
+      "miniaturaRotulo": "Retrato integrado no jogo"
+    },
+    {
+      "id": "retrato-batedor",
+      "nome": "Retrato — Batedor",
+      "categoria": "interface",
+      "familia": "retratos-unidades",
+      "status": "em-avaliacao",
+      "versao": 7,
+      "miniatura": "media/interface/retratos-unidades/retrato-batedor-v07.webp",
+      "original": "view/com.globalempires.view/Runtime/Resources/GameUI/Retratos/batedor.png",
+      "nota": "Formato do Trabalhador (895:845), moldura ajustada sem distorcer a unidade. Integrado localmente; aceite visual humano pendente.",
+      "miniaturaRotulo": "Retrato integrado no jogo"
+    },
+    {
+      "id": "retrato-milicia",
+      "nome": "Retrato — Milícia",
+      "categoria": "interface",
+      "familia": "retratos-unidades",
+      "status": "em-avaliacao",
+      "versao": 12,
+      "miniatura": "media/interface/retratos-unidades/retrato-milicia-v12.webp",
+      "original": "view/com.globalempires.view/Runtime/Resources/GameUI/Retratos/milicia.png",
+      "nota": "Formato do Trabalhador (895:845), moldura ajustada sem distorcer a unidade. Integrado localmente; aceite visual humano pendente.",
+      "miniaturaRotulo": "Retrato integrado no jogo"
+    },
+    {
+      "id": "retrato-fuzileiro",
+      "nome": "Retrato — Fuzileiro",
+      "categoria": "interface",
+      "familia": "retratos-unidades",
+      "status": "em-avaliacao",
+      "versao": 5,
+      "miniatura": "media/interface/retratos-unidades/retrato-fuzileiro-v05.webp",
+      "original": "view/com.globalempires.view/Runtime/Resources/GameUI/Retratos/fuzileiro.png",
+      "nota": "Formato do Trabalhador (895:845), moldura ajustada sem distorcer a unidade. Integrado localmente; aceite visual humano pendente.",
+      "miniaturaRotulo": "Retrato integrado no jogo"
+    },
+    {
+      "id": "retrato-sapador",
+      "nome": "Retrato — Sapador",
+      "categoria": "interface",
+      "familia": "retratos-unidades",
+      "status": "em-avaliacao",
+      "versao": 5,
+      "miniatura": "media/interface/retratos-unidades/retrato-sapador-v05.webp",
+      "original": "view/com.globalempires.view/Runtime/Resources/GameUI/Retratos/sapador.png",
+      "nota": "Formato do Trabalhador (895:845), moldura ajustada sem distorcer a unidade. Integrado localmente; aceite visual humano pendente.",
+      "miniaturaRotulo": "Retrato integrado no jogo"
+    },
+    {
+      "id": "retrato-cavalaria",
+      "nome": "Retrato — Cavalaria",
+      "categoria": "interface",
+      "familia": "retratos-unidades",
+      "status": "em-avaliacao",
+      "versao": 6,
+      "miniatura": "media/interface/retratos-unidades/retrato-cavalaria-v06.webp",
+      "original": "view/com.globalempires.view/Runtime/Resources/GameUI/Retratos/cavalaria.png",
+      "nota": "Formato do Trabalhador (895:845), moldura ajustada sem distorcer a unidade. Integrado localmente; aceite visual humano pendente.",
+      "miniaturaRotulo": "Retrato integrado no jogo"
+    },
+    {
+      "id": "retrato-metralhadora",
+      "nome": "Retrato — Metralhadora",
+      "categoria": "interface",
+      "familia": "retratos-unidades",
+      "status": "em-avaliacao",
+      "versao": 5,
+      "miniatura": "media/interface/retratos-unidades/retrato-metralhadora-v05.webp",
+      "original": "view/com.globalempires.view/Runtime/Resources/GameUI/Retratos/metralhadora.png",
+      "nota": "Formato do Trabalhador (895:845), moldura ajustada sem distorcer a unidade. Integrado localmente; aceite visual humano pendente.",
+      "miniaturaRotulo": "Retrato integrado no jogo"
+    },
+    {
+      "id": "retrato-morteiro",
+      "nome": "Retrato — Morteiro",
+      "categoria": "interface",
+      "familia": "retratos-unidades",
+      "status": "em-avaliacao",
+      "versao": 5,
+      "miniatura": "media/interface/retratos-unidades/retrato-morteiro-v05.webp",
+      "original": "view/com.globalempires.view/Runtime/Resources/GameUI/Retratos/morteiro.png",
+      "nota": "Formato do Trabalhador (895:845), moldura ajustada sem distorcer a unidade. Integrado localmente; aceite visual humano pendente.",
+      "miniaturaRotulo": "Retrato integrado no jogo"
+    },
+    {
+      "id": "retrato-artilharia",
+      "nome": "Retrato — Artilharia",
+      "categoria": "interface",
+      "familia": "retratos-unidades",
+      "status": "em-avaliacao",
+      "versao": 5,
+      "miniatura": "media/interface/retratos-unidades/retrato-artilharia-v05.webp",
+      "original": "view/com.globalempires.view/Runtime/Resources/GameUI/Retratos/artilharia.png",
+      "nota": "Formato do Trabalhador (895:845), moldura ajustada sem distorcer a unidade. Integrado localmente; aceite visual humano pendente.",
+      "miniaturaRotulo": "Retrato integrado no jogo"
+    },
+    {
+      "id": "retrato-tanque",
+      "nome": "Retrato — Tanque",
+      "categoria": "interface",
+      "familia": "retratos-unidades",
+      "status": "em-avaliacao",
+      "versao": 5,
+      "miniatura": "media/interface/retratos-unidades/retrato-tanque-v05.webp",
+      "original": "view/com.globalempires.view/Runtime/Resources/GameUI/Retratos/tanque.png",
+      "nota": "Formato do Trabalhador (895:845), moldura ajustada sem distorcer a unidade. Integrado localmente; aceite visual humano pendente.",
+      "miniaturaRotulo": "Retrato integrado no jogo"
+    },
+    {
+      "id": "icones-das-construcoes",
+      "nome": "Ícones das construções (estudo v01)",
+      "categoria": "interface",
+      "familia": "icones-construcoes",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/icones-construcoes/icones-das-construcoes-v01.webp",
+      "original": "Entregas_Codex/UI_Retratos_Icones_v01_2026-10-16/Catalogo_Construcoes_v01.png",
+      "nota": "Quinze construções e variantes de era; PNGs individuais no pacote (Entregas_Codex/UI_Retratos_Icones_v01_2026-10-16). O HTML chama de \"estudo anterior\"."
+    },
+    {
+      "id": "economia-e-producao",
+      "nome": "Economia e produção",
+      "categoria": "interface",
+      "familia": "economia-producao",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/economia-producao/economia-e-producao-v01.webp",
+      "original": "Entregas_Codex/UI_Economia_Producao_v01_2026-10-16/UI_Economia_Producao_v01.png",
+      "nota": "Seis situações: custos, filas, progresso e requisitos; custos e taxas ilustrativos. Proposta de 16/10/2026."
+    },
+    {
+      "id": "roca-manutencao",
+      "nome": "Roça: manutenção",
+      "categoria": "interface",
+      "familia": "economia-producao",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/economia-producao/roca-manutencao-v01.webp",
+      "original": "Entregas_Codex/UI_Economia_Producao_v01_2026-10-16/UI_Roca_Manutencao_v01.png",
+      "nota": "Renovar em Q, automático em A; manual bloqueado enquanto há alimentos. Proposta de 16/10/2026."
+    },
+    {
+      "id": "ui-componentes",
+      "nome": "Componentes de interface",
+      "categoria": "interface",
+      "familia": "acabamento",
+      "status": "em-avaliacao",
+      "versao": 2,
+      "miniatura": "media/interface/acabamento/ui-componentes-v02.webp",
+      "original": "Entregas_Codex/UI_Acabamento_v02_2026-10-16/Textures/ge_ui_components.png",
+      "nota": "Cartela RGBA 1254 × 1254 com 16 peças, limpa por script (≈210 mil pixels residuais removidos). Proposta de 16/10/2026."
+    },
+    {
+      "id": "ui-icones",
+      "nome": "Ícones de interface",
+      "categoria": "interface",
+      "familia": "acabamento",
+      "status": "em-avaliacao",
+      "versao": 2,
+      "miniatura": "media/interface/acabamento/ui-icones-v02.webp",
+      "original": "Entregas_Codex/UI_Acabamento_v02_2026-10-16/Textures/ge_ui_icons.png",
+      "nota": "Cartela RGBA 1254 × 1254 com 30 peças. Proposta de 16/10/2026."
+    },
+    {
+      "id": "acabamento-antes-e-depois",
+      "nome": "Acabamento v02 — antes e depois e diagnóstico do alfa",
+      "categoria": "interface",
+      "familia": "acabamento",
+      "status": "em-avaliacao",
+      "versao": 2,
+      "miniatura": "media/interface/acabamento/acabamento-antes-e-depois-v02.webp",
+      "miniaturaRotulo": "Antes e depois",
+      "vistas": [
+        {
+          "rotulo": "Diagnóstico do alfa",
+          "arquivo": "media/interface/acabamento/acabamento-antes-e-depois-v02-diagnostico-do-alfa.webp"
+        }
+      ],
+      "original": "Entregas_Codex/UI_Acabamento_v02_2026-10-16/Comparativo_Acabamento_v02.png",
+      "nota": "Brilho das barras de vida reduzido e verde menos fluorescente. O diagnóstico do alfa não representa a aparência normal."
+    },
+    {
+      "id": "mapa-e-gameplay",
+      "nome": "Mapa e gameplay",
+      "categoria": "arte-chave",
+      "familia": "prototipo",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/arte-chave/prototipo/mapa-e-gameplay-v01.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Prototype/P01.png",
+      "nota": "P01"
+    },
+    {
+      "id": "kit-de-construcoes",
+      "nome": "Kit de construções — visão geral",
+      "categoria": "arte-chave",
+      "familia": "prototipo",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/arte-chave/prototipo/kit-de-construcoes-v01.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Prototype/P02.png",
+      "nota": "P02"
+    },
+    {
+      "id": "unidades-e-abastecimento",
+      "nome": "Unidades e abastecimento — visão geral",
+      "categoria": "arte-chave",
+      "familia": "prototipo",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/arte-chave/prototipo/unidades-e-abastecimento-v01.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Prototype/P03.png",
+      "nota": "P03"
+    },
+    {
+      "id": "conflito-na-travessia",
+      "nome": "Conflito na Travessia do Interior",
+      "categoria": "arte-chave",
+      "familia": "prototipo",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/arte-chave/prototipo/conflito-na-travessia-v01.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Prototype/P04.png",
+      "prompt": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Prototype/P04.prompt.md",
+      "nota": "P04"
+    },
+    {
+      "id": "mapa-das-ferrovias",
+      "nome": "Mapa das ferrovias e terminais",
+      "categoria": "arte-chave",
+      "familia": "prototipo",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/arte-chave/prototipo/mapa-das-ferrovias-v01.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Prototype/P05.png",
+      "prompt": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Prototype/P05.prompt.md",
+      "nota": "P05"
+    },
+    {
+      "id": "menu-fundo-campo-aberto",
+      "nome": "Fundo do menu — Campo Aberto",
+      "categoria": "arte-chave",
+      "familia": "menu-primeira-guerra",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/arte-chave/menu-primeira-guerra/menu-fundo-campo-aberto-v01.webp",
+      "original": "E:/ChatGPT Projects/GEgame/Art/Concepts/UI_Menus/Background_WWI_Campo_Aberto_v01.png",
+      "prompt": "E:/ChatGPT Projects/GEgame/Art/Concepts/UI_Menus/Background_WWI_Campo_Aberto_v01.prompt.txt",
+      "nota": "Codex, 12/10/2026; só existe na cópia local do Codex (fora do repositório)."
+    },
+    {
+      "id": "menu-fundo-frame-3s",
+      "nome": "Fundo do menu — Frame 3s",
+      "categoria": "arte-chave",
+      "familia": "menu-primeira-guerra",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/arte-chave/menu-primeira-guerra/menu-fundo-frame-3s-v01.webp",
+      "original": "E:/ChatGPT Projects/GEgame/Art/Concepts/UI_Menus/Background_WWI_Frame_3s_v01.png",
+      "prompt": "E:/ChatGPT Projects/GEgame/Art/Concepts/UI_Menus/Background_WWI_Frame_3s_v01.prompt.txt",
+      "nota": "Codex, 12/10/2026; só existe na cópia local do Codex (fora do repositório)."
+    },
+    {
+      "id": "menu-fundo-metralhadora",
+      "nome": "Fundo do menu — Metralhadora",
+      "categoria": "arte-chave",
+      "familia": "menu-primeira-guerra",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/arte-chave/menu-primeira-guerra/menu-fundo-metralhadora-v01.webp",
+      "original": "E:/ChatGPT Projects/GEgame/Art/Concepts/UI_Menus/Background_WWI_Metralhadora_v01.png",
+      "prompt": "E:/ChatGPT Projects/GEgame/Art/Concepts/UI_Menus/Background_WWI_Metralhadora_v01.prompt.txt",
+      "nota": "Codex, 12/10/2026; só existe na cópia local do Codex (fora do repositório)."
+    },
+    {
+      "id": "menu-fundo-tanques",
+      "nome": "Fundo do menu — Tanques",
+      "categoria": "arte-chave",
+      "familia": "menu-primeira-guerra",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/arte-chave/menu-primeira-guerra/menu-fundo-tanques-v01.webp",
+      "original": "E:/ChatGPT Projects/GEgame/Art/Concepts/UI_Menus/Background_WWI_Tanques_v01.png",
+      "prompt": "E:/ChatGPT Projects/GEgame/Art/Concepts/UI_Menus/Background_WWI_Tanques_v01.prompt.txt",
+      "nota": "Codex, 12/10/2026; só existe na cópia local do Codex (fora do repositório)."
+    },
+    {
+      "id": "menu-fundo-v01",
+      "nome": "Fundo do menu — v01",
+      "categoria": "arte-chave",
+      "familia": "menu-primeira-guerra",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/arte-chave/menu-primeira-guerra/menu-fundo-v01-v01.webp",
+      "original": "E:/ChatGPT Projects/GEgame/Art/Concepts/UI_Menus/Background_WWI_v01.png",
+      "prompt": "E:/ChatGPT Projects/GEgame/Art/Concepts/UI_Menus/Background_WWI_v01.prompt.txt",
+      "nota": "Codex, 12/10/2026; só existe na cópia local do Codex (fora do repositório)."
+    },
+    {
+      "id": "menu-fundo-vila",
+      "nome": "Fundo do menu — Vila",
+      "categoria": "arte-chave",
+      "familia": "menu-primeira-guerra",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/arte-chave/menu-primeira-guerra/menu-fundo-vila-v01.webp",
+      "original": "E:/ChatGPT Projects/GEgame/Art/Concepts/UI_Menus/Background_WWI_Vila_v01.png",
+      "prompt": "E:/ChatGPT Projects/GEgame/Art/Concepts/UI_Menus/Background_WWI_Vila_v01.prompt.txt",
+      "nota": "Codex, 12/10/2026; só existe na cópia local do Codex (fora do repositório)."
+    },
+    {
+      "id": "brasil",
+      "nome": "Brasil",
+      "categoria": "civilizacoes",
+      "familia": "civilizacoes",
+      "status": "vigente",
+      "versao": 3,
+      "miniatura": "media/civilizacoes/civilizacoes/brasil-v03.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Civilizations/N01.png",
+      "nota": "N01; cinco eras oficiais",
+      "historico": [
+        {
+          "versao": 2,
+          "miniatura": "media/civilizacoes/civilizacoes/brasil-v02.webp",
+          "status": "descartada",
+          "nota": "A07: estudo inicial de cinco eras, arquivada"
+        },
+        {
+          "versao": 1,
+          "miniatura": "media/civilizacoes/civilizacoes/brasil-v01.webp",
+          "status": "descartada",
+          "nota": "A01: estudo de quatro eras, arquivada"
+        }
+      ]
+    },
+    {
+      "id": "alemanha",
+      "nome": "Alemanha",
+      "categoria": "civilizacoes",
+      "familia": "civilizacoes",
+      "status": "vigente",
+      "versao": 3,
+      "miniatura": "media/civilizacoes/civilizacoes/alemanha-v03.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Civilizations/N02.png",
+      "nota": "N02; cinco eras oficiais",
+      "historico": [
+        {
+          "versao": 2,
+          "miniatura": "media/civilizacoes/civilizacoes/alemanha-v02.webp",
+          "status": "descartada",
+          "nota": "A08: estudo inicial de cinco eras, arquivada"
+        },
+        {
+          "versao": 1,
+          "miniatura": "media/civilizacoes/civilizacoes/alemanha-v01.webp",
+          "status": "descartada",
+          "nota": "A03: estudo de quatro eras, arquivada"
+        }
+      ]
+    },
+    {
+      "id": "estados-unidos",
+      "nome": "Estados Unidos",
+      "categoria": "civilizacoes",
+      "familia": "civilizacoes",
+      "status": "vigente",
+      "versao": 3,
+      "miniatura": "media/civilizacoes/civilizacoes/estados-unidos-v03.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Civilizations/N03.png",
+      "nota": "N03; cinco eras oficiais",
+      "historico": [
+        {
+          "versao": 2,
+          "miniatura": "media/civilizacoes/civilizacoes/estados-unidos-v02.webp",
+          "status": "descartada",
+          "nota": "A09: estudo inicial de cinco eras, arquivada"
+        },
+        {
+          "versao": 1,
+          "miniatura": "media/civilizacoes/civilizacoes/estados-unidos-v01.webp",
+          "status": "descartada",
+          "nota": "A05: estudo de quatro eras, arquivada"
+        }
+      ]
+    },
+    {
+      "id": "reino-unido",
+      "nome": "Reino Unido",
+      "categoria": "civilizacoes",
+      "familia": "civilizacoes",
+      "status": "descartada",
+      "versao": 1,
+      "miniatura": "media/civilizacoes/civilizacoes/reino-unido-v01.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Archive/A02.png",
+      "nota": "A02: estudo de quatro eras, arquivado; não há versão de cinco eras"
+    },
+    {
+      "id": "franca",
+      "nome": "França",
+      "categoria": "civilizacoes",
+      "familia": "civilizacoes",
+      "status": "descartada",
+      "versao": 1,
+      "miniatura": "media/civilizacoes/civilizacoes/franca-v01.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Archive/A04.png",
+      "nota": "A04: estudo de quatro eras, arquivado; não há versão de cinco eras"
+    },
+    {
+      "id": "japao",
+      "nome": "Japão",
+      "categoria": "civilizacoes",
+      "familia": "civilizacoes",
+      "status": "descartada",
+      "versao": 1,
+      "miniatura": "media/civilizacoes/civilizacoes/japao-v01.webp",
+      "original": "GE-game/Unity_Import/Assets/_Project/Art/Concepts/Archive/A06.png",
+      "nota": "A06: estudo de quatro eras, arquivado; não há versão de cinco eras"
+    },
+    {
+      "id": "atraves-das-eras",
+      "nome": "Através das Eras",
+      "categoria": "audio",
+      "familia": "musica",
+      "status": "vigente",
+      "versao": 2,
+      "audio": "media/audio/musica/atraves-das-eras-v02.ogg",
+      "original": "GE-game/view/com.globalempires.view/Runtime/Resources/Audio/Musica/Partida/AtravesDasEras.ogg",
+      "nota": "Toca: Tema, nas telas da partida. OGG recodificado a 96 kbps para o card. Versão 2 do tema; a versão 1 não está no card."
+    },
+    {
+      "id": "cafe-e-ferro",
+      "nome": "Café e Ferro",
+      "categoria": "audio",
+      "familia": "musica",
+      "status": "vigente",
+      "versao": 1,
+      "audio": "media/audio/musica/cafe-e-ferro-v01.ogg",
+      "original": "GE-game/view/com.globalempires.view/Runtime/Resources/Audio/Musica/Partida/CafeEFerro.ogg",
+      "nota": "Toca: Partida. OGG recodificado a 96 kbps para o card."
+    },
+    {
+      "id": "trilhos",
+      "nome": "Trilhos",
+      "categoria": "audio",
+      "familia": "musica",
+      "status": "vigente",
+      "versao": 1,
+      "audio": "media/audio/musica/trilhos-v01.ogg",
+      "original": "GE-game/view/com.globalempires.view/Runtime/Resources/Audio/Musica/Partida/Trilhos.ogg",
+      "nota": "Toca: Partida. OGG recodificado a 96 kbps para o card."
+    },
+    {
+      "id": "fronteira",
+      "nome": "Fronteira",
+      "categoria": "audio",
+      "familia": "musica",
+      "status": "vigente",
+      "versao": 1,
+      "audio": "media/audio/musica/fronteira-v01.ogg",
+      "original": "GE-game/view/com.globalempires.view/Runtime/Resources/Audio/Musica/Partida/Fronteira.ogg",
+      "nota": "Toca: Partida. OGG recodificado a 96 kbps para o card."
+    },
+    {
+      "id": "aco-e-fumaca",
+      "nome": "Aço e Fumaça",
+      "categoria": "audio",
+      "familia": "musica",
+      "status": "vigente",
+      "versao": 1,
+      "audio": "media/audio/musica/aco-e-fumaca-v01.ogg",
+      "original": "GE-game/view/com.globalempires.view/Runtime/Resources/Audio/Musica/Partida/AcoEFumaca.ogg",
+      "nota": "Toca: Partida. OGG recodificado a 96 kbps para o card."
+    },
+    {
+      "id": "terra-de-ninguem",
+      "nome": "Terra de Ninguém",
+      "categoria": "audio",
+      "familia": "musica",
+      "status": "vigente",
+      "versao": 1,
+      "audio": [
+        {
+          "rotulo": "Latim 1",
+          "arquivo": "media/audio/musica/terra-de-ninguem-v01-latim-1.ogg"
+        },
+        {
+          "rotulo": "Latim 2",
+          "arquivo": "media/audio/musica/terra-de-ninguem-v01-latim-2.ogg"
+        },
+        {
+          "rotulo": "Latim 3",
+          "arquivo": "media/audio/musica/terra-de-ninguem-v01-latim-3.ogg"
+        },
+        {
+          "rotulo": "Latim 4",
+          "arquivo": "media/audio/musica/terra-de-ninguem-v01-latim-4.ogg"
+        },
+        {
+          "rotulo": "Português 1",
+          "arquivo": "media/audio/musica/terra-de-ninguem-v01-portugues-1.ogg"
+        },
+        {
+          "rotulo": "Português 2",
+          "arquivo": "media/audio/musica/terra-de-ninguem-v01-portugues-2.ogg"
+        },
+        {
+          "rotulo": "Português 3",
+          "arquivo": "media/audio/musica/terra-de-ninguem-v01-portugues-3.ogg"
+        },
+        {
+          "rotulo": "Português 4",
+          "arquivo": "media/audio/musica/terra-de-ninguem-v01-portugues-4.ogg"
+        }
+      ],
+      "original": "GE-game/view/com.globalempires.view/Runtime/Resources/Audio/Musica/Menu/",
+      "nota": "Toca no menu: as quatro em latim são o padrão; as quatro em português são do Brasil. OGG recodificado a 96 kbps."
+    },
+    {
+      "id": "tiro-de-fuzil",
+      "nome": "Tiro de fuzil",
+      "categoria": "audio",
+      "familia": "efeitos",
+      "status": "vigente",
+      "versao": 1,
+      "audio": "media/audio/efeitos/tiro-de-fuzil-v01.wav",
+      "original": "GE-game/view/com.globalempires.view/Runtime/Resources/Audio/RifleShot/",
+      "nota": "Toca: Fuzileiro e milícia atirando. Uma variação de cada som, como está no jogo (o jogo sorteia entre as variações)."
+    },
+    {
+      "id": "rajada-de-metralhadora",
+      "nome": "Rajada de metralhadora",
+      "categoria": "audio",
+      "familia": "efeitos",
+      "status": "vigente",
+      "versao": 1,
+      "audio": "media/audio/efeitos/rajada-de-metralhadora-v01.wav",
+      "original": "GE-game/view/com.globalempires.view/Runtime/Resources/Audio/MachineGunBurst/",
+      "nota": "Toca: Metralhadora montada. Uma variação de cada som, como está no jogo (o jogo sorteia entre as variações)."
+    },
+    {
+      "id": "disparo-de-artilharia",
+      "nome": "Disparo de artilharia",
+      "categoria": "audio",
+      "familia": "efeitos",
+      "status": "vigente",
+      "versao": 1,
+      "audio": "media/audio/efeitos/disparo-de-artilharia-v01.wav",
+      "original": "GE-game/view/com.globalempires.view/Runtime/Resources/Audio/ArtilleryFire/",
+      "nota": "Toca: Canhão e morteiro. Uma variação de cada som, como está no jogo (o jogo sorteia entre as variações)."
+    },
+    {
+      "id": "impacto-de-artilharia",
+      "nome": "Impacto de artilharia",
+      "categoria": "audio",
+      "familia": "efeitos",
+      "status": "vigente",
+      "versao": 1,
+      "audio": "media/audio/efeitos/impacto-de-artilharia-v01.wav",
+      "original": "GE-game/view/com.globalempires.view/Runtime/Resources/Audio/ArtilleryImpact/",
+      "nota": "Toca: Explosão no alvo. Uma variação de cada som, como está no jogo (o jogo sorteia entre as variações)."
+    },
+    {
+      "id": "ordem-de-atacar",
+      "nome": "Ordem de atacar",
+      "categoria": "audio",
+      "familia": "efeitos",
+      "status": "vigente",
+      "versao": 1,
+      "audio": "media/audio/efeitos/ordem-de-atacar-v01.wav",
+      "original": "GE-game/view/com.globalempires.view/Runtime/Resources/Audio/OrderAttack/",
+      "nota": "Toca: Arma engatilhando ao dar a ordem. Uma variação de cada som, como está no jogo (o jogo sorteia entre as variações)."
+    },
+    {
+      "id": "ordem-de-mover-veiculo",
+      "nome": "Ordem de mover veículo",
+      "categoria": "audio",
+      "familia": "efeitos",
+      "status": "vigente",
+      "versao": 1,
+      "audio": "media/audio/efeitos/ordem-de-mover-veiculo-v01.wav",
+      "original": "GE-game/view/com.globalempires.view/Runtime/Resources/Audio/OrderMoveVehicle/",
+      "nota": "Toca: Tanque e artilharia. Uma variação de cada som, como está no jogo (o jogo sorteia entre as variações)."
+    },
+    {
+      "id": "construcao-pronta",
+      "nome": "Construção pronta",
+      "categoria": "audio",
+      "familia": "efeitos",
+      "status": "vigente",
+      "versao": 1,
+      "audio": "media/audio/efeitos/construcao-pronta-v01.wav",
+      "original": "GE-game/view/com.globalempires.view/Runtime/Resources/Audio/BuildingComplete/",
+      "nota": "Toca: Obra concluída. Uma variação de cada som, como está no jogo (o jogo sorteia entre as variações)."
+    },
+    {
+      "id": "unidade-treinada",
+      "nome": "Unidade treinada",
+      "categoria": "audio",
+      "familia": "efeitos",
+      "status": "vigente",
+      "versao": 1,
+      "audio": "media/audio/efeitos/unidade-treinada-v01.wav",
+      "original": "GE-game/view/com.globalempires.view/Runtime/Resources/Audio/UnitTrained/",
+      "nota": "Toca: Recrutamento concluído (assobio). Uma variação de cada som, como está no jogo (o jogo sorteia entre as variações)."
+    },
+    {
+      "id": "machado",
+      "nome": "Machado",
+      "categoria": "audio",
+      "familia": "efeitos",
+      "status": "vigente",
+      "versao": 1,
+      "audio": "media/audio/efeitos/machado-v01.wav",
+      "original": "GE-game/view/com.globalempires.view/Runtime/Resources/Audio/Chop/",
+      "nota": "Toca: Trabalhador cortando madeira. Uma variação de cada som, como está no jogo (o jogo sorteia entre as variações)."
+    },
+    {
+      "id": "martelo",
+      "nome": "Martelo",
+      "categoria": "audio",
+      "familia": "efeitos",
+      "status": "vigente",
+      "versao": 1,
+      "audio": "media/audio/efeitos/martelo-v01.wav",
+      "original": "GE-game/view/com.globalempires.view/Runtime/Resources/Audio/Hammer/",
+      "nota": "Toca: Trabalhador construindo. Uma variação de cada som, como está no jogo (o jogo sorteia entre as variações)."
+    },
+    {
+      "id": "editor-ge-mapa",
+      "nome": "Editor GE: mapa e paletas",
+      "categoria": "interface",
+      "familia": "editor-ge",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/editor-ge/editor-ge-mapa-v01.webp",
+      "miniaturaRotulo": "Arte conceitual",
+      "original": "Fora do repositório do jogo: E:/Claude Projects/GlobalEmpires/Entregas_Codex/Editor_GE_Conceitos_v01_2026-10-21/Artes/01_Mapa_e_paletas_v01.png",
+      "nota": "Proposta visual, sem implementação. Camadas, pincéis, biblioteca e overlays; menu contextual de região e câmera."
+    },
+    {
+      "id": "editor-ge-objetos",
+      "nome": "Editor GE: objetos e variantes",
+      "categoria": "interface",
+      "familia": "editor-ge",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/editor-ge/editor-ge-objetos-v01.webp",
+      "miniaturaRotulo": "Arte conceitual",
+      "original": "Fora do repositório do jogo: E:/Claude Projects/GlobalEmpires/Entregas_Codex/Editor_GE_Conceitos_v01_2026-10-21/Artes/02_Objetos_e_heranca_v02.png",
+      "nota": "Proposta visual, sem implementação. Variante de campanha, comparação com a base, origem de valores e referências navegáveis."
+    },
+    {
+      "id": "editor-ge-logica",
+      "nome": "Editor GE: lógica visual e C#",
+      "categoria": "interface",
+      "familia": "editor-ge",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/editor-ge/editor-ge-logica-v01.webp",
+      "miniaturaRotulo": "Arte conceitual",
+      "original": "Fora do repositório do jogo: E:/Claude Projects/GlobalEmpires/Entregas_Codex/Editor_GE_Conceitos_v01_2026-10-21/Artes/03_Logica_visual_e_CSharp_v02.png",
+      "nota": "Proposta visual, sem implementação. Grafo, módulo C# editável, breakpoints e log de eventos; API e código ilustrativos."
+    },
+    {
+      "id": "editor-ge-campanha",
+      "nome": "Editor GE: campanha e configuração",
+      "categoria": "interface",
+      "familia": "editor-ge",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/editor-ge/editor-ge-campanha-v01.webp",
+      "miniaturaRotulo": "Arte conceitual",
+      "original": "Fora do repositório do jogo: E:/Claude Projects/GlobalEmpires/Entregas_Codex/Editor_GE_Conceitos_v01_2026-10-21/Artes/04_Campanha_e_menus_v01.png",
+      "nota": "Proposta visual, sem implementação. Missões, campos persistentes, jogadores/times e perfil de IA; menu Cenário."
+    },
+    {
+      "id": "retrato-assalto",
+      "versao": 1,
+      "nome": "Retrato — Assalto",
+      "categoria": "interface",
+      "familia": "retratos-unidades",
+      "status": "em-avaliacao",
+      "miniatura": "media/interface/retratos-unidades/retrato-assalto-v01.webp",
+      "miniaturaRotulo": "Retrato integrado no jogo",
+      "original": "view/com.globalempires.view/Runtime/Resources/GameUI/Retratos/assalto.png",
+      "nota": "Formato do Trabalhador (895:845), moldura ajustada sem distorcer a unidade. Integrado localmente; aceite visual humano pendente."
+    },
+    {
+      "id": "retrato-biplano",
+      "versao": 1,
+      "nome": "Retrato — Biplano",
+      "categoria": "interface",
+      "familia": "retratos-unidades",
+      "status": "em-avaliacao",
+      "miniatura": "media/interface/retratos-unidades/retrato-biplano-v01.webp",
+      "miniaturaRotulo": "Retrato integrado no jogo",
+      "original": "view/com.globalempires.view/Runtime/Resources/GameUI/Retratos/biplano.png",
+      "nota": "Formato do Trabalhador (895:845), moldura ajustada sem distorcer a unidade. Integrado localmente; aceite visual humano pendente."
+    },
+    {
+      "id": "retrato-dirigivel",
+      "versao": 1,
+      "nome": "Retrato — Dirigível",
+      "categoria": "interface",
+      "familia": "retratos-unidades",
+      "status": "em-avaliacao",
+      "miniatura": "media/interface/retratos-unidades/retrato-dirigivel-v01.webp",
+      "miniaturaRotulo": "Retrato integrado no jogo",
+      "original": "view/com.globalempires.view/Runtime/Resources/GameUI/Retratos/dirigivel.png",
+      "nota": "Formato do Trabalhador (895:845), moldura ajustada sem distorcer a unidade. Integrado localmente; aceite visual humano pendente."
+    },
+    {
+      "id": "sapador-equipamentos-low-poly",
+      "nome": "Sapador — lança-chamas e carga explosiva",
+      "categoria": "personagens",
+      "familia": "unidades",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/personagens/unidades/sapador-equipamentos-low-poly-v01.webp",
+      "original": "docs/arte/sapador-equipamentos.png",
+      "nota": "Render dos modelos aplicados: 1.172/1.292 triângulos e altura 1,94 m. A troca segue o equipamento real. Aceite visual pendente; sem novo GLB de modelo aprovado."
+    },
+    {
+      "id": "fila-global-topo-compacto",
+      "nome": "Fila global — topo compacto (A)",
+      "categoria": "interface",
+      "familia": "fila-global",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/fila-global/fila-global-topo-compacto-v01.webp",
+      "original": "Art/UI/FilaGlobal_Propostas_2026-10-21/01-topo-compacto.png",
+      "nota": "Arte conceitual da opção A escolhida. Fila aplicada com cartões reduzidos e comandos visíveis somente com seleção; a arte não é uma captura da implementação final."
+    },
+    {
+      "id": "f10-numeros-a",
+      "nome": "F10 — Números (A)",
+      "categoria": "interface",
+      "familia": "f10",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/f10/f10-numeros-a-v01.webp",
+      "original": "Art/UI/F10_Conceitos_2026-10-21/numeros-a.png",
+      "nota": "Conceito escolhido e implementado: catálogo e inspetor com os ícones reais. Conferência humana da implementação ainda aberta."
+    },
+    {
+      "id": "f10-teste-b",
+      "nome": "F10 — Só teste (B)",
+      "categoria": "interface",
+      "familia": "f10",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/f10/f10-teste-b-v01.webp",
+      "original": "Art/UI/F10_Conceitos_2026-10-21/teste-b.png",
+      "nota": "Conceito escolhido e implementado: catálogo lateral de unidades/estruturas, busca, lado e quantidade. Conferência humana ainda aberta."
+    },
+    {
+      "id": "f10-mapa-c",
+      "nome": "F10 — Mapa (C)",
+      "categoria": "interface",
+      "familia": "f10",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/f10/f10-mapa-c-v01.webp",
+      "original": "Art/UI/F10_Conceitos_2026-10-21/mapa-c.png",
+      "nota": "Conceito escolhido e implementado: paleta de recursos, cobertura e decoração com ferramentas de posicionamento. Conferência humana ainda aberta."
+    }
+  ]
+}

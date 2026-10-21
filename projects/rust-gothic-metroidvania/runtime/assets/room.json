@@ -1,0 +1,10 @@
+{
+  "name": "Lower Gatehouse / technical room",
+  "spawn": [-5.0, 0.0],
+  "bounds": [-10.0, 10.0],
+  "platforms": [
+    { "min": [-10.0, -0.8], "max": [10.0, 0.0], "depth": 3.2 },
+    { "min": [0.5, 0.0], "max": [2.5, 0.6], "depth": 1.1 },
+    { "min": [4.0, 0.0], "max": [6.0, 1.1], "depth": 1.1 }
+  ]
+}

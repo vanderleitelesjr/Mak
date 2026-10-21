@@ -1,0 +1,58 @@
+{
+  "sobre": "Fases do roadmap, sem prazos. Fontes: PLANO.md (marcos e ordem da fase 1) e docs/criterios/criterio-otimo.md (tarefas das fases 0 e 1). Só uma fase é \"atual\"; o progresso é calculado.",
+  "unidade": "tarefas",
+  "fases": [
+    {
+      "id": "F0",
+      "nome": "Fase 0 · Viabilidade e decisões",
+      "estado": "feita",
+      "descricao": "Projeto abre e empacota; ensaio de terreno mutável com Lumen no build empacotado; riscos e pendências registrados. Concluída em 17/10/2026, com o primeiro commit na `main`.",
+      "itens": [
+        { "id": "F0-1", "titulo": "Git com `.gitignore` e Git LFS antes do primeiro commit", "estado": "feito" },
+        { "id": "F0-2", "titulo": "Projeto C++ na UE 5.8.3 compila e abre no editor", "estado": "feito", "depende": ["F0-1"] },
+        { "id": "F0-3", "titulo": "Pacote Win64 por linha de comando", "estado": "feito", "depende": ["F0-2"] },
+        { "id": "F0-4", "titulo": "Ensaio de terreno mutável com Lumen no pacote", "estado": "feito", "depende": ["F0-3"] },
+        { "id": "F0-5", "titulo": "O mesmo ensaio no perfil baixo simulado", "estado": "feito", "depende": ["F0-4"] },
+        { "id": "F0-6", "titulo": "Riscos e decisões pendentes em `PENDENCIAS.md`", "estado": "feito", "depende": ["F0-5"] },
+        { "id": "F0-7", "titulo": "Revisão: evidência reproduzível e metas como hipótese", "estado": "feito", "depende": ["F0-6"] }
+      ]
+    },
+    {
+      "id": "F1",
+      "nome": "Fase 1 · Fundação voxel",
+      "estado": "atual",
+      "descricao": "Primeira entrega jogável. As 10 tarefas estão na `main`, na ordem do plano; a fase fecha com a demonstração feita por você (`docs/demonstracao-f1.md`).",
+      "itens": [
+        { "id": "F1-1", "titulo": "Dados de chunk e registro de blocos", "estado": "feito" },
+        { "id": "F1-2", "titulo": "Geração por seed: relevo, camadas, árvores e cavernas", "estado": "feito", "depende": ["F1-1"] },
+        { "id": "F1-4", "titulo": "Malha e colisão, sem buracos nas fronteiras", "estado": "feito", "depende": ["F1-2"] },
+        { "id": "F1-7", "titulo": "Personagem em 1ª pessoa, com teclas remapeáveis", "estado": "feito", "depende": ["F1-4"] },
+        { "id": "F1-5", "titulo": "Seleção de blocos com alcance, destaque e mira", "estado": "feito", "depende": ["F1-7"] },
+        { "id": "F1-6", "titulo": "Quebrar e colocar blocos, validado no servidor", "estado": "feito", "depende": ["F1-5"] },
+        { "id": "F1-3", "titulo": "Carregamento por distância (8 e 16 chunks)", "estado": "feito", "depende": ["F1-6"] },
+        { "id": "F1-8", "titulo": "Salvar e carregar, com 3 backups em rodízio", "estado": "feito", "depende": ["F1-3"] },
+        { "id": "F1-9", "titulo": "Medições de geração, malha, memória e quadro", "estado": "feito", "depende": ["F1-8"] },
+        { "id": "F1-10", "titulo": "Demonstração automática no build empacotado", "estado": "feito", "depende": ["F1-9"] },
+        {
+          "id": "F1-demo",
+          "titulo": "Demonstração feita por você",
+          "estado": "em-andamento",
+          "depende": ["F1-10"],
+          "pendencias": ["PT-2026-10-17-01: blocos iluminados dentro de caverna fechada (ligado ao R1)"]
+        }
+      ]
+    },
+    { "id": "F2", "nome": "Fase 2 · Ciclo sandbox", "estado": "futura", "descricao": "Biomas, materiais e o ciclo de coletar e fabricar. Antes: decidir materiais e a tabela de dependências." },
+    { "id": "F3", "nome": "Fase 3 · Multiplayer inicial", "estado": "futura", "descricao": "Internet e a escolha entre EOS e Steam; ensaios de estrutura móvel e do interior do titã até aqui." },
+    { "id": "F4", "nome": "Fase 4 · Combate e progressão", "estado": "futura", "descricao": "Mobs hostis, classes e slots de equipamento." },
+    { "id": "F5", "nome": "Fase 5 · Automação vertical", "estado": "futura" },
+    { "id": "F6", "nome": "Fase 6 · Embarcação vertical", "estado": "futura" },
+    { "id": "F7", "nome": "Fase 7 · Mundo de aventura", "estado": "futura" },
+    { "id": "F8", "nome": "Fase 8 · Oceanos vivos", "estado": "futura" },
+    { "id": "F9", "nome": "Fase 9 · Dimensões", "estado": "futura" },
+    { "id": "F10", "nome": "Fase 10 · Criação e extensões", "estado": "futura" },
+    { "id": "F11", "nome": "Fase 11 · Física e escala", "estado": "futura" },
+    { "id": "F12", "nome": "Fase 12 · Titã e progressão completa", "estado": "futura" },
+    { "id": "F13", "nome": "Fase 13 · Preparação de lançamento", "estado": "futura" }
+  ]
+}

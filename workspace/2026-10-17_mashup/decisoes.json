@@ -1,0 +1,95 @@
+{
+  "sobre": "Montado à mão pelo agente (DECISOES.md é um log sem códigos nem estado; o coletor decisoes-md.mjs não se aplica). Mostra só o que vale hoje: uma linha que substitui outra troca o item em vez de somar. Os códigos são do card, por tema. Os pendentes espelham as decisões pendentes de PENDENCIAS.md.",
+  "fonte": "DECISOES.md (63 linhas) e PENDENCIAS.md do repositório Mashup, em 2026-10-17. Ficam de fora as linhas substituídas e as que só valiam para a fase 0, como o primeiro commit direto na `main`.",
+  "espera": [
+    { "titulo": "Configurações do jogador (F1-7)", "texto": "O Coder decidiu: teclas, sensibilidade, eixo vertical e idioma por máquina, em `GameUserSettings.ini`, fora do save do mundo; Esc fixo abre o menu; remapear para uma tecla em uso troca as duas ações. Está registrado para você revisar (JG10)." }
+  ],
+  "temas": [
+    {
+      "nome": "Projeto e ferramentas",
+      "decisoes": [
+        { "id": "PJ1", "titulo": "Nome de trabalho Mashup, provisório até haver nome comercial; projeto de jogo com bots (template jogos-bots-v1)", "estado": "Confirmada", "data": "2026-10-17" },
+        { "id": "PJ2", "titulo": "Só Windows PC no início", "estado": "Confirmada", "data": "2026-10-17" },
+        { "id": "PJ3", "titulo": "Unreal Engine 5.8.3 com Visual Studio 2026 18.10, MSVC 14.51 e Windows SDK 10.0.26100", "estado": "Confirmada", "data": "2026-10-17", "nota": "Já instalada; toolchain dentro das faixas suportadas pela engine." },
+        { "id": "PJ4", "titulo": "Projeto C++ com módulo principal \"Mashup\", igual ao template em branco da UE 5.8; plugin AndroidFileServer desligado", "estado": "Confirmada", "data": "2026-10-17" },
+        { "id": "PJ5", "titulo": "Ferramentas na ordem padrão do template, sem exceções", "estado": "Confirmada", "data": "2026-10-17" },
+        { "id": "PJ6", "titulo": "Arte do primeiro marco com placeholders (blocos coloridos e cápsula); arte final depois do `ESTILO.md`", "estado": "Confirmada", "data": "2026-10-17", "nota": "Poupa créditos." }
+      ]
+    },
+    {
+      "nome": "Processo",
+      "decisoes": [
+        { "id": "PR1", "titulo": "Git local, sem remoto, com Git LFS para binários; playtests em `docs/playtests/`", "estado": "Confirmada", "data": "2026-10-17", "nota": "Sem remoto, não há issues no GitHub." },
+        { "id": "PR2", "titulo": "Uma branch por tarefa, revisada pelo Revisor; quando ele aprova, o Claude faz o merge na `main` e segue; o usuário só é chamado para decisões ou testes", "estado": "Confirmada", "data": "2026-10-17", "nota": "Pedido do usuário; substitui o merge feito pelo usuário." },
+        { "id": "PR3", "titulo": "Revisão com 2 rodadas por entrega; terceira só com autorização do usuário", "estado": "Confirmada", "data": "2026-10-17" },
+        { "id": "PR4", "titulo": "Critérios de aceite das fases 0 e 1 em `docs/criterios/criterio-otimo.md`", "estado": "Confirmada", "data": "2026-10-17" },
+        { "id": "PR5", "titulo": "Testes automatizados só para invariantes críticos (geração, itens, borda de chunk, save e load), com Automation Spec pela linha de comando; o resto por demonstração manual", "estado": "Confirmada", "data": "2026-10-17" },
+        { "id": "PR6", "titulo": "`AGENTS.md` fora do Git", "estado": "Confirmada", "data": "2026-10-17", "nota": "É gerado por sincronização externa." },
+        { "id": "PR7", "titulo": "Pastas e commits por papel: `docs/tecnico/` do Coder, `docs/pesquisa/` do Pesquisador, revisões do Revisor, `PLANO.md`, `DECISOES.md` e `PENDENCIAS.md` do Coordenador", "estado": "Confirmada", "data": "2026-10-17" }
+      ]
+    },
+    {
+      "nome": "Motor voxel e dados",
+      "decisoes": [
+        { "id": "MV1", "titulo": "Motor voxel próprio em C++, sem plugin pronto", "estado": "Confirmada", "data": "2026-10-17" },
+        { "id": "MV2", "titulo": "1 bloco = 1 m; personagem com ~1,8 m; mundo infinito na horizontal, com altura fixa de 384 blocos", "estado": "Confirmada", "data": "2026-10-17" },
+        { "id": "MV3", "titulo": "Chunk de 16 × 16 blocos; coluna de 384 em 24 seções de 16; seção vazia não custa nada", "estado": "Confirmada", "data": "2026-10-17" },
+        { "id": "MV4", "titulo": "Bloco com 2 bytes na memória (até 65 mil tipos); seção uniforme guardada como um valor só", "estado": "Confirmada", "data": "2026-10-17", "nota": "Paleta por seção só se a F1-9 pedir." },
+        { "id": "MV5", "titulo": "Cada combinação de estado de bloco tem número interno próprio; o save grava o nome legível", "estado": "Confirmada", "data": "2026-10-17" },
+        { "id": "MV6", "titulo": "Um asset de dados por tipo de bloco, com nome namespace:nome (ex.: `mashup:pedra`); blocos e itens são dados desde a fase 1", "estado": "Confirmada", "data": "2026-10-17", "nota": "Base para mods: eles só acrescentam assets." },
+        { "id": "MV7", "titulo": "Número interno atribuído ao carregar; o save de cada mundo guarda a tabela nome → número", "estado": "Confirmada", "data": "2026-10-17" },
+        { "id": "MV8", "titulo": "Blocos iniciais: ar, pedra, terra, grama, areia, madeira e folhas; água só com fluidos", "estado": "Confirmada", "data": "2026-10-17" },
+        { "id": "MV9", "titulo": "Gerador da fase 1: relevo por ruído, camadas, árvores simples e cavernas; biomas na fase 2. Mundo criado com nome e seed", "estado": "Confirmada", "data": "2026-10-17" },
+        { "id": "MV10", "titulo": "Malha com `ProceduralMeshComponent`, montada por seção e enviada como uma peça por coluna; sem greedy meshing na fase 1", "estado": "Confirmada", "data": "2026-10-17", "nota": "Troca só se a medição apontar gargalo nele." },
+        { "id": "MV11", "titulo": "Código do ensaio (`Source/Mashup/Ensaio`) apagado quando o motor da fase 1 cobriu o que ele fazia", "estado": "Confirmada", "data": "2026-10-17", "nota": "Feito na F1-9." }
+      ]
+    },
+    {
+      "nome": "Rede",
+      "decisoes": [
+        { "id": "RD1", "titulo": "Host autoritativo, não determinístico; código autoritativo no servidor desde a fase 1, mesmo solo", "estado": "Confirmada", "data": "2026-10-17" },
+        { "id": "RD2", "titulo": "O servidor envia os chunks compactados aos clientes quando eles entram no alcance", "estado": "Confirmada", "data": "2026-10-17" },
+        { "id": "RD3", "titulo": "LAN e IP direto primeiro", "estado": "Confirmada", "data": "2026-10-17" },
+        { "id": "RD4", "titulo": "Testes com 2 jogadores até a fase 3; alvo de 4", "estado": "Confirmada", "data": "2026-10-17" },
+        { "id": "RD5", "titulo": "EOS ou Steam", "estado": "Pendente", "nota": "Coordenador · fase 3." }
+      ]
+    },
+    {
+      "nome": "Visual e desempenho",
+      "decisoes": [
+        { "id": "VD1", "titulo": "Iluminação em três perfis: alto = Lumen com ray tracing de hardware; médio = Lumen por software com caixas ocultas de campo de distância; baixo = sem Lumen. Níveis de luz próprios para as regras de jogo", "estado": "Confirmada", "data": "2026-10-17", "nota": "Escolha 1A, depois do ensaio F0-5." },
+        { "id": "VD2", "titulo": "Texturas estilizadas de 16–32 px", "estado": "Confirmada", "data": "2026-10-17" },
+        { "id": "VD3", "titulo": "Metas como hipótese a medir: alto 1440p a 60 FPS com 16 chunks; baixo 1080p a 60 FPS com 8 chunks", "estado": "Confirmada", "data": "2026-10-17" },
+        { "id": "VD4", "titulo": "Hardware de referência: esta máquina (RTX 5080, Ryzen 7 9800X3D, 31 GB) como perfil alto; perfil baixo simulado por configuração", "estado": "Confirmada", "data": "2026-10-17" },
+        { "id": "VD5", "titulo": "Física opcional", "estado": "Pendente", "nota": "Designer · fase 11." }
+      ]
+    },
+    {
+      "nome": "Jogabilidade",
+      "decisoes": [
+        { "id": "JG1", "titulo": "Câmera em 1ª pessoa, com 3ª pessoa alternável; teclado e mouse primeiro, com remapeamento desde a fase 1", "estado": "Confirmada", "data": "2026-10-17" },
+        { "id": "JG2", "titulo": "Modos sobrevivência e criativo desde o início", "estado": "Confirmada", "data": "2026-10-17" },
+        { "id": "JG3", "titulo": "Crafting por lista de receitas com busca; inventário com hotbar de 9 + 27 espaços", "estado": "Confirmada", "data": "2026-10-17" },
+        { "id": "JG4", "titulo": "A quebra depende da ferramenta; sem a certa, alguns blocos não dão drop", "estado": "Confirmada", "data": "2026-10-17" },
+        { "id": "JG5", "titulo": "Fome simples que cai devagar; regenerar exige estar alimentado; dano de queda a partir de ~4 blocos", "estado": "Confirmada", "data": "2026-10-17" },
+        { "id": "JG6", "titulo": "Morte: o host escolhe por mundo; por padrão, os itens caem no local por tempo limitado", "estado": "Confirmada", "data": "2026-10-17" },
+        { "id": "JG7", "titulo": "Ciclo de dia e noite no primeiro marco; mobs hostis só na fase 4", "estado": "Confirmada", "data": "2026-10-17" },
+        { "id": "JG8", "titulo": "Salvamento automático periódico e ao sair, com 3 backups em rodízio; inventário e posição do personagem no save do host", "estado": "Confirmada", "data": "2026-10-17" },
+        { "id": "JG9", "titulo": "Textos em PT-BR e inglês numa tabela de dados (`Dados/textos.csv`), com o idioma escolhido nas configurações", "estado": "Confirmada", "data": "2026-10-17" },
+        { "id": "JG10", "titulo": "Configurações do jogador por máquina, fora do save do mundo; Esc fixo abre o menu; remapear para tecla em uso troca as duas ações", "estado": "Pendente", "data": "2026-10-17", "nota": "Decidido pelo Coder na F1-7; espera a sua revisão." },
+        { "id": "JG11", "titulo": "Materiais e tabela de dependências", "estado": "Pendente", "nota": "Designer · fase 2." },
+        { "id": "JG12", "titulo": "Classes e progressão: pertencem ao personagem ou ao mundo", "estado": "Pendente", "nota": "Designer · fase 4." },
+        { "id": "JG13", "titulo": "Slots de equipamento", "estado": "Pendente", "nota": "Designer · fase 4." },
+        { "id": "JG14", "titulo": "Regras de aldeões", "estado": "Pendente", "nota": "Designer · fase 7." }
+      ]
+    },
+    {
+      "nome": "Mundo e extensões",
+      "decisoes": [
+        { "id": "MX1", "titulo": "Estrutura móvel e interior do titã viram ensaios entre as fases 1 e 3", "estado": "Confirmada", "data": "2026-10-17" },
+        { "id": "MX2", "titulo": "Regras de dimensões e do titã", "estado": "Pendente", "nota": "Designer · fases 9 e 12." },
+        { "id": "MX3", "titulo": "Política de mods: confiança, distribuição e comparação no multiplayer", "estado": "Pendente", "nota": "Designer · fase 10." }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "familias": {
+    "interface/editor-ge": "Artes conceituais · direção de produto",
+    "interface/runtime": "Prévias reais · implementação local"
+  },
+  "itens": [
+    {
+      "id": "editor-ge-mapa",
+      "nome": "Mapa e paletas",
+      "categoria": "interface",
+      "familia": "editor-ge",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/editor-ge/editor-ge-mapa-v01.webp",
+      "original": "E:\\Claude Projects\\GlobalEmpires\\Entregas_Codex\\Editor_GE_Conceitos_v01_2026-10-21\\Artes\\01_Mapa_e_paletas_v01.png",
+      "nota": "Mapa central, paletas, pincéis e menu contextual. Direção de layout; não é captura do aplicativo."
+    },
+    {
+      "id": "editor-ge-objetos",
+      "nome": "Objetos e variantes",
+      "categoria": "interface",
+      "familia": "editor-ge",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/editor-ge/editor-ge-objetos-v01.webp",
+      "original": "E:\\Claude Projects\\GlobalEmpires\\Entregas_Codex\\Editor_GE_Conceitos_v01_2026-10-21\\Artes\\02_Objetos_e_heranca_v02.png",
+      "nota": "Revisão v02: origem de campos, base/final, modelo e referências. Não pressupõe campanha implementada."
+    },
+    {
+      "id": "editor-ge-logica",
+      "nome": "Lógica visual e C#",
+      "categoria": "interface",
+      "familia": "editor-ge",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/editor-ge/editor-ge-logica-v01.webp",
+      "original": "E:\\Claude Projects\\GlobalEmpires\\Entregas_Codex\\Editor_GE_Conceitos_v01_2026-10-21\\Artes\\03_Logica_visual_e_CSharp_v02.png",
+      "nota": "Revisão v02: grafo e depuração. C# autoral executável pertence à entrega seguinte."
+    },
+    {
+      "id": "editor-ge-campanha",
+      "nome": "Campanha e menus",
+      "categoria": "interface",
+      "familia": "editor-ge",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/interface/editor-ge/editor-ge-campanha-v01.webp",
+      "original": "E:\\Claude Projects\\GlobalEmpires\\Entregas_Codex\\Editor_GE_Conceitos_v01_2026-10-21\\Artes\\04_Campanha_e_menus_v01.png",
+      "nota": "Missões, participantes, relações e IA. Encadeamento de campanha pertence à entrega seguinte."
+    },
+    {
+      "id": "editor-previa",
+      "nome": "Prévia 3D real",
+      "categoria": "interface",
+      "familia": "runtime",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/runtime/editor-previa-v01.webp",
+      "original": "E:\\ClaudeTemp\\ge-editor-evidence\\windows\\editor-layout-7.png.viewport.png",
+      "nota": "Renderização direta do viewport real, build técnico. Não mostra nem valida a interface completa."
+    },
+    {
+      "id": "player-visao",
+      "nome": "Prévia do player com névoa",
+      "categoria": "interface",
+      "familia": "runtime",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/runtime/player-visao-v01.webp",
+      "original": "E:\\ClaudeTemp\\ge-editor-evidence\\windows\\player-vision.png.viewport.png",
+      "nota": "Renderização direta real com visão do jogador e inimigos ocultos fora da visão. Controles e interface completa ainda precisam de validação."
+    }
+  ]
+}

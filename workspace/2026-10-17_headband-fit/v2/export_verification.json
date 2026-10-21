@@ -1,0 +1,18 @@
+{
+  "triangles": 18580,
+  "closed_manifold": true,
+  "consistent_face_winding": true,
+  "connected_components": 1,
+  "degenerate_faces": 0,
+  "nonadjacent_surface_contacts": 0,
+  "print_dimensions_mm": [
+    178.0,
+    110.39460754394531,
+    12.0
+  ],
+  "original_unchanged": true,
+  "v1_deliverables_unchanged": true,
+  "editable_actual_mm_gauge_visible": true,
+  "physical_fit_validated": true,
+  "physical_fit_record": "../fit_trial_v2.json"
+}

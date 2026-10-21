@@ -1,0 +1,73 @@
+{
+  "sobre": "Estado de agora. Reescreva a cada atualização e rode o motor; o Painel deve caber numa tela. Os números com @ são calculados dos outros JSON.",
+  "estado": "Era do Aço — integração local em conferência",
+  "numeros": [
+    {
+      "rotulo": "Protótipo",
+      "valor": "Fases 1–8 + W14",
+      "icone": "era"
+    },
+    {
+      "rotulo": "Simulação",
+      "valor": "Suíte final em execução",
+      "icone": "relogio"
+    },
+    {
+      "rotulo": "Main local",
+      "valor": "ac933e1",
+      "icone": "manter-posicao"
+    },
+    {
+      "rotulo": "Entregas",
+      "valor": "@entregas.total",
+      "icone": "suprimento"
+    },
+    {
+      "rotulo": "Decisões pendentes",
+      "valor": "@decisoes.pendentes",
+      "icone": "objetivos"
+    },
+    {
+      "rotulo": "Playtest atual",
+      "valor": "77 itens a conferir",
+      "icone": "atacar"
+    }
+  ],
+  "agora": [
+    {
+      "titulo": "Aviação, HUD e F10 preparados para a main local",
+      "texto": "39 observações implementadas, fila global A, cartões compactos, retratos no padrão do Trabalhador e F10 com Números A, Só teste B e Mapa C. Caixa fixa de atalhos removida; instruções de ações ficam abaixo dos recursos."
+    },
+    {
+      "titulo": "Sapador e IA com as capacidades recentes",
+      "texto": "Engenharia de combate, lança-chamas e carga com modelos low poly próprios. IA usa trincheiras, Assalto, equipamentos e aviação. Recuo da carga corrigido, inclusive com tanque móvel; estado v45."
+    },
+    {
+      "titulo": "Editor GE continua em concepção",
+      "texto": "Estudos WC3/SC2 e quatro conceitos disponíveis na aba Editor. A proposta e o recorte da primeira missão editável aguardam avaliação."
+    },
+    {
+      "titulo": "Git só local até 31/10",
+      "texto": "Merge solicitado para a main local. Revisão independente do Claude e suíte final em execução; o GitHub permanece sem publicação deste lote."
+    }
+  ],
+  "comVoce": [
+    "Conferir os 77 itens no F11: HUD/F10, aviação, modelos/equipamentos do Sapador, recuo contra tanque móvel e IA em partida normal.",
+    "Avaliar a proposta e as quatro artes da aba Editor.",
+    "Responder às decisões Pendentes; implementação e testes técnicos não equivalem ao aceite humano ou de balanceamento."
+  ],
+  "links": [
+    {
+      "rotulo": "Handout do projeto (PDF)",
+      "url": "https://github.com/vanderleitelesjr/GE-game/blob/main/HANDOUT_PROJETO.pdf"
+    },
+    {
+      "rotulo": "Conceito da primeira iteração (PDF)",
+      "url": "https://github.com/vanderleitelesjr/GE-game/blob/main/Conceito_Primeira_Iteracao.pdf"
+    },
+    {
+      "rotulo": "Catálogo das 21 folhas (PDF)",
+      "url": "https://github.com/vanderleitelesjr/GE-game/blob/main/Catalogo_21_Folhas.pdf"
+    }
+  ]
+}

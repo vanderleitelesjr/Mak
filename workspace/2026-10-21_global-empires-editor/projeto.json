@@ -1,0 +1,68 @@
+{
+  "id": "global-empires-editor",
+  "titulo": "Editor Global Empires",
+  "sobre": "Editor independente e modular do GE. 86 decisões confirmadas; build técnico local disponível. Protótipo completo, migração integral e aceite humano ainda pendentes.",
+  "tema": "base",
+  "destaque": "#bda36a",
+  "capa": "media/interface/editor-ge/editor-ge-mapa-v01.webp",
+  "janelaDias": 30,
+  "repositorio": "E:/ClaudeTemp/ge-editor",
+  "areas": [
+    {
+      "id": "design",
+      "cor": "#bda36a",
+      "icone": "livro"
+    },
+    {
+      "id": "editor",
+      "cor": "#70b3a1",
+      "icone": "ferramentas"
+    },
+    {
+      "id": "simulacao",
+      "cor": "#80a4ce",
+      "icone": "codigo"
+    },
+    {
+      "id": "validacao",
+      "cor": "#c99471",
+      "icone": "check"
+    }
+  ],
+  "abas": [
+    {
+      "modulo": "painel",
+      "nome": "Painel"
+    },
+    {
+      "modulo": "roteiro",
+      "nome": "Roteiro"
+    },
+    {
+      "modulo": "entregas",
+      "nome": "Entregas"
+    },
+    {
+      "modulo": "decisoes",
+      "nome": "Decisões"
+    },
+    {
+      "modulo": "livre",
+      "base": "implementacao",
+      "nome": "Implementação"
+    },
+    {
+      "modulo": "acervo",
+      "nome": "Acervo"
+    },
+    {
+      "modulo": "livre",
+      "base": "validacao",
+      "nome": "Validação"
+    },
+    {
+      "modulo": "arquivo",
+      "nome": "Arquivo"
+    }
+  ]
+}

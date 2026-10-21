@@ -1,0 +1,41 @@
+<!-- Gerado — não edite à mão. Fonte: documentacao.json. Para mudar, edite o JSON e rode: node workspace/_shared/engine/gerar.mjs <pasta-do-card> -->
+<!doctype html>
+<html lang="pt-BR" data-mak-report="document" style="--mk-destaque:#64b5a4">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Documentação · Game UI Editor</title>
+  <link rel="stylesheet" href="../_shared/report.css">
+  <link rel="stylesheet" href="../_shared/examples.css">
+  <link rel="stylesheet" href="../_shared/engine/tema-base.css">
+  <script defer src="../_shared/report.js"></script>
+</head>
+<body><main class="container mk-pag">
+<p class="mk-gerado">Gerado — não edite à mão · fonte: documentacao.json · 20 de outubro de 2026</p>
+<div class="mk-capa"><div class="mk-capa-img" style="background-image:url('media/chat-0.2.2/chat-dark.png')" aria-hidden="true"></div>
+  <header class="mk-capa-texto">
+    <p class="mk-eyebrow">Game UI Editor</p>
+    <h1>Documentação e provas</h1>
+    <p class="mk-sub">0.3.3 owner retest accepted; native UXML/uGUI property round-trip verified. Procedural GE and complete M4/M6 acceptance remain open.</p>
+  </header>
+</div>
+<h2>Unity source property round-trip — 0.3.3</h2><p>Four persistent properties passed native application, reopen and reimport in UXML, a uGUI scene and a prefab. Callbacks and portable-only additions preserved; three focused conflict tests passed. Technical proof; M4/M6 remain open.</p><ul><li><a href="unity-roundtrip-0.3.3.md">Result, exact scope and remaining validation</a></li><li><a href="evidence-unity-roundtrip-0.3.3.json">Native evidence and preservation checks</a></li></ul>
+<h2>Canvas inteiro e chat no rodapé — 0.3.3</h2><p>O canvas acompanha a largura e altura livres sem scroll até sua base. Mesmo projeto de teste, 30 verificações focadas aprovadas e reteste geral aprovado na 0.3.3.</p><ul><li><a href="canvas-0.3.3.md">Resultado, capturas e instruções</a></li><li><a href="evidence-canvas-0.3.3.json">Provas e pacote da 0.3.3</a></li></ul>
+<h2>Painel de comandos corrigido — exportador 0.1.1</h2><p>A amostra já mostra a grade com 15 células e comandos nativos. Mesmo editor 0.3.2, dados reimportados com backup. A grade continua estática; reteste geral aprovado na 0.3.3.</p><ul><li><a href="commands-0.1.1.md">Resultado, capturas e limites da correção</a></li><li><a href="files/unity-import-0.1.1.zip" download>Baixar o exportador Unity 0.1.1</a></li><li><a href="evidence-commands-0.1.1.json">Provas da correção</a></li></ul>
+<h2>Hierarquia recolhível — 0.3.2</h2><p>Cada ramo e a raiz podem ser recolhidos pela seta à direita. Seleção, ordem e projeto preservados; cópia portátil atualizada e reteste geral aprovado na 0.3.3.</p><ul><li><a href="hierarchy-0.3.2.md">Como usar, capturas Windows e verificações</a></li><li><a href="evidence-hierarchy-0.3.2.json">Evidências e pacote da 0.3.2</a></li></ul>
+<h2>Ajustes do teste — 0.3.1</h2><p>Chat com mínimo menor e sem nomes internos ou variantes ocultas sobrepostos à HUD. Dois ajustes autorizados e verificados; cópia de teste atualizada, mesmos projetos e reteste geral aprovado na 0.3.3.</p><ul><li><a href="fixes-0.3.1.md">Ajustes, antes/depois Windows e como retestar</a></li><li><a href="evidence-fixes-0.3.1.json">Provas focadas e pacote da 0.3.1</a></li><li><a href="test-0.3.0.md">Roteiro atualizado e relatos originais</a></li><li><a href="evidence-test-preparation-0.3.0.json">Preparação inicial preservada</a></li></ul>
+<h2>Importação estrutural — 0.3.0</h2><p>Primeira entrega: árvores reais Unity, artes originais, estados/templates, reimportação e propriedades revisadas na origem. GE com cobertura parcial; instalação atual preservada.</p><ul><li><a href="structured-import-0.3.0.md">Relatório, provas e pontos de atenção</a></li><li><a href="evidence-structured-import.json">Evidências atuais e hashes dos pacotes</a></li><li><a href="structured-import-proposal.md">Proposta e escopo aprovados</a></li></ul>
+<h2>Sete temas adicionais — propostas</h2><p>Obsidiana, Aurora, Papel, Terminal, Blueprint, Lavanda e Cobre: decisão adiada para mais tarde, sem alterações nas opções do aplicativo.</p><ul><li><a href="theme-ideas.md">Conceitos, paletas e diferenças dos sete temas</a></li></ul>
+<h2>Chat 0.2.2 — visual aprovado implementado</h2><p>Conversa e configurações independentes, compositor único e divisor ajustável. Instalação atual preservada; 112 core e 74 casos de interface aprovados.</p><ul><li><a href="chat-0.2.2.md">Entrega, capturas e pontos de atenção</a></li><li><a href="evidence-chat-0.2.2.json">Testes, pacote e hashes da 0.2.2</a></li></ul>
+<!-- followup-021 -->
+<h2>Revisão 0.2.1 e proposta de chat</h2><ul><li><a href="followup-0.2.1.md">Ajustes de hierarquia, conteúdo e canvas/chat</a></li><li><a href="chat-proposal.html">Referência visual interativa aprovada — aplicada na 0.2.2</a></li><li><a href="evidence-followup-0.2.1.json">Evidências da revisão 0.2.1</a></li></ul>
+<h2>Entrega anterior: correções 0.2.0</h2>
+<p>18 correções implementadas e empacotadas localmente. A instalação do usuário foi preservada. M4/M6 continuam abertos para validação nativa e aceite.</p>
+<ul><li><a href="corrections-report.md">Relatório simples: cada correção e os pontos de atenção</a></li><li><a href="evidence-corrections.json">Evidências atuais, pacotes e hashes</a></li><li><a href="correction-proposals.md">Propostas originais e autorização</a></li></ul>
+<h2>Fontes e histórico preservados</h2>
+<ul><li><a href="design.md">Design e decisões</a></li><li><a href="implementation.md">Plano original</a></li><li><a href="m1.md">Entrega M1</a></li><li><a href="m2.md">Entrega M2</a></li><li><a href="m3.md">Entrega M3</a></li><li><a href="m5.md">Entrega M5</a></li><li><a href="m4.md">Agentes M4</a></li><li><a href="m6.md">Empacotamento M6 e atualização atual</a></li><li><a href="testing.html">Capturas e testes históricos</a></li><li><a href="evidence-m6.json">Registro M6: prova histórica e entrega atual separadas</a></li></ul>
+
+</main>
+
+</body>
+</html>

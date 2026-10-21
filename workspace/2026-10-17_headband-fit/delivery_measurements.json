@@ -1,0 +1,91 @@
+{
+  "source_sha256": "cdc12fc0549c670fb5e60be00b22c5c74fc27a1135c72a41c1a3ec94e635e80b",
+  "input_measurements_mm": {
+    "horizontal_circumference": 580,
+    "forehead_to_nape_arc": 380,
+    "ear_to_ear_arc": 320
+  },
+  "fit_assumption": "Three mutually perpendicular ellipses sharing semi-axes; all tape endpoints assumed to share a baseline. Initial estimate only, not a body scan.",
+  "head_semi_axes_mm": {
+    "left_right": 69.89654571982179,
+    "front_back": 112.25245212447463,
+    "vertical": 129.36013390039977
+  },
+  "nominal_clearance_mm": 1.0,
+  "nominal_inner_arch_mm": 323.07115417109753,
+  "nominal_inner_width_mm": 141.79309143964358,
+  "nominal_inner_height_mm": 130.36013390039977,
+  "original_half_arch_raw_units": 41.96342519911846,
+  "detail_scale": 3.8494373688290393,
+  "source_profile_envelope_margin_raw_units": 0.04101847363324096,
+  "source_repair": {
+    "removed_local_faces": 63,
+    "filled_patch_faces": 0,
+    "microscopic_self_intersections_repaired": 4
+  },
+  "test_gauge": {
+    "thickness_mm": 3.0,
+    "width_mm": 12.0,
+    "edge_radius_mm": 0.5,
+    "limitation": "Same nominal arch only; does not reproduce full ornament stiffness, weight, or front-back sweep."
+  },
+  "physical_fit_validated": false,
+  "outputs": {
+    "Headband_58cm_PLA_fit_v1.stl": {
+      "vertices": 336834,
+      "triangles": 673716,
+      "nonmanifold_edges": 0,
+      "nonmanifold_vertices": 0,
+      "boundary_edges": 0,
+      "degenerate_faces": 0,
+      "connected_components": 1,
+      "volume_mm3": 406817.70201917784,
+      "bounds_mm": [
+        [
+          -108.82865142822266,
+          -35.94108581542969,
+          4.42264954991561e-15
+        ],
+        [
+          108.75720977783203,
+          36.07978820800781,
+          207.87660217285156
+        ]
+      ],
+      "print_dimensions_mm": [
+        217.5858612060547,
+        207.87660217285156,
+        72.0208740234375
+      ],
+      "sha256": "9b6768d27f760724bd929029bf8725792a4fe803a758c6b93703e2468d16a65c"
+    },
+    "Headband_58cm_fit_test_v1.stl": {
+      "vertices": 5200,
+      "triangles": 10396,
+      "nonmanifold_edges": 0,
+      "nonmanifold_vertices": 0,
+      "boundary_edges": 0,
+      "degenerate_faces": 0,
+      "connected_components": 1,
+      "volume_mm3": 11714.534968687049,
+      "bounds_mm": [
+        [
+          -73.89521026611328,
+          -6.0,
+          0.0
+        ],
+        [
+          73.89521026611328,
+          6.0,
+          133.36013793945312
+        ]
+      ],
+      "print_dimensions_mm": [
+        147.79042053222656,
+        133.36013793945312,
+        12.0
+      ],
+      "sha256": "1b478e1823cf991797ac25d5d1881b83b6482079b53eb9acf6e22021a3e4a860"
+    }
+  }
+}

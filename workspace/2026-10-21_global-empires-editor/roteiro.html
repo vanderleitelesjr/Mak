@@ -1,0 +1,136 @@
+<!-- Gerado — não edite à mão. Fonte: roteiro.json. Para mudar, edite o JSON e rode: node workspace/_shared/engine/gerar.mjs <pasta-do-card> -->
+<!doctype html>
+<html lang="pt-BR" data-mak-report="document" style="--mk-destaque:#bda36a">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Roteiro · Editor Global Empires</title>
+  <link rel="stylesheet" href="../_shared/report.css">
+  <link rel="stylesheet" href="../_shared/examples.css">
+  <link rel="stylesheet" href="../_shared/engine/tema-base.css">
+  <script defer src="../_shared/report.js"></script>
+</head>
+<body><main class="container mk-pag">
+<p class="mk-gerado">Gerado — não edite à mão · fonte: roteiro.json · 21 de outubro de 2026</p>
+<div class="mk-capa"><div class="mk-capa-img" style="background-image:url('media/interface/editor-ge/editor-ge-mapa-v01.webp')" aria-hidden="true"></div>
+  <header class="mk-capa-texto">
+    <p class="mk-eyebrow">Editor Global Empires</p>
+    <h1>Roteiro</h1>
+    <p class="mk-sub">0 de 6 frentes validadas · fase atual: Protótipo 1 · implementação local e validação · atualizado em 21 de outubro de 2026.</p>
+  </header>
+</div>
+<section class="mk-bloco">
+<h2 class="mk-t"><span class="mk-ico mk-i-marco" aria-hidden="true"></span>Progresso</h2>
+<div class="mk-progresso-topo"><b>0 de 6 frentes validadas</b><span>Fase atual: Protótipo 1 · implementação local e validação</span></div>
+<div class="mk-barra" role="progressbar" aria-label="Progresso: 0 de 6 frentes validadas" aria-valuemin="0" aria-valuemax="6" aria-valuenow="0"><i style="width:0%"></i></div>
+<p class="mk-nota" style="margin-top:10px">1 fase feita de 3 · roteiro todo: 2 de 10 frentes validadas · 4 em andamento.</p><ol class="mk-fases" aria-label="Fases do roteiro">
+<li class="mk-feita">Pesquisa e decisões<small>feita</small></li>
+<li class="mk-atual" aria-current="step">Protótipo 1 · implementação local e validação<small>atual</small></li>
+<li class="mk-futura">Entrega seguinte · campanhas e C# autoral<small>futura</small></li>
+</ol>
+</section>
+<h2 class="mk-t" style="margin-top:26px">Fases e tarefas</h2>
+<details class="mk-fase" id="fase-fundamentos">
+<summary><span class="mk-fase-nome"><span class="mk-id">fundamentos</span>Pesquisa e decisões <span class="mk-chip mk-ok">feita</span></span><div class="mk-fase-conta"><span>2 de 2 frentes validadas</span><div class="mk-barra mk-barra-mini" role="progressbar" aria-label="Fase Pesquisa e decisões" aria-valuemin="0" aria-valuemax="2" aria-valuenow="2"><i style="width:100%"></i></div></div></summary>
+<div class="mk-fase-corpo">
+<p>Referências WC3/SC2, quatro conceitos e 18 rodadas consolidadas. Estudo de dados/código não comprova a interface ou execução integral dos editores Blizzard.</p>
+<ul class="mk-tarefas">
+<li class="mk-tarefa" data-estado="feito">
+  <span class="mk-bola mk-feito" role="img" aria-label="feito"></span>
+  <div class="mk-tarefa-titulo"><span class="mk-id">pesquisa</span><b>Estruturas de referência e acesso direto</b><span class="mk-chip mk-ok">feito</span></div>
+  <div class="mk-tarefa-corpo">
+<p>Estudo local de Warcraft III e StarCraft II, formatos, catálogos, paletas, objetos, lógica, IA e campanhas, com proveniência e limites.</p>
+  </div>
+</li>
+<li class="mk-tarefa" data-estado="feito">
+  <span class="mk-bola mk-feito" role="img" aria-label="feito"></span>
+  <div class="mk-tarefa-titulo"><span class="mk-id">escopo</span><b>86 decisões confirmadas e escopo autorizado</b><span class="mk-chip mk-ok">feito</span></div>
+  <div class="mk-tarefa-corpo">
+<p>ED1–ED86 e especificação consolidados. Artes preservadas como direção de produto.</p>
+  </div>
+</li>
+</ul>
+</div>
+</details>
+<details class="mk-fase mk-atual" id="fase-prototipo" open>
+<summary><span class="mk-fase-nome"><span class="mk-id">prototipo</span>Protótipo 1 · implementação local e validação <span class="mk-chip mk-destaque">atual</span></span><div class="mk-fase-conta"><span>0 de 6 frentes validadas</span><div class="mk-barra mk-barra-mini" role="progressbar" aria-label="Fase Protótipo 1 · implementação local e validação" aria-valuemin="0" aria-valuemax="6" aria-valuenow="0"><i style="width:0%"></i></div></div></summary>
+<div class="mk-fase-corpo">
+<p>Build técnico existente. A barra conta frentes concluídas com validação, não o volume de código já escrito; não representa percentual de implementação.</p>
+<ul class="mk-tarefas">
+<li class="mk-tarefa" data-estado="em-andamento">
+  <span class="mk-bola mk-em-andamento" role="img" aria-label="em andamento"></span>
+  <div class="mk-tarefa-titulo"><span class="mk-id">catalogo</span><b>Catálogo modular e migração integral</b><span class="mk-chip mk-info">em andamento</span></div>
+  <div class="mk-tarefa-corpo">
+<p>38 tipos oficiais, 48 capacidades, catálogo canônico/imutável, armas compartilhadas, uma base por variante, origem/restauração, referências, snapshots e hashes. Regras oficiais em regras.txt; handles ushort locais a partir de 256.</p>
+<div>Pendência:<ul class="mk-pend"><li>Fechar a migração integral ED50: consumidores fixos, presets/HUDs legados, requisitos e combinações de capacidades.</li></ul></div>
+  </div>
+</li>
+<li class="mk-tarefa" data-estado="em-andamento">
+  <span class="mk-bola mk-em-andamento" role="img" aria-label="em andamento"></span>
+  <div class="mk-tarefa-titulo"><span class="mk-id">autoria</span><b>Operações, arquivos e interface de autoria</b><span class="mk-chip mk-info">em andamento</span></div>
+  <div class="mk-tarefa-corpo">
+<p>Mapa, objetos, histórico e recuperação têm implementação e provas seletivas.</p>
+<details class="mk-pend-grupo"><summary>4 pendências</summary><ul class="mk-pend"><li>Validar visualmente a janela completa: layout, gestos, seleção/arraste, mapa, grafo, timeline, menus e player.</li><li>Completar caminhos de UI ainda dependentes de documentos avançados; validar ligações/portas, eventos, rascunhos, kits, IA e participantes sem C#.</li><li>Conferir monitor de alterações externas, conciliação e recuperação na janela, preservando trabalho local.</li><li>Fechar a experiência de revisão e aceitação de atualização da base de conteúdo/schema.</li></ul></details>
+  </div>
+</li>
+<li class="mk-tarefa" data-estado="em-andamento">
+  <span class="mk-bola mk-em-andamento" role="img" aria-label="em andamento"></span>
+  <div class="mk-tarefa-titulo"><span class="mk-id">missao</span><b>Missão, IA, grafos e cinematográficas</b><span class="mk-chip mk-info">em andamento</span></div>
+  <div class="mk-tarefa-corpo">
+<p>Escolta, perfis, lógica e câmera implementados localmente e testados em recortes.</p>
+<div>Pendência:<ul class="mk-pend"><li>Validar composição e uso humano na janela completa.</li></ul></div>
+  </div>
+</li>
+<li class="mk-tarefa" data-estado="em-andamento">
+  <span class="mk-bola mk-em-andamento" role="img" aria-label="em andamento"></span>
+  <div class="mk-tarefa-titulo"><span class="mk-id">exportacao</span><b>Player, sessão e reprodução</b><span class="mk-chip mk-info">em andamento</span></div>
+  <div class="mk-tarefa-corpo">
+<p>Pacotes e prova nativa sem divergência disponíveis.</p>
+<div>Pendência:<ul class="mk-pend"><li>Conferir visão/névoa e controles do player exportado, além da predefinição opcional de abertura econômica.</li></ul></div>
+  </div>
+</li>
+<li class="mk-tarefa" data-estado="a-fazer">
+  <span class="mk-bola mk-a-fazer" role="img" aria-label="a fazer"></span>
+  <div class="mk-tarefa-titulo"><span class="mk-id">qualidade</span><b>Desempenho, CI e revisões</b><span class="mk-chip mk-neutro">a fazer</span></div>
+  <div class="mk-tarefa-corpo">
+<p>Resultados amplos e seletivos registrados; revisão formal ainda pendente.</p>
+<div>Pendência:<ul class="mk-pend"><li>Medir quadro, tick, memória e limites nos cenários de referência; executar CI e revisões code-review high e guarda-determinismo no fluxo do repositório.</li></ul></div>
+  </div>
+</li>
+<li class="mk-tarefa" data-estado="a-fazer">
+  <span class="mk-bola mk-a-fazer" role="img" aria-label="a fazer"></span>
+  <div class="mk-tarefa-titulo"><span class="mk-id">aceite</span><b>Aceite humano ED86</b><span class="mk-chip mk-neutro">a fazer</span></div>
+  <div class="mk-tarefa-corpo">
+<div class="mk-dep"><span>Depende de</span> <span class="mk-id mk-aberta" title="ainda não feita">catalogo</span> <span class="mk-id mk-aberta" title="ainda não feita">autoria</span> <span class="mk-id mk-aberta" title="ainda não feita">missao</span> <span class="mk-id mk-aberta" title="ainda não feita">exportacao</span> <span class="mk-id mk-aberta" title="ainda não feita">qualidade</span></div>
+<div>Pendência:<ul class="mk-pend"><li>Realizar o aceite humano ED86: criar/editar, salvar/reabrir, testar e jogar a exportação sem escrever C#.</li></ul></div>
+  </div>
+</li>
+</ul>
+</div>
+</details>
+<details class="mk-fase" id="fase-seguinte">
+<summary><span class="mk-fase-nome"><span class="mk-id">seguinte</span>Entrega seguinte · campanhas e C# autoral <span class="mk-chip mk-neutro">futura</span></span><div class="mk-fase-conta"><span>0 de 2 frentes validadas</span><div class="mk-barra mk-barra-mini" role="progressbar" aria-label="Fase Entrega seguinte · campanhas e C# autoral" aria-valuemin="0" aria-valuemax="2" aria-valuenow="0"><i style="width:0%"></i></div></div></summary>
+<div class="mk-fase-corpo">
+<p>Direção confirmada para a próxima entrega; sem datas ou especificação adicional inventadas.</p>
+<ul class="mk-tarefas">
+<li class="mk-tarefa" data-estado="a-fazer">
+  <span class="mk-bola mk-a-fazer" role="img" aria-label="a fazer"></span>
+  <div class="mk-tarefa-titulo"><span class="mk-id">campanhas</span><b>Encadeamento de campanhas</b><span class="mk-chip mk-neutro">a fazer</span></div>
+  <div class="mk-tarefa-corpo">
+<p>ED18; não faz parte da prova do primeiro protótipo.</p>
+  </div>
+</li>
+<li class="mk-tarefa" data-estado="a-fazer">
+  <span class="mk-bola mk-a-fazer" role="img" aria-label="a fazer"></span>
+  <div class="mk-tarefa-titulo"><span class="mk-id">csharp</span><b>Edição e execução de C# autoral</b><span class="mk-chip mk-neutro">a fazer</span></div>
+  <div class="mk-tarefa-corpo">
+<p>ED19 e ED13; chamadas com entradas/saídas explícitas e política pública ainda a definir.</p>
+  </div>
+</li>
+</ul>
+</div>
+</details>
+</main>
+
+</body>
+</html>

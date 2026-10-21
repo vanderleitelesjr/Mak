@@ -1,0 +1,415 @@
+{
+  "sobre": "Marcos do PLANO.md do Blended. O M1 tem as 16 tarefas, com dependências; as pendências abertas de PENDENCIAS.md ficam dentro da tarefa de origem (as de CI e infraestrutura na tarefa 1). Só uma fase é \"atual\"; o progresso é calculado.",
+  "unidade": "tarefas",
+  "fases": [
+    {
+      "id": "M1",
+      "nome": "M1 · Criar, pintar e exportar",
+      "estado": "atual",
+      "descricao": "12/16 tarefas integradas. Retomada de CLI e ajuda autorizada em 19/10/2026; T14/T15 e instalador em revisão local. Meta: criar, pintar e exportar em até 10 minutos sem ajuda, ainda sem teste com leigo (T16).",
+      "itens": [
+        {
+          "id": "T1",
+          "titulo": "1. Base",
+          "estado": "feito",
+          "resumo": "Editor copiado do Lightkeeper e renomeado; CI criado. PR #1.",
+          "pendencias": [
+            "`abrir_blended.bat` não confere a versão do Blender · quando: Tarefa 2 · origem: PR #1, rodada 1",
+            "Modelos de exemplo com a mecânica do jogo antigo · quando: Tarefa 5 · origem: PR #1, rodada 1",
+            "`AGENTS.md` copiado do projeto antigo e desatualizado · quando: Coordenador · origem: PR #1, rodada 1",
+            "`main()` trata qualquer `OSError` como \"o Blended já está aberto\" · quando: Tarefa 2 · origem: PR #1, rodada 1",
+            "`testes/navegador/servidor.mjs:11` apaga todas as pastas `blended-modelos-*` do temporário · quando: Quando o CI tiver jobs em paralelo · origem: PR #1, rodada 1",
+            "Actions do CI fixadas por tag · quando: Qualquer PR de CI · origem: PR #1, rodada 1",
+            "CI: Executor próprio: o risco inclui bots e o token do GitHub · quando: Coordenador / usuário · origem: PR #9, rodada 1",
+            "CI: Discos E:, D: e F:: o `blended-ci` lê e ALTERA tudo (residual do executor isolado, prioridade alta) · quando: Usuário (decide e aplica) / Coordenador · origem: PR `m1/executor-isolado`",
+            "CI: Ajustes do workflow do executor próprio · quando: Próximo PR do CI · origem: PR #9, rodada 1",
+            "CI: Executor isolado: não bloqueantes da rodada 1 do PR #11 · quando: Coder · origem: PR #11, rodada 1",
+            "CI: Executor isolado: não bloqueantes da rodada 2 do PR #11 · quando: Revisor · origem: PR #11, rodada 2",
+            "CI: Executor isolado: não bloqueantes da rodada 3 do PR #11 · quando: Revisor · origem: PR #11, rodada 3"
+          ]
+        },
+        {
+          "id": "T2",
+          "titulo": "2. Instalador",
+          "estado": "em-andamento",
+          "resumo": "Entrega local em m1/instalador-local: pacote único, Blender verificado, Git/LFS, aviso e atualização pelo editor. Preservação dos dados e recuperação após pacote inválido testadas. Faltam Windows limpo/VM e revisão independente.",
+          "depende": [
+            "T1"
+          ],
+          "pendencias": []
+        },
+        {
+          "id": "T3",
+          "titulo": "3. Salvar e versões",
+          "estado": "feito",
+          "resumo": "Versões com miniatura; cópia de emergência a cada 30 s. PR #2.",
+          "depende": [
+            "T1"
+          ],
+          "pendencias": [
+            "`git lfs prune` apaga as texturas das versões antigas · quando: Tarefa 3 (continuação) ou 13 · origem: PR #2, rodada 1",
+            "O git (e o Git LFS) viraram dependência do Salvar com versões · quando: Tarefa 2 · origem: PR #2, rodada 1",
+            "Versão espera o Enviar · quando: Tarefa 3 (continuação) · origem: PR #2, rodada 1",
+            "`desfazer_copia` aceita qualquer versão · quando: Tarefa 3 (continuação) · origem: PR #2, rodada 1",
+            "A versão de um Salvar é gravada pela página · quando: Tarefa 3 (continuação) · origem: PR #2, rodada 1",
+            "\"Voltar a esta\" sem volta automática quando a gravação falha no meio · quando: Tarefa 3 (continuação) · origem: PR #2, rodada 1",
+            "Voltar ou copiar deixa a cópia de emergência do modelo · quando: Tarefa 3 (continuação) · origem: PR #2, rodada 1",
+            "Repositório criado pelo editor e ligado ao GitHub depois · quando: Quando houver \"ligar ao GitHub\" · origem: PR #2, rodada 1",
+            "`conferir_github` mistura os casos · quando: Próximo PR que tocar o Enviar · origem: PR #2, rodada 1",
+            "Desempenho das versões · quando: Quando um modelo tiver muitas texturas · origem: PR #2, rodada 1",
+            "A cópia reaproveita o histórico de uma cópia desfeita · quando: Tarefa 3 (continuação) · origem: PR #2, rodada 1",
+            "Rascunhos antigos no `%TEMP%\\Blended\\rascunhos` não são migrados · quando: Tarefa 2 · origem: PR #2, rodada 1",
+            "Simplificação · quando: Tarefa 3 (continuação) ou 4 · origem: PR #2, rodada 1",
+            "Mensagens de erro das versões · quando: Tarefa 3 (continuação) ou 15 · origem: PR #2, rodada 2",
+            "`gravar_arquivo` com novas tentativas · quando: Tarefa 3 (continuação) · origem: PR #2, rodada 2",
+            "Testes de navegador do Salvar · quando: Próximo PR que tocar os testes de navegador · origem: PR #2, rodada 2",
+            "Botões da tela Versões chamam `restaurar(v)`/`duplicar(v)` sem o id · quando: Tarefa 3 (continuação) · origem: PR #2, rodada 2"
+          ]
+        },
+        {
+          "id": "T4",
+          "titulo": "4. Tela",
+          "estado": "feito",
+          "resumo": "Painéis modulares, Simples e Completo, pt e en, claro e escuro. PR #4.",
+          "depende": [
+            "T1"
+          ],
+          "pendencias": [
+            "Mensagens que vêm do servidor ainda em português · quando: Tarefa 15 (ajuda e suporte) ou o próximo PR que tocar o servidor",
+            "Diálogos fora do teste de posição · quando: Próximo PR que tocar o Novo modelo",
+            "Painéis da mesma borda dividem a altura por igual · quando: Tarefa 6 ou depois dela",
+            "Acessibilidade dos painéis · quando: Tarefa 15 (ajuda e suporte) ou o próximo PR que tocar `paineis.js` · origem: PR #4, rodada 1",
+            "Comentários com os nomes antigos dos botões · quando: Próximo PR que tocar esses arquivos · origem: PR #4, rodada 1",
+            "Sobras sem uso do módulo de painéis · quando: Próximo PR que tocar `paineis.js` · origem: PR #4, rodada 1",
+            "O tour aponta para painel escondido · quando: Tarefa 15 (tutorial) · origem: PR #4, rodada 1",
+            "Letra grande e larguras no 1366×768 · quando: Próximo PR que tocar `editor.css` ou `layout.js` · origem: PR #4, rodada 1",
+            "Fim de linha: falta o `.gitattributes` · quando: Coordenador · origem: PR #4, rodada 1",
+            "Preferências da tela: gravação e abertura · quando: Próximo PR que tocar `tela.js` ou o servidor · origem: PR #4, rodada 1",
+            "Furos pequenos do layout e dos painéis · quando: Próximo PR que tocar `paineis.js` · origem: PR #4, rodada 1",
+            "A troca de idioma refaz estado que não devia · quando: Próximo PR que tocar `editor.js` ou `modo.js` · origem: PR #4, rodada 1",
+            "`controles_corpo()` guarda o cache sem trava · quando: Próximo PR que tocar o servidor · origem: PR #4, rodada 1",
+            "Git do editor (`src/integracoes.py:40-62`) · quando: Tarefa 3 (continuação) · origem: PR #4, rodada 1",
+            "Simplificações (PR #4) · quando: Próximo PR que tocar esses arquivos · origem: PR #4, rodada 1",
+            "Cobertura que ainda não existe · quando: Próximo PR que tocar os testes de tela · origem: PR #4, rodada 1",
+            "API de painéis antes do `iniciar` (para a tarefa 6) · quando: Tarefa 6 · origem: PR #4, rodada 2",
+            "Título do topo depois do Atualizar · quando: Próximo PR que tocar o Atualizar · origem: PR #4, rodada 2",
+            "Testes da rodada 2 do PR #4 mais fracos do que parecem · quando: Próximo PR que tocar esses testes · origem: PR #4, rodada 2",
+            "Modelo sem hora volta à fila a cada `conferir()` · quando: Próximo PR que tocar a galeria · origem: PR #4, rodada 2"
+          ]
+        },
+        {
+          "id": "T5",
+          "titulo": "5. Corpo-base e sliders",
+          "estado": "feito",
+          "resumo": "Corpo de 600 triângulos e 7 controles. PR #3.",
+          "depende": [
+            "T1"
+          ],
+          "pendencias": [
+            "`criar_personagem` pode apagar a pasta de outro pedido · quando: Tarefa 14 (bots criando em paralelo) · origem: PR #3, rodada 1",
+            "`compativel` não confere os ossos nem a versão do corpo-base · quando: Antes do corpo-base v2 ou do rig do M3 · origem: PR #3, rodada 1",
+            "`mesmosValores` trata controle ausente como 0 · quando: Próximo PR que tocar `faces.js` · origem: PR #3, rodada 1",
+            "Corpo-base, pontos para o rig · quando: M3 (rig e animações) · origem: PR #3, rodada 1",
+            "Fim de linha · quando: Coordenador · origem: PR #3, rodada 1"
+          ]
+        },
+        {
+          "id": "T6",
+          "titulo": "6. Peças",
+          "estado": "feito",
+          "resumo": "13 peças de personagem, 3 objetos por partes, pacotes grátis. PR #5.",
+          "depende": [
+            "T1"
+          ],
+          "pendencias": [
+            "Quaternius sem download agora · quando: Tarefa 6 (continuação) · origem: PR da tarefa 6",
+            "Peças de pacote acima do limite do PS1 · quando: Tarefa 11 · origem: PR da tarefa 6",
+            "Alças pelo mouse sem teste de navegador de verdade · quando: Tarefa 4 ou 15 · origem: PR da tarefa 6",
+            "Download dos pacotes: redirecionamento, prazo e tetos · quando: Tarefa 6 (continuação) ou 2 (antes de o instalador dar o editor a outras… · origem: PR #5, rodada 1",
+            "Trocar um pacote não é atômico · quando: Tarefa 6 (continuação) · origem: PR #5, rodada 1",
+            "Nomes reservados do Windows e `\\n` no fim · quando: Tarefa 6 (continuação) · origem: PR #5, rodada 1",
+            "Miniaturas da prateleira · quando: Tarefa 6 (continuação) · origem: PR #5, rodada 1",
+            "\"Par do outro lado\" não faz nada nas peças livres de um modelo assimétrico · quando: Tarefa 6 (continuação) · origem: PR #5, rodada 1",
+            "Peças de pacote de cabeça, costas, cintura e pés saem com a origem no meio da caixa · quando: Quando entrar um pacote com roupas · origem: PR #5, rodada 1",
+            "Desempenho e limite de argumentos · quando: Tarefa 13 (importar modelos de fora) ou 11 · origem: PR #5, rodada 1",
+            "Licença e créditos só em português · quando: Tarefa 6 (continuação) ou 4 · origem: PR #5, rodada 1",
+            "Simplificação (PR #5) · quando: Tarefa 6 (continuação) ou 4 · origem: PR #5, rodada 1",
+            "Prateleira apertada em 1366×768 · quando: Tarefa 4 (integração) · origem: PR #5, rodada 1",
+            "Pasta nova `assets/pecas/` · quando: Coordenador · origem: PR #5, rodada 1",
+            "Quaternius só dentro de um modelo finalizado · quando: Tarefa 6 (continuação) ou 14 · origem: PR #5, rodada 1",
+            "Campo `pecas` estragado no arquivo · quando: Tarefa 13 ou o próximo PR que tocar o campo · origem: PR #5, rodada 2",
+            "\"Voltar ao lugar\" assíncrono sem trava · quando: Tarefa 6 (continuação) ou 15 · origem: PR #5, rodada 2",
+            "`paraArquivo` grava peça pela metade · quando: Tarefa 6 (continuação) · origem: PR #5, rodada 2",
+            "Sobra do encaixe antigo da prateleira · quando: Tarefa 6 (continuação) · origem: PR #5, rodada 2",
+            "Linha antiga do `DECISOES.md` sobre a prateleira · quando: Coder · origem: PR #5, rodada 2",
+            "Painel \"Peças\" baixo no layout de fábrica · quando: Tarefa 6 (continuação) ou 15 · origem: PR #5, rodada 2",
+            "Cópia de emergência recusada inteira por causa do `pecas` · quando: Próximo PR que tocar o rascunho · origem: PR #5, rodada 3",
+            "Teste da queda com peças: higiene · quando: Próximo PR que tocar os testes de navegador · origem: PR #5, rodada 3",
+            "`doArquivo` ainda aceita o que o servidor recusa · quando: Próximo PR que tocar o campo · origem: PR #5, rodada 3",
+            "`paraArquivo` a cada cópia de emergência · quando: Junto com esse item · origem: PR #5, rodada 3"
+          ]
+        },
+        {
+          "id": "T7",
+          "titulo": "7. Descrever",
+          "estado": "feito",
+          "resumo": "Criar descrevendo com o Claude Code local, ao vivo; a primeira chamada real ainda não foi feita. PR #13.",
+          "depende": [
+            "T5",
+            "T6",
+            "T8"
+          ],
+          "pendencias": [
+            "O Claude Code de verdade nunca foi chamado · quando: Usuário / Coordenador, antes do teste com leigos · origem: PR da tarefa 7",
+            "Descrever não monta objetos nem usa as peças \"em qualquer lugar\" · quando: Tarefa 7 (continuação) ou 14 · origem: PR da tarefa 7",
+            "A imagem de referência só vai ao Claude Code · quando: Tarefa 7 (continuação) · origem: PR da tarefa 7",
+            "A linha de comando (tarefa 14) tem de seguir `comandos.json` e ainda não existe a rota de executar · quando: Tarefa 14 · origem: PR da tarefa 7",
+            "Qualquer programa do PC pode usar o limite do Claude Code pela rota local · quando: Tarefa 14 · origem: PR da tarefa 7",
+            "Pequenos da tarefa 7 · quando: Próximo PR que tocar esses arquivos · origem: PR da tarefa 7",
+            "Claude Code do Descrever: dar o contexto mínimo e deixar o Read explícito · quando: Coordenador / Coder, na primeira chamada real · origem: PR #13, rodada 1",
+            "Processo do Claude Code e pasta temporária não sobrevivem a uma queda do servidor · quando: Próximo PR que tocar o `descrever.py` · origem: PR #13, rodada 1",
+            "\"Desfazer este pedido\" fica ativo para sempre e não cobre todos os comandos · quando: Próximo PR que tocar o chat · origem: PR #13, rodada 1",
+            "Parar no meio de uma ideia deixa as peças dela no personagem; o tempo limite vira cartão uma ideia pela metade · quando: Próximo PR que tocar o `descrever.js` · origem: PR #13, rodada 1",
+            "Peças da pessoa e peças \"em qualquer lugar\" não funcionam pelo Descrever e pelo chat · quando: Próximo PR que tocar o `comandos.py` · origem: PR #13, rodada 1",
+            "`caminho descrever` pelo chat não abre a caixa · quando: Próximo PR que tocar o chat · origem: PR #13, rodada 1",
+            "Pequenos da rodada 1 do PR #13 · quando: Próximo PR que tocar esses arquivos · origem: PR #13, rodada 1",
+            "A varredura de português na tela em inglês compara o texto visível com os valores do `pt.json`, e o nome de um modelo criado pelos testes pode… · quando: Próximo PR que tocar o `tela.spec.mjs` · origem: PR #13, rodada 2",
+            "Aviso fixo de \"sem conexão\" com novas tentativas (ficou fora do PR `m1/erro-rede`). · quando: continuação da tarefa 7 · origem: PR #14"
+          ]
+        },
+        {
+          "id": "T8",
+          "titulo": "8. Provedores de IA",
+          "estado": "feito",
+          "resumo": "8 provedores, chaves no Gerenciador de Credenciais. PR #7.",
+          "depende": [
+            "T1"
+          ],
+          "pendencias": [
+            "Primeira chamada real de cada provedor · quando: Uso real, com a confirmação de custo",
+            "ElevenLabs sem preço: a geração fica desligada",
+            "Higgsfield: edição de imagem desligada e hosts de download não confirmados",
+            "Fal: textura (edição) desligada",
+            "Tripo: host real dos links de resultado e preço da textura",
+            "Meshy: preço em dólar do crédito",
+            "OpenAI e Gemini: modelos e formatos de erro",
+            "Kie.ai: download sem chave e preço do crédito",
+            "A origem de um gasto ainda depende do `Origin` · quando: Tarefa 14 · origem: PR #7",
+            "Mensagens do servidor só em português",
+            "Conferência de custo pelo saldo pode errar com a conta em uso ao mesmo tempo",
+            "Testes de navegador instáveis · quando: Próximo PR que tocar `servidor.py` ou o `editor.js` · origem: PR #7",
+            "Tempo esgotado com cobrança depois não é conferido · quando: Próximo PR da camada · origem: PR #7, rodada 1",
+            "`estados` e `contas.json` sem trava · quando: Próximo PR da camada · origem: PR #7, rodada 1",
+            "`filtrar_estrutura` relê as fontes a cada texto · quando: Próximo PR da camada · origem: PR #7, rodada 1",
+            "Aprovar pedido de bot com geração em andamento · quando: Tarefa 14 · origem: PR #7, rodada 1",
+            "Imagem de referência ignorada sem aviso · quando: Tarefa 7 · origem: PR #7, rodada 1",
+            "`contas.spec` apaga as chaves do servidor que responder na porta · quando: Tarefa 8 · origem: PR #7, rodada 1",
+            "Higiene de segurança menor · quando: Próximo PR da camada · origem: PR #7, rodada 1",
+            "Simplificação (camada de provedores) · quando: Próximo PR da camada · origem: PR #7, rodada 1",
+            "Tripo na China usa outro host · quando: Uso real · origem: PR #7, rodada 1",
+            "Isolamento da `salvar.spec` · quando: Próximo PR que tocar os testes de navegador · origem: PR #7, rodada 1",
+            "Processo: `PENDENCIAS.md` editado pelo Coder · quando: Coordenador · origem: PR #7, rodada 1",
+            "A retomada grava outra linha no livro para a mesma cobrança · quando: Próximo PR da camada · origem: PR #7, rodada 2",
+            "\"Pode ter cobrado\" só aparece quando o veredito é \"não conferido\" · quando: Próximo PR da camada · origem: PR #7, rodada 2",
+            "Retomada que falha por outro motivo deixa a geração paga sem saída · quando: Próximo PR da camada · origem: PR #7, rodada 2",
+            "Saldo negativo é tratado como resposta estranha · quando: Próximo PR da camada · origem: PR #7, rodada 2",
+            "Pedido de bot: o resultado da retomada não propaga o erro · quando: Tarefa 14 · origem: PR #7, rodada 2",
+            "Gemini: um 429 de crédito acabado não manda a pessoa recarregar · quando: Uso real · origem: PR #7, rodada 2"
+          ]
+        },
+        {
+          "id": "T9",
+          "titulo": "9. Pintura",
+          "estado": "feito",
+          "resumo": "Peça toda, espelhar, efeitos, adesivos, pintar descrevendo. PR #12.",
+          "depende": [
+            "T8"
+          ],
+          "pendencias": [
+            "Pintura, o que ficou de fora (Coder, tarefa 9) · quando: Tarefa 11 ou o próximo PR que tocar `textura.js` · origem: PR da tarefa 9",
+            "Pintura, rodada 1 do PR #12 (Revisor), não bloqueantes · quando: Tarefa 11 ou o próximo PR que tocar `textura.js` · origem: PR #12, rodada 1"
+          ]
+        },
+        {
+          "id": "T10",
+          "titulo": "10. Estilos e materiais",
+          "estado": "feito",
+          "resumo": "4 estilos, 24 materiais e barra de limites. PR #8.",
+          "depende": [
+            "T1"
+          ],
+          "pendencias": [
+            "Estilos e materiais, o que ficou de fora (Coder, tarefa 10)",
+            "Corrida entre o \"Otimizar sozinho\" e um Salvar · quando: Tarefa 10 (rodada 2) ou 11 · origem: PR #8, rodada 1",
+            "`otimizar` que falha no meio deixa texturas já trocadas · quando: Tarefa 10 · origem: PR #8, rodada 1",
+            "Cache de `analisar_png` · quando: Próximo PR que tocar `bmodel.py` · origem: PR #8, rodada 1",
+            "Desempenho das contas de textura e malha · quando: Quando ficar lento · origem: PR #8, rodada 1",
+            "O teste de numpy deixa `reducao.np = None` · quando: Tarefa 10 · origem: PR #8, rodada 1",
+            "Testes de navegador com o \"Otimizar sozinho\" desligado · quando: Tarefa 10 ou 11 · origem: PR #8, rodada 1",
+            "Capturas dos materiais sem o material aplicado · quando: Tarefa 10 · origem: PR #8, rodada 1",
+            "A cópia de emergência não leva o material do \"Aplicar material\" · quando: Próximo PR que tocar o rascunho ou o material · origem: PR #8, rodada 2",
+            "A trava por modelo não cobre todas as gravações · quando: Tarefa 10 (rodada 3) ou 11 · origem: PR #8, rodada 2",
+            "Leitores de textura ainda sem o `realpath` · quando: Próximo PR que tocar `bmodel.py` · origem: PR #8, rodada 2",
+            "`_reservar_id` deixa pasta vazia se o servidor cair no meio · quando: Próximo PR da conversão · origem: PR #8, rodada 2",
+            "Pequenos da rodada 2 · quando: Próximo PR do material · origem: PR #8, rodada 2"
+          ]
+        },
+        {
+          "id": "T11",
+          "titulo": "11. Automações e desfazer",
+          "estado": "feito",
+          "resumo": "Arrumações com aviso e Desfazer, Ctrl+Z sem limite, Histórico e Conferir modelo, que a tarefa 12 usa. PR #15.",
+          "depende": [
+            "T1"
+          ],
+          "pendencias": [
+            "Automações, o que ficou de fora (Coder) · quando: próximo PR que tocar as automações · origem: PR #15",
+            "Automações, não bloqueantes da rodada 1 · quando: próximo PR que tocar as automações · origem: PR #15, rodada 1",
+            "Automações, achados do /code-review da rodada 1 · quando: próximo PR que tocar as automações · origem: PR #15, rodada 1",
+            "Automações, sobras da rodada 2 (Otimizar agora sem pergunta, erro 500 perde o parcial, frase em pt na tela em inglês) · quando: próximo PR que tocar as automações · origem: PR #15, rodada 2",
+            "Escala, sobras da rodada 3 (modelo pequeno em cm não é corrigido sozinho; sem botão para desfazer a recusa) · quando: próximo PR que tocar as automações · origem: PR #15, rodada 3"
+          ]
+        },
+        {
+          "id": "T12",
+          "titulo": "12. Exportar",
+          "estado": "feito",
+          "resumo": "Exportação para Unity, Unreal e Godot. Integrado. PR #19.",
+          "depende": [
+            "T10",
+            "T11"
+          ],
+          "pendencias": [
+            "Exportar: o que ficou de fora (Coder, tarefa 12) · quando: continuação da tarefa 12 · origem: PR #19",
+            "Exportar: não bloqueantes da rodada 1 do Revisor (PR #19) · quando: continuação da tarefa 12 · origem: PR #19",
+            "Exportar: o que a rodada 2 do PR #19 deixou (Coder) · quando: continuação da tarefa 12 · origem: PR #19",
+            "Exportar: não bloqueantes da rodada 2 do Revisor (PR #19) · quando: continuação da tarefa 12 · origem: PR #19"
+          ]
+        },
+        {
+          "id": "T13",
+          "titulo": "13. Galeria e arquivos",
+          "estado": "feito",
+          "resumo": "Pastas, lixeira, variação, importação e pacote .blended. Integrado. PR #16.",
+          "depende": [
+            "T3"
+          ],
+          "pendencias": [
+            "Prévias pagas: falta \"terminar a escolhida\". · quando: continuação da tarefa 13 · origem: PR #16",
+            "Importar de fora: o que a tarefa 13 não provou · quando: continuação da tarefa 13 · origem: PR #16",
+            "Galeria: ficou para depois · quando: continuação da tarefa 13 · origem: PR #16",
+            "Quaternius no Enviar e no \"Virar peça\" · quando: continuação da tarefa 13 · origem: PR #16",
+            "Campo `pecas` estragado no arquivo e o .blended · quando: continuação da tarefa 13 · origem: PR #16",
+            "Importar de fora: a conferência antes do Blender ainda deixa passar · quando: continuação da tarefa 13 · origem: PR #16",
+            "Testes do PR #16 que não pegam a mutação · quando: continuação da tarefa 13 · origem: PR #16",
+            "Simplificações do PR #16 · quando: continuação da tarefa 13 · origem: PR #16",
+            "Variação e etiquetas de cor erram em texturas reais · quando: continuação da tarefa 13 · origem: PR #16",
+            "Galeria: furos pequenos achados na leitura · quando: continuação da tarefa 13 · origem: PR #16",
+            "`.blended`: o que ainda chega como erro 500 e o que não reabre · quando: continuação da tarefa 13 · origem: PR #16",
+            "Importar: tamanho acima de 20 m e código sobrando · quando: continuação da tarefa 13 · origem: PR #16"
+          ]
+        },
+        {
+          "id": "T14",
+          "titulo": "14. CLI para bots",
+          "estado": "em-andamento",
+          "resumo": "Revisão independente e correções locais: passos salvos antes de trocar o alvo, histórico preservado, teclado bloqueado durante o bot e proteção das contas. Regressões passaram; correções aguardam revisão e integração.",
+          "depende": [
+            "T3"
+          ],
+          "pendencias": []
+        },
+        {
+          "id": "T15",
+          "titulo": "15. Ajuda e suporte",
+          "estado": "em-andamento",
+          "resumo": "Tutorial e diagnóstico validados novamente. Corrigida a leitura do PNG para limitar a descompressão e recusar cabeçalho repetido/dados inválidos. Correções aguardam revisão; validação humana T16 pendente.",
+          "depende": [
+            "T1"
+          ],
+          "pendencias": []
+        },
+        {
+          "id": "T16",
+          "titulo": "16. Teste com leigos",
+          "estado": "bloqueado",
+          "resumo": "Um leigo cria, pinta e exporta em até 10 min.",
+          "depende": [
+            "T1",
+            "T2",
+            "T3",
+            "T4",
+            "T5",
+            "T6",
+            "T7",
+            "T8",
+            "T9",
+            "T10",
+            "T11",
+            "T12",
+            "T13",
+            "T14",
+            "T15"
+          ],
+          "pendencias": []
+        }
+      ]
+    },
+    {
+      "id": "M2",
+      "nome": "M2 · Ajuste fino da forma",
+      "estado": "futura"
+    },
+    {
+      "id": "M3",
+      "nome": "M3 · Rig e animações",
+      "estado": "futura",
+      "descricao": "Frente de trabalho retomada em 20/10: movimentos locais no corpo-base e rigs importados compatíveis, em revisão. M1 permanece aberta em 12/16 integradas. Rig de malhas sem esqueleto e piloto do Puppet Studio continuam pendentes; nada integrado.",
+      "itens": [
+        {
+          "id": "M3-E1",
+          "titulo": "1. Preparar a primeira entrega",
+          "estado": "em-andamento",
+          "resumo": "Base e invariantes mapeadas. Primeira fatia adotada: movimentos no corpo-base, reaproveitando os 23 ossos. Plano e critérios de trabalho registrados; revisão independente pendente.",
+          "pendencias": []
+        },
+        {
+          "id": "M3-E2",
+          "titulo": "2. Rig automático",
+          "estado": "a-fazer",
+          "resumo": "Geração de esqueleto para malhas importadas sem rig continua pendente. Puppet Studio é opção em avaliação, com piloto da demo previsto para a noite; não foi adotado. A compatibilidade de rigs já existentes foi ampliada nesta continuação.",
+          "depende": [
+            "M3-E1"
+          ],
+          "pendencias": []
+        },
+        {
+          "id": "M3-E3",
+          "titulo": "3. Animações prontas",
+          "estado": "em-andamento",
+          "resumo": "Andar, correr e atacar no corpo-base e em importados com a mesma estrutura validada. Preserva dados e animações anteriores, sem acrescentar controles do corpo-base. Em revisão local, sem integração.",
+          "depende": [
+            "M3-E1"
+          ],
+          "pendencias": []
+        },
+        {
+          "id": "M3-E4",
+          "titulo": "4. Validar e revisar o fluxo completo",
+          "estado": "em-andamento",
+          "resumo": "31 JS, 64 Python e cinco cenários distintos focados de navegador passaram. Importação e reexportação de FBX/GLB com pele animada conferidas no Blender. Faltam rig sem esqueleto, avaliação humana, engines e revisão independente.",
+          "depende": [
+            "M3-E2",
+            "M3-E3"
+          ],
+          "pendencias": []
+        }
+      ]
+    },
+    {
+      "id": "M4",
+      "nome": "M4 · Cenários",
+      "estado": "futura"
+    }
+  ]
+}

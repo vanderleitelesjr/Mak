@@ -1,0 +1,103 @@
+{
+  "data": "2026-10-21",
+  "modulos": [
+    {
+      "nome": "Catálogo, regras e variantes",
+      "estado": "Implementado localmente",
+      "implementado": "38 tipos oficiais, 48 capacidades, catálogo canônico/imutável, armas compartilhadas, uma base por variante, origem/restauração, referências, snapshots e hashes. Regras oficiais em regras.txt; handles ushort locais a partir de 256.",
+      "decisoes": "ED47–ED51, ED84–ED85",
+      "pendente": "Fechar inventário de consumidores fixos, combinações e migração integral; ED50 ainda aberto."
+    },
+    {
+      "nome": "Mapa e paletas",
+      "estado": "Implementado localmente",
+      "implementado": "Materiais, passagem, água, altura/suavização, área jogável livre, unidades, estruturas, props, recursos, regiões, pontos, kits e consulta de rota. Colocação validada e histórico por operação.",
+      "decisoes": "ED20–ED29, ED45–ED46, ED80",
+      "pendente": "Conferir gestos, seleção/arraste, recorte visual, navegação e ferramentas na janela."
+    },
+    {
+      "nome": "Objetos e produtividade",
+      "estado": "Implementado localmente",
+      "implementado": "Inspetor de tipo/instância, capacidades/referências, variantes, usos, busca global, filtros, favoritos, edição múltipla, seleção compartilhada e painéis redimensionáveis.",
+      "decisoes": "ED49, ED69–ED70, ED79",
+      "pendente": "Validar todos os caminhos sem recorrer aos documentos avançados."
+    },
+    {
+      "nome": "Participantes e times",
+      "estado": "Implementado localmente",
+      "implementado": "Controle individual, times fixos, visão/abastecimento aliados configuráveis e condições iniciais de missão. Economia e redes por dono; manutenção do dono da fonte.",
+      "decisoes": "ED30–ED34, ED38–ED39, ED44, ED77",
+      "pendente": "Conferir controles/visão do player exportado e modelo opcional de abertura econômica."
+    },
+    {
+      "nome": "Escolta e objetivos",
+      "estado": "Implementado e testado em recortes",
+      "implementado": "Alvo aliado específico, rota, proximidade humana, pausa por combate, espera/evento de bloqueio, vitória no destino e derrota pela morte. Exemplo criado pelas operações de autoria.",
+      "decisoes": "ED16, ED33, ED35, ED40–ED43",
+      "pendente": "Ciclo completo de autoria e jogo ainda precisa do aceite humano."
+    },
+    {
+      "nome": "IA de missão",
+      "estado": "Implementado localmente",
+      "implementado": "Perfis parametrizáveis de defensor, patrulha e emboscada, acionados pelo grafo. Perfis inativos suspendem ataque autônomo. IA econômica existente preservada e classificadores migrados.",
+      "decisoes": "ED36–ED37",
+      "pendente": "Não equivale a editor livre de IA econômica; cobertura de combinações ainda parcial."
+    },
+    {
+      "nome": "Grafos e subgrafos",
+      "estado": "Implementado e testado em recortes",
+      "implementado": "Eventos/condições/ações/variáveis, esperas, portas explícitas, extração de subgrafo, contextos independentes, fila/descarte e ordem determinística. Recursão/profundidade inválidas recusadas.",
+      "decisoes": "ED53–ED56",
+      "pendente": "Extração inicial: uma entrada e no máximo uma continuação externa; validar experiência na janela."
+    },
+    {
+      "nome": "Depuração",
+      "estado": "Implementado e testado em recortes",
+      "implementado": "Breakpoints por nó, inspeção/histórico, passo de nó, pausa no erro e estado preservado. Comandos durante pausa/congelamento aguardam retomada.",
+      "decisoes": "ED57–ED60",
+      "pendente": "Sem retorno interativo no tempo; confirmar legibilidade e uso humano."
+    },
+    {
+      "nome": "Câmeras e timeline",
+      "estado": "Implementado e testado em recortes",
+      "implementado": "Quadros/eventos em ticks, gameplay contínuo ou congelado, pausa de depuração distinta, pular, conclusão comum única, restauração de enquadramento/controles.",
+      "decisoes": "ED61–ED68",
+      "pendente": "Timeline inicial de câmera e eventos; interface inteira ainda sem validação visual."
+    },
+    {
+      "nome": "Documentos e gravação segura",
+      "estado": "Implementado e testado em recortes",
+      "implementado": "XML/UTF-8 por documento/definição, lote, undo/redo, rascunhos, recuperação separada, staging/cópia anterior, conflitos externos inclusive XML quebrado e monitor FileSystemWatcher.",
+      "decisoes": "ED10, ED52, ED71–ED74",
+      "pendente": "Conferir monitor, conciliação/recuperação na janela e experiência de aceitar atualização de base."
+    },
+    {
+      "nome": "Sessão, missão e diagnóstico",
+      "estado": "Implementado; prova nativa parcial",
+      "implementado": "Exportação/importação .gemission, sessão .gesession com mundo/fluxos/IA/câmera/entradas e conteúdo congelado, reprodução e diagnóstico local. Incompatíveis recusados.",
+      "decisoes": "ED14, ED75–ED76, ED81–ED83",
+      "pendente": "Não é prova completa do player/usabilidade; sem conversão automática dos saves/replays antigos."
+    },
+    {
+      "nome": "Aplicativo independente",
+      "estado": "Build 9 gerado",
+      "implementado": "Unity/C# Windows, runtime incluído, prévia com malha/modelos GE, altitude de voo, névoa, cores aliadas e contorno livre. Aproximadamente 620 MB, desenvolvimento.",
+      "decisoes": "ED6, ED9, ED28, ED60",
+      "pendente": "Prévias 3D reais disponíveis; captura oculta da janela ficou preta, sem repaint. Interface completa não validada."
+    },
+    {
+      "nome": "CLI e MCP",
+      "estado": "Implementado; protocolo exercitado",
+      "implementado": "19 ferramentas stdio pela mesma biblioteca de operações, histórico e validação. Edição por revisão esperada; pasta autorizada na inicialização. 13 respostas reais registradas.",
+      "decisoes": "ED5, ED74",
+      "pendente": "Configuração MCP global não alterada; nenhuma publicação/envio automático."
+    },
+    {
+      "nome": "Campanhas e C# autoral",
+      "estado": "Entrega seguinte",
+      "implementado": "Encadeamento de campanha e edição/execução de C# do autor permanecem no produto planejado. Primeira entrega chama funções prontas revisadas.",
+      "decisoes": "ED18–ED19, ED12–ED13",
+      "pendente": "Não apresentar esses recursos das artes como implementados."
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "checkedAt": "2026-10-20T14:08:47.567Z",
+  "version": "0.2.2",
+  "status": "Approved chat visual implemented, verified in browser and isolated Windows, and packaged locally",
+  "validation": {
+    "coreTestsPassed": 112,
+    "browserCasesPassed": 37,
+    "desktopCasesPassed": 37,
+    "fullRunStats": {
+      "startTime": "2026-10-20T14:04:31.035Z",
+      "duration": 164007.621,
+      "expected": 73,
+      "skipped": 0,
+      "unexpected": 1,
+      "flaky": 0
+    },
+    "focusedRunStats": {
+      "startTime": "2026-10-20T14:08:04.221Z",
+      "duration": 6524.279,
+      "expected": 2,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "uniqueCasesPassed": 74,
+    "rerunReason": "The Windows tour test read onboarding state before its asynchronous settings write finished. Only the test was changed to await persistence; the focused browser and Windows rerun passed. Production sources were unchanged after the full run.",
+    "coreLog": "E:/MrMak/GameUIEditor/.local/chat-core-final.log",
+    "uiLog": "E:/MrMak/GameUIEditor/.local/chat-ui-final.log",
+    "uiReport": "E:/MrMak/GameUIEditor/.local/e2e-results/report.json",
+    "focusedReport": "E:/MrMak/GameUIEditor/.local/chat-tour-rerun.json",
+    "realInference": false,
+    "newUnityRuntimeProof": false,
+    "installerInstallUpdateUninstallRerun": false,
+    "archives": {
+      "checkedAt": "2026-10-20T14:08:41.0138788Z",
+      "archives": [
+        {
+          "file": "portable-windows.zip",
+          "verifiedFiles": 44,
+          "sha256": "57c3011cc09a2ae60795536cb802061920579bbb54cb0e8fbacceb6ab1122777"
+        },
+        {
+          "file": "editable-sources.zip",
+          "verifiedFiles": 143,
+          "sha256": "79a3cdb033ffec3a246f3c448ee4989d6928fee4236809f554b09ab59a06dfca"
+        },
+        {
+          "file": "unity-integration.zip",
+          "verifiedFiles": 25,
+          "sha256": "cd2340f8ecfb994c7595a567bf9047b6fa4cdadc516893f303fd71f1e009cece"
+        },
+        {
+          "file": "portable-ge-pilot.zip",
+          "verifiedFiles": 7,
+          "sha256": "aabdab72481d01faa2e53a1153fa4ec2ab753fab832073cf5640300eadac8113"
+        }
+      ],
+      "verifiedFiles": 219,
+      "installerHashMatches": true,
+      "privatePaths": false,
+      "newUnityRuntimeProof": false,
+      "errors": []
+    }
+  },
+  "boundaries": {
+    "explicitSendContinue": true,
+    "reviewAndSavePreserved": true,
+    "unitySynchronizationSeparate": true,
+    "historyPrivate": true,
+    "heightPersistence": "open editor session only",
+    "ownerInstallation": "0.2.0, preserved",
+    "activeSessionsRestarted": false,
+    "committed": false,
+    "published": false
+  },
+  "sourceHashes": {
+    "src/assistant.tsx": "7545d08bf7cf3ff8469a2eab8828ffff0693b9d4479bad4dfd866f8a2e5f7447",
+    "src/assistant.css": "9932fc90b18cb72d3ad1078dd3cb0693c85576359da55bf958ebe942af7802bf",
+    "src/style.css": "02606f0cabd7f38b47f4533ffd144c86e124e7767d56fd67c9a55f11189a53a0",
+    "src/theme.css": "ad7518f220382709cd5ee909df6f4b5e2cc927ce4f58f747d3331d426c3eee7b",
+    "src/authoring-feedback.css": "6de0872e640ed11822ba7fb92a0ebb9beba9eb430230f8a5afe80b4d4a180520",
+    "src/visual.tsx": "4cdc1eb6cd273d3e7a25055255291facdcf7c320b5ad41af46483f829b88257d",
+    "src/help.tsx": "17b37af6a5bc2cd341f6c3d50df542665fc7cd7ca2c55064a092617f330f86f6",
+    "test/e2e/chat-layout.spec.ts": "e743147824d4440a868e3db1bae4d56bf95f0da7398db7e7e1fe6dfaacb7e036",
+    "test/e2e/agent.spec.ts": "7bee32fd530a58e652bb5e4865f9a66473cd50639d1ad9064474f4f20acd2d2c",
+    "test/e2e/codex.spec.ts": "6b8ff20c250cbd166b72443b84dc37e812fde6959bac5f31fb7047c04ec428ef",
+    "test/e2e/corrections.spec.ts": "94a66e090cdc9a52d54ea6cc80e1a4755181fa27302865c91b8943ff54d37a1a",
+    "test/e2e/hierarchy-text.spec.ts": "3063743af823e12cc55b71fe79f17f59899a2d2b8fc6e48ac7a9a37adb02dc9e",
+    "test/e2e/tour.spec.ts": "daa7673942540bba47b869bcbfe94d79009a796f5adfdff36d650d8a2eaaead1",
+    "test/installer.mjs": "6ee6a3e4bb2839f4b9113b8589bcfb8b0a6bc3221c1e46db02a3b1df1beabb5d",
+    "docs/setup.md": "dcba2680ba2de0e68d3a364fafb92e462f0f87ad07e806e0bd6e7a7d33342802",
+    "package.json": "86a12981e59e25175dec0ff7999731c64371a74bf662eeaec22fc145b66c57ba",
+    "package-lock.json": "6a9331daf792abfdc04aac939a835ed12afe8bde8105a6476f68923b5c196f41",
+    "src-tauri/Cargo.toml": "e698df81004fdb1ccbec756f62ec0bf3b409b2a73a51262c35ed5c7cfca6a92c",
+    "src-tauri/Cargo.lock": "09f7ecf418ddca2a3c32e106679d172d88846172460ef2ca7356338b7ce289a9",
+    "src-tauri/tauri.conf.json": "defdf86a3113990ae28249a75e8aa26c4f64e8e030b989324f6095b3a583f751"
+  },
+  "artifacts": {
+    "folder": "E:/MrMak/GameUIEditor/.local/releases/game-ui-editor-0.2.2-20261020T140803525Z",
+    "version": "0.2.2",
+    "createdAt": "2026-10-20T14:08:08.410Z",
+    "published": false,
+    "signed": false,
+    "archives": [
+      {
+        "file": "portable-windows.zip",
+        "sha256": "57c3011cc09a2ae60795536cb802061920579bbb54cb0e8fbacceb6ab1122777",
+        "bytes": 37344030
+      },
+      {
+        "file": "editable-sources.zip",
+        "sha256": "79a3cdb033ffec3a246f3c448ee4989d6928fee4236809f554b09ab59a06dfca",
+        "bytes": 446053
+      },
+      {
+        "file": "unity-integration.zip",
+        "sha256": "cd2340f8ecfb994c7595a567bf9047b6fa4cdadc516893f303fd71f1e009cece",
+        "bytes": 52098
+      },
+      {
+        "file": "portable-ge-pilot.zip",
+        "sha256": "aabdab72481d01faa2e53a1153fa4ec2ab753fab832073cf5640300eadac8113",
+        "bytes": 429981
+      }
+    ],
+    "installer": {
+      "file": "Game UI Editor_0.2.2_x64-setup.exe",
+      "sha256": "f69b1446699dfa45f2bb161d5e10ecfe4915576fccb30bb9f44e4dcdaf2a4dbb",
+      "bytes": 25334265
+    }
+  },
+  "screenshots": [
+    {
+      "arquivo": "media/chat-0.2.2/chat-dark.png",
+      "legenda": "Chat real em tema escuro — Windows isolado, peer determinístico.",
+      "sha256": "7f035336956dfca9846e218f73d0e13c8e75c8b44e0e96bf30231bdee071bb95"
+    },
+    {
+      "arquivo": "media/chat-0.2.2/chat-light.png",
+      "legenda": "Mesmo fluxo no tema claro — texto e anexo privados, sem inferência real.",
+      "sha256": "dc0167caf846a7f676f351f8a985d45c60210dd6dbdd0d7e30c20361261eb503"
+    },
+    {
+      "arquivo": "media/chat-0.2.2/chat-narrow.png",
+      "legenda": "Divisor e compositor alcançáveis em tela estreita — Windows isolado.",
+      "sha256": "d1d3d2d46eed5e2f6425558ce4187169d6868fc030e4a6c6ca738c96b4d31130"
+    },
+    {
+      "arquivo": "media/chat-0.2.2/chat-history.png",
+      "legenda": "Histórico com leitura preservada e painel de configurações independente.",
+      "sha256": "96fb60abb9302d53ec176a8cdb50aef4c85daa22354e09832c353c2c1bc0a8d3"
+    }
+  ],
+  "reference": "chat-proposal.html",
+  "workspacePreview": {
+    "checkedAt": "2026-10-20T14:11:54.786Z",
+    "registeredTabs": 7,
+    "checks": 48,
+    "images": 120,
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "errors": [],
+    "scratch": "E:\\MrMak\\Mak\\.local\\chat-delivery-preview-oewoCD"
+  }
+}

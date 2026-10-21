@@ -1,0 +1,27 @@
+{
+  "id": "lightkeeper",
+  "titulo": "Lightkeeper",
+  "sobre": "Survival horror single-player na Unreal Engine 5.8.3, estética PS1, em 11 níveis descendo do pátio do castelo aos níveis abissais. Foco atual: a fatia jogável do nível 0, o Pátio Arruinado.",
+  "tema": "base",
+  "destaque": "#d9a441",
+  "capa": "media/capa/keyart-ultima-vela.webp",
+  "janelaDias": 30,
+  "areas": [
+    { "id": "jogo", "cor": "#d9a441", "icone": "codigo" },
+    { "id": "arte", "cor": "#e08a9c", "icone": "arte" },
+    { "id": "áudio", "cor": "#55b89a", "icone": "audio" },
+    { "id": "editor de mapas", "cor": "#6f9fd8", "icone": "mundo" },
+    { "id": "editor de modelos", "cor": "#9a90d8", "icone": "caixa" },
+    { "id": "ferramentas", "cor": "#8fa3b8", "icone": "ferramentas" }
+  ],
+  "categoriasExtras": ["Capturas"],
+  "repositorio": "E:/Claude Projects/Lightkeeper",
+  "abas": [
+    { "modulo": "painel", "nome": "Painel" },
+    { "modulo": "roteiro", "nome": "Roteiro" },
+    { "modulo": "entregas", "nome": "Entregas" },
+    { "modulo": "decisoes", "nome": "Decisões" },
+    { "modulo": "acervo", "nome": "Acervo" },
+    { "modulo": "arquivo", "nome": "Arquivo" }
+  ]
+}

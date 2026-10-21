@@ -1,0 +1,68 @@
+{
+  "sobre": "Estado de agora. Reescreva a cada atualização e rode o motor; o Painel deve caber numa tela. Os números com @ são calculados dos outros JSON.",
+  "estado": "Consolidação local testada; M1 e M3 continuam abertas",
+  "numeros": [
+    {
+      "rotulo": "M1",
+      "valor": "@roteiro.progresso",
+      "icone": "marco"
+    },
+    {
+      "rotulo": "Main",
+      "valor": "b4e12e1",
+      "icone": "codigo"
+    },
+    {
+      "rotulo": "M1 integrada",
+      "valor": "12 de 16 tarefas",
+      "icone": "entrega"
+    },
+    {
+      "rotulo": "Histórico catalogado",
+      "valor": "160 registros",
+      "icone": "risco"
+    },
+    {
+      "rotulo": "Decisões",
+      "valor": "@decisoes.total",
+      "icone": "livro"
+    },
+    {
+      "rotulo": "Executor do CI",
+      "valor": "desligado",
+      "icone": "engrenagem"
+    }
+  ],
+  "agora": [
+    {
+      "titulo": "Animação manual persistente",
+      "texto": "Renderização uniforme, alvo de olhar e Shift para ajuste fino. Cartões salvos e recuperados pelo rascunho; idioma preserva editor e quadro. Fontes reunidas na worktree local/consolidacao-pendencias. Sem commit ou integração na main."
+    },
+    {
+      "titulo": "Puppet, Kimodo e correções reunidos",
+      "texto": "Puppet externo: 18 pontos, cópia com 71 ossos e três animações. Kimodo: importação SOMA30/77 para 23 ossos. Versões, preferências, pintura, galeria, conexão e cobrança receberam correções. O inventário distingue correções, itens parciais e melhorias futuras."
+    },
+    {
+      "titulo": "Provas locais concluídas",
+      "texto": "841 testes Python (4 ignorados), 52 JS e 185 cenários de navegador. Os outros 2 cenários passaram na instância com NPZ Kimodo e addon Puppet locais. Candidato 6140dbd5ff26: 515 arquivos conferidos; abriu, pintou, salvou, restaurou versão e exportou GLB/FBX. Windows limpo pendente."
+    }
+  ],
+  "comVoce": [
+    {
+      "titulo": "Reteste e naturalidade",
+      "texto": "Conferir contornos, olhar, Shift e cartões. Avaliar encaixe/deformação do Puppet e contatos do Kimodo. T16 segue sem aceite; os testes técnicos não aprovam o resultado visual."
+    },
+    {
+      "titulo": "Ambiente Kimodo e contas reais",
+      "texto": "Geração Kimodo precisa de Torch, modelos em cache e acesso ao Llama. PT15/PT17 e os provedores continuam parciais sem teste real das contas. Nenhuma chamada real ou paga nesta consolidação."
+    },
+    {
+      "titulo": "Escopo e limitações",
+      "texto": "M2 precisa de critérios de aceite; M4 ainda precisa da primeira entrega definida. Os 160 registros históricos têm classificação própria; 31 seguem parciais e não foram marcados como resolvidos."
+    },
+    {
+      "titulo": "Distribuição e revisão",
+      "texto": "Faltam Windows limpo, revisão independente e integração autorizada. O addon Puppet permanece externo. Main b4e12e1 e M1 12/16 preservadas; CI desligado."
+    }
+  ]
+}

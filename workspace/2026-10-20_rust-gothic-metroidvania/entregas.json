@@ -1,0 +1,371 @@
+{
+  "entregas": [
+    {
+      "id": "runtime-proof-v01",
+      "data": "2026-10-20",
+      "area": "engine",
+      "titulo": "Blender-to-sprite and Rust runtime proof",
+      "resumo": "One 3D room with an animated normal-lit Blender sprite, collision, camera, common input mappings and an executable movement graph. Six tests passed; native Windows/DX12 startup presented 120 frames. Replay and matched lighting evidence are in Documentation.",
+      "olhar": "Technical armor and blockout only; not final visual approval. Physical keyboard/mouse/controller playtest remains pending. No visual editor or full gameplay circuit yet.",
+      "estado": "for review",
+      "refs": [
+        "D01",
+        "D06",
+        "D07",
+        "D08",
+        "D27",
+        "D29"
+      ]
+    },
+    {
+      "id": "design-scope",
+      "data": "2026-10-20",
+      "area": "design",
+      "titulo": "Prototype scope confirmed",
+      "resumo": "Requirements interview closed with 29 confirmed decisions. The complete specification is embedded in Documentation.",
+      "estado": "confirmed",
+      "refs": [
+        "D01-D29"
+      ]
+    },
+    {
+      "id": "scene-concepts-v01",
+      "data": "2026-10-20",
+      "area": "art",
+      "titulo": "Three gameplay-scene directions",
+      "resumo": "A: Iron Cathedral; B: Corroded Bastion; C: Sepulchral Forge. The owner selected B as the environment direction; all three originals and prompts are preserved.",
+      "estado": "confirmed",
+      "miniaturas": [
+        {
+          "arquivo": "media/cenario/scene-directions/scene-a-iron-cathedral-v01.webp",
+          "legenda": "A - Iron Cathedral"
+        },
+        {
+          "arquivo": "media/cenario/scene-directions/scene-b-corroded-bastion-v01.webp",
+          "legenda": "B - Corroded Bastion"
+        },
+        {
+          "arquivo": "media/cenario/scene-directions/scene-c-sepulchral-forge-v01.webp",
+          "legenda": "C - Sepulchral Forge"
+        }
+      ],
+      "refs": [
+        "VIS01"
+      ]
+    },
+    {
+      "id": "protagonist-concepts-v01",
+      "data": "2026-10-20",
+      "area": "art",
+      "titulo": "Three hollow-armor protagonist directions",
+      "resumo": "P01: Hollow Sentinel; P02: Reliquary Warden; P03: Penitent Harness. The owner selected P03 as the protagonist direction; all three boards and prompts are preserved.",
+      "estado": "confirmed",
+      "miniaturas": [
+        {
+          "arquivo": "media/personagens/protagonist/protagonist-p01-hollow-sentinel-v01.webp",
+          "legenda": "P01 - Hollow Sentinel"
+        },
+        {
+          "arquivo": "media/personagens/protagonist/protagonist-p02-reliquary-warden-v01.webp",
+          "legenda": "P02 - Reliquary Warden"
+        },
+        {
+          "arquivo": "media/personagens/protagonist/protagonist-p03-penitent-harness-v01.webp",
+          "legenda": "P03 - Penitent Harness"
+        }
+      ],
+      "refs": [
+        "VIS02"
+      ]
+    },
+    {
+      "id": "lower-gatehouse-v01",
+      "data": "2026-10-20",
+      "area": "art",
+      "titulo": "Lower Gatehouse — selected environment and protagonist combined",
+      "resumo": "Original scene combining B and P03, preserved as the baseline. Owner feedback: the protagonist blends into the environment; compare the five follow-up visibility treatments.",
+      "olhar": "Historical baseline for comparison with L01-L05.",
+      "estado": "for review",
+      "refs": [
+        "VIS01",
+        "VIS02"
+      ],
+      "miniaturas": [
+        {
+          "arquivo": "media/cenario/combined-scenes/scene-d-lower-gatehouse-v01.webp",
+          "legenda": "D - Lower Gatehouse · B + P03"
+        }
+      ]
+    },
+    {
+      "id": "lower-gatehouse-visibility-v02",
+      "data": "2026-10-20",
+      "area": "art",
+      "titulo": "L02 Cold Skylight selected from five visibility treatments",
+      "resumo": "The owner selected L02 as the final lighting/visibility reference. All five originals, exact edit prompts and the original gatehouse are preserved for comparison.",
+      "olhar": "Selected concept direction; implementation and runtime readability remain future technical work.",
+      "estado": "confirmed",
+      "refs": [
+        "VIS01",
+        "VIS02",
+        "VIS03"
+      ],
+      "miniaturas": [
+        {
+          "arquivo": "media/cenario/combined-scenes/scene-d-lower-gatehouse-v02-l02-cold-skylight.webp",
+          "legenda": "L02 — Cold Skylight · selected"
+        },
+        {
+          "arquivo": "media/cenario/combined-scenes/scene-d-lower-gatehouse-v02.webp",
+          "legenda": "L01 — Balanced Steel"
+        },
+        {
+          "arquivo": "media/cenario/combined-scenes/scene-d-lower-gatehouse-v02-l03-mist-silhouette.webp",
+          "legenda": "L03 — Mist Silhouette"
+        },
+        {
+          "arquivo": "media/cenario/combined-scenes/scene-d-lower-gatehouse-v02-l04-warm-firelight.webp",
+          "legenda": "L04 — Warm Firelight"
+        },
+        {
+          "arquivo": "media/cenario/combined-scenes/scene-d-lower-gatehouse-v02-l05-quiet-materials.webp",
+          "legenda": "L05 — Quiet Materials"
+        }
+      ]
+    },
+    {
+      "id": "rust-materials-concepts-v01",
+      "data": "2026-10-20",
+      "area": "art",
+      "titulo": "Rust and material language — B — Pitted cavities selected",
+      "resumo": "Owner selected B — Pitted cavities as the concept direction. All three PNG originals and exact prompts are preserved. Production/runtime verification remains separate.",
+      "olhar": "A uses layered flakes; B uses pitting and wet cavities; C uses brittle fins. The preserved samples still show considerable aging. B depicts armor deterioration as a material demonstration; only weapon/shield destruction is confirmed gameplay.",
+      "estado": "confirmed",
+      "refs": [
+        "VIS04"
+      ],
+      "miniaturas": [
+        {
+          "arquivo": "media/cenario/material-language/rust-materials-v01-b.webp",
+          "legenda": "B — Pitted cavities · selected"
+        },
+        {
+          "arquivo": "media/cenario/material-language/rust-materials-v01.webp",
+          "legenda": "A — Sheet flakes · alternative"
+        },
+        {
+          "arquivo": "media/cenario/material-language/rust-materials-v01-c.webp",
+          "legenda": "C — Brittle crusts · alternative"
+        }
+      ]
+    },
+    {
+      "id": "forge-transformation-concepts-v01",
+      "data": "2026-10-20",
+      "area": "art",
+      "titulo": "Forge before and after — C — Circular anvil and passage selected",
+      "resumo": "Owner selected C — Circular anvil and passage as the concept direction. All three PNG originals and exact prompts are preserved. Production/runtime verification remains separate.",
+      "olhar": "Three matched before/after proposals with different forge structures. B needs a spatial pass: its bridge positions do not yet prove a blocked-to-open playable route. These images are not room geometry or event validation.",
+      "estado": "confirmed",
+      "refs": [
+        "VIS05"
+      ],
+      "miniaturas": [
+        {
+          "arquivo": "media/cenario/forge-transformation/forge-transformation-v01-c.webp",
+          "legenda": "C — Circular anvil and passage · selected"
+        },
+        {
+          "arquivo": "media/cenario/forge-transformation/forge-transformation-v01.webp",
+          "legenda": "A — Hearth and gate · alternative"
+        },
+        {
+          "arquivo": "media/cenario/forge-transformation/forge-transformation-v01-b.webp",
+          "legenda": "B — Shaft furnace and lift · alternative"
+        }
+      ]
+    },
+    {
+      "id": "corroded-swordsman-concepts-v01",
+      "data": "2026-10-20",
+      "area": "art",
+      "titulo": "Corroded swordsman — B — Hunched Mail Veteran selected",
+      "resumo": "Owner selected B — Hunched Mail Veteran as the concept direction. All three PNG originals and exact prompts are preserved. Production/runtime verification remains separate.",
+      "olhar": "A is broad and rectangular, B hunched under mail, C tall with banded plate. Views and anticipation poses are concepts; articulation, pose timing and orthographic consistency remain unverified.",
+      "estado": "confirmed",
+      "refs": [
+        "VIS06"
+      ],
+      "miniaturas": [
+        {
+          "arquivo": "media/personagens/common-enemies/corroded-swordsman-v01-b.webp",
+          "legenda": "B — Hunched Mail Veteran · selected"
+        },
+        {
+          "arquivo": "media/personagens/common-enemies/corroded-swordsman-v01.webp",
+          "legenda": "A — Broad Gate Guard · alternative"
+        },
+        {
+          "arquivo": "media/personagens/common-enemies/corroded-swordsman-v01-c.webp",
+          "legenda": "C — Banded Watchman · alternative"
+        }
+      ]
+    },
+    {
+      "id": "corroded-archer-concepts-v01",
+      "data": "2026-10-20",
+      "area": "art",
+      "titulo": "Corroded archer — B — Mantled Wall Hunter selected",
+      "resumo": "Owner selected B — Mantled Wall Hunter as the concept direction. All three PNG originals and exact prompts are preserved. Production/runtime verification remains separate.",
+      "olhar": "A follows the selected armor family closely, B has a cloth mantle and C a rounded visor/mail silhouette. The drawn-bow tip in A is cropped. These are concepts, not complete animation or modeling sheets.",
+      "estado": "confirmed",
+      "refs": [
+        "VIS07"
+      ],
+      "miniaturas": [
+        {
+          "arquivo": "media/personagens/common-enemies/corroded-archer-v01-b.webp",
+          "legenda": "B — Mantled Wall Hunter · selected"
+        },
+        {
+          "arquivo": "media/personagens/common-enemies/corroded-archer-v01.webp",
+          "legenda": "A — Iron-Cowl Archer · alternative"
+        },
+        {
+          "arquivo": "media/personagens/common-enemies/corroded-archer-v01-c.webp",
+          "legenda": "C — Mail-and-Visor Bowman · alternative"
+        }
+      ]
+    },
+    {
+      "id": "fortress-boss-concepts-v01",
+      "data": "2026-10-20",
+      "area": "art",
+      "titulo": "Fortress boss proposals — C — Ashbound Colossus selected",
+      "resumo": "Owner selected C — Ashbound Colossus as the concept direction. All three PNG originals and exact prompts are preserved. Production/runtime verification remains separate.",
+      "olhar": "Three proposed silhouettes and weapon sets: castellan, shield warden and furnace colossus. Relative size is illustrative and differs from prompt targets. No boss name, dimensions, weapon or behavior is approved by this generation.",
+      "estado": "confirmed",
+      "refs": [
+        "VIS08"
+      ],
+      "miniaturas": [
+        {
+          "arquivo": "media/personagens/bosses/fortress-boss-v01-c.webp",
+          "legenda": "C — Ashbound Colossus · selected"
+        },
+        {
+          "arquivo": "media/personagens/bosses/fortress-boss-v01.webp",
+          "legenda": "A — Corroded Castellan · alternative"
+        },
+        {
+          "arquivo": "media/personagens/bosses/fortress-boss-v01-b.webp",
+          "legenda": "B — Gate Warden · alternative"
+        }
+      ]
+    },
+    {
+      "id": "exploration-signals-concepts-v01",
+      "data": "2026-10-20",
+      "area": "art",
+      "titulo": "Exploration and safety signals — B — Gothic stone insets selected",
+      "resumo": "Owner selected B — Gothic stone insets as the concept direction. All three PNG originals and exact prompts are preserved. Production/runtime verification remains separate.",
+      "olhar": "A favors heavy fittings, B Gothic niches, C broad stone. A/C hazard imagery can resemble embers; B depicts hanging at an anchor. Use these as object-language proposals: the confirmed hook pulls toward fixed anchors and does not add swinging.",
+      "estado": "confirmed",
+      "refs": [
+        "VIS09"
+      ],
+      "miniaturas": [
+        {
+          "arquivo": "media/cenario/gameplay-signals/exploration-signals-v01-b.webp",
+          "legenda": "B — Gothic stone insets · selected"
+        },
+        {
+          "arquivo": "media/cenario/gameplay-signals/exploration-signals-v01.webp",
+          "legenda": "A — Riveted fittings · alternative"
+        },
+        {
+          "arquivo": "media/cenario/gameplay-signals/exploration-signals-v01-c.webp",
+          "legenda": "C — Broad stone · alternative"
+        }
+      ]
+    },
+    {
+      "id": "essential-hud-concepts-v01",
+      "data": "2026-10-20",
+      "area": "art",
+      "titulo": "Essential gameplay HUD — B — Cathedral Tracery selected",
+      "resumo": "Owner selected B — Cathedral Tracery as the concept direction. All three PNG originals and exact prompts are preserved. Production/runtime verification remains separate.",
+      "olhar": "A uses dark riveted rectangles, B Gothic tracery, C pale panels. All are static raster proposals. Currency symbols, values, equipment meters and button assignments are illustrative; no control or numeric tuning is approved here.",
+      "estado": "confirmed",
+      "refs": [
+        "VIS10"
+      ],
+      "miniaturas": [
+        {
+          "arquivo": "media/interface/hud/essential-hud-v01-b.webp",
+          "legenda": "B — Cathedral Tracery · selected"
+        },
+        {
+          "arquivo": "media/interface/hud/essential-hud-v01.webp",
+          "legenda": "A — Riveted Iron · alternative"
+        },
+        {
+          "arquivo": "media/interface/hud/essential-hud-v01-c.webp",
+          "legenda": "C — Pale Relic Slates · alternative"
+        }
+      ]
+    },
+    {
+      "id": "reserve-inventory-concepts-v01",
+      "data": "2026-10-20",
+      "area": "art",
+      "titulo": "Paused reserve inventory — B — Cathedral Tracery selected",
+      "resumo": "Owner selected B — Cathedral Tracery as the concept direction. All three PNG originals and exact prompts are preserved. Production/runtime verification remains separate.",
+      "olhar": "Three matching UI families show pause, equipped gear and reserves. In A/C, the focused sword and WORN detail do not fully agree; state binding must be corrected in implementation. Text, descriptions, slot counts and glyphs remain illustrative.",
+      "estado": "confirmed",
+      "refs": [
+        "VIS11"
+      ],
+      "miniaturas": [
+        {
+          "arquivo": "media/interface/inventory/reserve-inventory-v01-b.webp",
+          "legenda": "B — Cathedral Tracery · selected"
+        },
+        {
+          "arquivo": "media/interface/inventory/reserve-inventory-v01.webp",
+          "legenda": "A — Riveted Iron · alternative"
+        },
+        {
+          "arquivo": "media/interface/inventory/reserve-inventory-v01-c.webp",
+          "legenda": "C — Pale Relic Slates · alternative"
+        }
+      ]
+    },
+    {
+      "id": "equipment-shop-concepts-v01",
+      "data": "2026-10-20",
+      "area": "art",
+      "titulo": "Replacement equipment shop — B — Cathedral Tracery selected",
+      "resumo": "Owner selected B — Cathedral Tracery as the concept direction. All three PNG originals and exact prompts are preserved. Production/runtime verification remains separate.",
+      "olhar": "Three UI families show affordable versus unaffordable purchases and reserve stock. Prices, icons, slot counts and button assignments are examples. No repair, selling, upgrades or merchant behavior is added to scope.",
+      "estado": "confirmed",
+      "refs": [
+        "VIS12"
+      ],
+      "miniaturas": [
+        {
+          "arquivo": "media/interface/shop/equipment-shop-v01-b.webp",
+          "legenda": "B — Cathedral Tracery · selected"
+        },
+        {
+          "arquivo": "media/interface/shop/equipment-shop-v01.webp",
+          "legenda": "A — Riveted Iron · alternative"
+        },
+        {
+          "arquivo": "media/interface/shop/equipment-shop-v01-c.webp",
+          "legenda": "C — Pale Relic Slates · alternative"
+        }
+      ]
+    }
+  ]
+}

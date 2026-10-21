@@ -1,0 +1,90 @@
+{
+  "sobre": "Gerado por coletores/ritualistic.mjs. Fases de Docs/Plan.md; uma fase está feita quando uma tag slice-f* a cita. A fase 12 (assets, áudio e atmosfera) corre em paralelo e fica como atual enquanto não tiver tag; o detalhe dela está na aba Pipeline.",
+  "unidade": "fases",
+  "fases": [
+    {
+      "id": "F0",
+      "nome": "Fase 0 · Fundação do projeto",
+      "estado": "feita",
+      "descricao": "Repositório git + LFS em `Ritualistic`, `.gitignore`/`.gitattributes` do Unreal; Projeto C++ `Unreal\\Ritualistic` (UE 5.8), módulo principal, plugins: Enhanced Input, PCG, StateTree, GameplayStateTree, Niagara, MetaSounds, Common UI, Modeling/Geometry Script; Configurações: Lumen, VSM, Nanite, perfis de escalabilidade; Estrutura de pastas do Content e convenções de nome; Gameplay Tags base e…"
+    },
+    {
+      "id": "F1",
+      "nome": "Fase 1 · Personagem e sobrevivência",
+      "estado": "feita",
+      "descricao": "First person com corpo completo (true first person: câmera na cabeça do mesh do corpo, sombra própria, mãos visíveis); o mesmo mesh serve em terceira pessoa; Movimento: andar, correr, agachar (furtividade), pular, esquiva; `UVitalsComponent`: HP, Spirit, Fadiga (stamina de curto prazo), Fome, necessidade de descanso; `UAttributeComponent`: Might, Agility, Spirit e suas derivadas (carga…"
+    },
+    {
+      "id": "F2",
+      "nome": "Fase 2 · Itens, inventário, equipamento e coleta",
+      "estado": "feita",
+      "descricao": "Inventário em grid com peso (Might), stacks; Equipamento: Head, Chest, Backpack, Left Hand, Right Hand; peças aparecem no corpo (skeletal mesh modular); Hotbars das duas mãos; Sistema de interação (trace + `IRitInteractable`); Nós de recurso: árvores, pedras, gravetos/pedras soltas, fibras, minérios; exigências de ferramenta e tier; Ferramentas: faca, lança, porrete, machado de guerra, machado…"
+    },
+    {
+      "id": "F3",
+      "nome": "Fase 3 · Mundo procedural",
+      "estado": "feita",
+      "descricao": "`URitWorldGenSubsystem`: seed → mapa de regiões (floresta densa, clareiras, elevações, margem do rio, área perigosa); Terreno em chunks com heightfield determinístico; rio principal escavado + córregos; montanhas; Cavernas simples (entradas pré-fabricadas + túneis curtos modulares); PCG em runtime: árvores, arbustos, pedras, recursos por região; Ruínas, círculo de pedras, totens e túmulos…"
+    },
+    {
+      "id": "F4",
+      "nome": "Fase 4 · Crafting e estações",
+      "estado": "feita",
+      "descricao": "Crafting manual com tempo e animação; Estações: fogueira (cozinhar), bancada, forno de argila, fornalha; Interação: preparar materiais, sequência de ações, minijogo de fole/temperatura na fornalha, martelar na bancada; cozinhar e forno apenas por tempo; Processamento de metais: minério → fundição → lingote de bronze → peças; Receitas desbloqueadas por conhecimento (Journal), não por menu"
+    },
+    {
+      "id": "F5",
+      "nome": "Fase 5 · Construção",
+      "estado": "feita",
+      "descricao": "Modo Build (B): lista de estruturas conhecidas, custo, fantasma no mundo, encaixe modular (sockets), validação de terreno; Peças: fundação, piso, parede, porta, janela, teto, fogueira, bancada, armazenamento, canteiro; Integridade simples, dano e reparo com martelo; Abrigo conta para descanso/sono"
+    },
+    {
+      "id": "F6",
+      "nome": "Fase 6 · Combate",
+      "estado": "feita",
+      "descricao": "Ataque leve, pesado, carregado; bloqueio; esquiva; custo de fadiga; Alcance e características por arma (dados); arremesso da lança com recuperação; Ataque furtivo (bônus por não ser detectado); Hit reactions, hitstop curto, câmera e som com peso"
+    },
+    {
+      "id": "F7",
+      "nome": "Fase 7 · Fauna",
+      "estado": "feita",
+      "descricao": "Lobos (matilha, caça, abandonam perseguição), ursos (territoriais), cervos e carneiros (pastam, fogem, migram), javalis (atacam se encurralados), raposas (oportunistas); Necessidades simples (fome, sono) e ciclos dia/noite; predador caça presa; Caça, esfolar (faca → couro, osso, carne), captura de animal ferido com corda (base para domesticação)"
+    },
+    {
+      "id": "F8",
+      "nome": "Fase 8 · Criaturas sobrenaturais",
+      "estado": "feita",
+      "descricao": "Draugr, Sluagh e Nøkken completos: IA, ataques, fraquezas, loot, região, áudio próprio; `URitHorrorDirector`: eventos de tensão sem combate (sons distantes, silêncio da fauna, aparições, mudanças sutis), com controle de frequência para evitar jumpscares"
+    },
+    {
+      "id": "F9",
+      "nome": "Fase 9 · Conhecimento, rituais, spells e skills",
+      "estado": "feita",
+      "descricao": "Journal com descoberta automática por categoria; Inscrições/totens que entregam fragmentos de conhecimento; Ritual \"Acendimento do Anel de Pedra\" executado fisicamente, com falhas e consequências; Spell Fogo-Fátuo + spell hotbar; Árvore de skills (Base Stats, Utility, Combat) com as primeiras skills"
+    },
+    {
+      "id": "F10",
+      "nome": "Fase 10 · UI completa",
+      "estado": "feita",
+      "descricao": "Conceitos de UI no Higgsfield, depois implementação em UMG/Common UI; Menu principal (New Game com seed, Load, Settings, Exit) ambientado; HUD, hotbars, telas Character (Tab), Crafting (T), Rituals (R), Spells (P), Skills (K), Journal, Map (com fog of war), Build (B)"
+    },
+    {
+      "id": "F11",
+      "nome": "Fase 11 · Save/Load",
+      "estado": "feita",
+      "descricao": "Save manual e automático em descanso; slots; Reconstrução do mundo pela seed + deltas"
+    },
+    {
+      "id": "F12",
+      "nome": "Fase 12 · Assets, áudio e atmosfera",
+      "estado": "atual",
+      "descricao": "Personagem jogador (corpo + peças de equipamento de tecido grosseiro, couro e bronze); 6 animais e 3 criaturas: Meshy → Blender (rig, animações, LODs) → Unreal; Ferramentas/armas em madeira, pedra, osso e bronze; estruturas; estações; props de ruína; Vegetação e rochas (Nanite); SFX e ambiências via ElevenLabs, mixados em MetaSounds; Iluminação e pós-processo da direção de arte (natural de dia…"
+    },
+    {
+      "id": "F13",
+      "nome": "Fase 13 · Integração e playtest",
+      "estado": "feita",
+      "descricao": "Rodar o loop completo do início ao Bronze, balancear, corrigir, medir performance nos perfis de escalabilidade"
+    }
+  ]
+}

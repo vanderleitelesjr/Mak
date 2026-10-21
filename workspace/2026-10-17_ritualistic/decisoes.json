@@ -1,0 +1,192 @@
+{
+  "sobre": "Gerado por coletores/ritualistic.mjs. O repositório não tem registro de decisões: entram a tabela \"Decisões técnicas\" do Plan.md e os códigos DD-nnn citados nos commits (a linha do tempo completa fica na galeria externa citada no README).",
+  "fonte": "Docs/Plan.md e git log do repositório Ritualistic.",
+  "temas": [
+    {
+      "nome": "Técnicas (Docs/Plan.md)",
+      "decisoes": [
+        {
+          "id": "TC1",
+          "titulo": "Engine: Unreal Engine 5.8.3 (`E:\\Epic Games\\UE_5.8`), projeto C++ em `Unreal\\Ritualistic`",
+          "estado": "Confirmada",
+          "data": "2026-10-03"
+        },
+        {
+          "id": "TC2",
+          "titulo": "Código: Núcleo em C++ (módulo `Ritualistic`), conteúdo em Blueprints filhos + Data Assets / Data Tables",
+          "estado": "Confirmada",
+          "data": "2026-10-03"
+        },
+        {
+          "id": "TC3",
+          "titulo": "Dados: `UPrimaryDataAsset` por domínio (Item, Receita, Estrutura, Criatura, Ritual, Spell, Skill, Entrada de Journal) + Gameplay Tags para categorias, materiais, tiers, efeitos. Asset Manager carrega tudo por tipo, sem listas fixas no código",
+          "estado": "Confirmada",
+          "data": "2026-10-03"
+        },
+        {
+          "id": "TC4",
+          "titulo": "Input: Enhanced Input (Input Actions + Mapping Contexts por modo: exploração, construção, UI, ritual)",
+          "estado": "Confirmada",
+          "data": "2026-10-03"
+        },
+        {
+          "id": "TC5",
+          "titulo": "IA: StateTree + AI Perception (visão, audição, dano). Comportamentos como tasks reutilizáveis",
+          "estado": "Confirmada",
+          "data": "2026-10-03"
+        },
+        {
+          "id": "TC6",
+          "titulo": "Atributos/efeitos: Componente próprio leve (`UVitalsComponent` + `UStatusEffectComponent` com efeitos em Data Asset). GAS ficou de fora para não inflar o MVP; a interface permite migrar depois",
+          "estado": "Confirmada",
+          "data": "2026-10-03"
+        },
+        {
+          "id": "TC7",
+          "titulo": "Mundo: Geração em runtime a partir da seed: heightfield determinístico (ruído + regras de região), rio escavado por spline, clareiras/cavernas/ruínas/círculos como prefabs posicionados por regras. Terreno em chunks de malha (Dynamic Mesh / Nanite quando fizer sentido), vegetação e recursos via PCG em runtime com a mesma seed",
+          "estado": "Confirmada",
+          "data": "2026-10-03"
+        },
+        {
+          "id": "TC8",
+          "titulo": "Render: Lumen + Virtual Shadow Maps + Nanite como padrão \"Epic\"; perfis de escalabilidade Low→Cinematic; DLSS/Frame Gen via plugin NVIDIA opcional (nunca dependência). HW Ray Tracing ligado apenas no perfil alto",
+          "estado": "Confirmada",
+          "data": "2026-10-03"
+        },
+        {
+          "id": "TC9",
+          "titulo": "Áudio: MetaSounds + atenuação/espacialização; ElevenLabs para gerar SFX/ambiências",
+          "estado": "Confirmada",
+          "data": "2026-10-03"
+        },
+        {
+          "id": "TC10",
+          "titulo": "VFX: Niagara",
+          "estado": "Confirmada",
+          "data": "2026-10-03"
+        },
+        {
+          "id": "TC11",
+          "titulo": "Save: `USaveGame` versionado: seed + deltas do mundo (recursos removidos, estruturas, baús, nós explorados do mapa) + estado do jogador e conhecimento",
+          "estado": "Confirmada",
+          "data": "2026-10-03"
+        },
+        {
+          "id": "TC12",
+          "titulo": "Assets: Higgsfield (conceitos/UI) → Meshy (modelos, rig, animações base) → Blender (limpeza, escala, LODs, retarget, animação extra, FBX) → Unreal",
+          "estado": "Confirmada",
+          "data": "2026-10-03"
+        },
+        {
+          "id": "TC13",
+          "titulo": "Versionamento: Git + Git LFS na raiz `Ritualistic` (binários Unreal, FBX, PNG, WAV etc. em LFS)",
+          "estado": "Confirmada",
+          "data": "2026-10-03"
+        }
+      ]
+    },
+    {
+      "nome": "Design (DD nos commits)",
+      "decisoes": [
+        {
+          "id": "DD-004",
+          "titulo": "B liga o modo construção com o martelo na mão; segurar B abre o anel de ações (construir, desmontar, reparar, melhorar, piorar, mover)",
+          "estado": "Confirmada",
+          "data": "2026-10-04",
+          "nota": "Commit cda05097."
+        },
+        {
+          "id": "DD-005",
+          "titulo": "Os ritos listam o que precisa ser construído ou feito antes (tela de Rituais)",
+          "estado": "Confirmada",
+          "data": "2026-10-04",
+          "nota": "Commit cda05097."
+        },
+        {
+          "id": "DD-006",
+          "titulo": "Morrer deixa os restos com tudo o que se levava e vestia (-10% de durabilidade); perde-se metade do XP até o próximo nível",
+          "estado": "Confirmada",
+          "data": "2026-10-04",
+          "nota": "Commit cda05097."
+        },
+        {
+          "id": "DD-007",
+          "titulo": "Pedra que responde na margem onde o Nøkken toca, com a inscrição que ensina o pacto e a flauta de osso",
+          "estado": "Confirmada",
+          "data": "2026-10-04",
+          "nota": "Commit 00bbce78."
+        },
+        {
+          "id": "DD-008",
+          "titulo": "Lua de oito dias (cheia nos dias 4, 12...) mostrada ao lado da hora no HUD",
+          "estado": "Confirmada",
+          "data": "2026-10-04",
+          "nota": "Commit 00bbce78."
+        },
+        {
+          "id": "DD-009",
+          "titulo": "HUD só de galhos e ossos, com a arte do lote 13",
+          "estado": "Confirmada",
+          "data": "2026-10-04",
+          "nota": "Commit 375a1ae7."
+        },
+        {
+          "id": "DD-011",
+          "titulo": "Lua cheia a cada quatro dias",
+          "estado": "Confirmada",
+          "data": "2026-10-04",
+          "nota": "Commit b07415e4."
+        },
+        {
+          "id": "DD-012",
+          "titulo": "Capuz e túnica de tecido e de couro (o couro defumado os ensina) e mochila de tecido, presos ao esqueleto do jogador; elmo e gibão de bronze ficam fora da fatia",
+          "estado": "Confirmada",
+          "data": "2026-10-04",
+          "nota": "Commit 2dbab5a9."
+        },
+        {
+          "id": "DD-013",
+          "titulo": "O telhado de meia-água fica fora da fatia",
+          "estado": "Confirmada",
+          "data": "2026-10-04",
+          "nota": "Commit b07415e4."
+        },
+        {
+          "id": "DD-014",
+          "titulo": "Fontes: Alegreya no texto e no itálico, Cinzel Bold nos títulos (OFL)",
+          "estado": "Confirmada",
+          "data": "2026-10-04",
+          "nota": "Commit b07415e4."
+        },
+        {
+          "id": "DD-015",
+          "titulo": "Configurações com volumes geral, de música, de efeitos e de ambiente, campo de visão, sensibilidade do mouse e troca de teclas (as teclas trocam, nunca se repetem)",
+          "estado": "Confirmada",
+          "data": "2026-10-04",
+          "nota": "Commit b07415e4."
+        },
+        {
+          "id": "DD-016",
+          "titulo": "Uma dica curta na primeira vez que cada coisa aparece e uma página de Controles na pausa; toda dica mostra a tecla em uso",
+          "estado": "Confirmada",
+          "data": "2026-10-04",
+          "nota": "Commit b07415e4."
+        },
+        {
+          "id": "DD-019",
+          "titulo": "Os outros feitiços da fatia: Faísca, Pele de Casca, Passo de Raposa, Eco do Corvo e Canto Calmo; Fogo-fátuo rebalanceado",
+          "estado": "Confirmada",
+          "data": "2026-10-04",
+          "nota": "Commit 0a1bc7fd."
+        },
+        {
+          "id": "DD-020",
+          "titulo": "Luz e atmosfera, com uma segunda passada nos efeitos",
+          "estado": "Confirmada",
+          "data": "2026-10-06",
+          "nota": "Commit 8423a707."
+        }
+      ]
+    }
+  ]
+}

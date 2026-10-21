@@ -1,0 +1,13 @@
+{
+  "entry": "move",
+  "nodes": [
+    { "id": "move", "op": "horizontal", "speed": 3.4, "next": "jump_input" },
+    { "id": "jump_input", "op": "branch", "condition": "jump_pressed", "yes": "on_ground", "no": "animation" },
+    { "id": "on_ground", "op": "branch", "condition": "grounded", "yes": "jump", "no": "animation" },
+    { "id": "jump", "op": "vertical_impulse", "value": 7.0, "next": "animation" },
+    { "id": "animation", "op": "branch", "condition": "moving", "yes": "walk", "no": "idle" },
+    { "id": "walk", "op": "animate", "clip": "walk", "next": "end" },
+    { "id": "idle", "op": "animate", "clip": "idle", "next": "end" },
+    { "id": "end", "op": "halt" }
+  ]
+}

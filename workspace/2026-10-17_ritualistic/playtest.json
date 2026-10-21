@@ -1,0 +1,236 @@
+{
+  "sobre": "Gerado por coletores/ritualistic.mjs a partir dos commits: 110 códigos PT distintos (intervalos expandidos), um achado por commit que os cita; citado num commit = corrigido. Achados novos vão para docs/playtests/ no repositório. A iteração mais recente fica aberta.",
+  "iteracoes": [
+    {
+      "id": "pt-2026-10-03",
+      "nome": "Playtest de 03/10",
+      "aberta": false,
+      "achados": [
+        {
+          "id": "PT-001–PT-016",
+          "tipo": "checklist",
+          "titulo": "Checklist de playtest PT-001 a PT-016",
+          "estado": "corrigido",
+          "nota": "Commit d0d4c03d; 16 achados."
+        },
+        {
+          "id": "PT-017–PT-021",
+          "tipo": "checklist",
+          "titulo": "Checklist de playtest PT-017 a PT-021",
+          "estado": "corrigido",
+          "nota": "Commit 0678f800; 5 achados."
+        }
+      ]
+    },
+    {
+      "id": "pt-2026-10-04",
+      "nome": "Playtest de 04/10",
+      "aberta": false,
+      "achados": [
+        {
+          "id": "PT-022–PT-035",
+          "tipo": "checklist",
+          "titulo": "Checklist de playtest PT-022 a PT-035",
+          "estado": "corrigido",
+          "nota": "Commit 9324ac21; 14 achados."
+        },
+        {
+          "id": "PT-030",
+          "tipo": "correção",
+          "titulo": "Escada e escada de mão refeitas no Meshy (lote 3)",
+          "estado": "corrigido",
+          "nota": "Commit c7104437; 1 achado."
+        },
+        {
+          "id": "PT-036–PT-045",
+          "tipo": "checklist",
+          "titulo": "Checklist de playtest PT-036 a PT-045, painéis de pedra entalhada e ícone da pá",
+          "estado": "corrigido",
+          "nota": "Commit a0fdef91; 10 achados."
+        },
+        {
+          "id": "PT-046–PT-049, PT-051–PT-053",
+          "tipo": "correção",
+          "titulo": "HUD de galhos e ossos como opção; ícones, nomes na bússola, fundações, paredes e câmera de construção",
+          "estado": "corrigido",
+          "nota": "Commit b6da815a; 7 achados."
+        },
+        {
+          "id": "PT-050",
+          "tipo": "correção",
+          "titulo": "Variantes celtas das estruturas: paredes de pau a pique e telhados de palha",
+          "estado": "corrigido",
+          "nota": "Commit a6c87932; 1 achado."
+        },
+        {
+          "id": "PT-050, PT-054–PT-055",
+          "tipo": "correção",
+          "titulo": "Paredes e telhados celtas; espaços das mãos Q/E com a arte fixa do artista",
+          "estado": "corrigido",
+          "nota": "Commit 8178b74b; 3 achados."
+        },
+        {
+          "id": "PT-056–PT-058",
+          "tipo": "correção",
+          "titulo": "Modo construção com anel de ações, níveis das peças e restos ao morrer",
+          "estado": "corrigido",
+          "nota": "Commit cda05097; 3 achados."
+        },
+        {
+          "id": "PT-059–PT-060",
+          "tipo": "correção",
+          "titulo": "O Pacto do Rio Silencioso e o visco no fim da fatia; lua de oito dias",
+          "estado": "corrigido",
+          "nota": "Commit 00bbce78; 2 achados."
+        },
+        {
+          "id": "PT-068",
+          "tipo": "correção",
+          "titulo": "Ícones redesenhados (lotes 1 e 2)",
+          "estado": "corrigido",
+          "nota": "Commit b07415e4; 1 achado."
+        },
+        {
+          "id": "PT-068 (2)",
+          "tipo": "correção",
+          "titulo": "Ícones redesenhados (lote 3) e os sinais dos cinco ritos",
+          "estado": "corrigido",
+          "nota": "Commit 73a01c4c; 1 achado."
+        },
+        {
+          "id": "PT-069–PT-074",
+          "tipo": "correção",
+          "titulo": "Marcadores no mapa, arrastar e soltar no menu das mãos, pergaminho centralizado e painéis com mais respiro",
+          "estado": "corrigido",
+          "nota": "Commit 2f816bcb; 6 achados."
+        },
+        {
+          "id": "PT-075–PT-081",
+          "tipo": "correção",
+          "titulo": "Texturas próprias de cada modelo do Meshy, correções de menus e encaixe de piso e parede",
+          "estado": "corrigido",
+          "nota": "Commit 89411692; 7 achados."
+        },
+        {
+          "id": "PT-082–PT-084, PT-087–PT-089",
+          "tipo": "correção",
+          "titulo": "Menus em grade de ícones, custo do feitiço por nível e troca com a mochila cheia",
+          "estado": "corrigido",
+          "nota": "Commit 003a12ed; 6 achados."
+        },
+        {
+          "id": "PT-085–PT-086",
+          "tipo": "correção",
+          "titulo": "Itens seguros direito ao andar e braços longe da câmera",
+          "estado": "corrigido",
+          "nota": "Commit f43f5475; 2 achados."
+        },
+        {
+          "id": "PT-090",
+          "tipo": "correção",
+          "titulo": "Olhar em volta sem girar o corpo todo",
+          "estado": "corrigido",
+          "nota": "Commit d4e22000; 1 achado."
+        },
+        {
+          "id": "PT-090 (2)",
+          "tipo": "correção",
+          "titulo": "Estações criadas na direção da câmera, já que o corpo pode estar virado",
+          "estado": "corrigido",
+          "nota": "Commit 0a1bc7fd; 1 achado."
+        }
+      ]
+    },
+    {
+      "id": "pt-2026-10-05",
+      "nome": "Playtest de 05/10",
+      "aberta": false,
+      "achados": [
+        {
+          "id": "PT-094–PT-095",
+          "tipo": "correção",
+          "titulo": "Roda aprovada atrás do menu das mãos e guia do mouse de volta nos menus radiais",
+          "estado": "corrigido",
+          "nota": "Commit 7ab93b8e; 2 achados."
+        },
+        {
+          "id": "PT-092–PT-093",
+          "tipo": "correção",
+          "titulo": "Texto dos painéis do HUD dentro da moldura; item solto no menu das mãos ocupa o lugar",
+          "estado": "corrigido",
+          "nota": "Commit 4d326173; 2 achados."
+        }
+      ]
+    },
+    {
+      "id": "pt-2026-10-06",
+      "nome": "Playtest de 06/10",
+      "aberta": false,
+      "achados": [
+        {
+          "id": "PT-075",
+          "tipo": "correção",
+          "titulo": "Criaturas de volta às texturas próprias",
+          "estado": "corrigido",
+          "nota": "Commit 96c6e0ea; 1 achado."
+        }
+      ]
+    },
+    {
+      "id": "pt-2026-10-07",
+      "nome": "Playtest de 07/10",
+      "aberta": false,
+      "achados": [
+        {
+          "id": "PT-096–PT-098",
+          "tipo": "correção",
+          "titulo": "Bússola: conta azul em volta da coroa, só as marcas do jogador; sem texto de objetivo; um osso para os próprios restos",
+          "estado": "corrigido",
+          "nota": "Commit bd2e174f; 3 achados."
+        },
+        {
+          "id": "PT-099–PT-100",
+          "tipo": "correção",
+          "titulo": "Água com ondulações simuladas, objetos à deriva e som direcional",
+          "estado": "corrigido",
+          "nota": "Commit 02495535; 2 achados."
+        },
+        {
+          "id": "PT-101",
+          "tipo": "correção",
+          "titulo": "Relevo do terreno e decoração mais leve nos perfis baixos",
+          "estado": "corrigido",
+          "nota": "Commit 07b76314; 1 achado."
+        }
+      ]
+    },
+    {
+      "id": "pt-2026-10-11",
+      "nome": "Playtest de 11/10",
+      "aberta": true,
+      "achados": [
+        {
+          "id": "PT-110–PT-120",
+          "tipo": "correção",
+          "titulo": "HUD: caixas do tamanho do conteúdo, terceira pessoa por padrão, menu das mãos só com a roda, ladrilhos maiores e diário com ícones",
+          "estado": "corrigido",
+          "nota": "Commit beb54b9d; 11 achados."
+        },
+        {
+          "id": "PT-107–PT-109, PT-115",
+          "tipo": "correção",
+          "titulo": "Bronze: capuz longe da cabeça, ombreiras na pele do ombro e tiras cortadas na barra da saia",
+          "estado": "corrigido",
+          "nota": "Commit f07fda84; 4 achados."
+        },
+        {
+          "id": "PT-106, PT-121–PT-122",
+          "tipo": "correção",
+          "titulo": "Clima: nuvens neutras mais suaves, névoa de chuva parada e bancos de neblina densa",
+          "estado": "corrigido",
+          "nota": "Commit 86a6d198; 3 achados."
+        }
+      ]
+    }
+  ]
+}

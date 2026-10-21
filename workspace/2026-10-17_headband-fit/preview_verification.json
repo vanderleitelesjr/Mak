@@ -1,0 +1,50 @@
+{
+  "registered": true,
+  "viewports": [
+    {
+      "width": 1440,
+      "theme": "dark",
+      "images": 10,
+      "noHorizontalOverflow": true,
+      "imagePreviewAndControls": true
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "images": 10,
+      "noHorizontalOverflow": true,
+      "imagePreviewAndControls": true
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "images": 10,
+      "noHorizontalOverflow": true,
+      "imagePreviewAndControls": true
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "images": 10,
+      "noHorizontalOverflow": true,
+      "imagePreviewAndControls": true
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "images": 10,
+      "noHorizontalOverflow": true,
+      "imagePreviewAndControls": true
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "images": 10,
+      "noHorizontalOverflow": true,
+      "imagePreviewAndControls": true
+    }
+  ],
+  "linksChecked": 31,
+  "completeA1Download": true,
+  "browserErrors": []
+}

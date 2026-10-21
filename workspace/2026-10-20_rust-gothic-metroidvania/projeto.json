@@ -1,0 +1,70 @@
+{
+  "id": "rust-gothic-metroidvania",
+  "titulo": "Rust Gothic Metroidvania",
+  "sobre": "Custom Rust engine and gothic 2.5D metroidvania. First Blender-to-sprite runtime proof implemented; physical input and owner visual review pending. All approved concepts preserved.",
+  "tema": "base",
+  "destaque": "#bd8051",
+  "capa": "media/cenario/combined-scenes/scene-d-lower-gatehouse-v02-l02-cold-skylight.webp",
+  "janelaDias": 30,
+  "areas": [
+    {
+      "id": "design",
+      "cor": "#b89ad9",
+      "icone": "design"
+    },
+    {
+      "id": "art",
+      "cor": "#bd8051",
+      "icone": "arte"
+    },
+    {
+      "id": "engine",
+      "cor": "#79a8c9",
+      "icone": "codigo"
+    },
+    {
+      "id": "validation",
+      "cor": "#87b797",
+      "icone": "check"
+    }
+  ],
+  "estadosEntrega": [
+    "confirmed",
+    "for review"
+  ],
+  "abas": [
+    {
+      "modulo": "painel",
+      "nome": "Overview"
+    },
+    {
+      "modulo": "roteiro",
+      "nome": "Roadmap"
+    },
+    {
+      "modulo": "entregas",
+      "nome": "Deliveries"
+    },
+    {
+      "modulo": "playtest",
+      "nome": "Playtest"
+    },
+    {
+      "modulo": "decisoes",
+      "nome": "Decisions"
+    },
+    {
+      "modulo": "acervo",
+      "nome": "Art collection"
+    },
+    {
+      "modulo": "livre",
+      "base": "documentacao",
+      "nome": "Documentation"
+    },
+    {
+      "modulo": "arquivo",
+      "nome": "Archive"
+    }
+  ]
+}

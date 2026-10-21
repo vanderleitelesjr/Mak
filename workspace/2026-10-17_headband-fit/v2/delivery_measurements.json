@@ -1,0 +1,40 @@
+{
+  "revision": "v2",
+  "physical_fit_validated": true,
+  "physical_fit_record": "../fit_trial_v2.json",
+  "input_measurements_mm": {
+    "straight_head_width": 170.0,
+    "ear_to_ear_tape_arc": 320,
+    "circumference_reference": 580,
+    "forehead_nape_tape_arc_reference": 380
+  },
+  "physical_v1_feedback": {
+    "crown": "Too narrow and suspended above the head",
+    "sides": "Slightly loose"
+  },
+  "profile": "Circular crown with tangent-continuous cubic arms converging toward the ends; not the rejected shared-axis ellipsoid.",
+  "nominal_inner_arch_mm": 323.1415926535898,
+  "tessellated_inner_arch_mm": 323.14039783313484,
+  "nominal_inner_max_width_mm": 172.0,
+  "nominal_crown_height_mm": 104.58631689398979,
+  "crown_radius_mm": 86.0,
+  "arm_vertical_drop_mm": 18.586316893989796,
+  "nominal_free_tip_gap_mm": 138.0,
+  "nominal_crown_clearance_each_side_mm": 1.0,
+  "tip_gap_reduction_from_v1_mm": 3.7930914396435753,
+  "tip_gap_limit": "Empirical trial setting from loose-side feedback, not a measured lower-head width or holding-force guarantee. Do not force apart in PLA.",
+  "band_thickness_mm": 3.0,
+  "band_width_mm": 12.0,
+  "edge_rounding_mm": 0.5,
+  "print_dimensions_mm": [
+    178.0,
+    110.39460754394531,
+    12.0
+  ],
+  "triangles": 18580,
+  "volume_mm3": 11926.068869759101,
+  "test_stl": "Headband_58cm_fit_test_v2.stl",
+  "sha256": "a299198d8922407eb9391fea18fac7dd0464ef07b1553a6ff424cca622cda8f9",
+  "previous_revision_preserved": true,
+  "scope": "Plain gauge physical fit confirmed; complete ornament comfort requires a separate physical trial."
+}

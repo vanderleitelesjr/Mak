@@ -1,0 +1,9 @@
+# Metralhadora_Arma_Isolada_v01
+
+Ferramenta: imagegen integrada. Conceito para avaliação.
+Uso: referência isolada de um armamento; retopologia, separação das partes móveis, escala e encaixes serão conferidos na modelagem.
+
+## Prompt
+
+Use case: stylized-concept. A single fictional early-twentieth-century historical GAME PROP, based on the supplied GLOBAL EMPIRES original concept and chosen readability study. Render the exterior only as a polished stylized-realistic 3D game asset. Consistent muted olive painted metal, dark steel, aged wood and subtle team-green accent. Broad clear parts and believable proportions matter more than tiny engineering detail. One fully visible object, isolated on plain very light warm-gray studio background with a small soft shadow. Landscape 3:2, generous margins, gentle elevated front-side three-quarter camera that explains the outside shape. No humans, gloves, severed body parts, scenery, firing, smoke, text, labels, technical diagrams, measurements, disassembly or internal views. This is visual artwork for a videogame, no operation or fabrication information.
+Prop: ONE vintage water-cooled heavy machine gun on a LOW broad THREE-LEGGED TRIPOD, as shown in reference. Low horizontal long cylindrical water jacket, modest short muzzle at front, compact closed rectangular receiver at back, two simple wooden rear grips, small curved sight silhouette. Exactly three splayed support legs and one central mounting head, sensible stout external shapes and clear negative spaces between legs. Tripod forms a low wide triangular stance, no tall standing pedestal, no shield, no wheels, no other weapons. A modest green band on the water jacket matching the selected design. The entire gun including rear grips and all three tripod feet is visible. No ammo belt, cartridge or crate; crew and supply box are separate reused modules. Keep the broad low machine-gun silhouette strongly distinct from an upright mortar.

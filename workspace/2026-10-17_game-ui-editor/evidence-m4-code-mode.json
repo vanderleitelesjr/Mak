@@ -1,0 +1,435 @@
+{
+  "date": "2026-10-19T16:12:29.958Z",
+  "milestone": "M4",
+  "status": "Code Mode warning fixed; real Test A tools and answer verified; token guard interrupted terminal completion",
+  "core": {
+    "passed": 97,
+    "codexAssistant": 17,
+    "rpcShutdown": 1
+  },
+  "interface": {
+    "passed": 6,
+    "browser": 3,
+    "windowsWebView2": 3,
+    "scope": "Focused Codex scenarios with deterministic peer",
+    "stats": {
+      "startTime": "2026-10-19T16:04:19.470Z",
+      "duration": 25783.319,
+      "expected": 6,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    }
+  },
+  "build": "Passed TypeScript/Vite and desktop runtime preparation",
+  "commands": [
+    "npm.cmd test",
+    "npm.cmd run build",
+    "npm.cmd run desktop:prepare",
+    "npx.cmd playwright test test/e2e/codex.spec.ts",
+    "node .local/check-codex-permissions.mjs",
+    "node .local/test-real-codex-a.mjs"
+  ],
+  "correction": {
+    "cause": "Current model catalog declares code_mode_only; disabling the general feature does not remove that requirement",
+    "solution": "Use the installed CLI bundled local Code Mode host for project-tool invocation",
+    "hostEnabled": true,
+    "generalExperimentalCodeModeEnabled": false,
+    "modelUnchanged": true,
+    "allFeatureOverridesChecked": true,
+    "shellAndExternalToolsEnabled": false,
+    "filesystemRoot": "deny",
+    "onlyReadableRoot": "empty assistant workspace",
+    "sandboxNetwork": false,
+    "automaticProposalSave": false,
+    "globalConfigModified": false,
+    "installations": 0,
+    "remoteHostUsed": false
+  },
+  "realTestA": {
+    "transport": "Application owner HTTP routes and real Codex app-server; isolated temporary project",
+    "model": "gpt-6.1-sol",
+    "effort": "low",
+    "startRequests": 1,
+    "acceptedTurns": 1,
+    "tools": [
+      {
+        "name": "read_context",
+        "success": true,
+        "outputBytes": 4520
+      },
+      {
+        "name": "inspect_elements",
+        "success": true,
+        "outputBytes": 4062
+      }
+    ],
+    "functionalReview": {
+      "screenHierarchy": "Correct: one Gameplay screen; UI states are distinct from screens",
+      "canvas": "Correct: 1920x1080",
+      "buttonRect": "Correct: 1480,24 and 280x72",
+      "buttonConfiguration": "Correct: text, font, radius, anchors and absence of artwork",
+      "clickRule": "Correct: dispatch ge.match.pause and transition Paused; catalog MatchFlow.Pause owner and phase match",
+      "runtimeBoundary": "Correctly identifies simulation and does not claim native integration",
+      "terminalLifecycle": "Interrupted by reported-token guard; not normal completion",
+      "noRepeatedWork": true
+    },
+    "realReplyObserved": true,
+    "terminalStatus": "interrupted",
+    "stopReason": "Reported token guard exceeded",
+    "guardOrigin": "Private test monitor; not a provider quota warning",
+    "reportedTokenThreshold": 25000,
+    "tokenUsage": {
+      "total": {
+        "totalTokens": 36626,
+        "inputTokens": 36306,
+        "cachedInputTokens": 16896,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 320,
+        "reasoningOutputTokens": 0
+      },
+      "last": {
+        "totalTokens": 19433,
+        "inputTokens": 19187,
+        "cachedInputTokens": 16896,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 246,
+        "reasoningOutputTokens": 0
+      },
+      "modelContextWindow": 475000
+    },
+    "guardCanOvershootBetweenReports": true,
+    "accountQuotaDelta": "Not measured",
+    "interruptAcknowledged": true,
+    "imagesOpened": 0,
+    "proposals": 0,
+    "documentUnchanged": true,
+    "furtherInferenceAttempts": 0,
+    "temporaryProjectRemoved": true,
+    "remainingOwnedProcesses": 0,
+    "expectedStartupAdvisory": "skip_host_skill_discovery is experimental; captured and classified without suppressing unknown warnings"
+  },
+  "offlineInvestigation": {
+    "inferenceTurns": 0,
+    "baselineRenderedPromptCharacters": 30853,
+    "findings": "Substantial native instruction context; clearing developer-instruction config or parent session identifiers did not reduce the measured baseline. Those unsuccessful experiments did not change production."
+  },
+  "pending": [
+    "Review context overhead before more inference",
+    "Normal protected turn completion",
+    "Tests B and C",
+    "User acceptance and M6"
+  ],
+  "sources": [
+    {
+      "path": "app/codex-rpc.ts",
+      "sha256": "e797991abf055d7c4d2f0b23b71e756d5d94b96acee43e0194c779cce1315072"
+    },
+    {
+      "path": "app/codex-assistant.ts",
+      "sha256": "94bbaa8c6bf99b92d532642b431e9fd060960991db30cf533851d38c34642d2f"
+    },
+    {
+      "path": "test/codex-assistant.test.ts",
+      "sha256": "475f9da96e2d50fe9899748455881fdfe27ec82c375f006bd994102f0187c54f"
+    },
+    {
+      "path": "test/codex-rpc.test.ts",
+      "sha256": "915140ae02869988cee02b638ed0c1a52eeefe4be3410a874d2e989a87e538fd"
+    },
+    {
+      "path": "test/fake-codex.mjs",
+      "sha256": "8811a976dd5ede3c7530ffbe1d5cd805140378db334cd10309279e08e66eb4bd"
+    },
+    {
+      "path": "README.md",
+      "sha256": "6fc3922894025d2903228f58c3ae5ed78ed2a7c3440cf4fa19918f20d7c2c1fb"
+    }
+  ],
+  "runtime": {
+    "files": [
+      {
+        "path": "app/agent-structure.ts",
+        "sha256": "6ec6eebe4750fc02421143eb8f2ea722c88e600e6f56538f886804fc4abdcc34"
+      },
+      {
+        "path": "app/agent-tools.ts",
+        "sha256": "6259551308afa1884cff5e6dc241e0677f5e0bee9e128bb0b19cd6478fc60380"
+      },
+      {
+        "path": "app/agent.ts",
+        "sha256": "0c7155ea5db7364d2fb70bb050001a416315763bc39aafad97ae8cdb246455ea"
+      },
+      {
+        "path": "app/assistant-options.ts",
+        "sha256": "415ee8d163f7fac6fc4f6a5e44f70f84dbc020ceb8eab63cd80ecd45a5b90a88"
+      },
+      {
+        "path": "app/behavior-catalog.json",
+        "sha256": "f2aaf807ab0299f59b76f40fd935e62b715afdde109e6803b955a97758a14fd8"
+      },
+      {
+        "path": "app/behavior-demo.ts",
+        "sha256": "680264e0573245a409de6a7600f8673a984544e7ea0741de9d777b8cbc85e716"
+      },
+      {
+        "path": "app/behavior.ts",
+        "sha256": "8a2478df5c432a5e93f8e4cfe14a3480650361b7d457aca1b513aa9359a5b3cd"
+      },
+      {
+        "path": "app/codex-assistant.ts",
+        "sha256": "94bbaa8c6bf99b92d532642b431e9fd060960991db30cf533851d38c34642d2f"
+      },
+      {
+        "path": "app/codex-rpc.ts",
+        "sha256": "e797991abf055d7c4d2f0b23b71e756d5d94b96acee43e0194c779cce1315072"
+      },
+      {
+        "path": "app/conversation.ts",
+        "sha256": "53bb43bfd37ef9003cef9d5e3b1e7d94719c210b1c988dadf6fa3c1e9afc1d81"
+      },
+      {
+        "path": "app/document.ts",
+        "sha256": "2114389945f26e66487c3d30a5b317eaf67f8c807965d1e6c0bb29bb17613e86"
+      },
+      {
+        "path": "app/mcp.ts",
+        "sha256": "edf754bd8e3ad6800a974f111190f27caf6a94002e1c07dbb6a7f19b319cc52d"
+      },
+      {
+        "path": "app/preview.ts",
+        "sha256": "32a88e3d3a70be9a69e11c76c7866d55717f3858243acb37554e7412b39f51c1"
+      },
+      {
+        "path": "app/project.ts",
+        "sha256": "69441b7454dd6d75bfa87c5c5371d5f1c2ccd330e1def80e065a27324ff0db5c"
+      },
+      {
+        "path": "app/server.ts",
+        "sha256": "fde10c812cf44b0be574ec1f6e86c56e26f6878579196a94f5ef8c99e9f64ad5"
+      },
+      {
+        "path": "app/sync-document.ts",
+        "sha256": "fd4d7e1dae12f1936e76e16950632644b87de8abca796826388586443a93f473"
+      },
+      {
+        "path": "app/visual-document.ts",
+        "sha256": "f48a7ed8838cf9c0323698fe74038c7a351f28e7bf1c141eb7d7f5707b505ab5"
+      },
+      {
+        "path": "app/visual-layout.ts",
+        "sha256": "4e68656cbdf44c541d85a3e600bd2b14c3369f81cd682b92cacc1a705094f36a"
+      },
+      {
+        "path": "dist/assets/index--cDToDu5.css",
+        "sha256": "0eae7873a368ffe26a414f122f82f856a667f4bceb1ba046cb4daa35b43fb2e1"
+      },
+      {
+        "path": "dist/assets/index-4qFdiRoW.js",
+        "sha256": "308e8ae377deb5409e86416ccd6a6959938516efc7020a60234f4040c9008d8a"
+      },
+      {
+        "path": "dist/assets/index-BaTW88sH.css",
+        "sha256": "63ecfc6aaddbc7915f8ade4dcea079111336131b64f015376f8ca86a51d8ef91"
+      },
+      {
+        "path": "dist/assets/index-BBb_QFZq.css",
+        "sha256": "e3bcf0f397831c937109daca493f37bd0498d2db31e285bffb7ea450854fa1bf"
+      },
+      {
+        "path": "dist/assets/index-Bbc9j3g_.js",
+        "sha256": "3951e5582fc814b1505e811f4709ac5a0a49999b00d682d0f14299d5eec62cee"
+      },
+      {
+        "path": "dist/assets/index-BnJLJC0Z.js",
+        "sha256": "5aa3ceb129de6ac92b51351f0d1f65b82995828de14163f8576f00bce796bda4"
+      },
+      {
+        "path": "dist/assets/index-BRSOU-qb.css",
+        "sha256": "2a24cd28b98b1b022572b34f0b5ff3a680adb6b8801b8de035ee0ab0a42efc06"
+      },
+      {
+        "path": "dist/assets/index-BX6Gre1W.js",
+        "sha256": "05de0f30ac794873398dae2171f517131b2030866b4bc38925596180435f2972"
+      },
+      {
+        "path": "dist/assets/index-CbRomeB2.css",
+        "sha256": "4ca36ad48d66afa9ba171708c6384a18bc6294b5e908ff3cd6b7279be29583fa"
+      },
+      {
+        "path": "dist/assets/index-CbwaODX7.js",
+        "sha256": "7b8b84453dc0588d5904f5192df2078fedb88aaad2753e8269e0ed1a49927d7d"
+      },
+      {
+        "path": "dist/assets/index-CFQCA54y.js",
+        "sha256": "64b072efe5c4f9113d37cff52cfa75f51debae0a818d56e966219abfdbbf6469"
+      },
+      {
+        "path": "dist/assets/index-Chxogpck.js",
+        "sha256": "9c65f5224e6f6d6d50c74651dabddf422b9fe89b7327e9d4c6ae52a4430d7144"
+      },
+      {
+        "path": "dist/assets/index-COXcdeHN.js",
+        "sha256": "9d7be33c9abb302e8806b3f7f9c8be049c412f0e7fea038b082700b630a9ff5d"
+      },
+      {
+        "path": "dist/assets/index-CS1woh99.js",
+        "sha256": "63414acb9356f93c5e4a0b1673287a40e8fed626503006130cc371f1a997b285"
+      },
+      {
+        "path": "dist/assets/index-CylCVelT.js",
+        "sha256": "d221c594a9d4ad86c6a3b6255a944c06975f281408adfbf1ce55eecb86ee8269"
+      },
+      {
+        "path": "dist/assets/index-D-lVDZNe.js",
+        "sha256": "bf4314192cf07ee3c841cf6e9eeebd807f75ddd0ccd70648bb82e9ada78f994a"
+      },
+      {
+        "path": "dist/assets/index-D3XHnpfV.css",
+        "sha256": "4ea81f6902c25a4a3807ef88a009d97be873c463c48a5db42aa8364ed9e78b24"
+      },
+      {
+        "path": "dist/assets/index-D6j7CSM6.js",
+        "sha256": "c438b80d20e8162450d9907384aab9a4a4efd7d9f62ec901c0a128dcc0ce9d60"
+      },
+      {
+        "path": "dist/assets/index-D8eLB10M.js",
+        "sha256": "1acd9c75571d377ccf6bb1aa760fd1bf0d406b46649cc9729bec9fcc2b02d1d1"
+      },
+      {
+        "path": "dist/assets/index-DbtPG_96.js",
+        "sha256": "c00dbf3551f82b5cc117a5267d84981a38a4d14d95c4ae081a0ad2aedc049442"
+      },
+      {
+        "path": "dist/assets/index-DFAPJDxN.css",
+        "sha256": "0cebc331c817b543aa4b4e3fab2c0e19508c602def935a14a07225ce40e86fbc"
+      },
+      {
+        "path": "dist/assets/index-DhQz1J8U.js",
+        "sha256": "c09d090f575107a041e888138a24ada91b893b15cbe77f686d724ff0bd48a14d"
+      },
+      {
+        "path": "dist/assets/index-DKElalDm.js",
+        "sha256": "cc39cdefedec143b86790fab8d4184b491b554510262f2ad415f0f053d2c8658"
+      },
+      {
+        "path": "dist/assets/index-Do8TU-N4.js",
+        "sha256": "461c76ff84f82532cd83ae9df54528e1fa5a578bdbb4e381f57834ec2be7f0db"
+      },
+      {
+        "path": "dist/assets/index-GxZ5SSqI.js",
+        "sha256": "e92e58d47cdb350306d4ba88f0727755cd228a2ba76f1d6465cfb0ca1e993c31"
+      },
+      {
+        "path": "dist/assets/index-hHmWvtSX.css",
+        "sha256": "139ef92e7fee5f69606b2076220e68ba95c6168a051640a960a417bc29c09e68"
+      },
+      {
+        "path": "dist/assets/index-jVKHLuGY.js",
+        "sha256": "3456afe1f6c731eea0c4730834b0f223f06b6ad72a15fb044f58ea3808c93a88"
+      },
+      {
+        "path": "dist/assets/index-THZWCql9.js",
+        "sha256": "608d08892d25f6e486e69b495c9457e1754fd59a9228a3edb93d07401afd9e55"
+      },
+      {
+        "path": "dist/assets/index-UGEgzSL9.js",
+        "sha256": "cb115ef195de428750950b13f2788bb74abf9880d742c83054a16e04f7fa4fee"
+      },
+      {
+        "path": "dist/assets/index-vqmiVXjm.js",
+        "sha256": "35da7b33c528769a5fbc697599a114e4b01db268f5651848bfdf45839896a497"
+      },
+      {
+        "path": "dist/assets/index-vSRzrtCq.css",
+        "sha256": "52f2e62783969655b48dbddf58fdc789626b6d940149a2a4effb4c2aff8ae7d6"
+      },
+      {
+        "path": "dist/assets/index-_bsOIZWd.js",
+        "sha256": "a06ca26a89d1d9ce12696e86508ef394751f8687a68fbf6e9b862f05bc648288"
+      },
+      {
+        "path": "dist/assets/index-_EKVBoSz.js",
+        "sha256": "54e969a6e220e47f2bd984193023906618c01965b64de1800d55f5a9c38b67cd"
+      },
+      {
+        "path": "dist/index.html",
+        "sha256": "edfb930dd0c1ab1dbe43757e920f2eb7d7fa88b61dea87281a2d870d928045f1"
+      },
+      {
+        "path": "dist/startup-error.css",
+        "sha256": "1c2b3d8f770d0cd45d5818f5381fb7d2926333d187935192cfbd7441246f2da6"
+      },
+      {
+        "path": "dist/startup-error.html",
+        "sha256": "8a86184b627c946d76c495cad00729fa7e6259b40c5dfc43563c47055c091ead"
+      },
+      {
+        "path": "dist/startup-error.js",
+        "sha256": "4fd0f13deb9f9f1828a97c6ca2ea2d89d132c655273196ed5816b59d7fceb912"
+      },
+      {
+        "path": "MCP-LICENSES.txt",
+        "sha256": "34027e807f5f9598ea56b17d995cd3b0c606e2f5f97ba18f33b65bd9c694ee1f"
+      },
+      {
+        "path": "mcp.mjs",
+        "sha256": "731a31ae8c70f20564b4eec1937d31a884a9485faf8aa2b7dec7d59126410b1b"
+      },
+      {
+        "path": "NODE-LICENSE.txt",
+        "sha256": "148eacf7863ef4329224a29398623077200a27194aa075569faf4a0a85566ca5"
+      },
+      {
+        "path": "node.exe",
+        "sha256": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237"
+      },
+      {
+        "path": "package.json",
+        "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae"
+      },
+      {
+        "path": "startup-error.css",
+        "sha256": "1c2b3d8f770d0cd45d5818f5381fb7d2926333d187935192cfbd7441246f2da6"
+      },
+      {
+        "path": "startup-error.html",
+        "sha256": "8a86184b627c946d76c495cad00729fa7e6259b40c5dfc43563c47055c091ead"
+      },
+      {
+        "path": "startup-error.js",
+        "sha256": "4fd0f13deb9f9f1828a97c6ca2ea2d89d132c655273196ed5816b59d7fceb912"
+      }
+    ],
+    "stagedForNextNormalLaunch": true,
+    "applicationsRestarted": 0
+  },
+  "workspacePreview": {
+    "status": "Passed",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "combinations": 6,
+    "reportImages": 27,
+    "errors": [],
+    "checks": [
+      "Markdown rendering",
+      "No document horizontal overflow",
+      "Report links",
+      "All images loaded",
+      "Full-size image preview",
+      "Download",
+      "Close"
+    ]
+  },
+  "officialReferences": [
+    "https://learn.chatgpt.com/docs/app-server",
+    "https://learn.chatgpt.com/docs/config-file/config-reference"
+  ]
+}

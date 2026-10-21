@@ -1,0 +1,375 @@
+{
+  "date": "2026-10-19T12:55:17.451216+00:00",
+  "milestone": "M4",
+  "status": "Structured context, individual image access and private local project history verified; live LLM pending",
+  "command": "npm.cmd run test:verify",
+  "core": {
+    "passed": 79,
+    "m4Specific": 21
+  },
+  "interface": {
+    "passed": 36,
+    "browser": 18,
+    "windowsWebView2": 18,
+    "m4Specific": 10,
+    "run": {
+      "startTime": "2026-10-19T12:49:14.939Z",
+      "duration": 81386.76699999999,
+      "expected": 36,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    }
+  },
+  "parity": {
+    "behavior": 20,
+    "documentValidation": 18
+  },
+  "realProject": {
+    "project": "ge-m5",
+    "nodes": 15,
+    "assets": 2,
+    "nativeBlocks": 8,
+    "overviewBytes": 6385,
+    "defaultImageBytes": 0,
+    "inspectedElement": "m5-panel",
+    "viewport": {
+      "width": 2560,
+      "height": 1080
+    },
+    "mcpImageBlocks": 1,
+    "imageHashVerified": true,
+    "documentUnchanged": true,
+    "conversationUnchanged": true,
+    "unityRequestsSent": 0,
+    "runtimeErrors": []
+  },
+  "mcp": {
+    "tools": 10,
+    "bulkImageToolExposed": false,
+    "individualImageIsTypedMcpImageBlock": true,
+    "metadataReadsBinaryImages": false,
+    "sameProjectOwner": true
+  },
+  "history": {
+    "path": ".local/assistant-history.json",
+    "scope": "Per project, local contextual exchanges only; no live LLM connected",
+    "gitAndAgentExportsExcludeHistory": true,
+    "writeOwner": "Existing project lease and serialized queue",
+    "staleWriteProtection": true,
+    "retryIdempotence": true,
+    "maxFileBytes": 2097152,
+    "maxMessages": 5000,
+    "maxMessageBytes": 65536,
+    "limitBehavior": "Refuse new writes; preserve saved messages"
+  },
+  "screenshots": [
+    "media/m4-tests/ge-image-on-demand.png",
+    "media/m4-tests/desktop-image-on-demand.png"
+  ],
+  "sources": [
+    {
+      "path": "app/agent.ts",
+      "sha256": "6f624375f1b2bd56c69bd19e346b76f99e6d26ab4b26a009173988ffa98b378f"
+    },
+    {
+      "path": "app/agent-structure.ts",
+      "sha256": "6ec6eebe4750fc02421143eb8f2ea722c88e600e6f56538f886804fc4abdcc34"
+    },
+    {
+      "path": "app/mcp.ts",
+      "sha256": "68d87cc028034ad2c1f2e5f11ec38ea0aca1438481039012906e20ed9cd1e198"
+    },
+    {
+      "path": "app/visual-layout.ts",
+      "sha256": "4e68656cbdf44c541d85a3e600bd2b14c3369f81cd682b92cacc1a705094f36a"
+    },
+    {
+      "path": "app/server.ts",
+      "sha256": "2ff8197c3b7f1aca06736e339b81d8dc281d0a8f310ab4a08a62297629b47915"
+    },
+    {
+      "path": "src/assistant.tsx",
+      "sha256": "d2498ed22ec310ac55608b4d52f5906714fcec29490935d86694e1458c81fa78"
+    },
+    {
+      "path": "src/visual.tsx",
+      "sha256": "2f0808fee4946b2f51abed70ed52b28ede3ffadfd718058634ae626aae33edd3"
+    },
+    {
+      "path": "src/style.css",
+      "sha256": "32f88594bdc089c666e33b7db40de4cb5c694594f8466d71965019cb075f3195"
+    },
+    {
+      "path": "test/agent.test.ts",
+      "sha256": "a4625babde8884cb5c069e1478aca2b40c598a28e032411b62eebbb681a11565"
+    },
+    {
+      "path": "test/e2e/agent.spec.ts",
+      "sha256": "2c5a5c7467c621b83665cb34d3fc24f2ee1965df8c82badeecd3cb88668d18dc"
+    },
+    {
+      "path": "README.md",
+      "sha256": "2c8cb03a43b40e8634d65d1068320edbe7695642aad8889f8f20e9a414c4051a"
+    }
+  ],
+  "workspacePreview": {
+    "status": "Passed",
+    "verifiedAt": "2026-10-19T12:58:29.723271+00:00",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "combinations": 6,
+    "markdownTabs": [
+      "Design and decisions",
+      "Implementation plan",
+      "M4 agent access"
+    ],
+    "imagesVerified": 25,
+    "linksAndImageOpenDownloadClose": "Passed",
+    "documentOverflow": false,
+    "runtimeErrors": 0,
+    "scope": "Browser preview of actual Workspace routes and standalone shared report; no installed app restart"
+  },
+  "pending": [
+    "Exact model",
+    "Usage policy",
+    "Live existing-account Codex connection and end-to-end conversation proof",
+    "Human acceptance",
+    "M6 release checks"
+  ],
+  "nativeCodeChanged": false,
+  "newUnityRun": false,
+  "paidCalls": 0,
+  "applicationsRestarted": 0,
+  "completedMilestones": 4,
+  "totalMilestones": 6,
+  "runtime": {
+    "verifiedAt": "2026-10-19T12:57:29.985136+00:00",
+    "files": [
+      {
+        "path": "MCP-LICENSES.txt",
+        "sha256": "34027e807f5f9598ea56b17d995cd3b0c606e2f5f97ba18f33b65bd9c694ee1f"
+      },
+      {
+        "path": "mcp.mjs",
+        "sha256": "66ef948468558fc7e74a89b3f837feb3226b43e0fd5b05d27053c25617d03e53"
+      },
+      {
+        "path": "NODE-LICENSE.txt",
+        "sha256": "148eacf7863ef4329224a29398623077200a27194aa075569faf4a0a85566ca5"
+      },
+      {
+        "path": "node.exe",
+        "sha256": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237"
+      },
+      {
+        "path": "package.json",
+        "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae"
+      },
+      {
+        "path": "startup-error.css",
+        "sha256": "1c2b3d8f770d0cd45d5818f5381fb7d2926333d187935192cfbd7441246f2da6"
+      },
+      {
+        "path": "startup-error.html",
+        "sha256": "8a86184b627c946d76c495cad00729fa7e6259b40c5dfc43563c47055c091ead"
+      },
+      {
+        "path": "startup-error.js",
+        "sha256": "4fd0f13deb9f9f1828a97c6ca2ea2d89d132c655273196ed5816b59d7fceb912"
+      },
+      {
+        "path": "app/agent-structure.ts",
+        "sha256": "6ec6eebe4750fc02421143eb8f2ea722c88e600e6f56538f886804fc4abdcc34"
+      },
+      {
+        "path": "app/agent.ts",
+        "sha256": "6f624375f1b2bd56c69bd19e346b76f99e6d26ab4b26a009173988ffa98b378f"
+      },
+      {
+        "path": "app/behavior-catalog.json",
+        "sha256": "f2aaf807ab0299f59b76f40fd935e62b715afdde109e6803b955a97758a14fd8"
+      },
+      {
+        "path": "app/behavior-demo.ts",
+        "sha256": "680264e0573245a409de6a7600f8673a984544e7ea0741de9d777b8cbc85e716"
+      },
+      {
+        "path": "app/behavior.ts",
+        "sha256": "8a2478df5c432a5e93f8e4cfe14a3480650361b7d457aca1b513aa9359a5b3cd"
+      },
+      {
+        "path": "app/document.ts",
+        "sha256": "2114389945f26e66487c3d30a5b317eaf67f8c807965d1e6c0bb29bb17613e86"
+      },
+      {
+        "path": "app/mcp.ts",
+        "sha256": "68d87cc028034ad2c1f2e5f11ec38ea0aca1438481039012906e20ed9cd1e198"
+      },
+      {
+        "path": "app/preview.ts",
+        "sha256": "32a88e3d3a70be9a69e11c76c7866d55717f3858243acb37554e7412b39f51c1"
+      },
+      {
+        "path": "app/project.ts",
+        "sha256": "69441b7454dd6d75bfa87c5c5371d5f1c2ccd330e1def80e065a27324ff0db5c"
+      },
+      {
+        "path": "app/server.ts",
+        "sha256": "2ff8197c3b7f1aca06736e339b81d8dc281d0a8f310ab4a08a62297629b47915"
+      },
+      {
+        "path": "app/sync-document.ts",
+        "sha256": "fd4d7e1dae12f1936e76e16950632644b87de8abca796826388586443a93f473"
+      },
+      {
+        "path": "app/visual-document.ts",
+        "sha256": "f48a7ed8838cf9c0323698fe74038c7a351f28e7bf1c141eb7d7f5707b505ab5"
+      },
+      {
+        "path": "app/visual-layout.ts",
+        "sha256": "4e68656cbdf44c541d85a3e600bd2b14c3369f81cd682b92cacc1a705094f36a"
+      },
+      {
+        "path": "dist/index.html",
+        "sha256": "7ac8da9d461cc4e1027aebd885d31a9939afdc1a14db4dcc545cb401bee9c5dd"
+      },
+      {
+        "path": "dist/startup-error.css",
+        "sha256": "1c2b3d8f770d0cd45d5818f5381fb7d2926333d187935192cfbd7441246f2da6"
+      },
+      {
+        "path": "dist/startup-error.html",
+        "sha256": "8a86184b627c946d76c495cad00729fa7e6259b40c5dfc43563c47055c091ead"
+      },
+      {
+        "path": "dist/startup-error.js",
+        "sha256": "4fd0f13deb9f9f1828a97c6ca2ea2d89d132c655273196ed5816b59d7fceb912"
+      },
+      {
+        "path": "dist/assets/index--cDToDu5.css",
+        "sha256": "0eae7873a368ffe26a414f122f82f856a667f4bceb1ba046cb4daa35b43fb2e1"
+      },
+      {
+        "path": "dist/assets/index-4qFdiRoW.js",
+        "sha256": "308e8ae377deb5409e86416ccd6a6959938516efc7020a60234f4040c9008d8a"
+      },
+      {
+        "path": "dist/assets/index-BaTW88sH.css",
+        "sha256": "63ecfc6aaddbc7915f8ade4dcea079111336131b64f015376f8ca86a51d8ef91"
+      },
+      {
+        "path": "dist/assets/index-BBb_QFZq.css",
+        "sha256": "e3bcf0f397831c937109daca493f37bd0498d2db31e285bffb7ea450854fa1bf"
+      },
+      {
+        "path": "dist/assets/index-Bbc9j3g_.js",
+        "sha256": "3951e5582fc814b1505e811f4709ac5a0a49999b00d682d0f14299d5eec62cee"
+      },
+      {
+        "path": "dist/assets/index-BnJLJC0Z.js",
+        "sha256": "5aa3ceb129de6ac92b51351f0d1f65b82995828de14163f8576f00bce796bda4"
+      },
+      {
+        "path": "dist/assets/index-BRSOU-qb.css",
+        "sha256": "2a24cd28b98b1b022572b34f0b5ff3a680adb6b8801b8de035ee0ab0a42efc06"
+      },
+      {
+        "path": "dist/assets/index-BX6Gre1W.js",
+        "sha256": "05de0f30ac794873398dae2171f517131b2030866b4bc38925596180435f2972"
+      },
+      {
+        "path": "dist/assets/index-CbwaODX7.js",
+        "sha256": "7b8b84453dc0588d5904f5192df2078fedb88aaad2753e8269e0ed1a49927d7d"
+      },
+      {
+        "path": "dist/assets/index-CFQCA54y.js",
+        "sha256": "64b072efe5c4f9113d37cff52cfa75f51debae0a818d56e966219abfdbbf6469"
+      },
+      {
+        "path": "dist/assets/index-COXcdeHN.js",
+        "sha256": "9d7be33c9abb302e8806b3f7f9c8be049c412f0e7fea038b082700b630a9ff5d"
+      },
+      {
+        "path": "dist/assets/index-CylCVelT.js",
+        "sha256": "d221c594a9d4ad86c6a3b6255a944c06975f281408adfbf1ce55eecb86ee8269"
+      },
+      {
+        "path": "dist/assets/index-D-lVDZNe.js",
+        "sha256": "bf4314192cf07ee3c841cf6e9eeebd807f75ddd0ccd70648bb82e9ada78f994a"
+      },
+      {
+        "path": "dist/assets/index-D3XHnpfV.css",
+        "sha256": "4ea81f6902c25a4a3807ef88a009d97be873c463c48a5db42aa8364ed9e78b24"
+      },
+      {
+        "path": "dist/assets/index-D6j7CSM6.js",
+        "sha256": "c438b80d20e8162450d9907384aab9a4a4efd7d9f62ec901c0a128dcc0ce9d60"
+      },
+      {
+        "path": "dist/assets/index-D8eLB10M.js",
+        "sha256": "1acd9c75571d377ccf6bb1aa760fd1bf0d406b46649cc9729bec9fcc2b02d1d1"
+      },
+      {
+        "path": "dist/assets/index-DbtPG_96.js",
+        "sha256": "c00dbf3551f82b5cc117a5267d84981a38a4d14d95c4ae081a0ad2aedc049442"
+      },
+      {
+        "path": "dist/assets/index-DFAPJDxN.css",
+        "sha256": "0cebc331c817b543aa4b4e3fab2c0e19508c602def935a14a07225ce40e86fbc"
+      },
+      {
+        "path": "dist/assets/index-DhQz1J8U.js",
+        "sha256": "c09d090f575107a041e888138a24ada91b893b15cbe77f686d724ff0bd48a14d"
+      },
+      {
+        "path": "dist/assets/index-DKElalDm.js",
+        "sha256": "cc39cdefedec143b86790fab8d4184b491b554510262f2ad415f0f053d2c8658"
+      },
+      {
+        "path": "dist/assets/index-Do8TU-N4.js",
+        "sha256": "461c76ff84f82532cd83ae9df54528e1fa5a578bdbb4e381f57834ec2be7f0db"
+      },
+      {
+        "path": "dist/assets/index-GxZ5SSqI.js",
+        "sha256": "e92e58d47cdb350306d4ba88f0727755cd228a2ba76f1d6465cfb0ca1e993c31"
+      },
+      {
+        "path": "dist/assets/index-hHmWvtSX.css",
+        "sha256": "139ef92e7fee5f69606b2076220e68ba95c6168a051640a960a417bc29c09e68"
+      },
+      {
+        "path": "dist/assets/index-jVKHLuGY.js",
+        "sha256": "3456afe1f6c731eea0c4730834b0f223f06b6ad72a15fb044f58ea3808c93a88"
+      },
+      {
+        "path": "dist/assets/index-THZWCql9.js",
+        "sha256": "608d08892d25f6e486e69b495c9457e1754fd59a9228a3edb93d07401afd9e55"
+      },
+      {
+        "path": "dist/assets/index-vqmiVXjm.js",
+        "sha256": "35da7b33c528769a5fbc697599a114e4b01db268f5651848bfdf45839896a497"
+      },
+      {
+        "path": "dist/assets/index-vSRzrtCq.css",
+        "sha256": "52f2e62783969655b48dbddf58fdc789626b6d940149a2a4effb4c2aff8ae7d6"
+      },
+      {
+        "path": "dist/assets/index-_bsOIZWd.js",
+        "sha256": "a06ca26a89d1d9ce12696e86508ef394751f8687a68fbf6e9b862f05bc648288"
+      },
+      {
+        "path": "dist/assets/index-_EKVBoSz.js",
+        "sha256": "54e969a6e220e47f2bd984193023906618c01965b64de1800d55f5a9c38b67cd"
+      }
+    ],
+    "target": "Prepared beside the normal executable for next launch; no active app restarted"
+  }
+}

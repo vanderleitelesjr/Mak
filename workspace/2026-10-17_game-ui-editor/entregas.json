@@ -1,0 +1,199 @@
+{
+  "entregas": [
+    {
+      "id": "BASE-M1-M3-M5",
+      "data": "2026-10-19",
+      "area": "editor",
+      "titulo": "M1–M3 e M5 entregues localmente",
+      "resumo": "Base histórica de autoria, comportamento e integração GE. M4 e M6 continuam separados do aceite final.",
+      "estado": "branch local",
+      "refs": [],
+      "miniaturas": []
+    },
+    {
+      "id": "REVISAO-POS-TESTE",
+      "data": "2026-10-20",
+      "area": "editor",
+      "titulo": "Correções autorizadas e card migrado ao padrão modular",
+      "resumo": "Escopo autorizado: 18 correções nesta rodada; conectores adicionais adiados. Descoberta assistida e vínculo opcional confirmados.",
+      "estado": "branch local",
+      "refs": [],
+      "miniaturas": []
+    },
+    {
+      "id": "CORRECOES-020",
+      "data": "2026-10-20",
+      "area": "editor",
+      "titulo": "0.2.0 — 18 correções e card padronizado",
+      "resumo": "112 testes core, 60 casos de interface, 41 comparações TS/C# e quatro diálogos Windows aprovados. Instalador e quatro ZIPs preparados; instalação ativa preservada.",
+      "olhar": "Ver o relatório por item em Documentação. M4/M6 continuam abertos; sem prova Unity nova, login real novo ou aceite humano da 0.2.0.",
+      "estado": "branch local",
+      "refs": [],
+      "miniaturas": [
+        {
+          "arquivo": "media/corrections-0.2.0/canvas-grid.png",
+          "legenda": "Canvas, árvore e guias — Windows WebView2 isolado, 0.2.0."
+        },
+        {
+          "arquivo": "media/corrections-0.2.0/conversation-light.png",
+          "legenda": "Conversa inferior e tema claro — peer de teste, sem inferência real."
+        },
+        {
+          "arquivo": "media/corrections-0.2.0/tour-practice.png",
+          "legenda": "Tour de prática com interação verificada — preview simulado."
+        }
+      ]
+    },
+    {
+      "id": "FOLLOWUP-021",
+      "data": "2026-10-20",
+      "area": "editor",
+      "titulo": "0.2.1 — hierarquia, cursor e limites do chat",
+      "resumo": "Quatro ajustes funcionais, 112 testes core e 68 casos de interface aprovados. Instalador e quatro ZIPs; 217 arquivos verificados. Novo chat somente em proposta.",
+      "olhar": "Avaliar o exemplo visual em Documentação e testar o arraste físico Windows. Instalação atual preservada; sem inferência real ou Unity nova.",
+      "estado": "branch local",
+      "refs": [],
+      "miniaturas": [
+        {
+          "arquivo": "media/followup-0.2.1/hierarchy-connectors.png",
+          "legenda": "Ramos por profundidade e coluna do pai — Windows 0.2.1."
+        },
+        {
+          "arquivo": "media/followup-0.2.1/canvas-content-caret.png",
+          "legenda": "Conteúdo com cursor espelhado no canvas — Windows 0.2.1."
+        },
+        {
+          "arquivo": "media/followup-0.2.1/chat-no-overlap.png",
+          "legenda": "Agente conectado: limites separados entre canvas e chat — peer de teste."
+        }
+      ]
+    },
+    {
+      "id": "CHAT-022",
+      "data": "2026-10-20",
+      "area": "editor",
+      "titulo": "0.2.2 — visual aprovado do chat implementado",
+      "resumo": "Dock ajustável, compositor único, conversa e configurações independentes. 112 core, 74 casos de interface e 219 arquivos dos pacotes verificados.",
+      "olhar": "Instalador preparado; instalação atual preservada. Capturas usam peer determinístico. Altura por sessão; M4/M6 e validação nativa permanecem abertos.",
+      "estado": "branch local",
+      "refs": [],
+      "miniaturas": [
+        {
+          "arquivo": "media/chat-0.2.2/chat-dark.png",
+          "legenda": "Chat real em tema escuro — Windows isolado, peer determinístico."
+        },
+        {
+          "arquivo": "media/chat-0.2.2/chat-light.png",
+          "legenda": "Mesmo fluxo no tema claro — texto e anexo privados, sem inferência real."
+        },
+        {
+          "arquivo": "media/chat-0.2.2/chat-narrow.png",
+          "legenda": "Divisor e compositor alcançáveis em tela estreita — Windows isolado."
+        },
+        {
+          "arquivo": "media/chat-0.2.2/chat-history.png",
+          "legenda": "Histórico com leitura preservada e painel de configurações independente."
+        }
+      ]
+    },
+    {
+      "id": "IMPORT-030",
+      "data": "2026-10-20",
+      "area": "integracao",
+      "titulo": "0.3.0 — importação estrutural Unity e escrita revisada",
+      "resumo": "Seis telas GE, 430 nós e 22 recursos; UI Toolkit/uGUI/prefabs em fixture independente. 123 core, 78 casos de interface e ida/volta nativa verificados.",
+      "olhar": "Cobertura parcial: grade, minimapa, recursos especiais e código procedural. Instalação 0.2.0 preservada. Relatório e provas em Documentação.",
+      "estado": "branch local",
+      "refs": [],
+      "miniaturas": [
+        {
+          "arquivo": "media/import-0.3.0/menu.jpg",
+          "legenda": "Menu importado com elementos independentes e imagem original — navegador."
+        },
+        {
+          "arquivo": "media/import-0.3.0/queue.jpg",
+          "legenda": "HUD e fila simulada: clique no canvas cancela um item; sem comando real."
+        }
+      ]
+    },
+    {
+      "id": "FIXES-031",
+      "data": "2026-10-20",
+      "area": "editor",
+      "titulo": "0.3.1 — chat compacto e HUD importada legível",
+      "resumo": "Dois ajustes autorizados: mínimo do chat e nomes/variantes sobrepostos. 123 core, 18 verificações focadas e 262 arquivos do pacote conferidos.",
+      "olhar": "Cópia de teste atualizada, mesmos projetos. Capturas antes/depois e instruções em Documentação; incluído no reteste geral aprovado da 0.3.3.",
+      "estado": "branch local",
+      "refs": [],
+      "miniaturas": [
+        {
+          "arquivo": "media/fixes-0.3.1/hud-after.png",
+          "legenda": "Seleção Trabalhador sem nomes internos ou variantes ocultas — Windows 0.3.1."
+        },
+        {
+          "arquivo": "media/fixes-0.3.1/editor-light.png",
+          "legenda": "Chat no mínimo medido de 192 px — Windows isolado."
+        }
+      ]
+    },
+    {
+      "id": "HIERARCHY-032",
+      "data": "2026-10-20",
+      "area": "editor",
+      "titulo": "0.3.2 — hierarquia recolhível por ramo",
+      "resumo": "Setas por item com filhos e raiz, seleção/arraste preservados e 16 verificações focadas aprovadas. Amostra GE de 430 para sete ou uma linha; 264 arquivos do pacote conferidos.",
+      "olhar": "Usar o mesmo lançador de teste. Estado dos ramos vale por sessão; incluído no reteste geral aprovado da 0.3.3. Detalhes e capturas em Documentação.",
+      "estado": "branch local",
+      "refs": [],
+      "miniaturas": [
+        {
+          "arquivo": "media/hierarchy-0.3.2/branches-light.png",
+          "legenda": "Seis ramos recolhidos na hierarquia real importada — Windows 0.3.2."
+        }
+      ]
+    },
+    {
+      "id": "COMMANDS-011",
+      "data": "2026-10-20",
+      "area": "editor",
+      "titulo": "Exportador 0.1.1 — painel de comandos visível",
+      "resumo": "Captura nativa corrigida: 15 células, textos e ícones; amostra reimportada no editor 0.3.2 com backup. Dez testes focados, Unity e Windows conferidos.",
+      "olhar": "Usar o mesmo lançador de teste. Grade visual estática; sem ações reais ou troca dinâmica por seleção. incluído no reteste geral aprovado da 0.3.3. Pacote e capturas em Documentação.",
+      "estado": "branch local",
+      "refs": [],
+      "miniaturas": [
+        {
+          "arquivo": "media/commands-0.1.1/panel-light.png",
+          "legenda": "Grade nativa importada, com 15 posições e comandos estáticos — Windows 0.3.2."
+        }
+      ]
+    },
+    {
+      "id": "CANVAS-033",
+      "data": "2026-10-20",
+      "area": "editor",
+      "titulo": "0.3.3 — canvas inteiro e conversa no rodapé",
+      "resumo": "Canvas ajustado às duas dimensões livres; divisor do chat e janela preservam o enquadramento completo. Trinta verificações focadas aprovadas e 268 arquivos de pacote conferidos.",
+      "olhar": "Usar o mesmo lançador de teste; dados e comandos permanecem. A escala diminui em janelas pequenas. Capturas e instruções em Documentação; incluído no reteste geral aprovado da 0.3.3.",
+      "estado": "branch local",
+      "refs": [],
+      "miniaturas": [
+        {
+          "arquivo": "media/canvas-0.3.3/editor-light.png",
+          "legenda": "Amostra Windows com canvas inteiro e chat no rodapé — 0.3.3."
+        }
+      ]
+    },
+    {
+      "id": "UNITY-ROUNDTRIP-033",
+      "data": "2026-10-20",
+      "area": "validacao",
+      "titulo": "0.3.3 — native persistent-property round-trip",
+      "resumo": "Four reviewed properties persisted in UXML, a uGUI scene and a prefab, then reimported. Original callbacks, assets and portable-only additions preserved; three focused conflict tests passed.",
+      "olhar": "Technical fixture proof. Windows interaction, procedural GE writeback and full M4/M6 acceptance remain open. See the report in Documentation.",
+      "estado": "branch local",
+      "refs": [],
+      "miniaturas": []
+    }
+  ]
+}

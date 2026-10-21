@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "source": "penitent-proof-v01.blend",
+  "generator": "tools/export_sprites.py",
+  "blender_version": "5.2.2 LTS",
+  "albedo": "albedo.png",
+  "normal": "normal.png",
+  "columns": 5,
+  "rows": 4,
+  "frame_size": [
+    192,
+    256
+  ],
+  "world_size": [
+    1.95,
+    2.6
+  ],
+  "pivot": [
+    0.5,
+    0.09615385
+  ],
+  "normal_basis": "world: X right, Y up, Z toward camera; linear RGB [-1,1] to [0,1]",
+  "root_motion": false,
+  "source_fps": 32,
+  "clips": {
+    "idle": {
+      "start": 0,
+      "count": 8,
+      "fps": 8,
+      "source_range": [
+        33,
+        65
+      ],
+      "duration_seconds": 1.0,
+      "loop": true
+    },
+    "walk": {
+      "start": 8,
+      "count": 12,
+      "fps": 16,
+      "source_range": [
+        1,
+        25
+      ],
+      "duration_seconds": 0.75,
+      "loop": true
+    }
+  },
+  "status": "Simple technical proxy informed by VIS02; not an approved final character model."
+}

@@ -1,0 +1,193 @@
+{
+  "sobre": "The first technical proof is implemented and agent-verified. Physical device playtesting and human visual review remain pending; the full prototype and editor are future work.",
+  "unidade": "tasks",
+  "fases": [
+    {
+      "id": "F0",
+      "nome": "Scope and foundations",
+      "estado": "feita",
+      "descricao": "Requirements interview closed; 29 decisions confirmed on 20 October 2026.",
+      "itens": [
+        {
+          "id": "F0-1",
+          "titulo": "Approve the consolidated prototype specification",
+          "estado": "feito"
+        }
+      ]
+    },
+    {
+      "id": "F1",
+      "nome": "Visual foundation",
+      "estado": "feita",
+      "descricao": "Visual foundation 7/7: all 41 confirmed decisions and 39 concept originals preserved.",
+      "itens": [
+        {
+          "id": "F1-1",
+          "titulo": "Generate three gameplay-scene directions",
+          "estado": "feito"
+        },
+        {
+          "id": "F1-2",
+          "titulo": "Generate three hollow-armor protagonist directions",
+          "estado": "feito"
+        },
+        {
+          "id": "F1-3",
+          "titulo": "Select Corroded Bastion and Penitent Harness",
+          "estado": "feito",
+          "depende": [
+            "F1-1",
+            "F1-2"
+          ]
+        },
+        {
+          "id": "F1-4",
+          "titulo": "Generate a different room combining both selected directions",
+          "estado": "feito",
+          "depende": [
+            "F1-3"
+          ]
+        },
+        {
+          "id": "F1-5",
+          "titulo": "Select L02 Cold Skylight as the final visibility treatment",
+          "estado": "feito",
+          "depende": [
+            "F1-4"
+          ]
+        },
+        {
+          "id": "F1-6",
+          "titulo": "Generate the remaining nine art groups with three options each",
+          "estado": "feito",
+          "depende": [
+            "F1-5"
+          ]
+        },
+        {
+          "id": "F1-7",
+          "titulo": "Confirm all nine additional art directions",
+          "estado": "feito",
+          "depende": [
+            "F1-6"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F2",
+      "nome": "Rendering and runtime proof",
+      "estado": "atual",
+      "descricao": "Implemented and agent-verified: isolated Rust crate, Blender sprite/normal export, dynamic lighting, collision, camera, input mappings and executable graph. Human device/visual review pending.",
+      "itens": [
+        {
+          "id": "F2-1",
+          "titulo": "Create an isolated Rust runtime crate and lock dependencies",
+          "estado": "feito"
+        },
+        {
+          "id": "F2-2",
+          "titulo": "Run one room with an animated sprite, light, collision and shared input actions",
+          "estado": "feito",
+          "depende": [
+            "F2-1"
+          ]
+        },
+        {
+          "id": "F2-3",
+          "titulo": "Drive movement through an executable behavior graph",
+          "estado": "feito",
+          "depende": [
+            "F2-2"
+          ]
+        },
+        {
+          "id": "F2-4",
+          "titulo": "Human playtest of keyboard/mouse/controller and visual review of the technical proxy",
+          "estado": "a-fazer",
+          "depende": [
+            "F2-2",
+            "F2-3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F3",
+      "nome": "Visual authoring tools",
+      "estado": "futura",
+      "itens": [
+        {
+          "id": "F3-1",
+          "titulo": "Edit, save and reload rooms and behavior graphs",
+          "estado": "a-fazer",
+          "depende": [
+            "F2-3"
+          ]
+        },
+        {
+          "id": "F3-2",
+          "titulo": "Playtest through the shared runtime without changing authored assets",
+          "estado": "a-fazer",
+          "depende": [
+            "F3-1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F4",
+      "nome": "Complete playable circuit",
+      "estado": "futura",
+      "itens": [
+        {
+          "id": "F4-1",
+          "titulo": "Implement combat, corrosion, equipment loss, recovery and paused inventory",
+          "estado": "a-fazer",
+          "depende": [
+            "F3-2"
+          ]
+        },
+        {
+          "id": "F4-2",
+          "titulo": "Build 8-12 rooms with ordered traversal unlocks and two enemy types",
+          "estado": "a-fazer",
+          "depende": [
+            "F4-1"
+          ]
+        },
+        {
+          "id": "F4-3",
+          "titulo": "Reignite the forge, transform routes and reach the boss",
+          "estado": "a-fazer",
+          "depende": [
+            "F4-2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F5",
+      "nome": "Native verification and handoff",
+      "estado": "futura",
+      "itens": [
+        {
+          "id": "F5-1",
+          "titulo": "Verify the full circuit with keyboard/mouse and controller",
+          "estado": "a-fazer",
+          "depende": [
+            "F4-3"
+          ]
+        },
+        {
+          "id": "F5-2",
+          "titulo": "Deliver editable sources, exported sprites, map/graph data and a reproducible Windows build",
+          "estado": "a-fazer",
+          "depende": [
+            "F5-1"
+          ]
+        }
+      ]
+    }
+  ]
+}

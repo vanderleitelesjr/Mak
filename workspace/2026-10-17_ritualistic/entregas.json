@@ -1,0 +1,343 @@
+{
+  "sobre": "Gerado por coletores/ritualistic.mjs: uma entrega por fase com tag e, depois da última tag, uma por dia de commits. Títulos, resumos e \"olhar\" escritos à mão (em português) ficam preservados.",
+  "entregas": [
+    {
+      "id": "fase-0",
+      "data": "2026-10-03",
+      "area": "fatia",
+      "titulo": "Fase 0 · Fundação do projeto",
+      "resumo": "Repositório git + LFS em `Ritualistic`, `.gitignore`/`.gitattributes` do Unreal; Projeto C++ `Unreal\\Ritualistic` (UE 5.8), módulo principal, plugins: Enhanced Input, PCG, StateTree, GameplayStateTree, Niagara, MetaSounds, Common UI, Modeling/Geometry Script; Configurações…",
+      "estado": "main",
+      "refs": [
+        "slice-f0",
+        "f3e23e0c"
+      ]
+    },
+    {
+      "id": "fase-1",
+      "data": "2026-10-03",
+      "area": "fatia",
+      "titulo": "Fase 1 · Personagem e sobrevivência",
+      "resumo": "First person com corpo completo (true first person: câmera na cabeça do mesh do corpo, sombra própria, mãos visíveis); o mesmo mesh serve em terceira pessoa; Movimento: andar, correr, agachar (furtividade), pular, esquiva; `UVitalsComponent`: HP, Spirit, Fadiga (stamina de…",
+      "estado": "main",
+      "refs": [
+        "slice-f1",
+        "5b5df96b"
+      ]
+    },
+    {
+      "id": "fase-2",
+      "data": "2026-10-03",
+      "area": "fatia",
+      "titulo": "Fase 2 · Itens, inventário, equipamento e coleta",
+      "resumo": "Inventário em grid com peso (Might), stacks; Equipamento: Head, Chest, Backpack, Left Hand, Right Hand; peças aparecem no corpo (skeletal mesh modular); Hotbars das duas mãos; Sistema de interação (trace + `IRitInteractable`); Nós de recurso: árvores, pedras, gravetos/pedras…",
+      "estado": "main",
+      "refs": [
+        "slice-f2",
+        "cd09c8ad"
+      ]
+    },
+    {
+      "id": "fase-3",
+      "data": "2026-10-03",
+      "area": "fatia",
+      "titulo": "Fase 3 · Mundo procedural",
+      "resumo": "`URitWorldGenSubsystem`: seed → mapa de regiões (floresta densa, clareiras, elevações, margem do rio, área perigosa); Terreno em chunks com heightfield determinístico; rio principal escavado + córregos; montanhas; Cavernas simples (entradas pré-fabricadas + túneis curtos…",
+      "estado": "main",
+      "refs": [
+        "slice-f3",
+        "1937adb7"
+      ],
+      "miniaturas": [
+        {
+          "arquivo": "media/progresso/f3/world-aerial.webp",
+          "legenda": "World Aerial"
+        },
+        {
+          "arquivo": "media/progresso/f3/world-caveinside.webp",
+          "legenda": "World CaveInside"
+        },
+        {
+          "arquivo": "media/progresso/f3/world-cavemouth.webp",
+          "legenda": "World CaveMouth"
+        }
+      ]
+    },
+    {
+      "id": "fase-4",
+      "data": "2026-10-03",
+      "area": "fatia",
+      "titulo": "Fase 4 · Crafting e estações",
+      "resumo": "Crafting manual com tempo e animação; Estações: fogueira (cozinhar), bancada, forno de argila, fornalha; Interação: preparar materiais, sequência de ações, minijogo de fole/temperatura na fornalha, martelar na bancada; cozinhar e forno apenas por tempo; Processamento de metais…",
+      "estado": "main",
+      "refs": [
+        "slice-f4",
+        "2fa843cb"
+      ]
+    },
+    {
+      "id": "fase-5",
+      "data": "2026-10-03",
+      "area": "fatia",
+      "titulo": "Fase 5 · Construção",
+      "resumo": "Modo Build (B): lista de estruturas conhecidas, custo, fantasma no mundo, encaixe modular (sockets), validação de terreno; Peças: fundação, piso, parede, porta, janela, teto, fogueira, bancada, armazenamento, canteiro; Integridade simples, dano e reparo com martelo; Abrigo…",
+      "estado": "main",
+      "refs": [
+        "slice-f5",
+        "8cc28628"
+      ],
+      "miniaturas": []
+    },
+    {
+      "id": "fase-6",
+      "data": "2026-10-03",
+      "area": "fatia",
+      "titulo": "Fase 6 · Combate",
+      "resumo": "Ataque leve, pesado, carregado; bloqueio; esquiva; custo de fadiga; Alcance e características por arma (dados); arremesso da lança com recuperação; Ataque furtivo (bônus por não ser detectado); Hit reactions, hitstop curto, câmera e som com peso",
+      "estado": "main",
+      "refs": [
+        "slice-f6",
+        "aecabd56"
+      ]
+    },
+    {
+      "id": "fase-7",
+      "data": "2026-10-03",
+      "area": "fatia",
+      "titulo": "Fase 7 · Fauna",
+      "resumo": "Lobos (matilha, caça, abandonam perseguição), ursos (territoriais), cervos e carneiros (pastam, fogem, migram), javalis (atacam se encurralados), raposas (oportunistas); Necessidades simples (fome, sono) e ciclos dia/noite; predador caça presa; Caça, esfolar (faca → couro…",
+      "estado": "main",
+      "refs": [
+        "slice-f7",
+        "e55ffa55"
+      ],
+      "miniaturas": [
+        {
+          "arquivo": "media/progresso/f7/fauna-bearwarning.webp",
+          "legenda": "Fauna BearWarning"
+        },
+        {
+          "arquivo": "media/progresso/f7/fauna-deer.webp",
+          "legenda": "Fauna Deer"
+        },
+        {
+          "arquivo": "media/progresso/f7/fauna-wolf.webp",
+          "legenda": "Fauna Wolf"
+        }
+      ]
+    },
+    {
+      "id": "fase-8",
+      "data": "2026-10-03",
+      "area": "fatia",
+      "titulo": "Fase 8 · Criaturas sobrenaturais",
+      "resumo": "Draugr, Sluagh e Nøkken completos: IA, ataques, fraquezas, loot, região, áudio próprio; `URitHorrorDirector`: eventos de tensão sem combate (sons distantes, silêncio da fauna, aparições, mudanças sutis), com controle de frequência para evitar jumpscares",
+      "estado": "main",
+      "refs": [
+        "slice-f8",
+        "bab75864"
+      ],
+      "miniaturas": [
+        {
+          "arquivo": "media/progresso/f8/super-apparition.webp",
+          "legenda": "Super Apparition"
+        },
+        {
+          "arquivo": "media/progresso/f8/super-draugrrisen.webp",
+          "legenda": "Super DraugrRisen"
+        },
+        {
+          "arquivo": "media/progresso/f8/super-draugrrising.webp",
+          "legenda": "Super DraugrRising"
+        }
+      ]
+    },
+    {
+      "id": "fase-9",
+      "data": "2026-10-03",
+      "area": "fatia",
+      "titulo": "Fase 9 · Conhecimento, rituais, spells e skills",
+      "resumo": "Journal com descoberta automática por categoria; Inscrições/totens que entregam fragmentos de conhecimento; Ritual \"Acendimento do Anel de Pedra\" executado fisicamente, com falhas e consequências; Spell Fogo-Fátuo + spell hotbar; Árvore de skills (Base Stats, Utility, Combat)…",
+      "estado": "main",
+      "refs": [
+        "slice-f9",
+        "0f062fb5"
+      ],
+      "miniaturas": [
+        {
+          "arquivo": "media/progresso/f9/ritual-brazierslit.webp",
+          "legenda": "Ritual BraziersLit"
+        },
+        {
+          "arquivo": "media/progresso/f9/ritual-channel.webp",
+          "legenda": "Ritual Channel"
+        },
+        {
+          "arquivo": "media/progresso/f9/ritual-inscription.webp",
+          "legenda": "Ritual Inscription"
+        }
+      ]
+    },
+    {
+      "id": "fase-10",
+      "data": "2026-10-03",
+      "area": "fatia",
+      "titulo": "Fase 10 · UI completa",
+      "resumo": "Conceitos de UI no Higgsfield, depois implementação em UMG/Common UI; Menu principal (New Game com seed, Load, Settings, Exit) ambientado; HUD, hotbars, telas Character (Tab), Crafting (T), Rituals (R), Spells (P), Skills (K), Journal, Map (com fog of war), Build (B)",
+      "estado": "main",
+      "refs": [
+        "slice-f10",
+        "4a722332"
+      ],
+      "miniaturas": [
+        {
+          "arquivo": "media/progresso/f10/ui-character.webp",
+          "legenda": "UI Character"
+        },
+        {
+          "arquivo": "media/progresso/f10/ui-crafting.webp",
+          "legenda": "UI Crafting"
+        },
+        {
+          "arquivo": "media/progresso/f10/ui-hud.webp",
+          "legenda": "UI HUD"
+        }
+      ]
+    },
+    {
+      "id": "fase-11",
+      "data": "2026-10-03",
+      "area": "fatia",
+      "titulo": "Fase 11 · Save/Load",
+      "resumo": "Save manual e automático em descanso; slots; Reconstrução do mundo pela seed + deltas",
+      "estado": "main",
+      "refs": [
+        "slice-f10",
+        "4a722332"
+      ],
+      "miniaturas": [
+        {
+          "arquivo": "media/progresso/f11/save-loaded.webp",
+          "legenda": "Save Loaded"
+        }
+      ]
+    },
+    {
+      "id": "fase-13",
+      "data": "2026-10-03",
+      "area": "fatia",
+      "titulo": "Fase 13 · Integração e playtest",
+      "resumo": "Rodar o loop completo do início ao Bronze, balancear, corrigir, medir performance nos perfis de escalabilidade",
+      "estado": "main",
+      "refs": [
+        "slice-f12-audio-icons",
+        "916d0c88"
+      ]
+    },
+    {
+      "id": "dia-2026-10-03",
+      "data": "2026-10-03",
+      "area": "polimento",
+      "titulo": "03/10 · Modelos do Meshy e as primeiras rodadas de playtest",
+      "resumo": "Criaturas, ambiente, itens e estruturas no Meshy; direção de arte (sol, sombras frias, vinheta); controles e barras de construção e feitiços refeitos no playtest; desmontar estruturas; checklists PT-001 a PT-021; criaturas com rig feito no Blender por script.",
+      "estado": "main",
+      "refs": [
+        "e018dee9..b4da4c72",
+        "PT-001–PT-021"
+      ]
+    },
+    {
+      "id": "dia-2026-10-04",
+      "data": "2026-10-04",
+      "area": "polimento",
+      "titulo": "04/10 · Modelos aprovados, construção celta, ritos e feitiços",
+      "resumo": "Mundos criativos; camas; criaturas e animais refeitos dos turnarounds aprovados; paredes e telhados celtas; construção com níveis; o Pacto do Rio Silencioso e o visco no fim da fatia; ações do exilado no Mannequin; seis feitiços com gestos; achados PT-022 a PT-090.",
+      "estado": "main",
+      "refs": [
+        "c0180cd5..1cd75bdf",
+        "PT-022–PT-060, PT-068–PT-090"
+      ]
+    },
+    {
+      "id": "dia-2026-10-05",
+      "data": "2026-10-05",
+      "area": "polimento",
+      "titulo": "05/10 · O jogador vira o Manny",
+      "resumo": "Kit de detalhes da floresta e luar por fase da lua; exilado no esqueleto do Mannequin com braços em primeira pessoa; comparação A/B e a decisão: o Manny é o jogador (V para terceira pessoa); efeitos Niagara; ferramentas refeitas no Blender; DLSS 4.5 e o kit de UI do lote 18.",
+      "estado": "main",
+      "refs": [
+        "fdba5cb0..8da482d9",
+        "PT-092–PT-095"
+      ]
+    },
+    {
+      "id": "dia-2026-10-06",
+      "data": "2026-10-06",
+      "area": "polimento",
+      "titulo": "06/10 · Luz, água e vegetação viva",
+      "resumo": "Luz e atmosfera (DD-020); golpes no impacto real da animação; chão e rochas fotoescaneados (Poly Haven); água com reflexos, ondulações, espuma e sons; tela de carregamento viva e a visão do visco; modelos fora do tema refeitos; plantas que balançam com o vento.",
+      "estado": "main",
+      "refs": [
+        "eb2b830f..5a2e4cb1",
+        "PT-075"
+      ]
+    },
+    {
+      "id": "dia-2026-10-07",
+      "data": "2026-10-07",
+      "area": "polimento",
+      "titulo": "07/10 · Bússola, água que responde e relevo",
+      "resumo": "Bússola refeita (PT-096 a PT-098); água com ondulações simuladas e som direcional (PT-099, PT-100); relevo do terreno nos perfis baixos (PT-101); regras do CLAUDE.md para todas as threads; bots abrem o editor com o servidor MCP; começa a cena L_Challenge.",
+      "estado": "main",
+      "refs": [
+        "bd2e174f..1d191c04",
+        "PT-096–PT-101"
+      ]
+    },
+    {
+      "id": "dia-2026-10-08",
+      "data": "2026-10-08",
+      "area": "polimento",
+      "titulo": "08/10 · A cena L_Challenge e o menu 3D",
+      "resumo": "L_Challenge da v2 à v19: círculo de pedras ao pôr do sol, carvalhos, musgo, rio, cervos e névoa; o visual levado ao kit do mundo e à floresta; nuvens próprias no céu; o jogo abre num menu 3D sobre o círculo de pedras; molduras de UI que se repetem em vez de esticar.",
+      "estado": "main",
+      "refs": [
+        "ae15f9e0..8aa53547"
+      ]
+    },
+    {
+      "id": "dia-2026-10-09",
+      "data": "2026-10-09",
+      "area": "polimento",
+      "titulo": "09/10 · As cinco armaduras no exilado",
+      "resumo": "Pôr do sol e vídeos de ambiente por linha de comando; armaduras T1 a T5 no Manny com física de saiote; novo corpo do exilado (Meshy, turnaround de 4 vistas) e as cinco armaduras reajustadas a ele; rios que refletem as margens; atalhos de lançamento para playtest.",
+      "estado": "main",
+      "refs": [
+        "f3c9fec1..9b60f827"
+      ]
+    },
+    {
+      "id": "dia-2026-10-10",
+      "data": "2026-10-10",
+      "area": "polimento",
+      "titulo": "10/10 · Armaduras de tecido, couro e bronze",
+      "resumo": "Armadura de tecido refeita sem física e depois com saia em Chaos Cloth (módulo RitualisticEditor); couro (T2) e bronze (T3) no exilado, com capuz, túnica, saia, ombreiras e braçadeiras; cortes do corpo por baixo para nada atravessar.",
+      "estado": "main",
+      "refs": [
+        "46890ace..e4aba22c"
+      ]
+    },
+    {
+      "id": "dia-2026-10-11",
+      "data": "2026-10-11",
+      "area": "polimento",
+      "titulo": "11/10 · Ícones estilo B, achados de playtest e empacotamento",
+      "resumo": "54 ícones estilo B no jogo, mais 30 de materiais e 21 do diário; capuz separado da armadura; achados de HUD, bronze e clima (PT-106 a PT-122); limpeza do repositório; README com a galeria; o empacotamento passa a incluir os quatro mapas do jogo.",
+      "estado": "main",
+      "refs": [
+        "7c1d7e7e..5b1758d3",
+        "PT-106–PT-122"
+      ]
+    }
+  ]
+}

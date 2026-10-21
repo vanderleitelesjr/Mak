@@ -1,0 +1,75 @@
+<!-- Gerado — não edite à mão. Fonte: decisoes.json. Para mudar, edite o JSON e rode: node workspace/_shared/engine/gerar.mjs <pasta-do-card> -->
+<!doctype html>
+<html lang="pt-BR" data-mak-report="document" style="--mk-destaque:#5fa37a">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Decisões · Ritualistic</title>
+  <link rel="stylesheet" href="../_shared/report.css">
+  <link rel="stylesheet" href="../_shared/examples.css">
+  <link rel="stylesheet" href="../_shared/engine/tema-base.css">
+  <script defer src="../_shared/report.js"></script>
+</head>
+<body><main class="container mk-pag">
+<p class="mk-gerado">Gerado — não edite à mão · fonte: decisoes.json · 17 de outubro de 2026</p>
+<div class="mk-capa"><div class="mk-capa-img" style="background-image:url('media/capa/conceito-visao-visco.webp')" aria-hidden="true"></div>
+  <header class="mk-capa-texto">
+    <p class="mk-eyebrow">Ritualistic</p>
+    <h1>Decisões</h1>
+    <p class="mk-sub">0 decisões pendentes de 27 · atualizado em 17 de outubro de 2026.</p>
+  </header>
+</div>
+<section class="mk-bloco">
+<div class="mk-contadores"><span><b>0</b> pendentes</span> <span class="mk-chip mk-ok">27 confirmadas</span> <span class="mk-chip mk-neutro">2 temas</span></div>
+<p class="mk-nota">Fonte: Docs/Plan.md e git log do repositório Ritualistic.</p>
+</section>
+<section class="mk-bloco">
+<h2 class="mk-t"><span class="mk-ico mk-i-livro" aria-hidden="true"></span>Por tema</h2>
+<details>
+<summary>Técnicas (Docs/Plan.md) · 13 decisões</summary>
+<div class="mk-rolagem"><table class="mk-tabela ">
+<thead><tr><th scope="col">Id</th><th scope="col">Decisão</th><th scope="col">Estado</th><th scope="col">Data</th></tr></thead>
+<tbody>
+<tr><td><span class="mk-id">TC1</span></td><td>Engine: Unreal Engine 5.8.3 (<code>E:\Epic Games\UE_5.8</code>), projeto C++ em <code>Unreal\Ritualistic</code></td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>3 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">TC2</span></td><td>Código: Núcleo em C++ (módulo <code>Ritualistic</code>), conteúdo em Blueprints filhos + Data Assets / Data Tables</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>3 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">TC3</span></td><td>Dados: <code>UPrimaryDataAsset</code> por domínio (Item, Receita, Estrutura, Criatura, Ritual, Spell, Skill, Entrada de Journal) + Gameplay Tags para categorias, materiais, tiers, efeitos. Asset Manager carrega tudo por tipo, sem listas fixas no código</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>3 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">TC4</span></td><td>Input: Enhanced Input (Input Actions + Mapping Contexts por modo: exploração, construção, UI, ritual)</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>3 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">TC5</span></td><td>IA: StateTree + AI Perception (visão, audição, dano). Comportamentos como tasks reutilizáveis</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>3 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">TC6</span></td><td>Atributos/efeitos: Componente próprio leve (<code>UVitalsComponent</code> + <code>UStatusEffectComponent</code> com efeitos em Data Asset). GAS ficou de fora para não inflar o MVP; a interface permite migrar depois</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>3 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">TC7</span></td><td>Mundo: Geração em runtime a partir da seed: heightfield determinístico (ruído + regras de região), rio escavado por spline, clareiras/cavernas/ruínas/círculos como prefabs posicionados por regras. Terreno em chunks de malha (Dynamic Mesh / Nanite quando fizer sentido), vegetação e recursos via PCG em runtime com a mesma seed</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>3 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">TC8</span></td><td>Render: Lumen + Virtual Shadow Maps + Nanite como padrão &quot;Epic&quot;; perfis de escalabilidade Low→Cinematic; DLSS/Frame Gen via plugin NVIDIA opcional (nunca dependência). HW Ray Tracing ligado apenas no perfil alto</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>3 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">TC9</span></td><td>Áudio: MetaSounds + atenuação/espacialização; ElevenLabs para gerar SFX/ambiências</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>3 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">TC10</span></td><td>VFX: Niagara</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>3 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">TC11</span></td><td>Save: <code>USaveGame</code> versionado: seed + deltas do mundo (recursos removidos, estruturas, baús, nós explorados do mapa) + estado do jogador e conhecimento</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>3 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">TC12</span></td><td>Assets: Higgsfield (conceitos/UI) → Meshy (modelos, rig, animações base) → Blender (limpeza, escala, LODs, retarget, animação extra, FBX) → Unreal</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>3 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">TC13</span></td><td>Versionamento: Git + Git LFS na raiz <code>Ritualistic</code> (binários Unreal, FBX, PNG, WAV etc. em LFS)</td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>3 de outubro de 2026</td></tr>
+</tbody>
+</table></div>
+</details>
+<details>
+<summary>Design (DD nos commits) · 14 decisões</summary>
+<div class="mk-rolagem"><table class="mk-tabela ">
+<thead><tr><th scope="col">Id</th><th scope="col">Decisão</th><th scope="col">Estado</th><th scope="col">Data</th></tr></thead>
+<tbody>
+<tr><td><span class="mk-id">DD-004</span></td><td>B liga o modo construção com o martelo na mão; segurar B abre o anel de ações (construir, desmontar, reparar, melhorar, piorar, mover)<br><small class="mk-nota">Commit cda05097.</small></td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>4 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">DD-005</span></td><td>Os ritos listam o que precisa ser construído ou feito antes (tela de Rituais)<br><small class="mk-nota">Commit cda05097.</small></td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>4 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">DD-006</span></td><td>Morrer deixa os restos com tudo o que se levava e vestia (-10% de durabilidade); perde-se metade do XP até o próximo nível<br><small class="mk-nota">Commit cda05097.</small></td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>4 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">DD-007</span></td><td>Pedra que responde na margem onde o Nøkken toca, com a inscrição que ensina o pacto e a flauta de osso<br><small class="mk-nota">Commit 00bbce78.</small></td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>4 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">DD-008</span></td><td>Lua de oito dias (cheia nos dias 4, 12...) mostrada ao lado da hora no HUD<br><small class="mk-nota">Commit 00bbce78.</small></td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>4 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">DD-009</span></td><td>HUD só de galhos e ossos, com a arte do lote 13<br><small class="mk-nota">Commit 375a1ae7.</small></td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>4 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">DD-011</span></td><td>Lua cheia a cada quatro dias<br><small class="mk-nota">Commit b07415e4.</small></td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>4 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">DD-012</span></td><td>Capuz e túnica de tecido e de couro (o couro defumado os ensina) e mochila de tecido, presos ao esqueleto do jogador; elmo e gibão de bronze ficam fora da fatia<br><small class="mk-nota">Commit 2dbab5a9.</small></td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>4 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">DD-013</span></td><td>O telhado de meia-água fica fora da fatia<br><small class="mk-nota">Commit b07415e4.</small></td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>4 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">DD-014</span></td><td>Fontes: Alegreya no texto e no itálico, Cinzel Bold nos títulos (OFL)<br><small class="mk-nota">Commit b07415e4.</small></td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>4 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">DD-015</span></td><td>Configurações com volumes geral, de música, de efeitos e de ambiente, campo de visão, sensibilidade do mouse e troca de teclas (as teclas trocam, nunca se repetem)<br><small class="mk-nota">Commit b07415e4.</small></td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>4 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">DD-016</span></td><td>Uma dica curta na primeira vez que cada coisa aparece e uma página de Controles na pausa; toda dica mostra a tecla em uso<br><small class="mk-nota">Commit b07415e4.</small></td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>4 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">DD-019</span></td><td>Os outros feitiços da fatia: Faísca, Pele de Casca, Passo de Raposa, Eco do Corvo e Canto Calmo; Fogo-fátuo rebalanceado<br><small class="mk-nota">Commit 0a1bc7fd.</small></td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>4 de outubro de 2026</td></tr>
+<tr><td><span class="mk-id">DD-020</span></td><td>Luz e atmosfera, com uma segunda passada nos efeitos<br><small class="mk-nota">Commit 8423a707.</small></td><td><span class="mk-chip mk-ok">Confirmada</span></td><td>6 de outubro de 2026</td></tr>
+</tbody>
+</table></div>
+</details>
+</section>
+</main>
+
+</body>
+</html>

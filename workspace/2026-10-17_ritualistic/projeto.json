@@ -1,0 +1,23 @@
+{
+  "id": "ritualistic",
+  "titulo": "Ritualistic",
+  "sobre": "Sobrevivência celta com rituais na Unreal Engine 5.8.3: mundo gerado por seed, fauna, Draugr, Sluagh e Nøkken. Fatia vertical jogável do começo ao Bronze.",
+  "tema": "base",
+  "destaque": "#5fa37a",
+  "capa": "media/capa/conceito-visao-visco.webp",
+  "janelaDias": 30,
+  "areas": [
+    { "id": "fatia", "cor": "#5fa37a", "icone": "marco" },
+    { "id": "polimento", "cor": "#d9a441", "icone": "arte" }
+  ],
+  "repositorio": "E:/Claude Projects/Ritualistic",
+  "abas": [
+    { "modulo": "painel", "nome": "Painel" },
+    { "modulo": "roteiro", "nome": "Roteiro" },
+    { "modulo": "entregas", "nome": "Entregas" },
+    { "modulo": "playtest", "nome": "Playtest" },
+    { "modulo": "pipeline", "nome": "Pipeline" },
+    { "modulo": "decisoes", "nome": "Decisões" },
+    { "modulo": "arquivo", "nome": "Arquivo" }
+  ]
+}

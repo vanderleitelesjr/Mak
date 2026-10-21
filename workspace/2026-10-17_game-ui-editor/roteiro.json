@@ -1,0 +1,196 @@
+{
+  "unidade": "itens",
+  "fases": [
+    {
+      "id": "POS-TESTE",
+      "nome": "Correções pós-teste",
+      "estado": "feita",
+      "descricao": "18 correções implementadas e verificadas na 0.2.0; instalação do usuário preservada. M4/M6 continuam abertos para validação nativa e aceite.",
+      "itens": [
+        {
+          "id": "P01",
+          "titulo": "Seleção e botões da barra",
+          "estado": "feito"
+        },
+        {
+          "id": "P02",
+          "titulo": "Redimensionamento no canvas",
+          "estado": "feito"
+        },
+        {
+          "id": "P03",
+          "titulo": "Árvore compacta e conectores",
+          "estado": "feito"
+        },
+        {
+          "id": "P04",
+          "titulo": "Parentesco e ordem de camadas",
+          "estado": "feito"
+        },
+        {
+          "id": "P05",
+          "titulo": "Uma guia móvel por eixo",
+          "estado": "feito"
+        },
+        {
+          "id": "P06",
+          "titulo": "Grid e espaçamento",
+          "estado": "feito"
+        },
+        {
+          "id": "P07",
+          "titulo": "Alinhamento automático",
+          "estado": "feito"
+        },
+        {
+          "id": "P08",
+          "titulo": "Duplo clique e F2 para conteúdo",
+          "estado": "feito"
+        },
+        {
+          "id": "P09",
+          "titulo": "Seletor de cor e opacidade",
+          "estado": "feito"
+        },
+        {
+          "id": "P10",
+          "titulo": "Recolher condições e conexões",
+          "estado": "feito"
+        },
+        {
+          "id": "P11",
+          "titulo": "Tour interativo",
+          "estado": "feito"
+        },
+        {
+          "id": "P12",
+          "titulo": "Conversa inferior",
+          "estado": "feito"
+        },
+        {
+          "id": "P13",
+          "titulo": "Clareza do assistente",
+          "estado": "feito"
+        },
+        {
+          "id": "P14",
+          "titulo": "Anexos de imagem",
+          "estado": "feito"
+        },
+        {
+          "id": "P15",
+          "titulo": "Login inicial do Codex",
+          "estado": "feito"
+        },
+        {
+          "id": "P16",
+          "titulo": "Catálogo por jogo e descoberta assistida",
+          "estado": "feito"
+        },
+        {
+          "id": "P17",
+          "titulo": "Pasta vinculada e importação portátil",
+          "estado": "feito"
+        },
+        {
+          "id": "P18",
+          "titulo": "Temas e esquemas de cores",
+          "estado": "feito"
+        }
+      ]
+    },
+    {
+      "id": "FOLLOWUP-021",
+      "nome": "Revisão de uso · 0.2.1",
+      "estado": "feita",
+      "descricao": "Quatro ajustes entregues na 0.2.1; preservados na revisão visual seguinte.",
+      "itens": [
+        {
+          "id": "F01",
+          "titulo": "Arraste Windows e indicação de destino",
+          "estado": "feito"
+        },
+        {
+          "id": "F02",
+          "titulo": "Conectores por profundidade",
+          "estado": "feito"
+        },
+        {
+          "id": "F03",
+          "titulo": "Comando de edição, cursor e seleção no canvas",
+          "estado": "feito"
+        },
+        {
+          "id": "F04",
+          "titulo": "Separação entre canvas e chat conectado",
+          "estado": "feito"
+        }
+      ]
+    },
+    {
+      "id": "CHAT-VISUAL",
+      "nome": "Novo chat · 0.2.2",
+      "estado": "feita",
+      "descricao": "Referência aceita aplicada, testada no navegador/Windows isolado e empacotada. Instalação ativa preservada; aceite e prova nativa seguem separados.",
+      "itens": [
+        {
+          "id": "CHAT01",
+          "titulo": "Aplicar visual de conversa, compositor e controles recolhidos",
+          "estado": "feito"
+        },
+        {
+          "id": "CHAT02",
+          "titulo": "Validar histórico, anexos, propostas e interação no Windows",
+          "estado": "feito",
+          "depende": [
+            "CHAT01"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "UI-IMPORT",
+      "nome": "Importação estrutural · 0.3.3",
+      "estado": "atual",
+      "descricao": "Base 0.3.0 e ajustes até 0.3.3 entregues; reteste geral aprovado pelo usuário. Cobertura GE parcial; aplicação/reimportação na Unity e aceite completo M4/M6 separados.",
+      "itens": [
+        {
+          "id": "IMP01",
+          "titulo": "Importação e reimportação com identidade, assets e conflitos",
+          "estado": "feito"
+        },
+        {
+          "id": "IMP02",
+          "titulo": "Exportação Unity UI Toolkit/uGUI e piloto GE",
+          "estado": "feito",
+          "resumo": "Seis telas GE e prova em Unity independente; cobertura parcial explícita."
+        },
+        {
+          "id": "IMP03",
+          "titulo": "Telas, perfis e simulação de vínculos conhecidos",
+          "estado": "feito",
+          "resumo": "Dados, seleção/fila e navegação conhecida; callbacks desconhecidos ficam pendentes."
+        },
+        {
+          "id": "IMP04",
+          "titulo": "Prova nativa, interface Windows e pacote",
+          "estado": "feito"
+        }
+      ]
+    },
+    {
+      "id": "CONECTORES-FUTUROS",
+      "nome": "Conectores adicionais — adiados",
+      "estado": "futura",
+      "descricao": "Recomendação de manter Claude/Antigravity fora desta rodada. Exigem escopo próprio.",
+      "itens": [
+        {
+          "id": "P19",
+          "titulo": "Provedores adicionais: decisão de escopo",
+          "estado": "a-fazer",
+          "resumo": "Somente Codex disponível; sem provedores fictícios ou inferência adicional."
+        }
+      ]
+    }
+  ]
+}

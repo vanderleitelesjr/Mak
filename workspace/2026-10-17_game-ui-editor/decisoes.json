@@ -1,0 +1,62 @@
+{
+  "fonte": "design.md, correction-proposals.md e decisões do usuário nesta conversa.",
+  "espera": [
+    "Atualizar e testar a 0.2.2: novo chat, arraste físico Windows e cursor de conteúdo.",
+    "Primeiro login real pelo fluxo novo, validação nativa isolada e aceite final de M4/M6."
+  ],
+  "temas": [
+    {
+      "nome": "Correções e produto",
+      "decisoes": [
+        {
+          "id": "UI-01",
+          "titulo": "Implementar todas as correções atuais em uma passada, sem aguardar nova aprovação entre itens.",
+          "estado": "Confirmada",
+          "data": "2026-10-20"
+        },
+        {
+          "id": "UI-16",
+          "titulo": "Descoberta assistida: analisar o projeto vinculado e revisar candidatos a dados e ações antes de adicioná-los ao catálogo.",
+          "estado": "Confirmada",
+          "data": "2026-10-20"
+        },
+        {
+          "id": "UI-17",
+          "titulo": "Vínculo opcional; uma raiz de jogo por projeto de UI; vários projetos podem compartilhar a raiz; assets importados continuam portáteis.",
+          "estado": "Confirmada",
+          "data": "2026-10-20"
+        },
+        {
+          "id": "UI-18",
+          "titulo": "Preservar aplicações e sessões ativas; implementação, testes, integração nativa e aceite humano são evidências distintas.",
+          "estado": "Confirmada",
+          "data": "2026-10-20"
+        },
+        {
+          "id": "UI-19",
+          "titulo": "Claude/Antigravity ficam fora da 0.2.0 conforme a recomendação; escopo próprio ainda não definido.",
+          "estado": "Pendente",
+          "data": "2026-10-20"
+        },
+        {
+          "id": "UI-CARD",
+          "titulo": "Card no motor compartilhado, em português, com seis abas e progresso das correções separado dos marcos originais.",
+          "estado": "Confirmada",
+          "data": "2026-10-20"
+        },
+        {
+          "id": "UI-CHAT",
+          "titulo": "Visual aprovado implementado na 0.2.2: dock ajustável, conversa prioritária, compositor único e controles recolhidos. Refinamentos posteriores continuam possíveis.",
+          "estado": "Confirmada",
+          "data": "2026-10-20"
+        },
+        {
+          "id": "UI-IMPORT",
+          "titulo": "Importação estrutural autorizada: piloto GE/UI Toolkit, HUD/telas e reimportação, depois generalização Unity UI Toolkit/uGUI. Outras engines ficam para etapa posterior.",
+          "estado": "Confirmada",
+          "data": "2026-10-20"
+        }
+      ]
+    }
+  ]
+}

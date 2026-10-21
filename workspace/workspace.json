@@ -1,13 +1,377 @@
 {
   "entities": [
     {
+      "id": "rust-gothic-metroidvania",
+      "title": "Rust Gothic Metroidvania",
+      "description": "First custom Rust runtime proof: Blender animated sprites, dynamic lighting, collision and executable movement graph. Human controls/visual review pending; approved art preserved.",
+      "type": "group",
+      "category": "game",
+      "created": "2026-10-20",
+      "updated": "2026-10-21",
+      "folder": "2026-10-20_rust-gothic-metroidvania",
+      "steps": [
+        {
+          "name": "Overview",
+          "path": "painel.html"
+        },
+        {
+          "name": "Roadmap",
+          "path": "roteiro.html"
+        },
+        {
+          "name": "Deliveries",
+          "path": "entregas.html"
+        },
+        {
+          "name": "Playtest",
+          "path": "playtest.html"
+        },
+        {
+          "name": "Decisions",
+          "path": "decisoes.html"
+        },
+        {
+          "name": "Art collection",
+          "path": "acervo.html"
+        },
+        {
+          "name": "Documentation",
+          "path": "documentacao.html"
+        },
+        {
+          "name": "Archive",
+          "path": "arquivo.html"
+        }
+      ],
+      "status": "archived",
+      "defaultStep": 0,
+      "phase": "Rendering and runtime proof",
+      "cover": "media/cenario/combined-scenes/scene-d-lower-gatehouse-v02-l02-cold-skylight.webp",
+      "progress": {
+        "done": 3,
+        "total": 4,
+        "label": "tasks"
+      }
+    },
+    {
+      "id": "cursed-knight",
+      "title": "Cursed Knight",
+      "description": "Gothic 2D platformer in Godot 4. Cursed knight with sword, dash, double-jump and parry. Three linear levels + multi-phase Cathedral Guardian boss. 16-bit pixel art, Dark Souls/Blasphemous aesthetic. Extensible architecture for future expansion.",
+      "type": "group",
+      "category": "game",
+      "created": "2026-10-18",
+      "updated": "2026-10-21",
+      "folder": "2026-10-18_gothic-platformer",
+      "steps": [
+        {
+          "name": "Design and decisions",
+          "path": "design.md"
+        },
+        {
+          "name": "Implementation plan",
+          "path": "implementation.md"
+        }
+      ],
+      "status": "archived",
+      "pinned": true,
+      "defaultStep": 0,
+      "phase": "Phase 5 complete · Build scripts, playtest checklist ready",
+      "progress": {
+        "done": 6,
+        "total": 7,
+        "label": "phases"
+      }
+    },
+    {
+      "id": "game-ui-editor",
+      "title": "Game UI Editor",
+      "description": "Windows HUD editor. Owner accepted 0.3.3; native UXML/uGUI property round-trip verified. Procedural GE application and complete M4/M6 acceptance remain open.",
+      "type": "group",
+      "category": "tools",
+      "created": "2026-10-17",
+      "updated": "2026-10-20",
+      "folder": "2026-10-17_game-ui-editor",
+      "steps": [
+        {
+          "name": "Painel",
+          "path": "painel.html"
+        },
+        {
+          "name": "Proposta de chat",
+          "path": "chat-proposal.html"
+        },
+        {
+          "name": "Roteiro",
+          "path": "roteiro.html"
+        },
+        {
+          "name": "Entregas",
+          "path": "entregas.html"
+        },
+        {
+          "name": "Decisões",
+          "path": "decisoes.html"
+        },
+        {
+          "name": "Arquivo",
+          "path": "arquivo.html"
+        },
+        {
+          "name": "Documentação",
+          "path": "documentacao.html"
+        }
+      ],
+      "status": "active",
+      "defaultStep": 0,
+      "phase": "Importação estrutural · 0.3.3",
+      "progress": {
+        "done": 4,
+        "total": 4,
+        "label": "itens"
+      },
+      "cover": "media/chat-0.2.2/chat-dark.png"
+    },
+    {
+      "id": "headband-fit",
+      "title": "Gothic headband · 58 cm fit",
+      "description": "V2 gauge fit confirmed by wearer; complete ornament delivered at fitted scale, oriented for Bambu Lab A1. Slicer review and complete-piece comfort remain pending.",
+      "type": "group",
+      "category": "project",
+      "created": "2026-10-17",
+      "updated": "2026-10-18",
+      "folder": "2026-10-17_headband-fit",
+      "steps": [
+        {
+          "name": "Fit and downloads",
+          "path": "report.html"
+        }
+      ],
+      "status": "archived",
+      "defaultStep": 0
+    },
+    {
+      "id": "global-empires",
+      "title": "Global Empires",
+      "description": "RTS sucessor espiritual do AoE3: estado atual, entregas dos bots, playtest aberto, decisões vigentes e acervo.",
+      "type": "group",
+      "category": "game",
+      "created": "2026-10-14",
+      "updated": "2026-10-21",
+      "folder": "2026-10-14_global-empires",
+      "steps": [
+        {
+          "name": "Painel",
+          "path": "painel.html"
+        },
+        {
+          "name": "Roteiro",
+          "path": "roteiro.html"
+        },
+        {
+          "name": "Editor",
+          "path": "editor.html"
+        },
+        {
+          "name": "Entregas",
+          "path": "entregas.html"
+        },
+        {
+          "name": "Playtest",
+          "path": "playtest.html"
+        },
+        {
+          "name": "Mapa",
+          "path": "mapa.html"
+        },
+        {
+          "name": "Decisões",
+          "path": "decisoes.html"
+        },
+        {
+          "name": "Acervo",
+          "path": "acervo.html"
+        },
+        {
+          "name": "Arquivo",
+          "path": "arquivo.html"
+        }
+      ],
+      "status": "active",
+      "pinned": true,
+      "defaultStep": 0,
+      "cover": "media/arte-chave/menu-primeira-guerra/menu-fundo-tanques-v01.webp",
+      "progress": {
+        "done": 8,
+        "total": 13,
+        "label": "tarefas"
+      },
+      "phase": "Combate por posições"
+    },
+    {
+      "id": "global-empires-editor",
+      "title": "Editor Global Empires",
+      "description": "Editor independente e modular do GE: 86 decisões, implementação local, artes, provas e pendências de validação. Build técnico disponível; aceite humano ainda aberto.",
+      "type": "group",
+      "category": "tools",
+      "created": "2026-10-21",
+      "updated": "2026-10-21",
+      "folder": "2026-10-21_global-empires-editor",
+      "steps": [
+        {
+          "name": "Painel",
+          "path": "painel.html"
+        },
+        {
+          "name": "Roteiro",
+          "path": "roteiro.html"
+        },
+        {
+          "name": "Entregas",
+          "path": "entregas.html"
+        },
+        {
+          "name": "Decisões",
+          "path": "decisoes.html"
+        },
+        {
+          "name": "Implementação",
+          "path": "implementacao.html"
+        },
+        {
+          "name": "Acervo",
+          "path": "acervo.html"
+        },
+        {
+          "name": "Validação",
+          "path": "validacao.html"
+        },
+        {
+          "name": "Arquivo",
+          "path": "arquivo.html"
+        }
+      ],
+      "status": "active",
+      "defaultStep": 0,
+      "cover": "media/interface/editor-ge/editor-ge-mapa-v01.webp",
+      "progress": {
+        "done": 0,
+        "total": 6,
+        "label": "frentes validadas"
+      },
+      "phase": "Protótipo 1 · implementação local e validação"
+    },
+    {
+      "id": "blended",
+      "title": "Blended",
+      "description": "Editor de modelos 3D para leigos: estado do M1, entregas, decisões, pendências e capturas.",
+      "type": "group",
+      "category": "tools",
+      "created": "2026-10-17",
+      "updated": "2026-10-21",
+      "folder": "2026-10-17_blended",
+      "steps": [
+        {
+          "name": "Painel",
+          "path": "painel.html"
+        },
+        {
+          "name": "Roteiro",
+          "path": "roteiro.html"
+        },
+        {
+          "name": "Entregas",
+          "path": "entregas.html"
+        },
+        {
+          "name": "Playtest",
+          "path": "playtest.html"
+        },
+        {
+          "name": "Decisões",
+          "path": "decisoes.html"
+        },
+        {
+          "name": "Acervo",
+          "path": "acervo.html"
+        },
+        {
+          "name": "Arquivo",
+          "path": "arquivo.html"
+        }
+      ],
+      "status": "active",
+      "pinned": true,
+      "defaultStep": 0,
+      "cover": "media/capa/tela-completo-escuro.webp",
+      "progress": {
+        "done": 12,
+        "total": 16,
+        "label": "tarefas"
+      },
+      "phase": "M1 · Criar, pintar e exportar"
+    },
+    {
+      "id": "mashup",
+      "title": "Mashup",
+      "description": "Sandbox voxel na Unreal Engine 5 (nome provisório): fase atual, entregas, decisões vigentes e riscos.",
+      "type": "group",
+      "category": "game",
+      "created": "2026-10-17",
+      "updated": "2026-10-17",
+      "folder": "2026-10-17_mashup",
+      "steps": [
+        {
+          "name": "Painel",
+          "path": "painel.html"
+        },
+        {
+          "name": "Roteiro",
+          "path": "roteiro.html"
+        },
+        {
+          "name": "Entregas",
+          "path": "entregas.html"
+        },
+        {
+          "name": "Playtest",
+          "path": "playtest.html"
+        },
+        {
+          "name": "Decisões",
+          "path": "decisoes.html"
+        },
+        {
+          "name": "Riscos",
+          "path": "riscos.html"
+        },
+        {
+          "name": "Métricas",
+          "path": "metricas.html"
+        },
+        {
+          "name": "Arquivo",
+          "path": "arquivo.html"
+        }
+      ],
+      "status": "active",
+      "pinned": true,
+      "defaultStep": 0,
+      "cover": "media/capa/f1-4-mundo-seed1.webp",
+      "progress": {
+        "done": 10,
+        "total": 11,
+        "label": "tarefas"
+      },
+      "phase": "Fase 1 · Fundação voxel"
+    },
+    {
       "id": "my-dream-game",
       "title": "My Dream Game",
       "description": "Mr. Mak 64: a small Sky Islands adventure, with character studies, world layouts and a development board.",
       "type": "group",
       "category": "project",
       "created": "2026-09-15",
-      "updated": "2026-09-15",
+      "updated": "2026-10-14",
       "folder": "2026-09-15_my-dream-game",
       "steps": [
         {
@@ -15,7 +379,7 @@
           "path": "index.html"
         }
       ],
-      "status": "active",
+      "status": "archived",
       "pinned": true,
       "sample": true,
       "defaultStep": 0
@@ -27,7 +391,7 @@
       "type": "group",
       "category": "research",
       "created": "2026-09-15",
-      "updated": "2026-09-16",
+      "updated": "2026-10-17",
       "folder": "2026-09-15_creative-mcp",
       "steps": [
         {
@@ -39,7 +403,7 @@
           "path": "connect.md"
         }
       ],
-      "status": "active",
+      "status": "archived",
       "pinned": false,
       "sample": true,
       "defaultStep": 0
@@ -51,7 +415,7 @@
       "type": "group",
       "category": "dev",
       "created": "2026-09-15",
-      "updated": "2026-10-01",
+      "updated": "2026-10-14",
       "folder": "2026-09-15_make-workspace-yours",
       "steps": [
         {
@@ -67,7 +431,7 @@
           "path": "customize.md"
         }
       ],
-      "status": "active",
+      "status": "archived",
       "pinned": false,
       "sample": true,
       "defaultStep": 0
@@ -79,7 +443,7 @@
       "type": "group",
       "category": "image-gen",
       "created": "2026-09-15",
-      "updated": "2026-09-15",
+      "updated": "2026-10-14",
       "folder": "2026-09-15_arachne-character",
       "steps": [
         {
@@ -123,9 +487,132 @@
           "path": "report_motion.html"
         }
       ],
-      "status": "active",
+      "status": "archived",
       "pinned": false,
       "sample": true
+    },
+    {
+      "id": "lightkeeper",
+      "title": "Lightkeeper",
+      "description": "Survival horror na UE 5.8: roteiro dos 11 níveis com a fatia do nível 0, entregas por PR, decisões e acervo de conceitos.",
+      "type": "group",
+      "category": "game",
+      "created": "2026-10-17",
+      "updated": "2026-10-17",
+      "folder": "2026-10-17_lightkeeper",
+      "steps": [
+        {
+          "name": "Painel",
+          "path": "painel.html"
+        },
+        {
+          "name": "Roteiro",
+          "path": "roteiro.html"
+        },
+        {
+          "name": "Entregas",
+          "path": "entregas.html"
+        },
+        {
+          "name": "Decisões",
+          "path": "decisoes.html"
+        },
+        {
+          "name": "Acervo",
+          "path": "acervo.html"
+        },
+        {
+          "name": "Arquivo",
+          "path": "arquivo.html"
+        }
+      ],
+      "status": "active",
+      "pinned": true,
+      "defaultStep": 0,
+      "cover": "media/capa/keyart-ultima-vela.webp",
+      "progress": {
+        "done": 20,
+        "total": 20,
+        "label": "tarefas"
+      },
+      "phase": "Nível 0 · Pátio Arruinado"
+    },
+    {
+      "id": "ritualistic",
+      "title": "Ritualistic",
+      "description": "Sobrevivência celta com rituais na UE 5.8: fases da fatia, entregas, playtest, pipeline de assets e decisões.",
+      "type": "group",
+      "category": "game",
+      "created": "2026-10-17",
+      "updated": "2026-10-17",
+      "folder": "2026-10-17_ritualistic",
+      "steps": [
+        {
+          "name": "Painel",
+          "path": "painel.html"
+        },
+        {
+          "name": "Roteiro",
+          "path": "roteiro.html"
+        },
+        {
+          "name": "Entregas",
+          "path": "entregas.html"
+        },
+        {
+          "name": "Playtest",
+          "path": "playtest.html"
+        },
+        {
+          "name": "Pipeline",
+          "path": "pipeline.html"
+        },
+        {
+          "name": "Decisões",
+          "path": "decisoes.html"
+        },
+        {
+          "name": "Arquivo",
+          "path": "arquivo.html"
+        }
+      ],
+      "status": "active",
+      "pinned": true,
+      "defaultStep": 0,
+      "cover": "media/capa/conceito-visao-visco.webp",
+      "progress": {
+        "done": 13,
+        "total": 14,
+        "label": "fases"
+      },
+      "phase": "Fase 12 · Assets, áudio e atmosfera"
+    },
+    {
+      "id": "mrmak-theme-studies",
+      "title": "Mr. Mak — Theme studies",
+      "description": "Thirteen approved Workspace and Chat themes, editable previews, and the customized 0.5.2 integration report.",
+      "type": "group",
+      "category": "tools",
+      "created": "2026-10-20",
+      "updated": "2026-10-21",
+      "folder": "2026-10-20_mrmak-theme-studies",
+      "steps": [
+        {
+          "name": "Theme comparison",
+          "path": "index.html"
+        },
+        {
+          "name": "Implementation",
+          "path": "implementation.md"
+        },
+        {
+          "name": "0.5.2 update",
+          "path": "upgrade-052.md"
+        }
+      ],
+      "status": "archived",
+      "defaultStep": 0,
+      "phase": "0.5.2 integration and thirteen themes"
     }
   ]
 }

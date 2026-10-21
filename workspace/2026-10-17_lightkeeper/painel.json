@@ -1,0 +1,19 @@
+{
+  "sobre": "Estado de agora, escrito à mão. Os números com @ são calculados dos outros JSON; versão e main vêm de VERSION e do git do repositório.",
+  "estado": "Nível 0 · fatia jogável",
+  "numeros": [
+    { "rotulo": "Nível 0", "valor": "@roteiro.progresso", "icone": "marco" },
+    { "rotulo": "Versão", "valor": "0.5.0", "icone": "estrela" },
+    { "rotulo": "Main", "valor": "93854dc", "icone": "codigo" },
+    { "rotulo": "PRs na main", "valor": "@entregas.total", "icone": "entrega" },
+    { "rotulo": "Decisões", "valor": "@decisoes.total", "icone": "livro" }
+  ],
+  "agora": [
+    { "titulo": "Fatia do nível 0 com as 5 etapas na main", "texto": "Base, interação e sobrevivência, abrigo, ameaças e integração (PRs #9 a #13), mais o kit do nível 0 e a ambientação das muralhas." },
+    { "titulo": "Editores de mapas e de modelos", "texto": "O editor de mapas (etapas 1 a 5, dentro do jogo) e o de modelos (etapas 0 a 4 e o modo fácil, itens 1 a 5) estão na main; a última entrega foi o PR #62, em 13/10/2026." },
+    { "titulo": "Próximo passo não registrado", "texto": "O repositório não diz o que falta na fatia nem o que vem depois do nível 0. A seção \"Próxima versão\" do CHANGELOG ainda não virou a 0.6.0." }
+  ],
+  "comVoce": [
+    { "titulo": "Definir o próximo marco", "texto": "Dizer o que fecha a fatia do nível 0 (playtest, desempenho, conteúdo) para o Roteiro ganhar as tarefas que faltam." }
+  ]
+}

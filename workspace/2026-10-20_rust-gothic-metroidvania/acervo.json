@@ -1,0 +1,339 @@
+{
+  "familias": {
+    "cenario/scene-directions": "Gameplay scene directions",
+    "personagens/protagonist": "Hollow-armor protagonist",
+    "cenario/combined-scenes": "Scenes using the selected directions",
+    "cenario/material-language": "Rust and material language",
+    "cenario/forge-transformation": "Forge before and after",
+    "personagens/common-enemies": "Common enemy proposals",
+    "personagens/bosses": "Fortress boss proposals",
+    "cenario/gameplay-signals": "Exploration and safety signals",
+    "interface/hud": "Essential gameplay HUD",
+    "interface/inventory": "Paused reserve inventory",
+    "interface/shop": "Replacement equipment shop"
+  },
+  "itens": [
+    {
+      "id": "scene-a-iron-cathedral",
+      "nome": "A - Iron Cathedral",
+      "categoria": "cenario",
+      "familia": "scene-directions",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/cenario/scene-directions/scene-a-iron-cathedral-v01.webp",
+      "prompt": "media/cenario/scene-directions/scene-a-iron-cathedral-v01.prompt.md",
+      "original": "Original PNG: scene-a-iron-cathedral-v01.png; embedded with download in Documentation.",
+      "nota": "Tall gothic arches, iron tracery and cold blue-gray light. Unselected alternative preserved for comparison; current directions are B and P03."
+    },
+    {
+      "id": "scene-b-corroded-bastion",
+      "nome": "B - Corroded Bastion",
+      "categoria": "cenario",
+      "familia": "scene-directions",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/scene-directions/scene-b-corroded-bastion-v01.webp",
+      "prompt": "media/cenario/scene-directions/scene-b-corroded-bastion-v01.prompt.md",
+      "original": "Original PNG: scene-b-corroded-bastion-v01.png; embedded with download in Documentation.",
+      "nota": "Heavy fortress masonry, broad arches and thick corroded reinforcement. Selected by the owner on 2026-10-20 as a visual direction; not a game-ready model."
+    },
+    {
+      "id": "scene-c-sepulchral-forge",
+      "nome": "C - Sepulchral Forge",
+      "categoria": "cenario",
+      "familia": "scene-directions",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/cenario/scene-directions/scene-c-sepulchral-forge-v01.webp",
+      "prompt": "media/cenario/scene-directions/scene-c-sepulchral-forge-v01.prompt.md",
+      "original": "Original PNG: scene-c-sepulchral-forge-v01.png; embedded with download in Documentation.",
+      "nota": "Pale funerary stonework, elongated arches and localized dark iron corrosion. Unselected alternative preserved for comparison; current directions are B and P03."
+    },
+    {
+      "id": "protagonist-p01-hollow-sentinel",
+      "nome": "P01 - Hollow Sentinel",
+      "categoria": "personagens",
+      "familia": "protagonist",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/personagens/protagonist/protagonist-p01-hollow-sentinel-v01.webp",
+      "prompt": "media/personagens/protagonist/protagonist-p01-hollow-sentinel-v01.prompt.md",
+      "original": "Original PNG: protagonist-p01-hollow-sentinel-v01.png; embedded with download in Documentation.",
+      "nota": "Balanced knight silhouette, heater shield and clear hollow neck. Equipped, side and unarmed views. Unselected alternative preserved for comparison; current directions are B and P03."
+    },
+    {
+      "id": "protagonist-p02-reliquary-warden",
+      "nome": "P02 - Reliquary Warden",
+      "categoria": "personagens",
+      "familia": "protagonist",
+      "status": "em-avaliacao",
+      "versao": 1,
+      "miniatura": "media/personagens/protagonist/protagonist-p02-reliquary-warden-v01.webp",
+      "prompt": "media/personagens/protagonist/protagonist-p02-reliquary-warden-v01.prompt.md",
+      "original": "Original PNG: protagonist-p02-reliquary-warden-v01.png; embedded with download in Documentation.",
+      "nota": "Broad guardian silhouette, cathedral-shaped plates and hollow chest grille. Equipped, side and unarmed views. Unselected alternative preserved for comparison; current directions are B and P03."
+    },
+    {
+      "id": "protagonist-p03-penitent-harness",
+      "nome": "P03 - Penitent Harness",
+      "categoria": "personagens",
+      "familia": "protagonist",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/protagonist/protagonist-p03-penitent-harness-v01.webp",
+      "prompt": "media/personagens/protagonist/protagonist-p03-penitent-harness-v01.prompt.md",
+      "original": "Original PNG: protagonist-p03-penitent-harness-v01.png; embedded with download in Documentation.",
+      "nota": "Lean asymmetric armor, repaired plates and buckler. Equipped, side and unarmed views. Selected by the owner on 2026-10-20 as a visual direction; not a game-ready model."
+    },
+    {
+      "id": "scene-d-lower-gatehouse",
+      "nome": "D - Lower Gatehouse · L02 Cold Skylight selected",
+      "categoria": "cenario",
+      "familia": "combined-scenes",
+      "status": "vigente",
+      "versao": 2,
+      "miniatura": "media/cenario/combined-scenes/scene-d-lower-gatehouse-v02-l02-cold-skylight.webp",
+      "prompt": "media/cenario/combined-scenes/scene-d-lower-gatehouse-v02.prompt.md",
+      "original": "Five full-resolution visibility variations and the original gatehouse PNG are preserved under media/ and downloadable in Documentation.",
+      "nota": "Owner selected L02 — Cold Skylight on 2026-10-20 as the final lighting/visibility reference. Corroded Bastion and Penitent Harness remain selected. L01/L03/L04/L05 and the original are preserved for comparison. This is approved concept direction; game lighting has not been implemented.",
+      "miniaturaRotulo": "L02 — Cold Skylight · selected",
+      "vistas": [
+        {
+          "rotulo": "L01 — Balanced Steel · alternative",
+          "arquivo": "media/cenario/combined-scenes/scene-d-lower-gatehouse-v02.webp"
+        },
+        {
+          "rotulo": "L03 — Mist Silhouette",
+          "arquivo": "media/cenario/combined-scenes/scene-d-lower-gatehouse-v02-l03-mist-silhouette.webp"
+        },
+        {
+          "rotulo": "L04 — Warm Firelight",
+          "arquivo": "media/cenario/combined-scenes/scene-d-lower-gatehouse-v02-l04-warm-firelight.webp"
+        },
+        {
+          "rotulo": "L05 — Quiet Materials",
+          "arquivo": "media/cenario/combined-scenes/scene-d-lower-gatehouse-v02-l05-quiet-materials.webp"
+        },
+        {
+          "rotulo": "Original — before visibility correction",
+          "arquivo": "media/cenario/combined-scenes/scene-d-lower-gatehouse-v02-original.webp"
+        }
+      ],
+      "historico": [
+        {
+          "versao": 1,
+          "miniatura": "media/cenario/combined-scenes/scene-d-lower-gatehouse-v01.webp",
+          "status": "em-avaliacao",
+          "nota": "Original combined composition. Owner feedback: the protagonist blends into the environment. Preserved for before/after comparison."
+        }
+      ]
+    },
+    {
+      "id": "rust-materials",
+      "nome": "Rust and material language · B — Pitted cavities selected",
+      "categoria": "cenario",
+      "familia": "material-language",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/material-language/rust-materials-v01-b.webp",
+      "miniaturaRotulo": "B — Pitted cavities · selected",
+      "vistas": [
+        {
+          "rotulo": "A — Sheet flakes · alternative",
+          "arquivo": "media/cenario/material-language/rust-materials-v01.webp"
+        },
+        {
+          "rotulo": "C — Brittle crusts · alternative",
+          "arquivo": "media/cenario/material-language/rust-materials-v01-c.webp"
+        }
+      ],
+      "prompt": "media/cenario/material-language/rust-materials-v01.prompt.md",
+      "original": "Three full-resolution PNGs under media/foundations/rust-materials/; embedded and downloadable in Documentation.",
+      "nota": "Owner selected B — Pitted cavities on 2026-10-20 as the visual direction for rust and material language. Other options and exact prompts remain available. Visual approval does not change confirmed gameplay rules or establish engine integration."
+    },
+    {
+      "id": "forge-transformation",
+      "nome": "Forge before and after · C — Circular anvil and passage selected",
+      "categoria": "cenario",
+      "familia": "forge-transformation",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/forge-transformation/forge-transformation-v01-c.webp",
+      "miniaturaRotulo": "C — Circular anvil and passage · selected",
+      "vistas": [
+        {
+          "rotulo": "A — Hearth and gate · alternative",
+          "arquivo": "media/cenario/forge-transformation/forge-transformation-v01.webp"
+        },
+        {
+          "rotulo": "B — Shaft furnace and lift · alternative",
+          "arquivo": "media/cenario/forge-transformation/forge-transformation-v01-b.webp"
+        }
+      ],
+      "prompt": "media/cenario/forge-transformation/forge-transformation-v01.prompt.md",
+      "original": "Three full-resolution PNGs under media/foundations/forge-transformation/; embedded and downloadable in Documentation.",
+      "nota": "Owner selected C — Circular anvil and passage on 2026-10-20 as the visual direction for forge before and after. Other options and exact prompts remain available. Visual approval does not change confirmed gameplay rules or establish engine integration."
+    },
+    {
+      "id": "corroded-swordsman",
+      "nome": "Corroded swordsman · B — Hunched Mail Veteran selected",
+      "categoria": "personagens",
+      "familia": "common-enemies",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/common-enemies/corroded-swordsman-v01-b.webp",
+      "miniaturaRotulo": "B — Hunched Mail Veteran · selected",
+      "vistas": [
+        {
+          "rotulo": "A — Broad Gate Guard · alternative",
+          "arquivo": "media/personagens/common-enemies/corroded-swordsman-v01.webp"
+        },
+        {
+          "rotulo": "C — Banded Watchman · alternative",
+          "arquivo": "media/personagens/common-enemies/corroded-swordsman-v01-c.webp"
+        }
+      ],
+      "prompt": "media/personagens/common-enemies/corroded-swordsman-v01.prompt.md",
+      "original": "Three full-resolution PNGs under media/foundations/corroded-swordsman/; embedded and downloadable in Documentation.",
+      "nota": "Owner selected B — Hunched Mail Veteran on 2026-10-20 as the visual direction for corroded swordsman. Other options and exact prompts remain available. Visual approval does not change confirmed gameplay rules or establish engine integration."
+    },
+    {
+      "id": "corroded-archer",
+      "nome": "Corroded archer · B — Mantled Wall Hunter selected",
+      "categoria": "personagens",
+      "familia": "common-enemies",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/common-enemies/corroded-archer-v01-b.webp",
+      "miniaturaRotulo": "B — Mantled Wall Hunter · selected",
+      "vistas": [
+        {
+          "rotulo": "A — Iron-Cowl Archer · alternative",
+          "arquivo": "media/personagens/common-enemies/corroded-archer-v01.webp"
+        },
+        {
+          "rotulo": "C — Mail-and-Visor Bowman · alternative",
+          "arquivo": "media/personagens/common-enemies/corroded-archer-v01-c.webp"
+        }
+      ],
+      "prompt": "media/personagens/common-enemies/corroded-archer-v01.prompt.md",
+      "original": "Three full-resolution PNGs under media/foundations/corroded-archer/; embedded and downloadable in Documentation.",
+      "nota": "Owner selected B — Mantled Wall Hunter on 2026-10-20 as the visual direction for corroded archer. Other options and exact prompts remain available. Visual approval does not change confirmed gameplay rules or establish engine integration."
+    },
+    {
+      "id": "fortress-boss",
+      "nome": "Fortress boss proposals · C — Ashbound Colossus selected",
+      "categoria": "personagens",
+      "familia": "bosses",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/personagens/bosses/fortress-boss-v01-c.webp",
+      "miniaturaRotulo": "C — Ashbound Colossus · selected",
+      "vistas": [
+        {
+          "rotulo": "A — Corroded Castellan · alternative",
+          "arquivo": "media/personagens/bosses/fortress-boss-v01.webp"
+        },
+        {
+          "rotulo": "B — Gate Warden · alternative",
+          "arquivo": "media/personagens/bosses/fortress-boss-v01-b.webp"
+        }
+      ],
+      "prompt": "media/personagens/bosses/fortress-boss-v01.prompt.md",
+      "original": "Three full-resolution PNGs under media/foundations/fortress-boss/; embedded and downloadable in Documentation.",
+      "nota": "Owner selected C — Ashbound Colossus on 2026-10-20 as the visual direction for fortress boss proposals. Other options and exact prompts remain available. Visual approval does not change confirmed gameplay rules or establish engine integration."
+    },
+    {
+      "id": "exploration-signals",
+      "nome": "Exploration and safety signals · B — Gothic stone insets selected",
+      "categoria": "cenario",
+      "familia": "gameplay-signals",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/cenario/gameplay-signals/exploration-signals-v01-b.webp",
+      "miniaturaRotulo": "B — Gothic stone insets · selected",
+      "vistas": [
+        {
+          "rotulo": "A — Riveted fittings · alternative",
+          "arquivo": "media/cenario/gameplay-signals/exploration-signals-v01.webp"
+        },
+        {
+          "rotulo": "C — Broad stone · alternative",
+          "arquivo": "media/cenario/gameplay-signals/exploration-signals-v01-c.webp"
+        }
+      ],
+      "prompt": "media/cenario/gameplay-signals/exploration-signals-v01.prompt.md",
+      "original": "Three full-resolution PNGs under media/foundations/exploration-signals/; embedded and downloadable in Documentation.",
+      "nota": "Owner selected B — Gothic stone insets on 2026-10-20 as the visual direction for exploration and safety signals. Other options and exact prompts remain available. Visual approval does not change confirmed gameplay rules or establish engine integration."
+    },
+    {
+      "id": "essential-hud",
+      "nome": "Essential gameplay HUD · B — Cathedral Tracery selected",
+      "categoria": "interface",
+      "familia": "hud",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/hud/essential-hud-v01-b.webp",
+      "miniaturaRotulo": "B — Cathedral Tracery · selected",
+      "vistas": [
+        {
+          "rotulo": "A — Riveted Iron · alternative",
+          "arquivo": "media/interface/hud/essential-hud-v01.webp"
+        },
+        {
+          "rotulo": "C — Pale Relic Slates · alternative",
+          "arquivo": "media/interface/hud/essential-hud-v01-c.webp"
+        }
+      ],
+      "prompt": "media/interface/hud/essential-hud-v01.prompt.md",
+      "original": "Three full-resolution PNGs under media/foundations/essential-hud/; embedded and downloadable in Documentation.",
+      "nota": "Owner selected B — Cathedral Tracery on 2026-10-20 as the visual direction for essential gameplay hud. Other options and exact prompts remain available. Visual approval does not change confirmed gameplay rules or establish engine integration."
+    },
+    {
+      "id": "reserve-inventory",
+      "nome": "Paused reserve inventory · B — Cathedral Tracery selected",
+      "categoria": "interface",
+      "familia": "inventory",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/inventory/reserve-inventory-v01-b.webp",
+      "miniaturaRotulo": "B — Cathedral Tracery · selected",
+      "vistas": [
+        {
+          "rotulo": "A — Riveted Iron · alternative",
+          "arquivo": "media/interface/inventory/reserve-inventory-v01.webp"
+        },
+        {
+          "rotulo": "C — Pale Relic Slates · alternative",
+          "arquivo": "media/interface/inventory/reserve-inventory-v01-c.webp"
+        }
+      ],
+      "prompt": "media/interface/inventory/reserve-inventory-v01.prompt.md",
+      "original": "Three full-resolution PNGs under media/foundations/reserve-inventory/; embedded and downloadable in Documentation.",
+      "nota": "Owner selected B — Cathedral Tracery on 2026-10-20 as the visual direction for paused reserve inventory. Other options and exact prompts remain available. Visual approval does not change confirmed gameplay rules or establish engine integration."
+    },
+    {
+      "id": "equipment-shop",
+      "nome": "Replacement equipment shop · B — Cathedral Tracery selected",
+      "categoria": "interface",
+      "familia": "shop",
+      "status": "vigente",
+      "versao": 1,
+      "miniatura": "media/interface/shop/equipment-shop-v01-b.webp",
+      "miniaturaRotulo": "B — Cathedral Tracery · selected",
+      "vistas": [
+        {
+          "rotulo": "A — Riveted Iron · alternative",
+          "arquivo": "media/interface/shop/equipment-shop-v01.webp"
+        },
+        {
+          "rotulo": "C — Pale Relic Slates · alternative",
+          "arquivo": "media/interface/shop/equipment-shop-v01-c.webp"
+        }
+      ],
+      "prompt": "media/interface/shop/equipment-shop-v01.prompt.md",
+      "original": "Three full-resolution PNGs under media/foundations/equipment-shop/; embedded and downloadable in Documentation.",
+      "nota": "Owner selected B — Cathedral Tracery on 2026-10-20 as the visual direction for replacement equipment shop. Other options and exact prompts remain available. Visual approval does not change confirmed gameplay rules or establish engine integration."
+    }
+  ]
+}

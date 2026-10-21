@@ -1,0 +1,165 @@
+{
+  "sobre": "Só a iteração aberta aparece na aba Playtest; quando ela fecha, marque \"aberta\": false (vai para o Arquivo), registre o resumo como entrega e abra a próxima.",
+  "iteracoes": [
+    {
+      "id": "w14-notas-152-184",
+      "nome": "Notas do playtest final (152–184)",
+      "aberta": false,
+      "resumo": "Do playtest final do protótipo (W14), jogado em 15 de outubro de 2026: vitória aos 40:13 contra a IA. São 33 notas (152–184), 8 delas bugs. A rodada 129–151 foi conferida nele e está na main local (`3c3be3f`). Estas notas esperam o seu pedido.",
+      "achados": [
+        {
+          "id": "154",
+          "tipo": "Bug",
+          "titulo": "O checklist fixado na tela impede de clicar nas unidades",
+          "estado": "corrigido"
+        },
+        {
+          "id": "160",
+          "tipo": "Bug",
+          "titulo": "Pesquisas concluídas somem do cartão de comando",
+          "estado": "corrigido"
+        },
+        {
+          "id": "172",
+          "tipo": "Bug",
+          "titulo": "A artilharia parece atirar em unidades dentro da névoa",
+          "estado": "corrigido"
+        },
+        {
+          "id": "177",
+          "tipo": "Bug",
+          "titulo": "Queda de quadros ao posicionar uma construção ligada à rede de suprimento",
+          "estado": "corrigido"
+        },
+        {
+          "id": "179",
+          "tipo": "Bug",
+          "titulo": "Clicar no vazio às vezes seleciona um trabalhador",
+          "estado": "corrigido"
+        },
+        {
+          "id": "180",
+          "tipo": "Bug",
+          "titulo": "A linha de suprimento (L) derruba os quadros",
+          "estado": "corrigido"
+        },
+        {
+          "id": "181",
+          "tipo": "Bug",
+          "titulo": "O grupo de várias unidades transborda o cartão",
+          "estado": "corrigido"
+        },
+        {
+          "id": "183",
+          "tipo": "Bug",
+          "titulo": "Tanques se atravessam",
+          "estado": "corrigido"
+        },
+        {
+          "id": "152, 155, 159, 161, 162, 164, 170, 173, 174",
+          "tipo": "HUD, ordens e regras",
+          "titulo": "HUD sempre visível; dica com \"Era II\", recurso que falta em vermelho, função da unidade e da construção; barra de progresso abaixo do ícone; sapador só com as obras dele; células de tamanho fixo; fila de pesquisas; estações e bônus no cartão da estação",
+          "estado": "corrigido"
+        },
+        {
+          "id": "171, 175, 182",
+          "tipo": "HUD, ordens e regras",
+          "titulo": "Reabastecer vai e volta; várias construções selecionadas com ordens revezadas; ataque-movendo prioriza unidades",
+          "estado": "corrigido"
+        },
+        {
+          "id": "157, 166, 168, 169, 176",
+          "tipo": "HUD, ordens e regras",
+          "titulo": "Suprimento desde a Era I (milícia, centro urbano a 75%); cobertura parcial dos objetos pequenos; trabalhadores andando pela roça; terminais reforçam os depósitos avançados; roça já com renovação automática",
+          "estado": "corrigido"
+        },
+        {
+          "id": "153, 165, 167",
+          "tipo": "HUD, ordens e regras",
+          "titulo": "Rua entrando no lote; lama cobrindo o lote da posição; pedra decorativa diferente da jazida",
+          "estado": "corrigido"
+        },
+        {
+          "id": "156, 158, 163",
+          "tipo": "HUD, ordens e regras",
+          "titulo": "UI em alta resolução e ícones que faltam (prompt para o Codex); golpe de sabre; áudio normalizado",
+          "estado": "corrigido"
+        },
+        {
+          "id": "178, 184",
+          "tipo": "HUD, ordens e regras",
+          "titulo": "F10 com quase todo número do jogo; desenho da nota com Enter, Ctrl+Z e Ctrl+Y",
+          "estado": "corrigido"
+        },
+        {
+          "id": "IA fácil",
+          "tipo": "Já em andamento",
+          "titulo": "IA \"um pouco fácil demais\": o balanceado novo (J80–J82) está na main local: defende a economia, ataca com ondas maiores e desiste no colapso",
+          "estado": "corrigido"
+        },
+        {
+          "id": "M6",
+          "tipo": "Já em andamento",
+          "titulo": "Partidas de cerca de 40 min, como você pediu",
+          "estado": "corrigido"
+        },
+        {
+          "id": "133, 134",
+          "tipo": "Já em andamento",
+          "titulo": "Sem conferência: 133 (velocidade não congela a IA) e 134 (prévia no Só teste)",
+          "estado": "corrigido"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-21-retomada-hud-sapador-ia",
+      "nome": "Aviação, HUD/F10, Sapador e IA — conferência humana",
+      "aberta": true,
+      "resumo": "Implementação local preparada para merge, com 77 itens no checklist F11. As correções abaixo têm prova técnica e aguardam conferência em partida. A revisão e a suíte finais estão em execução. O merge não encerra o playtest nem aprova o balanceamento.",
+      "achados": [
+        {
+          "id": "PT21-HUD",
+          "tipo": "Interface",
+          "titulo": "Fila global A e cartões compactos; retratos 895:845, ícones centrados e botões quadrados.",
+          "estado": "corrigido"
+        },
+        {
+          "id": "PT21-F10",
+          "tipo": "Ferramenta",
+          "titulo": "Números A, Só teste B e Mapa C usam os ícones reais, busca e paletas preservando os comandos.",
+          "estado": "corrigido"
+        },
+        {
+          "id": "PT21-SAP",
+          "tipo": "Combate",
+          "titulo": "Engenharia de combate; lança-chamas e carga com modelos próprios. Mantidos custos, consumo e fogo amigo.",
+          "estado": "corrigido"
+        },
+        {
+          "id": "PT21-RECUO",
+          "tipo": "Bug",
+          "titulo": "Sapador aguarda a explosão sem perseguir o tanque de volta ao raio. Ordem direta interrompe; Shift espera. Retomada salva em v45.",
+          "estado": "corrigido"
+        },
+        {
+          "id": "PT21-IA",
+          "tipo": "IA",
+          "titulo": "IA usa trincheiras, Assalto, equipamentos e aviação e preserva o recuo após plantar.",
+          "estado": "corrigido"
+        },
+        {
+          "id": "PT21-ATALHOS",
+          "tipo": "Interface",
+          "titulo": "Removida a caixa permanente de atalhos/nome da captura sobre os recursos; instruções de ações ficam abaixo da barra.",
+          "estado": "corrigido"
+        },
+        {
+          "id": "PT21-ACEITE",
+          "tipo": "Playtest humano",
+          "titulo": "Conferir os 77 itens no F11, legibilidade em 1366 × 768, tanque móvel, fogo amigo e ritmo da IA em partida sem atalhos.",
+          "estado": "aberto"
+        }
+      ]
+    }
+  ]
+}

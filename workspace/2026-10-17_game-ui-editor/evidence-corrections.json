@@ -1,0 +1,168 @@
+{
+  "checkedAt": "2026-10-20T03:06:13.810Z",
+  "version": "0.2.0",
+  "status": "P01-P18 implemented and packaged locally; native validation and owner acceptance open",
+  "milestones": {
+    "done": 4,
+    "total": 6,
+    "m4": "technical A/B/C historical; human acceptance pending",
+    "m6": "0.2.0 local delivery; final native/release acceptance open"
+  },
+  "decisions": {
+    "p16": "assisted discovery",
+    "p17": "optional private game root; portable imported assets",
+    "p19": "additional providers deferred"
+  },
+  "validation": {
+    "coreTestsPassed": 112,
+    "typeScriptCSharpFixturesPassed": 41,
+    "browserCasesPassed": 30,
+    "desktopCasesPassed": 30,
+    "uiProof": "58 cases passed in the full final run; both help cases then passed in a focused repeat after replacing a stale copy assertion. Production sources/binaries unchanged between runs.",
+    "fullRunLog": "E:/MrMak/GameUIEditor/.local/corrections-ui-final.log",
+    "focusedHelpLog": "E:/MrMak/GameUIEditor/.local/corrections-help-final.log",
+    "coreLog": "E:/MrMak/GameUIEditor/.local/corrections-core-final.log",
+    "parityLog": "E:/MrMak/GameUIEditor/.local/corrections-parity-final.log",
+    "windowsDialogs": {
+      "date": "2026-10-20T02:47:13.408Z",
+      "checks": [
+        "Folder picker returns the selected Unicode directory.",
+        "Image picker starts in the linked folder, copies original bytes and remembers that folder.",
+        "Font picker starts in the game folder, imports original font bytes and remembers its own folder.",
+        "Native Cancel returns null without changing authored assets."
+      ],
+      "passed": 4,
+      "source": "Real Windows Forms common dialogs controlled only by their owned child process IDs"
+    },
+    "archives": {
+      "checkedAt": "2026-10-20T03:01:29.4183078Z",
+      "archives": [
+        {
+          "file": "portable-windows.zip",
+          "verifiedFiles": 44,
+          "sha256": "e1627b6528eb8d17627a2524e136691b216fccd8ab807ec1595fd360e64c7695"
+        },
+        {
+          "file": "editable-sources.zip",
+          "verifiedFiles": 136,
+          "sha256": "c54162daa466aa4c325239f30c6b564cf7b922b7c141a921667ecde37b18fac1"
+        },
+        {
+          "file": "unity-integration.zip",
+          "verifiedFiles": 25,
+          "sha256": "f07fdcc344978d2596147ea3a41e0995084b9d84db95ef8c2b74781e7df62e1f"
+        },
+        {
+          "file": "portable-ge-pilot.zip",
+          "verifiedFiles": 7,
+          "sha256": "de38169a08d1cd3b62e03e7ad4e2c34257b9ba71de9db9a5bbf297f32a47a423"
+        }
+      ],
+      "verifiedFiles": 212,
+      "installerHashMatches": true,
+      "privatePaths": false,
+      "newUnityRuntimeProof": false,
+      "errors": []
+    },
+    "newUnityRuntimeProof": false,
+    "newRealOAuthProof": false,
+    "realInference": false,
+    "installerLifecycle020": false
+  },
+  "artifacts": {
+    "folder": "E:/MrMak/GameUIEditor/.local/releases/game-ui-editor-0.2.0-20261020T030058130Z",
+    "version": "0.2.0",
+    "createdAt": "2026-10-20T03:01:02.936Z",
+    "published": false,
+    "signed": false,
+    "archives": [
+      {
+        "file": "portable-windows.zip",
+        "sha256": "e1627b6528eb8d17627a2524e136691b216fccd8ab807ec1595fd360e64c7695",
+        "bytes": 37335054
+      },
+      {
+        "file": "editable-sources.zip",
+        "sha256": "c54162daa466aa4c325239f30c6b564cf7b922b7c141a921667ecde37b18fac1",
+        "bytes": 431733
+      },
+      {
+        "file": "unity-integration.zip",
+        "sha256": "f07fdcc344978d2596147ea3a41e0995084b9d84db95ef8c2b74781e7df62e1f",
+        "bytes": 51870
+      },
+      {
+        "file": "portable-ge-pilot.zip",
+        "sha256": "de38169a08d1cd3b62e03e7ad4e2c34257b9ba71de9db9a5bbf297f32a47a423",
+        "bytes": 429753
+      }
+    ],
+    "installer": {
+      "file": "Game UI Editor_0.2.0_x64-setup.exe",
+      "sha256": "74cd78f921c1d46788b32971e3241e6c539274bded845ffd3de12cf6cfbfaf7a",
+      "bytes": 25320621
+    }
+  },
+  "screenshots": [
+    {
+      "arquivo": "media/corrections-0.2.0/canvas-grid.png",
+      "legenda": "Canvas, árvore e guias — Windows WebView2 isolado, 0.2.0."
+    },
+    {
+      "arquivo": "media/corrections-0.2.0/conversation-light.png",
+      "legenda": "Conversa inferior e tema claro — peer de teste, sem inferência real."
+    },
+    {
+      "arquivo": "media/corrections-0.2.0/tour-practice.png",
+      "legenda": "Tour de prática com interação verificada — preview simulado."
+    }
+  ],
+  "workspace": {
+    "tabs": 6,
+    "defaultStep": 0,
+    "corrections": {
+      "done": 18,
+      "total": 18
+    },
+    "preview": {
+      "checkedAt": "2026-10-20T03:04:50.359Z",
+      "tabs": 6,
+      "viewports": [
+        1440,
+        768,
+        390
+      ],
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "checks": 36,
+      "media": "loaded, previewed, zoomed, download URLs and close verified",
+      "links": true,
+      "reportTheme": "actual isolated service and report-theme.mjs",
+      "errors": [],
+      "scratch": "E:\\MrMak\\Mak\\.local\\corrections-workspace-preview-fsw9p7",
+      "screenshots": ".local/corrections-workspace-preview-fsw9p7"
+    },
+    "markdown": {
+      "checkedAt": "2026-10-20T03:05:33.533Z",
+      "checks": 6,
+      "widths": [
+        1440,
+        768,
+        390
+      ],
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "renderer": "actual isolated Workspace Markdown view; temporary seventh tab only in private test copy",
+      "tableRows": 19,
+      "errors": []
+    }
+  },
+  "ownerInstallationTouched": false,
+  "activeSessionsRestarted": false,
+  "published": false,
+  "committed": false
+}

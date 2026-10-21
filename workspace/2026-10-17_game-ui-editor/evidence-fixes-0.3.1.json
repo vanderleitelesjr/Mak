@@ -1,0 +1,152 @@
+{
+  "checkedAt": "2026-10-20T23:09:51.117Z",
+  "version": "0.3.1",
+  "implemented": [
+    "PT-2026-10-20-01",
+    "PT-2026-10-20-02"
+  ],
+  "core": {
+    "passed": 123,
+    "failed": 0
+  },
+  "focusedInterface": {
+    "browser": 9,
+    "windows": 9,
+    "passed": 18,
+    "failed": 0,
+    "fullSuiteRepeated": false
+  },
+  "nativeEditor": {
+    "checkedAt": "2026-10-20T23:06:28.911Z",
+    "proof": "E:\\MrMak\\GameUIEditor\\.local\\playtest-fixes-native-I6MhlJ",
+    "updatedApplication": "E:\\MrMak\\GameUIEditor\\.local\\manual-test-0.3.0-MndmD0\\application-0.3.1-final",
+    "ownerProject": "E:\\MrMak\\GameUIEditor\\.local\\manual-test-0.3.0-MndmD0\\projects\\ge-importada",
+    "ownerProjectSha256": "fd16b77283de298fcfeed6714fd31bbe85e152321a0fdf96552823aba72e112d",
+    "ownerProjectUnchanged": true,
+    "observations": [
+      {
+        "version": "0.3.0",
+        "minimumDockPixels": 280,
+        "internalNamesRenderedAsContent": 179,
+        "authoredTextsPreserved": 56,
+        "projectByteIdentical": true,
+        "errors": []
+      },
+      {
+        "version": "0.3.1",
+        "minimumDockPixels": 192,
+        "internalNamesRenderedAsContent": 0,
+        "authoredTextsPreserved": 21,
+        "projectByteIdentical": true,
+        "errors": []
+      }
+    ],
+    "queueSimulation": "3 -> 2",
+    "inference": false,
+    "unityDispatch": false,
+    "humanAcceptance": false
+  },
+  "release": {
+    "verifiedAt": "2026-10-20T23:07:02.314Z",
+    "version": "0.3.1",
+    "release": "E:\\MrMak\\GameUIEditor\\.local\\releases\\game-ui-editor-0.3.1-20261020T230655968Z",
+    "checkedFiles": 262,
+    "archives": 4,
+    "installerHashChecked": true,
+    "sourceArchiveMatchesCurrentFiles": true,
+    "testPortableMatchesRelease": true,
+    "originalTestPortablePreserved": true,
+    "ownerProjectUnchanged": true,
+    "record": {
+      "version": "0.3.1",
+      "createdAt": "2026-10-20T23:07:01.100Z",
+      "published": false,
+      "signed": false,
+      "archives": [
+        {
+          "file": "portable-windows.zip",
+          "sha256": "fd5a4800bb236f392ba9b93408d9b34188699fd3bdee3b2a14accaafa4ae25c3",
+          "bytes": 37362208
+        },
+        {
+          "file": "editable-sources.zip",
+          "sha256": "235df18ce6ba7793656c664d4a533c7957ce90c345fb60c98b04a05aca8523e9",
+          "bytes": 502161
+        },
+        {
+          "file": "unity-integration.zip",
+          "sha256": "ff5fe5c7c5f0913156aadce79f69fc229edd34f38b2abcc157a8d378d6dd8aa6",
+          "bytes": 76404
+        },
+        {
+          "file": "portable-ge-pilot.zip",
+          "sha256": "2f393f7e115ce34ff59970a111525787b42084977c596626b261db24ef9d4fb7",
+          "bytes": 433005
+        }
+      ],
+      "installer": {
+        "file": "Game UI Editor_0.3.1_x64-setup.exe",
+        "sha256": "2bf637a76e5eb82b4bac75028ab74a57db766fc9afb94ef5372e61f0db0ee28f",
+        "bytes": 25347496
+      }
+    },
+    "native": {
+      "checkedAt": "2026-10-20T23:06:28.911Z",
+      "proof": "E:\\MrMak\\GameUIEditor\\.local\\playtest-fixes-native-I6MhlJ",
+      "updatedApplication": "E:\\MrMak\\GameUIEditor\\.local\\manual-test-0.3.0-MndmD0\\application-0.3.1-final",
+      "ownerProject": "E:\\MrMak\\GameUIEditor\\.local\\manual-test-0.3.0-MndmD0\\projects\\ge-importada",
+      "ownerProjectSha256": "fd16b77283de298fcfeed6714fd31bbe85e152321a0fdf96552823aba72e112d",
+      "ownerProjectUnchanged": true,
+      "observations": [
+        {
+          "version": "0.3.0",
+          "minimumDockPixels": 280,
+          "internalNamesRenderedAsContent": 179,
+          "authoredTextsPreserved": 56,
+          "projectByteIdentical": true,
+          "errors": []
+        },
+        {
+          "version": "0.3.1",
+          "minimumDockPixels": 192,
+          "internalNamesRenderedAsContent": 0,
+          "authoredTextsPreserved": 21,
+          "projectByteIdentical": true,
+          "errors": []
+        }
+      ],
+      "queueSimulation": "3 -> 2",
+      "inference": false,
+      "unityDispatch": false,
+      "humanAcceptance": false
+    }
+  },
+  "unitySourceChanged": false,
+  "unityRuntimeRetested": false,
+  "installerLifecycleRepeated": false,
+  "installed020Modified": false,
+  "inference": false,
+  "humanAcceptance": false,
+  "workspace": {
+    "checkedAt": "2026-10-20T23:13:12.279Z",
+    "tabs": 4,
+    "markdownChecks": 6,
+    "viewports": [
+      1440,
+      768,
+      390
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "checks": 24,
+    "media": "loaded, previewed, zoomed, download URLs and close verified",
+    "links": true,
+    "reportTheme": "actual isolated service and report-theme.mjs",
+    "errors": [],
+    "scratch": "E:\\MrMak\\Mak\\.local\\fixes-031-workspace-preview-GhpN9o"
+  },
+  "testPortableWindowOpened": true,
+  "testPortableRuntimeVersion": "0.3.1"
+}

@@ -1,0 +1,27 @@
+{
+  "Headband_58cm_PLA_fit_v1.stl": {
+    "triangles": 673716,
+    "closed_manifold": true,
+    "dimensions_mm": [
+      217.5858612060547,
+      207.87660217285156,
+      72.0208740234375
+    ],
+    "nonadjacent_bvh_contacts": 0,
+    "contact_examples": []
+  },
+  "Headband_58cm_fit_test_v1.stl": {
+    "triangles": 10396,
+    "closed_manifold": true,
+    "dimensions_mm": [
+      147.79042053222656,
+      133.36013793945312,
+      12.0
+    ],
+    "nonadjacent_bvh_contacts": 0,
+    "contact_examples": []
+  },
+  "original_unchanged": true,
+  "physical_fit_validated": false,
+  "editable_file_actual_millimetre_mesh_visible": true
+}

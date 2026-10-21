@@ -1,0 +1,94 @@
+{
+  "sobre": "Gerado por coletores/lightkeeper.mjs. O repositório não tem registro geral de decisões: entram a tabela de Docs/EditorModelos_Especificacao.md (aprovada em 12/10/2026) e a regra de revisão do AGENTS.md.",
+  "fonte": "Docs/EditorModelos_Especificacao.md e AGENTS.md do repositório Lightkeeper.",
+  "temas": [
+    {
+      "nome": "Editor de modelos",
+      "decisoes": [
+        {
+          "id": "EM1",
+          "titulo": "Primeira versão é uma página web; o editor vai para dentro do jogo depois, então tudo é pensado para essa porta.",
+          "estado": "Confirmada",
+          "data": "2026-10-12"
+        },
+        {
+          "id": "EM2",
+          "titulo": "Você edita à mão (faces, pixels, poses) e os bots usam a mesma ferramenta pela linha de comando.",
+          "estado": "Confirmada",
+          "data": "2026-10-12"
+        },
+        {
+          "id": "EM3",
+          "titulo": "O original de cada modelo passa a ser um arquivo próprio em JSON (`.lkmodel.json`), como os mapas.",
+          "estado": "Confirmada",
+          "data": "2026-10-12"
+        },
+        {
+          "id": "EM4",
+          "titulo": "Ordem: textura, faces, animações, modelos novos. Um PR por etapa.",
+          "estado": "Confirmada",
+          "data": "2026-10-12"
+        },
+        {
+          "id": "EM5",
+          "titulo": "Fora dos limites PS1: aviso em vermelho; o modelo não entra no jogo nem passa no CI.",
+          "estado": "Confirmada",
+          "data": "2026-10-12"
+        },
+        {
+          "id": "EM6",
+          "titulo": "Armaduras: a peça é vista vestida no corpo (com checagem de atravessar) e também sozinha.",
+          "estado": "Confirmada",
+          "data": "2026-10-12"
+        },
+        {
+          "id": "EM7",
+          "titulo": "A página roda no seu PC, servida pelo Python do próprio Blender, gravando direto nos arquivos do projeto.",
+          "estado": "Confirmada",
+          "data": "2026-10-12"
+        },
+        {
+          "id": "EM8",
+          "titulo": "Ao fechar uma versão, a ferramenta gera vistas e vídeos e um bot publica a revisão no Acervo, guardando a antiga.",
+          "estado": "Confirmada",
+          "data": "2026-10-12"
+        },
+        {
+          "id": "EM9",
+          "titulo": "O que você edita à mão já vale como aprovado; o que um bot edita fica pendente até você aprovar.",
+          "estado": "Confirmada",
+          "data": "2026-10-12"
+        },
+        {
+          "id": "EM10",
+          "titulo": "Modelos novos nascem de formas básicas ou de uma base que um bot gera em Blender a partir do concept.",
+          "estado": "Confirmada",
+          "data": "2026-10-12"
+        },
+        {
+          "id": "EM11",
+          "titulo": "Botão Enviar: grava num branch, abre o PR, e um bot faz a revisão e o merge sozinho.",
+          "estado": "Confirmada",
+          "data": "2026-10-12"
+        },
+        {
+          "id": "EM12",
+          "titulo": "Depois do Enviar, você avisa o bot na conversa (\"enviei\") e ele age na hora (sem rotina diária).",
+          "estado": "Confirmada",
+          "data": "2026-10-12"
+        }
+      ]
+    },
+    {
+      "nome": "Fluxo de trabalho",
+      "decisoes": [
+        {
+          "id": "FL1",
+          "titulo": "Revisão de PR obrigatória pelas skills internas (`/code-review`, `/simplify` quando muda código, `/security-review` em CI, scripts e entrada de arquivos), sem o Codex; merge só sem achado bloqueante, com CI verde e sem conflito",
+          "estado": "Confirmada",
+          "data": "2026-10-12"
+        }
+      ]
+    }
+  ]
+}

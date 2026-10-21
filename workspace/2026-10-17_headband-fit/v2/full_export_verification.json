@@ -1,0 +1,50 @@
+{
+  "triangles": 673716,
+  "closed_manifold": true,
+  "consistent_face_winding": true,
+  "connected_components": 1,
+  "degenerate_faces": 0,
+  "nonadjacent_surface_contacts": 0,
+  "print_dimensions_mm": [
+    261.7344970703125,
+    182.102783203125,
+    72.0208740234375
+  ],
+  "topology_identical_to_repaired_input": true,
+  "front_back_coordinates_unchanged": true,
+  "maximum_radial_relief_error_mm": 8.497058544776337e-06,
+  "maximum_contact_angle_error_radians": 5.4312982666893106e-08,
+  "approved_profile_hash_matches": true,
+  "original_and_previous_stls_unchanged": true,
+  "editable_actual_mm_ornament_visible": true,
+  "gauge_physical_fit_validated": true,
+  "full_ornament_physical_fit_validated": false,
+  "artifacts": [
+    {
+      "stl": "Headband_58cm_PLA_fit_v2.stl",
+      "sha256": "7825016fcc05c1fd71cdde8b399497dedcea73c90ff69c03e8221d45e157d55d",
+      "print_dimensions_mm": [
+        261.7344970703125,
+        182.102783203125,
+        72.0208740234375
+      ],
+      "closed_manifold": true,
+      "connected_components": 1,
+      "nonadjacent_surface_contacts": 0
+    },
+    {
+      "stl": "Headband_58cm_PLA_fit_v2_Bambu_A1.stl",
+      "sha256": "4e115cc4ff7f0c11c20567105ce728e0eb2e14279c81d308622aa4013129d62d",
+      "print_dimensions_mm": [
+        231.6679229736328,
+        231.66665649414062,
+        72.0208740234375
+      ],
+      "closed_manifold": true,
+      "connected_components": 1,
+      "nonadjacent_surface_contacts": 0
+    }
+  ],
+  "a1_rigid_transform_maximum_error_mm": 7.629357440919193e-06,
+  "a1_nominal_build_volume_fits": true
+}

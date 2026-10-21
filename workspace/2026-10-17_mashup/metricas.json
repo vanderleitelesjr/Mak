@@ -1,0 +1,60 @@
+{
+  "sobre": "Valores medidos no build empacotado (Win64 Development) da máquina de referência: RTX 5080, Ryzen 7 9800X3D, 31 GB. As metas do PLANO.md são hipótese: 60 FPS (16,7 ms) nos dois perfis. Fontes: docs/pesquisa/f0-3-empacotamento-win64.md, f0-4-f0-5-ensaio-terreno-iluminacao.md e medicoes-f1-9.md; testes da revisão F1-10.",
+  "marcos": [
+    {
+      "id": "f1-9-alto",
+      "nome": "F1-9 · perfil alto (1440p, raio 16, Lumen com ray tracing de hardware)",
+      "valores": [
+        { "rotulo": "FPS parado", "valor": 163, "unidade": "FPS", "meta": 60, "sentido": "maior" },
+        { "rotulo": "FPS caminhando (4,5 m/s)", "valor": 169, "unidade": "FPS", "meta": 60, "sentido": "maior" },
+        { "rotulo": "FPS na exploração rápida (30 m/s)", "valor": 138, "unidade": "FPS", "meta": 60, "sentido": "maior" },
+        { "rotulo": "p99 do quadro na exploração rápida", "valor": 28, "unidade": "ms", "meta": 16.7, "sentido": "menor" },
+        { "rotulo": "FPS com 100 blocos editados por quadro", "valor": "34–40", "unidade": "FPS", "meta": 60 },
+        { "rotulo": "Memória do processo, parado", "valor": 3.13, "unidade": "GB" },
+        { "rotulo": "Pico de memória na exploração rápida", "valor": 4.47, "unidade": "GB" }
+      ]
+    },
+    {
+      "id": "f1-9-baixo",
+      "nome": "F1-9 · perfil baixo (1080p, raio 8, sem Lumen)",
+      "valores": [
+        { "rotulo": "FPS parado", "valor": 364, "unidade": "FPS", "meta": 60, "sentido": "maior" },
+        { "rotulo": "FPS caminhando (4,5 m/s)", "valor": 408, "unidade": "FPS", "meta": 60, "sentido": "maior" },
+        { "rotulo": "FPS na exploração rápida (30 m/s)", "valor": 367, "unidade": "FPS", "meta": 60, "sentido": "maior" },
+        { "rotulo": "p99 do quadro na exploração rápida", "valor": 15.5, "unidade": "ms", "meta": 16.7, "sentido": "menor" },
+        { "rotulo": "Memória do processo, parado", "valor": 2.06, "unidade": "GB" }
+      ]
+    },
+    {
+      "id": "f1-9-mundo",
+      "nome": "F1-9 · custos do mundo (os dois perfis)",
+      "valores": [
+        { "rotulo": "Chamadas de desenho do terreno", "valor": "1 por coluna" },
+        { "rotulo": "Colunas exibidas (raio 8 / raio 16)", "valor": "289 / 1.089" },
+        { "rotulo": "Gerar uma coluna (pool de threads)", "valor": "2,5–3,1", "unidade": "ms" },
+        { "rotulo": "Cozinhar a colisão de uma coluna", "valor": "2,0–2,3", "unidade": "ms" },
+        { "rotulo": "Editar um bloco", "valor": "7,3–8,7", "unidade": "ms" },
+        { "rotulo": "Memória por coluna exibida", "valor": "0,9–1,1", "unidade": "MB" },
+        { "rotulo": "Save de 400 colunas modificadas", "valor": 109, "unidade": "ms" }
+      ]
+    },
+    {
+      "id": "build",
+      "nome": "Build e testes",
+      "valores": [
+        { "rotulo": "Testes automatizados (Automation Spec)", "valor": 80, "unidade": "testes" },
+        { "rotulo": "Checagens da demonstração no pacote (F1-10)", "valor": "19 de 19" },
+        { "rotulo": "Tempo de empacotar (F0-3, BuildCookRun)", "valor": 104, "unidade": "s" },
+        { "rotulo": "Tamanho do pacote Development (F0-3)", "valor": 897, "unidade": "MB" }
+      ]
+    },
+    {
+      "id": "f0-ensaio",
+      "nome": "F0-4/F0-5 · ensaio de viabilidade (1440p, 16 chunks)",
+      "valores": [
+        { "rotulo": "Pior p95 entre as configurações", "valor": 11.8, "unidade": "ms", "meta": 16.7, "sentido": "menor" },
+        { "rotulo": "Custo de GPU do Lumen sobre o perfil sem Lumen", "valor": "+1,1 a +1,5", "unidade": "ms" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "date": "2026-10-18T20:19:37.503Z",
+  "status": "M2 completed as a local delivery; M3-M6 not started; release acceptance remains in M6",
+  "application": "E:/MrMak/GameUIEditor",
+  "projectFormat": 2,
+  "featuresImplemented": [
+    "Create and reopen sibling portable visual projects",
+    "Separate visual-document format preserves the existing M1 Unity document contract",
+    "Import full-screen reference art, mark crops, and import raster artwork and font assets",
+    "Edit hierarchy, anchors, guides, free positioning, container flow and sibling order",
+    "Shared component defaults with per-instance overrides and duplication",
+    "Separate text and font properties, image crop metadata and nine-slice border settings",
+    "Window-fitted preview with 16:9 and 21:9 canvases",
+    "Local undo/redo, persisted history and restore previous save",
+    "Portable content-addressed assets and missing-asset reporting"
+  ],
+  "build": {
+    "command": "npm.cmd run build",
+    "typescript": "passed",
+    "vite": "passed",
+    "warnings": 0
+  },
+  "desktopBuild": {
+    "command": "npm.cmd run desktop:build",
+    "result": "passed",
+    "executable": "E:/MrMak/GameUIEditor/src-tauri/target/release/game-ui-editor.exe",
+    "activeApplicationRestarted": true,
+    "executableLaunched": true,
+    "windowTitleObserved": "Game UI Editor · M1",
+    "launchVerifiedBy": "Windows process inventory"
+  },
+  "notValidated": [
+    "Installer and update acceptance (M6)",
+    "Automated OS file-picker interaction and physical window resizing; narrow sizes emulate content viewports",
+    "M2 Unity integration (outside this visual-document milestone)",
+    "Full product visual/behavioral release acceptance (M6)"
+  ],
+  "activeM1ApplicationRestarted": false,
+  "automation": {
+    "command": "npm.cmd run test:verify",
+    "computerUseRequired": false,
+    "core": {
+      "passed": 23,
+      "failed": 0
+    },
+    "ui": {
+      "passed": 16,
+      "failed": 0,
+      "skipped": 0,
+      "browser": 8,
+      "windowsWebView2": 8
+    },
+    "build": "TypeScript and Vite passed",
+    "runtime": "Existing native shell plus freshly prepared runtime, copied into isolated temporary packages",
+    "normalApplicationRestarted": false,
+    "report": "testing.html",
+    "localPlaywrightReport": "E:/MrMak/GameUIEditor/.local/e2e-report/index.html",
+    "captures": [
+      "media/m2-tests/portable-assets.png",
+      "media/m2-tests/narrow-ultrawide.png",
+      "media/m2-tests/cropped-stretch-borders.png"
+    ]
+  },
+  "workspacePreview": {
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "combinationsPassed": 6,
+    "runtimeErrors": 0,
+    "checks": [
+      "Implementation plan and M2 Markdown rendered in Workspace",
+      "Portable report has no horizontal document overflow at 1440/768/390 in light and dark",
+      "All three images load and open in full-size previews; download targets and close controls verified"
+    ],
+    "limitation": "Narrow report layouts were checked standalone; the desktop Workspace file rail remains open in its browser-only preview.",
+    "lastVerifiedAt": "2026-10-18T20:21:12.257Z",
+    "imagesVerified": 3
+  },
+  "ownerFeedback": {
+    "recordedAt": "2026-10-18T20:03:02.725Z",
+    "manualReview": "Owner reported that the application appeared to work after receiving the eight-item checklist; no failures were specified.",
+    "acceptance": "Positive general manual feedback; no itemized acceptance or full product completion claimed",
+    "followUps": [
+      {
+        "request": "Clear explanations of each function in the final product",
+        "status": "requested; delivery format to define"
+      },
+      {
+        "request": "Guided tour",
+        "status": "suggested; not implemented"
+      },
+      {
+        "request": "In-application chat with an LLM agent that knows the current editor context",
+        "status": "requested; proposed extension to M4; provider and connection method to define"
+      }
+    ]
+  },
+  "followUpValidation": {
+    "verified": [
+      "Horizontal and vertical containers, padding, spacing, reparenting and sibling order with save/reload",
+      "Anchored dragging and guide snapping across aspect ratios",
+      "Nine-slice rendering uses derived cropped artwork and preserves original bytes",
+      "Instance defaults are separately owned; overrides are visible, resettable and undoable",
+      "Incomplete color and numeric entry retains the last valid document",
+      "Root dimensions, reference imports and aspect ratios use coherent canvas/guide resizing",
+      "Invalid hierarchy, invalid effective component assets, invalid crop borders and stale visual writes are rejected"
+    ],
+    "normalRunningApplicationRestarted": false,
+    "ownerManualFeedback": "Positive general feedback on the earlier review build; no separate new visual approval of follow-up fixes claimed",
+    "runtimeDeployment": "Current app/dist files copied to the normal runtime for next launch; bundled Node hashes matched; no running application restarted."
+  },
+  "recordScope": "Historical M2 delivery evidence; current milestone results are recorded separately in evidence-m3.json",
+  "currentMilestoneEvidence": "evidence-m3.json"
+}

@@ -1,0 +1,14 @@
+{
+  "sobre": "Espelha docs/playtests/ do repositório Mashup (sem remoto, não há issues no GitHub). Só uma iteração aberta; as fechadas vão para o Arquivo.",
+  "iteracoes": [
+    {
+      "id": "2026-10-17-demonstracao-f1",
+      "nome": "Demonstração da fase 1",
+      "aberta": true,
+      "resumo": "Pacote Win64 da `main` `7fa3ef1`, perfil alto, 1600×900, raio 8, mundo `demo` com a seed 12345. É o teste manual que fecha a fase 1 (`docs/demonstracao-f1.md`); a sessão continua aberta.",
+      "achados": [
+        { "id": "PT-2026-10-17-01", "tipo": "visual", "titulo": "Blocos iluminados dentro de caverna fechada, onde deveria estar escuro (gravidade média; corrigido na main, aguarda reteste; perfil baixo segue no R1)", "estado": "corrigido" }
+      ]
+    }
+  ]
+}

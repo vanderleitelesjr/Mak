@@ -1,0 +1,169 @@
+<!-- Gerado — não edite à mão. Fonte: entregas.json. Para mudar, edite o JSON e rode: node workspace/_shared/engine/gerar.mjs <pasta-do-card> -->
+<!doctype html>
+<html lang="pt-BR" data-mak-report="document" style="--mk-destaque:#5f9e4f">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entregas · Mashup</title>
+  <link rel="stylesheet" href="../_shared/report.css">
+  <link rel="stylesheet" href="../_shared/examples.css">
+  <link rel="stylesheet" href="../_shared/engine/tema-base.css">
+  <script defer src="../_shared/report.js"></script>
+</head>
+<body><main class="container mk-pag">
+<p class="mk-gerado">Gerado — não edite à mão · fonte: entregas.json · 17 de outubro de 2026</p>
+<div class="mk-capa"><div class="mk-capa-img" style="background-image:url('media/capa/f1-4-mundo-seed1.webp')" aria-hidden="true"></div>
+  <header class="mk-capa-texto">
+    <p class="mk-eyebrow">Mashup</p>
+    <h1>Entregas</h1>
+    <p class="mk-sub">Últimos 30 dias (desde 18 de setembro de 2026) · atualizado em 17 de outubro de 2026. As mais antigas ficam na aba Arquivo.</p>
+  </header>
+</div>
+<div class="mk-resumo" id="mk-filtros" hidden>
+<button class="mk-filtro" type="button" data-filtro="" aria-pressed="true">todas (13)</button>
+<button class="mk-filtro" type="button" data-filtro="código" aria-pressed="false"><span class="mk-ico mk-i-codigo" aria-hidden="true"></span>código (11)</button>
+<button class="mk-filtro" type="button" data-filtro="ensaio" aria-pressed="false"><span class="mk-ico mk-i-alvo" aria-hidden="true"></span>ensaio (1)</button>
+<button class="mk-filtro" type="button" data-filtro="playtest" aria-pressed="false"><span class="mk-ico mk-i-playtest" aria-hidden="true"></span>playtest (1)</button>
+</div>
+<div class="mk-grupo" data-dia="2026-10-17">
+<h2 class="mk-dia">17 de outubro de 2026</h2>
+<article class="mk-entrega" data-area="código" style="--mk-cor:#6f9fd8">
+  <div class="mk-corpo">
+    <div class="mk-meta"><span class="mk-tag"><span class="mk-ico mk-i-codigo" aria-hidden="true"></span>código</span><span class="mk-estado">main</span><code>12b167c</code> <code>cdf5783</code> <code>365ac56</code></div>
+    <h3>Voo e luz do personagem (pedido no playtest)</h3>
+    <p>Dois toques no espaço ligam o voo (espaço sobe, Shift desce, o chão encerra); L alterna luz em volta e lanterna. O voo roda dentro da previsão de movimento do motor, e um cliente remoto voou contra o servidor sem divergir.</p>
+    <p class="mk-olhar"><strong>O que olhar:</strong> Detalhes e provas em docs/tecnico/jogador.md e docs/criterios/revisao-voo-luz.md. Teclas remapeáveis no menu (Esc). A sensação do voo e a intensidade da luz dependem do seu teste.</p>
+  </div>
+</article>
+<article class="mk-entrega" data-area="playtest" style="--mk-cor:#e0805c">
+  <div class="mk-corpo">
+    <div class="mk-meta"><span class="mk-tag"><span class="mk-ico mk-i-playtest" aria-hidden="true"></span>playtest</span><span class="mk-estado">main</span><code>556d76c</code> <code>6ae08cf</code> <code>2272503</code> <code>PT-2026-10-17-01</code></div>
+    <h3>Playtest: caverna fechada volta a ficar escura</h3>
+    <p>No seu teste, uma caverna fechada aparecia iluminada. Causa: a exposição automática clareava o escuro uns 7 stops. Agora a câmera só se adapta até a luminância 0,3: a caverna sai preta (brilho 0,3 contra 11) e o ar livre não muda.</p>
+    <p class="mk-olhar"><strong>O que olhar:</strong> Achado em docs/playtests/2026-10-17-demonstracao-f1.md; números e diagnóstico (-CavernaCaptura) em docs/tecnico/iluminacao.md. Sem Lumen (perfil baixo) a caverna ainda aparece: fica no R1. Aguarda o seu reteste.</p>
+  </div>
+</article>
+<article class="mk-entrega" data-area="código" style="--mk-cor:#6f9fd8">
+  <div class="mk-corpo">
+    <div class="mk-meta"><span class="mk-tag"><span class="mk-ico mk-i-codigo" aria-hidden="true"></span>código</span><span class="mk-estado">main</span><code>ae27456</code> <code>0c503cd</code> <code>7fa3ef1</code> <code>F1-10</code></div>
+    <h3>F1-10: demonstração no build empacotado</h3>
+    <p>Mundo novo com a seed escolhida, blocos quebrados e colocados nas fronteiras de chunk, sair e voltar: no pacote, 19 checagens tudo ok (inclusive processo morto no meio do save). Roteiro manual com o bloco e a coluna mirados no canto da tela.</p>
+    <p class="mk-olhar"><strong>O que olhar:</strong> Roteiro em docs/demonstracao-f1.md: Scripts\jogar.bat solo 8 demo 12345, depois Scripts\jogar.bat solo 8 demo. Automático: powershell -File Scripts\verificar_save.ps1 -Pacote. A fase 1 fecha com a demonstração feita por você.</p>
+  </div>
+  <div class="mk-miniaturas" data-n="1">
+    <img src="media/2026-10/f1-10-hud-mira.webp" alt="Canto da tela com o bloco mirado e a coluna dele, para achar a fronteira" loading="lazy" decoding="async">
+  </div>
+</article>
+<article class="mk-entrega" data-area="código" style="--mk-cor:#6f9fd8">
+  <div class="mk-corpo">
+    <div class="mk-meta"><span class="mk-tag"><span class="mk-ico mk-i-codigo" aria-hidden="true"></span>código</span><span class="mk-estado">main</span><code>9cc57e7</code> <code>35613f7</code> <code>ce4acc1</code> <code>F1-9</code></div>
+    <h3>F1-9: medições no pacote (alto e baixo)</h3>
+    <p>Roteiro automático no pacote: parado, caminhando, explorando a 30 m/s e editando muito. 60 FPS na média em todos os perfis; picos de 20 a 28 ms (p99) na exploração rápida; uma edição custa 7 a 9 ms; cerca de 1 MB por coluna exibida.</p>
+    <p class="mk-olhar"><strong>O que olhar:</strong> Análise em docs/pesquisa/medicoes-f1-9.md (JSON brutos em docs/pesquisa/medicoes-f1-9/). Rodar de novo: powershell -File Scripts\medir_desempenho.ps1. Revisão em docs/criterios/revisao-f1-9.md. R4 encerrado e R13 novo; o código do ensaio da fase 0 foi apagado (decisão 5A).</p>
+  </div>
+</article>
+<article class="mk-entrega" data-area="código" style="--mk-cor:#6f9fd8">
+  <div class="mk-corpo">
+    <div class="mk-meta"><span class="mk-tag"><span class="mk-ico mk-i-codigo" aria-hidden="true"></span>código</span><span class="mk-estado">main</span><code>349eaf1</code> <code>4cbec0e</code> <code>4489acb</code> <code>F1-8</code></div>
+    <h3>F1-8: salvar e carregar o mundo</h3>
+    <p>O mundo grava seed, versão do gerador e as colunas editadas, a cada 2 minutos e ao sair, com arquivo temporário, troca atômica e 3 backups. O processo morto no meio do save, nas 3 etapas, reabre o último estado completo; versão incompatível é recusada sem tocar no arquivo.</p>
+    <p class="mk-olhar"><strong>O que olhar:</strong> Rodar de novo: powershell -File Scripts\verificar_save.ps1. O mundo fica em Saved\Mundos\mundo.mashup (-MundoNome= escolhe outro). Docs em docs/tecnico/save.md; revisão (code-review e Codex, 9 correções) em docs/criterios/revisao-f1-8.md. Fora do pacote ainda não foi provado: fica para a F1-10.</p>
+  </div>
+</article>
+<article class="mk-entrega" data-area="código" style="--mk-cor:#6f9fd8">
+  <div class="mk-corpo">
+    <div class="mk-meta"><span class="mk-tag"><span class="mk-ico mk-i-codigo" aria-hidden="true"></span>código</span><span class="mk-estado">main</span><code>2895fbe</code> <code>100982d</code> <code>4031825</code> <code>F1-3</code></div>
+    <h3>F1-3: o mundo segue o jogador (carregamento por distância)</h3>
+    <p>Colunas geradas em segundo plano das mais próximas para as mais distantes; resultado atrasado nunca recria coluna descarregada nem sobrescreve uma editada; colunas editadas são guardadas e voltam com as edições. Raios 8 e 16 conferidos indo a 40 colunas e voltando.</p>
+    <p class="mk-olhar"><strong>O que olhar:</strong> Docs em docs/tecnico/carregamento.md; revisão em docs/criterios/revisao-f1-3.md (10 achados corrigidos). O chão embaixo do jogador fica pronto em 1 a 4 quadros.</p>
+  </div>
+</article>
+<article class="mk-entrega" data-area="código" style="--mk-cor:#6f9fd8">
+  <div class="mk-corpo">
+    <div class="mk-meta"><span class="mk-tag"><span class="mk-ico mk-i-codigo" aria-hidden="true"></span>código</span><span class="mk-estado">main</span><code>0b89504</code> <code>d341514</code> <code>dc8657a</code> <code>F1-6</code></div>
+    <h3>F1-6: quebrar e colocar blocos, com o servidor decidindo</h3>
+    <p>O cliente só pede; o servidor confere 10 motivos (alcance, visão através de parede, lugar ocupado, sobrepor jogador...), limita 10 pedidos por segundo, aplica e avisa todos. Em rede, com dois clientes no mesmo PC, o segundo vê as 3 mudanças do primeiro, na ordem.</p>
+    <p class="mk-olhar"><strong>O que olhar:</strong> Rodar de novo: powershell -File Scripts\verificar_rede.ps1 (ou -Solo). Docs em docs/tecnico/edicao.md; revisão (code-review e Codex, 13 correções) em docs/criterios/revisao-f1-6.md.</p>
+  </div>
+</article>
+<article class="mk-entrega" data-area="código" style="--mk-cor:#6f9fd8">
+  <div class="mk-corpo">
+    <div class="mk-meta"><span class="mk-tag"><span class="mk-ico mk-i-codigo" aria-hidden="true"></span>código</span><span class="mk-estado">main</span><code>f5d0f1f</code> <code>a0e6f6c</code> <code>930908a</code> <code>F1-5</code></div>
+    <h3>F1-5: seleção de blocos com alcance, destaque e mira</h3>
+    <p>O olhar escolhe o bloco por um raio pela grade de blocos, sem atravessar sólidos, até 5 m (ajustável). Moldura preta no bloco escolhido e mira no centro da tela. 400 raios aleatórios conferidos contra uma amostragem fina; verificado com a câmera real do personagem.</p>
+    <p class="mk-olhar"><strong>O que olhar:</strong> Docs em docs/tecnico/selecao.md; revisão em docs/criterios/revisao-f1-5.md (10 achados corrigidos).</p>
+  </div>
+  <div class="mk-miniaturas" data-n="1">
+    <img src="media/2026-10/f1-5-selecao.webp" alt="Bloco de grama destacado pela moldura, olhando 30° para baixo" loading="lazy" decoding="async">
+  </div>
+</article>
+<article class="mk-entrega" data-area="código" style="--mk-cor:#6f9fd8">
+  <div class="mk-corpo">
+    <div class="mk-meta"><span class="mk-tag"><span class="mk-ico mk-i-codigo" aria-hidden="true"></span>código</span><span class="mk-estado">main</span><code>598be85</code> <code>509408e</code> <code>af05b26</code> <code>F1-7</code></div>
+    <h3>F1-7: personagem em 1ª pessoa, entrada remapeável e menu</h3>
+    <p>Câmera em 1ª pessoa com movimento e pulo. Esc abre o menu: sensibilidade, eixo vertical, idioma (PT-BR ou inglês) e teclas remapeáveis, com textos numa tabela nos dois idiomas. 37 testes; o personagem cruza as fronteiras entre colunas sem engasgar e sobe 1 bloco.</p>
+    <p class="mk-olhar"><strong>O que olhar:</strong> Ainda precisa de teste manual: a sensação do mouse, o clique e a captura de tecla no menu. Docs em docs/tecnico/jogador.md; revisão em docs/criterios/revisao-f1-7.md.</p>
+  </div>
+  <div class="mk-miniaturas" data-n="2">
+    <img src="media/2026-10/f1-7-primeira-pessoa.webp" alt="Vista em 1ª pessoa no pacote, sem menu" loading="lazy" decoding="async">
+    <img src="media/2026-10/f1-7-menu.webp" alt="Vista em 1ª pessoa com o menu de configurações aberto (Esc)" loading="lazy" decoding="async">
+  </div>
+</article>
+<article class="mk-entrega" data-area="código" style="--mk-cor:#6f9fd8">
+  <div class="mk-corpo">
+    <div class="mk-meta"><span class="mk-tag"><span class="mk-ico mk-i-codigo" aria-hidden="true"></span>código</span><span class="mk-estado">main</span><code>f4844b6</code> <code>73c9e6f</code> <code>68d2d7d</code> <code>F1-4</code></div>
+    <h3>F1-4: malha e colisão do terreno</h3>
+    <p>Faces visíveis por seção em cache compacto, uma peça por coluna e colisão da própria malha. Sem faces internas nem buracos nas fronteiras; editar um bloco remalha só as seções afetadas. Colisão 64/64 nas fronteiras (traço e cápsula); 25 testes; pacote Win64 conferido.</p>
+    <p class="mk-olhar"><strong>O que olhar:</strong> Docs em docs/tecnico/malha.md; revisão em docs/criterios/revisao-f1-4.md (10 achados tratados). Falta provar o personagem andando pelas fronteiras (F1-7).</p>
+  </div>
+  <div class="mk-miniaturas" data-n="1">
+    <img src="media/2026-10/f1-4-mundo-seed1.webp" alt="Mundo da seed 1 no pacote Win64 (raio 8, 289 colunas): relevo, árvores, praia e cavernas" loading="lazy" decoding="async">
+  </div>
+</article>
+<article class="mk-entrega" data-area="código" style="--mk-cor:#6f9fd8">
+  <div class="mk-corpo">
+    <div class="mk-meta"><span class="mk-tag"><span class="mk-ico mk-i-codigo" aria-hidden="true"></span>código</span><span class="mk-estado">main</span><code>550ce2a</code> <code>28b77b1</code> <code>f7bc499</code> <code>F1-2</code></div>
+    <h3>F1-2: geração do terreno por seed</h3>
+    <p>Gerador próprio com hash da seed (o mundo não se repete): relevo, grama, terra, pedra, praias de areia, cavernas e árvores que cruzam a borda dos chunks sem depender da ordem. Valores dourados de 3 seeds × 25 chunks; 19 testes passando.</p>
+    <p class="mk-olhar"><strong>O que olhar:</strong> Regras e números em docs/tecnico/geracao.md; revisão em docs/criterios/revisao-f1-2.md (aprovada na rodada 1, 8 dos 10 achados corrigidos).</p>
+  </div>
+</article>
+<article class="mk-entrega" data-area="código" style="--mk-cor:#6f9fd8">
+  <div class="mk-corpo">
+    <div class="mk-meta"><span class="mk-tag"><span class="mk-ico mk-i-codigo" aria-hidden="true"></span>código</span><span class="mk-estado">main</span><code>ebb4e42</code> <code>98430f3</code> <code>F1-1</code></div>
+    <h3>F1-1: registro de blocos e dados de coluna</h3>
+    <p>Blocos viraram assets de dados com nome estável (mashup:pedra): 6 assets mais o ar. Coluna de 384 blocos em 24 seções de 16, com 2 bytes por bloco. ID desconhecido no save gera erro e preserva o nome. 13 testes Mashup.Voxel.* passando.</p>
+    <p class="mk-olhar"><strong>O que olhar:</strong> Formato em docs/tecnico/formato-chunk.md; revisão em docs/criterios/revisao-f1-1.md (aprovada na rodada 1, com os 10 achados do code-review tratados).</p>
+  </div>
+</article>
+<article class="mk-entrega" data-area="ensaio" style="--mk-cor:#d9a441">
+  <div class="mk-corpo">
+    <div class="mk-meta"><span class="mk-tag"><span class="mk-ico mk-i-alvo" aria-hidden="true"></span>ensaio</span><span class="mk-estado">main</span><code>d7346bb</code> <code>c7a2bb4</code> <code>F0-1–F0-7</code></div>
+    <h3>Fase 0: viabilidade (F0-1 a F0-7)</h3>
+    <p>Projeto C++ na UE 5.8.3 compila e empacota (Win64, 104 s, 897 MB). No pacote, terreno em chunks editável com Lumen rodou com média acima de 120 FPS em 1440p com 16 chunks na RTX 5080. Iluminação decidida em três perfis; 9 riscos registrados; revisão F0-7 aprovada.</p>
+    <p class="mk-olhar"><strong>O que olhar:</strong> O poço escavado no ensaio: com Lumen por hardware, a parede na sombra recebe luz rebatida (brilho 65); sem Lumen, fica mais escura (50). Números completos em docs/pesquisa/f0-4-f0-5-ensaio-terreno-iluminacao.md.</p>
+  </div>
+  <div class="mk-miniaturas" data-n="2">
+    <img src="media/2026-10/f0-poco-lumen-hardware.webp" alt="Poço no ensaio, Lumen com ray tracing de hardware (1440p, 16 chunks)" loading="lazy" decoding="async">
+    <img src="media/2026-10/f0-poco-sem-lumen.webp" alt="Mesmo ponto de vista sem Lumen (perfil baixo): sombra mais escura" loading="lazy" decoding="async">
+  </div>
+</article>
+</div>
+</main>
+<script>
+(() => {
+  const barra = document.getElementById('mk-filtros');
+  if (!barra) return;
+  barra.hidden = false;
+  barra.addEventListener('click', ev => {
+    const botao = ev.target.closest('[data-filtro]');
+    if (!botao) return;
+    const area = botao.dataset.filtro;
+    barra.querySelectorAll('[data-filtro]').forEach(b => b.setAttribute('aria-pressed', String(b === botao)));
+    document.querySelectorAll('.mk-entrega').forEach(c => { c.hidden = Boolean(area) && c.dataset.area !== area; });
+    document.querySelectorAll('.mk-grupo').forEach(g => { g.hidden = !g.querySelector('.mk-entrega:not([hidden])'); });
+  });
+})();
+</script>
+</body>
+</html>
