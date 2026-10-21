@@ -6,11 +6,13 @@ import '@xterm/xterm/css/xterm.css'
 import { api, onServiceEvent, pickFiles, reportError, sendEvent, uploadImage } from './client'
 import { Icon } from './Icons'
 import type { AgentId } from './types'
-import { decorateTerminal, focusTheme, originalTheme, type TerminalAppearance } from './terminalAppearance'
+import { decorateTerminal, originalTheme, terminalTheme, terminalRoleColors, type TerminalAppearance } from './terminalAppearance'
+import { useWorkspaceTheme } from '../lib/workspace-theme'
 import { fileManager, isMac, modKey, modLabel } from './platform'
 import { terminalClipboardGate } from './terminalClipboard'
 
 export default function TerminalPane({ id, agent, fontSize, appearance, onAttachmentStatus }: { id: string; agent: AgentId; fontSize: number; appearance: TerminalAppearance; onAttachmentStatus: (id: string, text: string) => void }) {
+  const { resolved } = useWorkspaceTheme('chat')
   const host = useRef<HTMLDivElement>(null)
   const area = useRef<HTMLDivElement>(null)
   const terminalRef = useRef<Terminal | null>(null)
@@ -205,9 +207,10 @@ export default function TerminalPane({ id, agent, fontSize, appearance, onAttach
   useEffect(() => {
     const terminal = terminalRef.current
     if (!terminal) return
-    terminal.options.theme = appearance === 'focus' ? focusTheme : originalTheme
-    if (appearance === 'focus') return decorateTerminal(terminal, agent)
-  }, [id, agent, appearance])
+    terminal.options.theme = terminalTheme(appearance, resolved)
+    terminal.options.minimumContrastRatio = 4.5
+    if (appearance === 'focus') return decorateTerminal(terminal, agent, terminalRoleColors(resolved))
+  }, [id, agent, appearance, resolved])
   useEffect(() => {
     if (terminalRef.current) { terminalRef.current.options.fontSize = fontSize; fitRef.current?.fit(); sendEvent({ type: 'resize', id, cols: terminalRef.current.cols, rows: terminalRef.current.rows }) }
   }, [fontSize, id])

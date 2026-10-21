@@ -67,6 +67,18 @@ going while the chat waits. Expand it to see each agent's task and current step
 (for example `Bash · Run the tests`), each command and the agent that started
 it, and how long each has been running. Codex chats do not show this yet.
 
+## Workspace and Chat themes
+
+Choose independent themes for Workspace and Chat in **Settings → Appearance**,
+or use the Chat header's Appearance button. Thirteen named palettes include
+**Codex / ChatGPT**, **Antigravity** and **Claude Code**, plus light and dark
+variants of **Nordic**, **Forest**, **Sandstone**, **Ocean** and **Plum**.
+Dark, Light and System remain available.
+
+Workspace themes also style standard reports. Chat themes cover Conversation
+and Terminal while retaining drafts and terminal connections. Choices save and
+sync across open windows. See the [palette list](desktop/README.md#workspace-and-chat-themes).
+
 ## Projects and tabs
 
 ### Start in a recent project

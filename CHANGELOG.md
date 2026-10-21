@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Add independent Workspace and Chat themes with thirteen named palettes: Codex / ChatGPT, Antigravity, Claude Code, and light/dark variants of Nordic, Forest, Sandstone, Ocean and Plum. Saved choices sync across windows and apply to standard reports, Conversation and Terminal without losing drafts or reconnecting the CLI. Reading text and action labels maintain at least 4.5:1 contrast.
 - New chat lists recent projects: folders opened in Claude Code plus folders of earlier Mr. Mak chats. Choose one instead of typing a path; the folder field stays editable. Paired phones can start a chat in a listed project, never in an arbitrary path.
 - Add a Conversation view for Claude Code and Codex desktop chats, next to Terminal. It shows the native transcript as messages with Markdown, images, recent tool activity and a composer with attachments and dictation.
 - Answer CLI permission menus from the Conversation view. The numbered menu at the bottom of the terminal is shown as buttons; the answer is checked against the current screen before any key is sent.
