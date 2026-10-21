@@ -3,10 +3,14 @@ import assert from 'node:assert/strict';
 import { readFile, readdir, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { spawnSync } from 'node:child_process';
 import { validateCard } from '../desktop/service/card-schema.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = relative => readFile(path.join(root, relative), 'utf8');
+// Heavy sources kept on this computer only (see .gitignore) may be linked without being in a clone.
+const localOnly = target => spawnSync('git', ['check-ignore', '-q', target], { cwd: root }).status === 0;
+const linked = async target => (await stat(target).catch(() => null))?.isFile() || localOnly(target);
 const { entities } = JSON.parse(await read('workspace/workspace.json'));
 const samples = entities.filter(e => e.sample === true);
 assert.equal(samples.length, 4, 'The template must retain exactly four sample cards.');
@@ -37,7 +41,7 @@ for (const entity of entities) {
       if (/^(?:https?:|data:)/.test(match[1])) continue;
       const target = path.resolve(root, path.dirname(file), decodeURIComponent(match[1].split(/[?#]/)[0]));
       assert.ok(target.startsWith(root + path.sep), 'Asset reference must stay inside the template');
-      assert.ok((await stat(target)).isFile(), `${file}: missing ${match[1]}`);
+      assert.ok(await linked(target), `${file}: missing ${match[1]}`);
       if (/\.(webp|png)$/.test(target)) images.add(target);
       if (entity.id === 'arachne-character' && /\.webp$/.test(target)) arachneImages.add(target);
       if (/\.mp4$/.test(target)) videos.add(target);
