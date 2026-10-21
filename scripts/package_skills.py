@@ -21,6 +21,10 @@ SKILLS = (
 )
 SUPPORT = (
     'docs/skills.md', 'processes/creative-production.md',
+    'docs/editable-cards.md', 'desktop/service/card-schema.mjs',
+    'docs/assets/editable-cards-editor.png',
+    'docs/assets/editable-cards-gallery.png',
+    'docs/assets/editable-cards-research.png',
     'processes/workspace-authoring.md', 'knowledge/video-watch.md',
     'knowledge/voice-dictation.md', 'scripts/video-watch/extract.py',
     'scripts/video-watch/requirements.txt', 'workspace/_shared/report.css',

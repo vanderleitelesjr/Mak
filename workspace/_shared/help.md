@@ -46,6 +46,23 @@ group filters find an old group and delete it; the chats stay. A tab's right-cli
 conversations you want to return to. Closing a tab and deleting a project's files are separate
 actions. Conversation recovery also depends on the selected CLI's native history.
 
+## Edit a card yourself
+
+Choose **+ New card** in Workspace to start a Gallery or Research page. Use
+**Edit** to add images, Markdown notes, saved prompts, source links and statuses.
+Drag the order chips, or use the arrow buttons, to reorder entries. Switch
+between Gallery and Research without losing the content.
+
+**Preview** shows your draft; **Save** writes it to the project's `.card.json`
+file. An agent can work with that same file. If it changes while you are editing,
+the editor keeps your draft and asks you to review the latest version. Save
+before closing the app. Previous saved contents are kept locally in
+`.mrmak/card-backups/`.
+
+The starter's My Dream Game and Creative MCP Connections include editable example
+tabs. Existing custom HTML pages keep their layouts. Phone access can read the
+new cards; their editor is available in the desktop Workspace.
+
 ## Files and previews
 
 **Files** shows the actual project folders. Main folders is a focused view;

@@ -14,6 +14,7 @@ import { ContextLibrary } from './context.mjs';
 import { groupLabel, taskTitle } from './titles.mjs';
 import { taskEffort } from './effort.mjs';
 import { Workspace, localDay, metadataPatch } from './workspace.mjs';
+import { CardDocuments } from './card-documents.mjs';
 import { QuickActions } from './quick-actions.mjs';
 import { defaultVoiceStyle, voiceSession } from './voice-profile.mjs';
 import { NativeSettings } from './native-settings.mjs';
@@ -94,6 +95,7 @@ export async function createService({ repo, uiDir, stateDir, token = secret(), n
   const focus = id => { sessions.get(id); selectedId = id; settings.selectedId = id; scheduleSettings(); show('chats', { sessionId: id }); return { selectedId: id }; };
   const registry = async () => readJson(path.join(repo, 'workspace', 'workspace.json'), { entities: [] });
   const workspace = new Workspace(repo, () => broadcast('workspace-changed', {}));
+  const cards = new CardDocuments(workspace);
   const history = query => sessions.list().filter(item => !query || `${item.name} ${item.agent} ${item.cwd} ${item.preview || ''}`.normalize('NFC').toLowerCase().includes(query.normalize('NFC').toLowerCase())).sort((a, b) => Number(b.pinned) - Number(a.pinned) || String(b.updatedAt).localeCompare(String(a.updatedAt)));
   const closeChat = async id => {
     await sessions.remove(id);
@@ -197,7 +199,7 @@ export async function createService({ repo, uiDir, stateDir, token = secret(), n
     try {
       const url = new URL(request.url, origin);
       if (request.headers.host !== new URL(origin).host) throw Object.assign(new Error('Unexpected host'), { status: 403 });
-      if (url.pathname === '/health') return json(response, 200, { service: 'mrmak', version: '0.5.2' });
+      if (url.pathname === '/health') return json(response, 200, { service: 'mrmak', version: '0.6.0' });
       // An <img> cannot send the bearer token. Its unguessable, short-lived grant
       // is issued only through an authorized messages request for this chat.
       const media = /^\/media\/([a-f0-9-]{36})\/([a-zA-Z0-9_-]{43})$/.exec(url.pathname);
@@ -205,6 +207,8 @@ export async function createService({ repo, uiDir, stateDir, token = secret(), n
       if (url.pathname.startsWith('/api/')) {
         authorize(request);
         const method = request.method;
+        const cardImage = /^\/api\/workspace\/cards\/([^/]+)\/(\d+)\/images$/.exec(url.pathname);
+        if (method === 'POST' && cardImage) return json(response, 201, await cards.image(decodeURIComponent(cardImage[1]), Number(cardImage[2]), request, url.searchParams.get('name')));
         if (method === 'POST' && url.pathname === '/api/files/import') {
           if (Number(request.headers['content-length']) > MAX_FILE_BYTES) throw Object.assign(new Error('Choose files of 1 GB or less.'), { status: 413 });
           const result = await importFile(request, url.searchParams.get('folder'), url.searchParams.get('name'));
@@ -219,7 +223,7 @@ export async function createService({ repo, uiDir, stateDir, token = secret(), n
         }
         if (method === 'GET' && url.pathname === '/api/dictation') return json(response, 200, await dictation.status());
         if (method === 'POST' && url.pathname === '/api/transcribe') return json(response, 200, await dictation.transcribe(request, 'desktop', () => !closing));
-        const data = ['POST', 'PATCH', 'PUT', 'DELETE'].includes(method) ? await body(request, url.pathname === '/api/files/markdown' ? 12 * 1024 * 1024 : 256 * 1024) : {};
+        const data = ['POST', 'PATCH', 'PUT', 'DELETE'].includes(method) ? await body(request, url.pathname === '/api/files/markdown' ? 12 * 1024 * 1024 : url.pathname.startsWith('/api/workspace/cards') ? 2 * 1024 * 1024 : 256 * 1024) : {};
         if (method === 'POST' && url.pathname === '/api/dictation') return json(response, 200, await chooseDictation(data.provider));
         if (method === 'GET' && url.pathname === '/api/mobile') return json(response, 200, mobile.status());
         if (method === 'GET' && url.pathname === '/api/mobile/check') return json(response, 200, await mobile.transport.probe());
@@ -233,6 +237,10 @@ export async function createService({ repo, uiDir, stateDir, token = secret(), n
           return json(response, 200, { repo, contentBase: `${files.origin}/view/${files.repoGrant}`, agents: inventory(), sessions: sessions.list(), settings, selectedId, notices, coordinator: coordinator.state, voice: { configured: !!(keys.OPENAI_API_KEY || keys.OPENAI_KEY || process.env.OPENAI_API_KEY), owner: voiceOwner }, voiceHistory, operations: [...coordinator.operations.values(), ...quick.operations.values()].sort((a, b) => a.at.localeCompare(b.at)).slice(-30) });
         }
         if (method === 'GET' && url.pathname === '/api/workspace') return json(response, 200, await registry());
+        if (method === 'POST' && url.pathname === '/api/workspace/cards') return json(response, 201, await cards.create(data));
+        const cardDocument = /^\/api\/workspace\/cards\/([^/]+)\/(\d+)$/.exec(url.pathname);
+        if (cardDocument && method === 'GET') return json(response, 200, await cards.read(decodeURIComponent(cardDocument[1]), Number(cardDocument[2])));
+        if (cardDocument && method === 'PUT') return json(response, 200, await cards.save(decodeURIComponent(cardDocument[1]), Number(cardDocument[2]), data));
         const cardMetadata = url.pathname.match(/^\/api\/workspace\/entities\/([^/]+)$/);
         if (method === 'PATCH' && cardMetadata) return json(response, 200, await workspace.update(decodeURIComponent(cardMetadata[1]), metadataPatch(data)));
         if (method === 'GET' && url.pathname === '/api/projects') {
@@ -480,7 +488,7 @@ export async function createService({ repo, uiDir, stateDir, token = secret(), n
   try { watcher = watch(path.join(repo, 'workspace', 'workspace.json'), () => broadcast('workspace-changed', {})); watcher.on('error', () => {}); } catch { /* Registry may be created after first setup. */ }
   const restoreTimer = restoreSessions ? setTimeout(() => sessions.restore().catch(error => sessions.emit('service-error', error)), 100) : null;
   return {
-    origin, contentOrigin: files.origin, token, sessions, coordinator, quick, workspace, files, projects, knowledge, integrations, mobile,
+    origin, contentOrigin: files.origin, token, sessions, coordinator, quick, workspace, cards, files, projects, knowledge, integrations, mobile,
     urls: { workspace: `${origin}/?desktop=1&surface=workspace&token=${token}`, chats: `${origin}/?desktop=1&surface=chats&token=${token}` },
       nativeMessage: event => nativeSettings.receive(event),
       async close() {

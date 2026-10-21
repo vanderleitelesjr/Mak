@@ -10,6 +10,15 @@ Keep authored content in English unless the user explicitly requests another
 language. Put related iterations in an existing card rather than creating
 several cards for one task. Do not reorganize unrelated projects.
 
+For a gallery or research page that the owner wants to edit directly, use the
+versioned `.card.json` format in [editable cards](../../../docs/editable-cards.md).
+Register its step with `viewer: "card"`. Keep stable entry IDs, relative local
+images and Markdown notes; validate with `desktop/service/card-schema.mjs` before
+saving. Reread the source before each edit and update the registry date. The app
+provides the view, so do not create a second editable HTML copy of the same data.
+Preserve existing custom HTML unless conversion was requested. Browser and phone
+previews can read these cards; the desktop Workspace provides editing controls.
+
 Use `workspace/_shared/report.css` and `report.js` in every HTML report, with
 `data-mak-report="document"` on the root element. Use the shared tokens and
 layout instead of inventing another visual theme. Basic cards and media grids

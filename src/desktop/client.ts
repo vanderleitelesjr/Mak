@@ -70,6 +70,14 @@ export async function uploadFile(file: File, folder: string): Promise<{ path: st
   if (!response.ok) throw new Error(value.error || 'File could not be copied')
   return value
 }
+export async function uploadCardImage(entityId: string, step: number, file: File): Promise<{ image: string }> {
+  const response = await fetch(`/api/workspace/cards/${encodeURIComponent(entityId)}/${step}/images?name=${encodeURIComponent(file.name)}`, {
+    method: 'POST', headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/octet-stream' }, body: file,
+  })
+  const value = await response.json()
+  if (!response.ok) throw new Error(value.error || 'The image could not be added.')
+  return value
+}
 export function sendEvent(value: unknown) {
   if (socket?.readyState !== WebSocket.OPEN) return false
   socket.send(JSON.stringify(value)); return true

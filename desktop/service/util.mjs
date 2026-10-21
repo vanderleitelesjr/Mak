@@ -14,17 +14,17 @@ export async function readJson(file, fallback) {
   try { return JSON.parse((await readFile(file, 'utf8')).replace(/^\uFEFF/, '')); } catch { return fallback; }
 }
 const jsonSaves = new Map();
-export async function saveJson(file, value) {
+export async function saveJson(file, value, { beforeReplace } = {}) {
   const data = JSON.stringify(value, null, 2) + '\n';
   const resolved = path.resolve(file);
   const key = process.platform === 'win32' ? resolved.toLowerCase() : resolved;
   // A delayed retry must not overwrite a newer save to the same destination.
-  const saving = (jsonSaves.get(key) || Promise.resolve()).catch(() => {}).then(() => writeJson(file, data));
+  const saving = (jsonSaves.get(key) || Promise.resolve()).catch(() => {}).then(() => writeJson(file, data, beforeReplace));
   jsonSaves.set(key, saving);
   try { await saving; }
   finally { if (jsonSaves.get(key) === saving) jsonSaves.delete(key); }
 }
-async function writeJson(file, data) {
+async function writeJson(file, data, beforeReplace) {
   await mkdir(path.dirname(file), { recursive: true });
   const temp = `${file}.${randomBytes(5).toString('hex')}.tmp`;
   try {
@@ -32,7 +32,7 @@ async function writeJson(file, data) {
     // Windows can briefly deny replacement while a reader or scanner holds the
     // destination. Keep the previous file intact and retry the atomic rename.
     for (let attempt = 0; ; attempt++) {
-      try { await rename(temp, file); break; }
+      try { await beforeReplace?.(); await rename(temp, file); break; }
       catch (error) {
         if (!['EPERM', 'EACCES', 'EBUSY'].includes(error.code) || attempt >= 5) throw error;
         await sleep(50 * 2 ** attempt);

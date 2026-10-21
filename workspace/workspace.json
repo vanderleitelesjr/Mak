@@ -371,12 +371,17 @@
       "type": "group",
       "category": "project",
       "created": "2026-09-15",
-      "updated": "2026-10-14",
+      "updated": "2026-10-20",
       "folder": "2026-09-15_my-dream-game",
       "steps": [
         {
           "name": "Mr. Mak 64",
           "path": "index.html"
+        },
+        {
+          "name": "Editable references",
+          "path": "references.card.json",
+          "viewer": "card"
         }
       ],
       "status": "archived",
@@ -391,7 +396,7 @@
       "type": "group",
       "category": "research",
       "created": "2026-09-15",
-      "updated": "2026-10-17",
+      "updated": "2026-10-20",
       "folder": "2026-09-15_creative-mcp",
       "steps": [
         {
@@ -401,6 +406,11 @@
         {
           "name": "Connect a tool",
           "path": "connect.md"
+        },
+        {
+          "name": "Editable research",
+          "path": "notes.card.json",
+          "viewer": "card"
         }
       ],
       "status": "archived",

@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { readFile, readdir, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { validateCard } from '../desktop/service/card-schema.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = relative => readFile(path.join(root, relative), 'utf8');
@@ -19,6 +20,16 @@ for (const entity of entities) {
     const content = await read(file);
     assert.ok(content.trim(), `${file} is empty`);
     assert.doesNotMatch(content, /[\u0400-\u04ff]/u, `${file}: authored sample content must be English`);
+    if (step.viewer === 'card') {
+      assert.ok(file.endsWith('.card.json'));
+      const card = validateCard(JSON.parse(content));
+      for (const item of card.items) if (item.image) {
+        const target = path.resolve(root, path.dirname(file), item.image);
+        assert.ok(target.startsWith(path.resolve(root, path.dirname(file)) + path.sep));
+        assert.ok((await stat(target)).isFile(), `${file}: missing ${item.image}`);
+        images.add(target);
+      }
+    }
     if (!file.endsWith('.html')) continue;
     assert.match(content, /data-mak-report="document"/);
     assert.match(content, /_shared\/report\.js/);

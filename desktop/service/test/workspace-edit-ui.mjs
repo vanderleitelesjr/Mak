@@ -24,6 +24,7 @@ try {
   browser = await launchBrowser();
   const context = await browser.newContext({ viewport: { width: 1100, height: 820 } });
   const page = await context.newPage(), peer = await context.newPage();
+  page.setDefaultTimeout(15000); peer.setDefaultTimeout(15000);
   const errors = []; page.on('pageerror', error => errors.push(error.message));
   await page.goto(service.urls.workspace); await peer.goto(service.urls.workspace);
   const homeCard = page.locator('.home [data-card="sample"]');

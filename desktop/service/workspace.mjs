@@ -3,6 +3,7 @@ import path from 'node:path';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { realFile, saveJson, sleep } from './util.mjs';
+import { validateCard, cardText, CARD_MAX_BYTES } from './card-schema.mjs';
 
 const execute = promisify(execFile);
 export const localDay = (date = new Date()) => `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
@@ -12,11 +13,11 @@ const invalid = message => Object.assign(new Error(message), { status: 400 });
 // Display fields other tools write into a card (docs/workspace-template.md; src/lib/card-meta.ts
 // applies the same rules on the desktop). A value that cannot be drawn is dropped on its own, so
 // the card still lists with everything else.
-const cardText = (value, max) => typeof value === 'string' && value.trim() ? value.trim().slice(0, max) : undefined;
-export const cardPhase = value => cardText(value, 80);
+const metaText = (value, max) => typeof value === 'string' && value.trim() ? value.trim().slice(0, max) : undefined;
+export const cardPhase = value => metaText(value, 80);
 export function cardProgress(value) {
   if (!value || typeof value !== 'object' || Array.isArray(value)) return undefined;
-  const { done, total, label } = value, text = cardText(label, 60);
+  const { done, total, label } = value, text = metaText(label, 60);
   if (!Number.isFinite(done) || !Number.isFinite(total) || total <= 0 || done < 0 || done > total) return undefined;
   return { done, total, ...(text ? { label: text } : {}) };
 }
@@ -66,6 +67,7 @@ export class Workspace {
     if (!selected) return result;
     const relative = path.join(entity.folder, selected.path.split('?')[0]);
     const { file } = await realFile(path.join(this.repo, 'workspace'), relative);
+    if (selected.viewer === 'card' && file.endsWith('.card.json') && (await stat(file)).size <= CARD_MAX_BYTES) return { ...result, text: cardText(validateCard(JSON.parse(await readFile(file, 'utf8')))).slice(0, 12000) };
     if (!/\.(html?|md|txt)$/i.test(file) || (await stat(file)).size > 3 * 1024 * 1024) return { ...result, note: 'The card uses a visual or large report. Open it for the full content.' };
     const text = await readFile(file, 'utf8');
     result.text = stripCodeBlocks(text).replace(/<[^<>]*>/g, ' ').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim().slice(0, 12000);
@@ -97,11 +99,13 @@ export class Workspace {
         entity.updated = localDay();
         // Preserve other agents' latest registry changes instead of saving a stale snapshot.
         if (await readFile(this.file, 'utf8') !== source) continue;
-        try { await saveJson(this.file, registry); }
+        try { await saveJson(this.file, registry, { beforeReplace: async () => {
+          if (await readFile(this.file, 'utf8') !== source) throw Object.assign(new Error('Workspace changed while saving.'), { code: 'ESTALE' });
+        } }); }
         catch (error) {
           // Windows indexers/readers can briefly lock atomic replacements. Retry
           // from a fresh registry so another agent's edits are still retained.
-          if (!['EPERM', 'EACCES', 'EBUSY'].includes(error.code) || attempt === 5) throw error;
+          if (!['EPERM', 'EACCES', 'EBUSY', 'ESTALE'].includes(error.code) || attempt === 5) throw error;
           await sleep(40 * (attempt + 1));
           continue;
         }

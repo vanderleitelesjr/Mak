@@ -12,6 +12,7 @@ import { contentUrl, isDesktop } from './desktop/client'
 
 const Compare3D = lazy(() => import('./components/Compare3D'))
 const ReportViewer = lazy(() => import('./components/ReportViewer'))
+const EditableCard = lazy(() => import('./components/EditableCard'))
 
 // Freshly-touched work always burns at the top: sort by `updated` (falls back
 // to `created`), regardless of status — a report Mak just edited must not sink
@@ -160,12 +161,14 @@ export default function App() {
           onHome={goHome}
           // A compare3d step's "report" is a JSON manifest — opening it raw in a
           // tab helps nobody, so the external link is hidden for those.
-          reportUrl={step?.viewer === 'compare3d' ? null : reportUrl}
+          reportUrl={step?.viewer === 'compare3d' || step?.viewer === 'card' ? null : reportUrl}
         />
 
         <div className="content">
           <ReportBoundary key={reportUrl || 'home'} onHome={goHome}>
-          {entity && reportUrl && step?.viewer === 'compare3d' ? (
+          {entity && reportUrl && step?.viewer === 'card' ? (
+            <Suspense fallback={<div className="report-loading">Opening card…</div>}><EditableCard key={`${entity.id}:${stepIndex}`} url={reportUrl} entityId={entity.id} step={stepIndex} /></Suspense>
+          ) : entity && reportUrl && step?.viewer === 'compare3d' ? (
             <Suspense fallback={<div className="boot"><MakLogo size={56} animated={false} /></div>}><Compare3D
               key={reportUrl}
               manifestUrl={reportUrl}

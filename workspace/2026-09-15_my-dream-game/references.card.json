@@ -1,0 +1,36 @@
+{
+  "format": "mrmak-card",
+  "version": 1,
+  "template": "gallery",
+  "title": "A small game, three directions",
+  "summary": "An editable reference board for **Mr. Mak 64**. Compare the character and locations, keep notes, and save the next idea beside its image. The prompts below are suggested next iterations.",
+  "items": [
+    {
+      "id": "gentleman",
+      "title": "The gentleman",
+      "body": "Keep the character small and the hat easy to recognise. Review the silhouette at gameplay size before adding more detail.",
+      "image": "assets/c1_gentleman_gpt.webp",
+      "alt": "Mr. Mak character concept wearing a top hat",
+      "prompt": "Next iteration: keep the small proportions and top hat. Simplify details that disappear at gameplay size.",
+      "status": "review"
+    },
+    {
+      "id": "green-hills",
+      "title": "Somewhere to begin",
+      "body": "A calm first area with room to practise. Give the player a clear destination and enough space to try the first jump.",
+      "image": "assets/s1_green_hills_gpt.webp",
+      "alt": "Green hills location concept",
+      "prompt": "Next iteration: show one clear route from the starting area to a recognisable landmark. Keep foreground obstacles easy to read.",
+      "status": "idea"
+    },
+    {
+      "id": "sky-islands",
+      "title": "A little further up",
+      "body": "A second area for testing jumps between islands. Use the gaps to establish rhythm before increasing the difficulty.",
+      "image": "assets/s5_sky_islands_gpt.webp",
+      "alt": "Floating sky islands location concept",
+      "prompt": "Next iteration: arrange three floating islands around a readable jump path. Give each landing a distinct silhouette.",
+      "status": "in-progress"
+    }
+  ]
+}

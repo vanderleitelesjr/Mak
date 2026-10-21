@@ -40,6 +40,14 @@ try {
             await frame.locator(`#${id}:visible`).waitFor();
           }
         }
+      } else if (step.viewer === 'card') {
+        await page.locator('.card-content h1').waitFor();
+        assert.match(await page.locator('.card-readonly').textContent(), /desktop app/);
+        assert.equal(await page.getByRole('button', { name: 'Edit', exact: true }).count(), 0);
+        for (const image of await page.locator('.card-entry-image img').all()) {
+          await image.waitFor();
+          assert.ok(await image.evaluate(node => node.complete && node.naturalWidth > 0), 'Card image should load in browser preview');
+        }
       } else {
         await page.locator('.mak-markdown h1').waitFor();
       }

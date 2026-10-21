@@ -35,7 +35,7 @@ Example request:
 | Six game workflows, Blender animation, motion references | Keep the skill's own references. Bring the project's source assets and an available engine/editor connection for implementation. |
 | Image and generation workflows | Keep any referenced sibling provider skill. Configure your own optional provider and read its current capabilities. |
 | img2threejs | Copy its entire folder, including code, resources and Apache-2.0 licence. Optional upstream integrations remain separate. |
-| workspace-authoring | `processes/workspace-authoring.md` and `workspace/_shared/{report.css,report.js,examples.css}`. Merge these with your own styles if needed. A report viewer/app is separate. |
+| workspace-authoring | `processes/workspace-authoring.md`, `docs/editable-cards.md`, its images under `docs/assets/`, `desktop/service/card-schema.mjs`, and `workspace/_shared/{report.css,report.js,examples.css}`. Merge these with your own styles if needed. The desktop card editor/app is separate. |
 | video-watch | `knowledge/video-watch.md`, `scripts/video-watch/` and the shared report assets. Install the optional Python requirements in a local virtual environment. |
 | voice-dictation-setup | `knowledge/voice-dictation.md`. The dictation application and its model are separate installations. |
 | Production routing | Choose and copy the relevant sibling skills from the index; a route name does not install that workflow. |

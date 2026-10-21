@@ -4,6 +4,7 @@ import { readJson, realFile, secret, within } from './util.mjs';
 import { serveReport } from './report-chrome.mjs';
 import { serveFile } from './files.mjs';
 import { cardPhase, cardProgress } from './workspace.mjs';
+import { validateCard, CARD_MAX_BYTES } from './card-schema.mjs';
 
 const extensions = new Set(['.html', '.htm', '.md', '.txt', '.css', '.js', '.mjs', '.json', '.svg', '.png', '.jpg', '.jpeg', '.webp', '.gif', '.ico', '.mp4', '.webm', '.mp3', '.wav', '.ogg', '.pdf', '.woff', '.woff2', '.ttf', '.glb', '.gltf', '.bin', '.wasm']);
 const coverTypes = new Set(['.png', '.jpg', '.jpeg', '.webp', '.gif']);
@@ -46,7 +47,10 @@ export class MobileReports {
     const relative = entity.steps[step].path, { file, info } = await realFile(root, relative);
     if (!info.isFile()) fail('Report not found', 404);
     const extension = path.extname(file).toLowerCase();
-    if (!['.html', '.htm', '.md', '.txt'].includes(extension)) fail('Open this type of report on your computer.');
+    const card = entity.steps[step].viewer === 'card' && relative.endsWith('.card.json');
+    if (!card && !['.html', '.htm', '.md', '.txt'].includes(extension)) fail('Open this type of report on your computer.');
+    if (card && info.size > CARD_MAX_BYTES) fail('This card is too large to preview.', 400);
+    const document = card ? validateCard(JSON.parse(await readFile(file, 'utf8'))) : undefined;
     const prefix = `workspace/${entity.folder.replaceAll('\\', '/')}/`;
     for (const [id, grant] of this.grants) if (grant.expires < Date.now() || !this.gateway.state.devices.some(item => item.id === grant.deviceId)) this.grants.delete(id);
     const existing = [...this.grants].find(([, grant]) => grant.deviceId === device.id && grant.root === root && grant.prefix === prefix);
@@ -54,6 +58,7 @@ export class MobileReports {
     if (!existing && this.grants.size >= 100) this.grants.delete(this.grants.keys().next().value);
     this.grants.set(token, { root, prefix, deviceId: device.id, expires: Date.now() + 30 * 60 * 1000 });
     const url = `/mobile/view/${token}/${prefix}${relative.split(/[\\/]/).map(encodeURIComponent).join('/')}`;
+    if (card) return { statePersistence: false, title: entity.title, step: entity.steps[step].name, kind: 'card', url, document };
     return { statePersistence: true, title: entity.title, step: entity.steps[step].name, kind: extension === '.md' || extension === '.txt' ? 'markdown' : 'html', url, ...(extension === '.md' || extension === '.txt' ? { text: (await readFile(file, 'utf8')).slice(0, 2 * 1024 * 1024) } : {}) };
   }
   async serve(request, response, url) {

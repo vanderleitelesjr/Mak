@@ -2,6 +2,7 @@ import type { WorkspaceEntity } from '../types'
 import { isDesktop } from '../desktop/client'
 import BrowserSettings from './BrowserSettings'
 import { EntityStatusButton } from './EntityControls'
+import NewCard from './NewCard'
 
 interface TopbarProps {
   entity: WorkspaceEntity | null
@@ -26,6 +27,7 @@ export default function Topbar({ entity, stepIndex, onStep, onHome, reportUrl }:
           </>
         )}
         {!isDesktop && <BrowserSettings />}
+        {isDesktop && <NewCard />}
       </nav>
 
       {entity && (
