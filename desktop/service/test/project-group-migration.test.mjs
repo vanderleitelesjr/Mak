@@ -55,6 +55,11 @@ test('project grouping separates same-named folders, preserves closed chats and 
     assert.equal(app.sessions.get('Pinned').group,second);
     assert.equal(app.sessions.get('History').group,'Archive');
     assert.equal(app.sessions.get('History').tabOrder,4);
+    assert.equal(app.sessions.projectGrouped(),true);
+    await request(headers);
+    assert.deepEqual(app.sessions.active().map(x=>x.id),ids);
+    assert.deepEqual(app.sessions.active().map(x=>x.group),[null,null,null,null]);
+    assert.equal(app.sessions.get('History').group,'Archive');
     await request(headers);
     assert.deepEqual(app.sessions.active().map(x=>x.id),ids);
     assert.equal(app.sessions.get('One').group,first);assert.equal(app.sessions.get('Two').group,second);

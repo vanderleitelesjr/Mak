@@ -40,7 +40,14 @@ try {
   await expect(chip).toContainText('62%');
   await expect(chip).toContainText('32%');
   await expect(chip).not.toContainText('Special model');
-  await page.getByRole('button', { name: 'Group tabs by project', exact: true }).click();
+  const byProject = page.getByRole('button', { name: 'Group tabs by project', exact: true });
+  await byProject.click();
+  await expect(page.locator('.chat-group-chip')).toHaveCount(1);
+  await expect(byProject).toHaveAttribute('aria-pressed', 'true');
+  await byProject.click();
+  await expect(page.locator('.chat-group-chip')).toHaveCount(0);
+  await expect(byProject).toHaveAttribute('aria-pressed', 'false');
+  await byProject.click();
   await expect(page.locator('.chat-group-chip')).toHaveCount(1);
   for (const theme of ['antigravity', 'nordic']) {
     await set({ chatTheme: theme });

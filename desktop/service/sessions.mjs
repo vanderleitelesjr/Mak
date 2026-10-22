@@ -491,6 +491,28 @@ export class Sessions extends EventEmitter {
     await this.persist();
     return { grouped: open.length, groups: projects.size };
   }
+  // Open tabs are grouped by project when each folder's tabs share one group that
+  // holds only that folder. The frontend (chatOrder.ts) mirrors this.
+  projectGrouped() {
+    const open = this.active(), groups = new Map(), folders = new Map();
+    for (const item of open) {
+      const key = projectKey(item.cwd);
+      if (!item.group || (groups.get(key) ?? item.group) !== item.group || (folders.get(item.group) ?? key) !== key) return false;
+      groups.set(key, item.group); folders.set(item.group, key);
+    }
+    return open.length > 0;
+  }
+  // The header's project button. Ungrouping keeps the visible order, and closed
+  // chats keep their group, so grouping again restores the same names.
+  async toggleProjectGroups() {
+    if (!this.projectGrouped()) return this.groupByProject();
+    for (const [tabOrder, { id }] of this.active().entries()) {
+      const item = this.items.get(id);
+      if (item.group || item.tabOrder !== tabOrder) { item.group = null; item.tabOrder = tabOrder; this.changed(item); }
+    }
+    await this.persist();
+    return { grouped: 0, groups: 0 };
+  }
   async assign(id, value) {
     const session = this.get(id);
     const group = groupLabel(value);
