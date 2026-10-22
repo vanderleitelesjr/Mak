@@ -27,6 +27,7 @@
 - Conversation views on desktop and phone show, above the composer, the subagents and background terminal commands a Claude Code chat started that are still working, including those that keep going while the chat waits. Expand the line to see each agent's task and current step (for example `Bash · Run the tests`), each command and the agent that started it, and how long each has been running.
 - Local Whisper dictation keeps accented letters. On Windows the transcript reached the service in the console code page and every accent became `�`, so Portuguese and other languages came out garbled.
 - After Claude Code compacts a chat, the Conversation view shows its summary as a collapsed "Conversation compacted" event instead of a long message from you, on desktop and phone. It no longer counts toward the fresh-chat suggestion.
+- A numbered list you send no longer shows up in the Conversation view as a menu to answer. The terminal echoes it with the same marker as a menu option; it is now recognized because the CLI's input box is still visible below it, which a real menu hides.
 - A chat opened in the Conversation view now clears its unread mark. Only the Terminal view told the service that the chat was being watched, so the red dot stayed until you switched to Terminal.
 - Questions asked with Claude Code's AskUserQuestion now appear in the Conversation view when their options carry long descriptions. Each option shows its description, and a question that wraps over several lines is shown in full.
 

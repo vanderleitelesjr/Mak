@@ -14,6 +14,17 @@ function fixture() {
   return { state, sessions, screen };
 }
 
+test('a numbered message the person sent is not a menu while the composer is visible', () => {
+  const claude = ['Preciso de duas decisões suas:', '1. Nascimento das unidades iniciais.', '2. Ritmo da partida. Esse ritmo mais lento é aceitável?', '',
+    '❯ 1. vamos corrigir o nascimento das unidades iniciais      ', '  2. esse ritmo é aceitável      ', ' ', '✻Quantumizing… (3s)', '',
+    '──────────', '❯ ', '──────────', '⏵⏵ bypass permissions on (shift+tab to cycle) · esc to interrupt'];
+  assert.equal(terminalPrompt(claude.join('\n')), null);
+  const codex = ['› 1. fix the spawn', '  2. keep the pace', '', '• Working (2s • esc to interrupt)', '', '› Ask Codex to do anything', '', '  100% context left'];
+  assert.equal(terminalPrompt(codex.join('\n')), null);
+  // The same lines with the composer replaced by a menu footer are a menu.
+  assert.equal(terminalPrompt([...claude.slice(0, 6), '', 'Enter to select · Esc to cancel'].join('\n')).kind, 'single');
+});
+
 test('changing a command invalidates the displayed approval, including long wrapped details', async () => {
   const { state, sessions, screen } = fixture();
   state.command = Array.from({ length: 10 }, (_, i) => `line ${i}`).join('\n') + '\necho first';

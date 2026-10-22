@@ -8,6 +8,9 @@ const BORDER = /^[─━═╭╮╰╯┌┐└┘\s-]*$/;
 // Claude Code's multiple-choice questions: boxed options, then an unnumbered button.
 const CHECKBOX = /^\[([ ✔✓√×xX])\]\s+(\S.*)$/;
 const SUBMIT = /^(?:([❯›>▸▶➤])\s*)?(Next|Submit|Review)$/;
+// The CLI hides its composer while a menu is open. A numbered message the person
+// sent echoes with the same marker, but above a visible composer.
+const COMPOSER = /^[❯›](?:\s|$)/;
 const clean = line => line.replace(/^[\s│┃║▌▐|]+/, '').replace(/[\s│┃║▐|]+$/, '');
 
 export function terminalPrompt(screen) {
@@ -31,6 +34,7 @@ export function terminalPrompt(screen) {
     if (block.options.length >= 2) best = block;
   }
   if (!best || end - best.last > 8) return null;
+  if (lines.slice(best.last + 1, end + 1).some(line => COMPOSER.test(line) && !OPTION.test(line) && !SUBMIT.test(line))) return null;
   const boxes = best.options.slice(0, best.submit?.after).map(item => CHECKBOX.exec(item.label));
   const multiple = !!best.submit && boxes.length >= 2 && boxes.every(Boolean);
   if (best.options.filter(item => item.selected).length + (multiple && best.submit.selected ? 1 : 0) !== 1) return null;
